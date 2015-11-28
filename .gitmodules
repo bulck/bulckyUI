@@ -2,3 +2,6 @@
 	path = main/cultibox.wiki
 	url = https://github.com/cultibox/cultibox.wiki.git
     ignore = dirty
+[submodule "main/bulcky.wiki"]
+	path = main/bulcky.wiki
+	url = https://github.com/bulck/bulcky.wiki.git
