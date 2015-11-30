@@ -34,7 +34,6 @@
                                                 <img src="main/libs/img/infos.png" alt=""  title="<?php echo __('TOOLTIP_MAX_POWER_PLUG_DIMMER'); ?>" />
                                             </option>
                                             <!-- Only for Cultipi -->
-                                            <?php if(isset($GLOBALS['MODE']) && $GLOBALS['MODE'] == "cultipi") {?>
                                                 <option value="direct" <?php if($plug_module{$i} == "direct") { echo ' selected'; } ?>>
                                                     <?php echo __('PLUGS_DIRECT_PILOT'); ?>
                                                     <img src="main/libs/img/infos.png" alt=""  title="<?php echo __('TOOLTIP_MAX_POWER_PLUG_DIMMER'); ?>" />
@@ -63,7 +62,6 @@
                                                     Bulcky
                                                     <img src="main/libs/img/infos.png" alt=""  title="<?php echo __('TOOLTIP_MAX_POWER_PLUG_DIMMER'); ?>" />
                                                 </option>
-                                            <?php } ?>
                                             <!-- Dimmer is not ready ! -->
                                             <!--
                                             <option value="dimmer" <?php if($plug_module{$i} == "dimmer") { echo ' selected'; } ?>>

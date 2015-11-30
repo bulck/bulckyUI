@@ -454,20 +454,6 @@
     <br />
     <?php } ?>
     <table class="table_width">
-        <!-- Remove limit of 1000 changes in programm -->
-        <tr <?php if((isset($GLOBALS['MODE']))&&(strcmp($GLOBALS['MODE'],"cultipi")==0)) echo 'style="display:none"'; ?>
->
-            <td class="program-td-management">
-                 <?php echo __('REMOVE_1000_CHANGE_LIMIT_SELECT'); ?><img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_1000_CHANGE_LIMIT'); ?>" />
-             </td>
-             <td>
-                 <select name="remove_1000_change_limit" id="remove_1000_change_limit">
-                     <option value="True" <?php if(strcmp("$remove_1000_change_limit","True")==0) echo "selected"; ?>><?php echo __('YES'); ?></option>
-                     <option value="False" <?php if(strcmp("$remove_1000_change_limit","False")==0) echo "selected"; ?>><?php echo __('NO'); ?></option>
-                 </select>
-             </td>
-             <td></td>
-         </tr>
          <tr>
              <!-- Remove limit of 5 minute in programm -->
              <td class="program-td-management">

@@ -21,22 +21,16 @@
     <table class="table_width">
         <tr>    
             <td class="conf-menu-marge"></td>
-            <td <?php if((isset($GLOBALS['MODE']))&&(strcmp($GLOBALS['MODE'],"cultipi")==0)) echo 'class="center_menu" '; ?>>
-                <button id="div_user_label" class="<?php if((isset($GLOBALS['MODE']))&&(strcmp($GLOBALS['MODE'],"cultipi")==0)) { echo 'cultipi_menu_h1'; } else { echo 'menu_h1'; } ?>" onclick="expand('user_interface'); return false;"><?php echo __('USER_CONF'); ?></button>
-            </td>
-            <td <?php if((isset($GLOBALS['MODE']))&&(strcmp($GLOBALS['MODE'],"cultipi")==0)) echo 'style="display:none" '; ?>>
-                <button id="div_system_label" class="menu_h1" onclick="expand('system_interface'); return false;"><?php echo __('SYSTEM_CONF'); ?></button>
-            </td>
-            <td <?php if($GLOBALS['MODE'] == "cultipi") {echo 'style="display:none"'; }?> >
-                <button id="div_alarm_label" class="menu_h1" onclick="expand('alarm_interface'); return false;"><?php echo __('CONFIGURE_ALARM'); ?></button>
+            <td class="center_menu">
+                <button id="div_user_label" class="cultipi_menu_h1" onclick="expand('user_interface'); return false;"><?php echo __('USER_CONF'); ?></button>
             </td>
             <td>
-                <button id="div_card_label" <?php if((isset($GLOBALS['MODE']))&&(strcmp($GLOBALS['MODE'],"cultipi")==0)) echo 'style="display:none" '; ?>class="menu_h1" onclick="expand('card_interface'); return false;"><?php echo __('CONFIGURE_CARD'); ?></button>
+                <button id="div_card_label" style="display:none" class="menu_h1" onclick="expand('card_interface'); return false;"><?php echo __('CONFIGURE_CARD'); ?></button>
             </td>
-             <td <?php if((isset($GLOBALS['MODE']))&&(strcmp($GLOBALS['MODE'],"cultipi")==0)) { echo 'class="center_menu" '; } else { echo 'style="display:none" '; } ?>>
+             <td class="center_menu">
                 <button id="div_network_label" class="cultipi_menu_h1" onclick="expand('network_conf_ui'); return false;"><?php echo __('CULTIPI_NETWORK_CONF'); ?></button>
             </td>
-            <td <?php if((isset($GLOBALS['MODE']))&&(strcmp($GLOBALS['MODE'],"cultipi")==0)) { echo 'class="center_menu" '; } else { echo 'style="display:none" '; } ?>>
+            <td class="center_menu">
                 <button id="div_admin_label" class="cultipi_menu_h1" onclick="expand('admin_ui'); return false;"><?php echo __('CULTIPI_ADMIN'); ?></button>
             </td>
             <td class="conf-menu-marge"></td>
@@ -92,17 +86,6 @@
             </td>
             <td></td>
        </tr>
-       <?php if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) { ?>
-           <tr>
-                 <td class="conf-marge"></td>
-                 <td class="conf-marge-td"><?php echo __('CHECK_STATISTICS'); ?>:<img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_SEND_INFOS'); ?>" /></td>
-                 <td><select name="statistics">
-                    <option value="True" <?php if(strcmp("$stats","True")==0) echo "selected"; ?>><?php echo __('YES'); ?></option>
-                    <option value="False" <?php if(strcmp("$stats","False")==0) echo "selected"; ?>><?php echo __('NO'); ?></option>
-                 </select></td>
-                <td></td>
-           </tr>
-       <?php } ?>
         <tr>
             <td class="conf-marge"></td>
             <td class="conf-marge-td"><?php echo __('ADVANCED_REGUL_OPTIONS'); ?>:<img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_SECOND_REGUL_ENABLE'); ?>" /></td>
@@ -117,193 +100,6 @@
     </table>
 </div>
 <!-- End of Interface tab -->
-
-<!-- Start of cultibox tab -->
-<div id="div_system_interface" style="display:none">
-    <?php if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) { ?>
-     <table class="table_width">
-        <tr>
-            <td class="calendar-conf-marge"></td>
-            <td class="icon_menu">
-                <a href="" id="wifi_wizard_link"><img src='/bulcky/main/libs/img/box_icon.png' alt='' title="<?php echo __('DL_CULTIBOX_FIRM'); ?>"></a>
-            </td>
-            <td></td>
-        </tr>
-    </table>
-    <hr class="hr_cultipi" />
-    <br />
-
-    <div id="wifi_wizard_step1" style="display:none" title="Assistant de migration vers le module wifi">
-        Bienvenu dans l'assistant de migration vers le module Wifi Cultipi.<br />
-        Avant de commencer, assurez d'avoir à disposition:<br />
-        <ul>
-            <li>Une Cultibox et ses équipements</li>
-            <li>Un Cultipi et ses équipements</li>
-        </ul>
-        Si cela est le cas, vous pouvez passer à l'étape suivante en cliquant sur le bouton associé.
-    </div>
-
-    <div id="wifi_wizard_step2" style="display:none" title="Assistant de migration vers le module wifi">
-        Étape 2/7 : copie du nouveau firmware pour la Cultibox.<br />
-        Branchez la carte SD de votre Cultibox dans votre ordinateur et passez à l'étape suivante.<br />
-        <a href="/bulcky/main/scripts/help.php?wiki=cultipi" > Lien vers l'aide </a>
-    </div>
-
-    <div id="wifi_wizard_step3" style="display:none" title="Assistant de migration vers le module wifi">
-        Étape 3/7 : Export de votre configuration<br />
-        Le logiciel va exporter la configuration que vous utilisez actuellement pour que vous puissiez l'importer dans le Module WiFi.<br />
-        <a href="/bulcky/main/scripts/help.php?wiki=cultipi" > Lien vers l'aide </a>
-    </div>
-
-    <div id="wifi_wizard_step4" style="display:none" title="Assistant de migration vers le module wifi">
-        Étape 4/7 : Mise à jour du firmware de la Cultibox<br />
-        <ul>
-            <li>Insérez la carte SD dans la Cultibox. Puis alimentez la. Le nouveau firmware doit s'installer.</li>
-            <li>Une fois le firmware installé, la Cultibox doit afficher "Mode Wifi"</li>
-        </ul>
-        <a href="/bulcky/main/scripts/help.php?wiki=cultipi" > Lien vers l'aide </a>
-    </div>
-    
-    <div id="wifi_wizard_step5" style="display:none" title="Assistant de migration vers le module wifi">
-        Étape 5/7 : Branchements<br />
-        <ul>
-            <li>Déconnectez l'alimentation électrique de la Cultibox.</li>
-            <li>Reliez le module WiFi à la Cultibox en utilisant un câble RJ11 fourni. Branchez sur l'un des ports de la Cultibox et sur un des deux ports RJ11 du Module WiFi.</li>
-            <li>Branchez vos capteurs sur La Cultibox.</li>
-            <li>Insérez la clé WiFi dans un des ports USB du Module WiFi.</li>
-            <li>Alimentez le Module WiFi en utilisant l'adaptateur secteur fourni. Veuillez faire attention a ne pas alimenter la Cultibox avec son alimentation. C'est le Module WiFi qui alimentera la Cultibox via le câble RJ11.</li>
-        </ul>
-        <a href="/bulcky/main/scripts/help.php?wiki=cultipi" > Lien vers l'aide </a>
-    </div>
-    
-    <div id="wifi_wizard_step6" style="display:none" title="Assistant de migration vers le module wifi">
-        Étape 6/7 : Configuration réseau du module WiFi<br />
-        <ul>
-            <li>Connectez vous au réseau WiFi Cultibox</li>
-            <li>...</li>
-        </ul>
-        <a href="/bulcky/main/scripts/help.php?wiki=cultipi" > Lien vers l'aide </a>
-    </div>
-    
-    <div id="wifi_wizard_step7" style="display:none" title="Assistant de migration vers le module wifi">
-        Étape 7/7 : Chargement de la configuration précédemment sauvegardée<br />
-        <a href="/bulcky/main/scripts/help.php?wiki=cultipi" > Lien vers l'aide </a>
-    </div>
-    
-    <div id="error_wifi_sd" style="display:none">
-        Pas de carte SD, branchez en une puis passez à l'étape suivante<br />
-        <a href="/bulcky/main/scripts/help.php?wiki=cultipi" > Lien vers l'aide </a>
-    </div>
-<?php } ?>
-
-    
-    <?php if(isset($GLOBALS['MODE']) && $GLOBALS['MODE'] != "cultipi") {?>
-        <table class="conf-table">
-            <!-- Display Reset Min Max values row only if not in Cultipi-->
-                <tr>
-                    <td class="conf-marge"></td>
-                    <td class="conf-marge-td">
-                       <?php echo __('RESET_MINMAX'); ?>:<img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_RESET_MINMAX'); ?>" />
-                    </td>
-                    <td>
-                       <input type="text" size="5" name="reset_minmax" id="reset_minmax" <?php if(!empty($reset_minmax)) { ?> value="<?php echo $reset_minmax;?>" <?php } else { ?> value="00:00" <?php } ?> />
-                    </td>
-                    <td><div id="error_min_max" style="display:none" class="error_field"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_TIME_VALUE'); ?></div></td>
-                </tr>
-            
-            <!-- Display RTC row only if not in Cultipi-->
-                <tr>
-                    <td class="conf-marge"></td>
-                    <td>
-                        <div id="rtc_offset_div" >
-                           <?php echo __('CONFIGURE_RTC_OFFSET'); ?>:<img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_RTC_OFFSET'); ?>" />
-                        </div>
-                    </td>
-                    <td>
-                        <div id="rtc_offset_value" >
-                        <table class="table_width">
-                            <tr>
-                                <td style="width: 50%; padding-right: 10px;">
-                                    <!-- RTC Slider -->
-                                    <div id="rtc_offset_slider"></div>
-                                </td>
-                                <td>
-                                    <!-- RTC Value -->
-                                    <input type="text" name="rtc_offset" id="rtc_offset" value="<?php echo $rtc_offset; ?>" size="4" readonly /><?php echo __('RTC_OFFSET_UNITY'); ?>
-                                </td>
-                            </tr>
-                        </table>
-                        </div>
-                    </td>
-                    <td></td>
-                </tr>
-            
-            <!-- Display LED enable only if not in cultipi-->
-                <tr>  
-                    <td class="conf-marge"></td>
-                    <td><?php echo __('CONFIGURE_ENABLE_LED'); ?>:</td>
-                    <td>
-                        <select name="enable_led" id="enable_led">
-                        <?php 
-                            if($enable_led == "0001") {
-                                echo "<option value='0001' selected>".__('YES')."</option>";
-                                echo "<option value='0000'>".__('NO')."</option>";
-                            } else {
-                                echo "<option value='0001'>".__('YES')."</option>";
-                                echo "<option value='0000' selected>".__('NO')."</option>";
-                            }
-                        ?>
-                        </select>
-                    </td>
-                </tr>
-        </table>
-    <?php } ?>
-</div>
-<!-- End of Cultibox tab -->
-
-<!-- Start of Alarme tab -->
-<div id="div_alarm_interface" style="display:none">
-        <table class="conf-table">
-        <tr>  
-            <td class="conf-marge"></td>
-            <td class="conf-marge-td-alarm"><?php echo __('CONFIGURE_ALARM_ACTIV'); ?>:</td>
-            <td class="conf-alarm-field">
-                <select name="alarm_activ" id="alarm_activ" onChange="getAlarm(this.selectedIndex);" onLoad="getAlarm(this.selectedIndex);">
-                <?php 
-                    if("$alarm_activ"=="0001") {
-                        echo "<option value='0001' selected>".__('YES')."</option>";
-                        echo "<option value='0000'>".__('NO')."</option>";
-                    } else {
-                        echo "<option value='0001'>".__('YES')."</option>";
-                        echo "<option value='0000' selected>".__('NO')."</option>";
-                    }
-                ?>
-                </select>
-            </td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="conf-marge"></td>
-            <td>
-                <div id="label_alarm_value" style="<?php if("$alarm_activ"=="0000") echo "display:none"; ?>">
-                    <?php echo __('CONFIGURE_ALARM_VALUE'); ?>:
-                </div>
-            </td>
-            <td>
-                <div id="div_alarm_value" style="<?php if("$alarm_activ"=="0000") echo "display:none"; ?>">
-                    <input type="text" size="5" maxlength="4" value="<?php echo "$alarm_value"; ?>" name="alarm_value" id="alarm_value" onKeypress="return verifDigit(event);">
-                    <label id="label_degree">°C</label>
-                </div>
-            </td>
-            <td>
-                <div id="error_alarm_value" class="error_field" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''>
-                    <?php echo __('ERROR_ALARM_VALUE'); ?>
-                </div>
-            </td>
-        </tr>
-    </table>
-</div>
-<!-- End of Alarme tab -->
 
 <div id="div_submit_interface" style="display:none">
     <br />

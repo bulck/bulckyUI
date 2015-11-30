@@ -20,48 +20,42 @@
     <br />
     <p class="text_info"><?php echo __('WELCOME_MESSAGE'); ?></p>
     <br />
-    <?php if($wizard) { ?>
-        <p class="text_info"><?php echo __('WELCOME_FOLLOW_LINK'); ?>:</p>
-        <form action="/bulcky/index.php?menu=wizard" method="post">
-            <p class="p_center"><input type="submit" name="go_wizard" id="go_wizard" value="<?php echo __('WELCOME_WIZARD'); ?>"></p>
-        </form>
-    <?php } else { ?>
     <hr class="hr_welcome" />
     <br />
     <table class="table_width">
         <tr>
-            <td <?php if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) { echo 'class="welcome-link"'; } else { echo 'class="welcome-linkpi"'; } ?>><a href="/bulcky/index.php?menu=logs" id="welcome-log-img">
+            <td class="welcome-linkpi"><a href="/bulcky/index.php?menu=logs" id="welcome-log-img">
                 <img src="main/libs/img/logs.png" title="<?php echo __('WELCOME_LOGS'); ?>" alt="<?php echo __('WELCOME_LOGS'); ?>" />
                 <br /></a>
             </td>
-            <td <?php if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) { echo 'class="welcome-link"'; } else { echo 'class="welcome-linkpi"'; } ?>>
+            <td class="welcome-link">
                 <a href="/bulcky/index.php?menu=programs" id="welcome-prog-img"><img src="main/libs/img/program.png" title="<?php echo __('WELCOME_PROGRAM'); ?>" alt="<?php echo __('WELCOME_PROGRAM'); ?>" />
                 <br />
                 </a>
             </td>
-            <td <?php if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) { echo 'class="welcome-link"'; } else { echo 'class="welcome-linkpi"'; } ?>>
+            <td class="welcome-linkpi">
                 <a href="/bulcky/index.php?menu=calendar" id="welcome-cal-img"><img src="main/libs/img/calendar.png" title="<?php echo __('WELCOME_CALENDAR'); ?>" alt="<?php echo __('WELCOME_CALENDAR'); ?>"/><br /></a>
             </td>
-            <td <?php if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) { echo 'style="display:none"'; } else { echo 'class="welcome-linkpi"'; } ?>>
+            <td class="welcome-linkpi">
                 <a href="/bulcky/index.php?menu=cultipi" id="welcome-synop-img"><img src="main/libs/img/synoptic.png" title="<?php echo __('WELCOME_SYNOP'); ?>" alt="<?php echo __('WELCOME_SYNOP'); ?>"/><br /></a>
             </td>
         </tr>
         <tr>
-            <td  <?php if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) { echo 'class="welcome-link"'; } else { echo 'class="welcome-linkpi"'; } ?>>
+            <td class="welcome-linkpi">
                 <a href="/bulcky/index.php?menu=logs" id="welcome-log-txt">
                 <?php echo __('WELCOME_LOGS'); ?>
                 </a>
             </td>
-            <td  <?php if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) { echo 'class="welcome-link"'; } else { echo 'class="welcome-linkpi"'; } ?>><a href="/bulcky/index.php?menu=programs" id="welcome-prog-txt">
+            <td  class="welcome-linkpi"><a href="/bulcky/index.php?menu=programs" id="welcome-prog-txt">
                 <?php echo __('WELCOME_PROGRAM'); ?>
                 </a>
             </td>
-            <td  <?php if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) { echo 'class="welcome-link"'; } else { echo 'class="welcome-linkpi"'; } ?>>
+            <td  class="welcome-linkpi">
                 <a href="/bulcky/index.php?menu=calendar" id="welcome-cal-txt">
                 <?php echo __('WELCOME_CALENDAR'); ?>
                 </a>
             </td>
-            <td <?php if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) { echo 'style="display:none"'; } else { echo 'class="welcome-linkpi"'; } ?>>
+            <td class="welcome-linkpi">
                 <a href="/bulcky/index.php?menu=synoptic" id="welcome-synop-txt">
                 <?php echo __('WELCOME_SYNOP'); ?>
                 </a>
@@ -70,7 +64,6 @@
     </table>
     <br />
     <hr class="hr_welcome" />
-    <?php } ?>
 </div>
 
 <br /><div id="compat" style="display:none" class="text_info"><?php echo __('ERROR_COMPAT_BROWSER'); ?></div>

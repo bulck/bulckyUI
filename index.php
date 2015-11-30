@@ -127,22 +127,7 @@ check_database();
             <div class="wrapper grid-block">
                 <header id="header">
                     <div id="headerbar" class="grid-block">
-                        <div class="mod-languages">
-                            <ul class="lang-inline">
-                                <li class="translate"><a href="/bulcky/index.php?lang=en_GB" id="en_GB"><img src="/bulcky/main/libs/img/en.gif" alt="Translate the software in English (UK)" title="Translate the software in English (UK)" /></a></li>
-
-                                <li class="translate"><a href="/bulcky/index.php?lang=fr_FR" id="fr_FR"><img src="/bulcky/main/libs/img/fr.gif" alt="Traduire le logiciel en Français (FR)" title="Traduire le logiciel en Français (FR)" /></a></li>
-
-                                <li class="translate"><a href="/bulcky/index.php?lang=it_IT" id="it_IT"><img src="/bulcky/main/libs/img/it.gif" alt="Tradurre il software in Italiano (IT)" title="Tradurre il software in Italiano (IT)" /></a> </li>
-
-                                <li class="translate"><a href="/bulcky/index.php?lang=es_ES" id="es_ES"><img src="/bulcky/main/libs/img/es.gif" alt="Traducir el software en Español (ES)" title="Traducir el sotware en Español (ES)" /></a></li>
-
-                                <li class="translate"><a href="/bulcky/index.php?lang=de_DE" id="de_DE"><img src="/bulcky/main/libs/img/de.gif" alt="Übersetzen Sie die Software Deutsch (DE)" title="Übersetzen Sie die Software Deutsch (DE)" /></a></li>
-                                
-                                <li><a href="/bulcky/main/scripts/help.php" target="_blank"><img src="/bulcky/main/libs/img/help.png" alt="<?php echo __('MENU_HELP'); ?>" title="<?php echo __('MENU_HELP'); ?>" /></a></li>
-                            
-                            </ul>
-                        </div>
+                        <a href="/bulcky/main/scripts/help.php" target="_blank"><img src="/bulcky/main/libs/img/help.png" alt="<?php echo __('MENU_HELP'); ?>" title="<?php echo __('MENU_HELP'); ?>" /></a>
 
 
                         <div id="box">
@@ -164,12 +149,7 @@ check_database();
                             <li id="menu-programs"><a href="/bulcky/index.php?menu=programs" class="level1 href-programs"><span><?php echo __('MENU_PROGS'); ?></span></a></li>
 
                             <li id="menu-calendar"><a href="/bulcky/index.php?menu=calendar" class="level1 href-calendar"><span><?php echo __('MENU_CAL'); ?></span></a></li>
-
-                            <li id="menu-wizard" class="level1 item173"><a href="/bulcky/index.php?menu=wizard" class="level1 href-wizard" ><span><?php echo __('MENU_WIZARD'); ?></span></a></li>
-
-                            <?php if((isset($GLOBALS['MODE']))&&(strcmp($GLOBALS['MODE'],"cultipi")==0)) { ?>
                                     <li id="menu-cultipi" class="level1 item164"><a href="/bulcky/index.php?menu=cultipi" class="level1 href-cultipi" ><span><?php echo __('MENU_CULTIPI'); ?></span></a></li>
-                            <?php } ?>
                             
                             <?php
                                 // If there are some plugins to show in menu, display it 

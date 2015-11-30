@@ -667,35 +667,6 @@
 
 <!-- Div used for database management -->
 <div id="ui_db_management" name="ui_db_management" title="<?php echo __('MANAGE_LOG_INFOS') ?>" style="display:none">
-
-    <?php if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) { ?>
-    <!-- Reload logs -->
-    <form action="/bulcky/index.php?menu=logs" method="get" id="load_log_form" name="load_log_form">
-        <table class="table_width">
-            <tr>
-                <td class="log-manage-marge"></td>
-                <td class="log-manage-title"><?php echo __('IMPORT_LOG_TITLE')." "; ?>
-                    <select name="log_search" id="log_search">
-                        <?php 
-                        foreach($GLOBALS['LOG_SEARCH'] as $value) {
-                            if($value==$import_load) {
-                                echo "<option value=\"${value}\" selected>${value}</option>";
-                            } else {
-                                echo "<option value=\"${value}\">${value}</option>";
-                            }
-                        } 
-                        ?>
-                    </select>
-                    <?php echo __('IMPORT_LAST_MONTH'); ?><img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_CONFIG_LOG_SEARCH'); ?>" />
-                <td class="log-manage-field">
-                    <input type="submit" id="import_log" name="import_log" <?php if((!isset($sd_card))||(empty($sd_card))) { echo "disabled"; ?> class="inputDisable" value="<?php echo __('NO_IMPORT_LOG'); ?>" <?php } else { ?>value="<?php echo __('IMPORT_LOG'); ?>" <?php } ?>>
-                </td>
-                <td></td>
-            </tr>
-        </table>
-    </form>
-    <?php } ?>
-    
     <!-- Reset logs -->
     <form action="/bulcky/index.php?menu=logs" method="get" id="reset_log_form" name="reset_log_form">
         <table class="table_width">
@@ -730,7 +701,6 @@
     </form>
 
     <!-- Import logs from csv -->
-    <?php if((isset($GLOBALS['MODE']))&&(strcmp($GLOBALS['MODE'],"cultipi")==0)) { ?>
     <form action="/bulcky/index.php?menu=logs" method="get" name="import_log_csv" id="import_log_csv">
         <table class="table_width">
             <tr>
@@ -748,7 +718,6 @@
             <input type="hidden" name="startday" value="<?php echo $startday; ?>">
         <?php } ?>
     </form> 
-    <?php } ?>
 
     <!-- Delete power logs -->
     <form action="/bulcky/index.php?menu=logs" method="get" id="reset_log_power_form" name="reset_log_power_form">
@@ -784,7 +753,6 @@
     </form>
 
     <!-- Import logs from csv -->
-    <?php if((isset($GLOBALS['MODE']))&&(strcmp($GLOBALS['MODE'],"cultipi")==0)) { ?>
     <form action="/bulcky/index.php?menu=logs" method="get" name="import_log_power_csv" id="import_log_power_csv">
         <table class="table_width">
             <tr>
@@ -802,7 +770,6 @@
             <input type="hidden" name="startday" value="<?php echo $startday; ?>">
         <?php } ?>
     </form>
-    <?php } ?>
 </div>
 
 <div id="preparing-file-modal" title="" style="display: none;"><?php echo __('PREPARING_EXPORT'); ?><img src="main/libs/img/waiting_small.gif" /></div>
