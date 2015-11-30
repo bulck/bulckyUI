@@ -4,9 +4,9 @@
 // ROLE create a connection to the DB using PDO
 // IN none 
 // RET database connection object
-function db_priv_pdo_start($user="cultibox") {
+function db_priv_pdo_start($user="bulcky") {
     try {
-        $db = new PDO('mysql:host=127.0.0.1;port=3891;dbname=cultibox;charset=utf8', $user, 'cultibox');
+        $db = new PDO('mysql:host=127.0.0.1;port=3891;dbname=bulcky;charset=utf8', $user, 'bulcky');
         //$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
         $db->exec("SET CHARACTER SET utf8");
         return $db;
