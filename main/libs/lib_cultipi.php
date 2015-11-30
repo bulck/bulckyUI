@@ -760,8 +760,8 @@ function get_webcam_conf() {
         $return=array();
 
         for($i=0;$i<$GLOBALS['MAX_WEBCAM'];$i++) {
-            if(is_file("/etc/culticam/webcam$i.conf")) {
-                $handle = fopen("/etc/culticam/webcam$i.conf", "r");
+            if(is_file("/etc/bulckycam/webcam$i.conf")) {
+                $handle = fopen("/etc/bulckycam/webcam$i.conf", "r");
                 if($handle) {
                     while(($line = fgets($handle)) !== false) {
                     // process the line read.

@@ -32,7 +32,7 @@
         case 'Windows NT':
             break;
         default : 
-            exec("sudo chown -R cultipi:cultipi $path_output",$ret,$err);
+            exec("sudo chown -R bulcky:bulcky $path_output",$ret,$err);
 
             //Restart service:
             exec("sudo /etc/init.d/cultipi force-reload >/dev/null",$ret,$err);

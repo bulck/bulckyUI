@@ -83,7 +83,7 @@ check_database();
     <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/jquery-ui-1.8.19.custom.css?v=<?=@filemtime('main/libs/css/jquery-ui-1.8.19.custom.css')?>" />
     <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/fullcalendar.css?v=<?=@filemtime('main/libs/css/fullcalendar.css')?>" />
     <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/jquery.colourPicker.css?v=<?=@filemtime('main/libs/css/jquery.colourPicker.css')?>" />
-    <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/cultibox.css?v=<?=@filemtime('main/libs/css/cultibox.css')?>" />
+    <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/bulcky.css?v=<?=@filemtime('main/libs/css/bulcky.css')?>" />
 
     <script type="text/javascript" src="/bulcky/main/libs/js/jquery-1.8.3.js?v=<?=@filemtime('main/libs/js/jquery-1.8.3.js')?>"></script>
     <script type="text/javascript" src="/bulcky/main/libs/js/jquery-ui-1.9.2.custom.js?v=<?=@filemtime('main/libs/js/jquery-ui-1.9.2.custom.js')?>"></script>

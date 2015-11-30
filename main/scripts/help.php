@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/bulcky/css/base.css?v=<?=@filemtime('css/base.css')?>" />
     <link rel="stylesheet" href="/bulcky/fonts/opensans.css?v=<?=@filemtime('fonts/opensans.css')?>" />
 
-    <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/cultibox.css?v=<?=@filemtime('main/libs/css/cultibox.css')?>" />
+    <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/bulcky.css?v=<?=@filemtime('main/libs/css/bulcky.css')?>" />
     <link rel="stylesheet" href="/bulcky/main/libs/css/help.css?v=<?=@filemtime('css/help.css')?>" />
 </head>
 
@@ -22,7 +22,7 @@
                             <img src="/bulcky/main/libs/img/box.png" alt="">
                         </div>
                                     
-                        <a class="logo" href="/cultibox" id="welcome-logo"><img src="/bulcky/main/libs/img/logo_cultibox.png" alt=""></a>    
+                        <a class="logo" href="/bulcky" id="welcome-logo"><img src="/bulcky/main/libs/img/logo_cultibox.png" alt=""></a>    
                     </div>
                 </header>
                 
@@ -49,14 +49,14 @@
                     }
                     else if (strpos($url, "img/") !== false)
                     {
-                        return "../cultibox.wiki/" . $url;
+                        return "../bulcky.wiki/" . $url;
                     }
                     else 
                     {
                         return "help.php?wiki=" . $url;
                     }
                  };
-                 $my_html = $parser->transform(file_get_contents("../cultibox.wiki/" . $wiki . ".md"));
+                 $my_html = $parser->transform(file_get_contents("../bulcky.wiki/" . $wiki . ".md"));
                         
 
                  echo $my_html;

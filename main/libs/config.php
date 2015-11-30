@@ -234,6 +234,10 @@ foreach (scandir($directory_user_config) as $user_config_file)
     }
 }
 
+$GLOBALS['MODE'] = 'cultipi';
+
 ?>
+
+
 
 

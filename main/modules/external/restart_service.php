@@ -21,19 +21,12 @@ if(is_file("/tmp/interfaces")) {
         exec("sudo /etc/init.d/isc-dhcp-server stop",$output,$err);
         exec("sudo /etc/init.d/dnsmasq stop",$output,$err);
         exec("sudo /etc/init.d/hostapd stop",$output,$err);
-        exec("sudo /sbin/iptables -t nat --line-numbers -L | /bin/grep ^[0-9] | /usr/bin/awk '{ print $1 }' | /usr/bin/tac",$return,$err);
-        foreach($return as $entry) {
-            exec("sudo /sbin/iptables -t nat --delete PREROUTING  $entry",$output,$err);
-        }
+
         if(strcmp("$type","password_wep")==0) {
             exec("sudo /sbin/shutdown -r now",$output,$err);
         } else {
-	    //exec("sudo /usr/sbin/hub-ctrl -h 0 -P 2 -p 0",$output,$err);
-	    //exec("sudo /usr/bin/ pkill -9 wpa_supplicant",$output,$err);
-	    //sleep(3);
-	    //exec("sudo /usr/sbin/hub-ctrl  -h 0 -P 2 -p 1",$output,$err);
             exec("sudo /usr/sbin/invoke-rc.d networking force-reload",$output,$err);
-	    sleep(5);   
+	        sleep(5);   
 
             exec("grep 'post-up /sbin/route add default gw' /etc/network/interfaces|grep eth0|sed -e 's/post-up //g'",$out,$err);
             if((count($out)==1)&&(strcmp($out[0],"")!=0)) {

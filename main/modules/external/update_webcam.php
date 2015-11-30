@@ -60,6 +60,6 @@
             exec("sudo mv /tmp/webcam".$id.".conf /etc/culticam/",$output,$err);
         }
         
-        exec("sudo chown -R cultipi:cultipi /etc/culticam",$output,$err);
+        exec("sudo chown -R bulcky:bulcky /etc/culticam",$output,$err);
         echo json_encode("0");
 ?>
