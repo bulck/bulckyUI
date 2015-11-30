@@ -72,7 +72,7 @@
 <br />
 
 <div id="label_select_type">
-    <form name="display-log" id="display-log" action="/cultibox/index.php?menu=logs" method="get">
+    <form name="display-log" id="display-log" action="/bulcky/index.php?menu=logs" method="get">
         <table class="table_width">
             <tr>
                 <td class="log-marge-day-main"></td>
@@ -93,7 +93,7 @@
                     <input id="datepicker" name="startday" type="text" class="whitefield" size="10" value="<?php echo $startday; ?>">
                 </td>
                 <td>
-                    <div id="error_start_days" style="display:none" class="error_field"><img src='/cultibox/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_FORMAT_DATE_DAY'); ?></div>
+                    <div id="error_start_days" style="display:none" class="error_field"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_FORMAT_DATE_DAY'); ?></div>
                 </td>
             </tr>
             <tr id="label_select_month" style="<?php if(strcmp($type,"day")==0) echo "display:none"; ?>">
@@ -125,7 +125,7 @@
                     ?>
                 </td>
                 <td>
-                    <div id="error_start_month" class="error_field" style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_FORMAT_DATE_MONTH'); ?></div>
+                    <div id="error_start_month" class="error_field" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_FORMAT_DATE_MONTH'); ?></div>
                 </td> 
             </tr>
     </table>
@@ -234,7 +234,7 @@
     </tr>
     <tr>
         <td class="left_log">
-            <form action="/cultibox/index.php?menu=logs" method="get" name="previous" id="previous-form">
+            <form action="/bulcky/index.php?menu=logs" method="get" name="previous" id="previous-form">
                 <input type="submit" value="<" name="previous" id="previous" class="button_log" title="<?php if(strcmp($type,"day")==0) echo __('PREVIOUS_BUTTON_DAY'); else echo __('PREVIOUS_BUTTON_MONTH'); ?>">
                 <?php if($type == "day") { ?>
                     <input type="hidden" name="startday" value="<?php echo date('Y-m-d',strtotime("-1 day", strtotime("$startday"))); ?>">
@@ -265,7 +265,7 @@
                  $yy=date('Y');
                  $mm=date('m');
             ?>
-            <form action="/cultibox/index.php?menu=logs" method="get" name="next" id="next-form">
+            <form action="/bulcky/index.php?menu=logs" method="get" name="next" id="next-form">
                 <input type="submit" value=">" name="next" id="next" class="button_log" title="<?php if(strcmp($type,"day")==0) echo __('NEXT_BUTTON_DAY'); else echo __('NEXT_BUTTON_MONTH'); ?>">
                 <?php if(strcmp($type,"day")==0) { ?>
                     <input type="hidden" name="startday" value="<?php echo date('Y-m-d',strtotime("+1 day", strtotime("$startday"))); ?>">
@@ -670,7 +670,7 @@
 
     <?php if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) { ?>
     <!-- Reload logs -->
-    <form action="/cultibox/index.php?menu=logs" method="get" id="load_log_form" name="load_log_form">
+    <form action="/bulcky/index.php?menu=logs" method="get" id="load_log_form" name="load_log_form">
         <table class="table_width">
             <tr>
                 <td class="log-manage-marge"></td>
@@ -697,7 +697,7 @@
     <?php } ?>
     
     <!-- Reset logs -->
-    <form action="/cultibox/index.php?menu=logs" method="get" id="reset_log_form" name="reset_log_form">
+    <form action="/bulcky/index.php?menu=logs" method="get" id="reset_log_form" name="reset_log_form">
         <table class="table_width">
             <tr>
                 <td class="log-manage-marge"></td>
@@ -709,7 +709,7 @@
     </form>
 
     <!-- Export CSV logs -->
-    <form action="/cultibox/index.php?menu=logs" method="get" name="export_log_form" id="export_log_form">
+    <form action="/bulcky/index.php?menu=logs" method="get" name="export_log_form" id="export_log_form">
         <table class="table_width">
             <tr>
                 <td class="log-manage-marge"></td>
@@ -731,7 +731,7 @@
 
     <!-- Import logs from csv -->
     <?php if((isset($GLOBALS['MODE']))&&(strcmp($GLOBALS['MODE'],"cultipi")==0)) { ?>
-    <form action="/cultibox/index.php?menu=logs" method="get" name="import_log_csv" id="import_log_csv">
+    <form action="/bulcky/index.php?menu=logs" method="get" name="import_log_csv" id="import_log_csv">
         <table class="table_width">
             <tr>
                 <td class="log-manage-marge"></td>
@@ -751,7 +751,7 @@
     <?php } ?>
 
     <!-- Delete power logs -->
-    <form action="/cultibox/index.php?menu=logs" method="get" id="reset_log_power_form" name="reset_log_power_form">
+    <form action="/bulcky/index.php?menu=logs" method="get" id="reset_log_power_form" name="reset_log_power_form">
         <table class="table_width">
             <tr>
                 <td class="log-manage-marge"></td>
@@ -763,7 +763,7 @@
     </form>
 
     <!-- Export power csv -->
-    <form action="/cultibox/index.php?menu=logs" method="get" id="export_log_power_form" name="export_log_power_form">
+    <form action="/bulcky/index.php?menu=logs" method="get" id="export_log_power_form" name="export_log_power_form">
         <table class="table_width">
             <tr>
                 <td class="log-manage-marge"></td>
@@ -785,7 +785,7 @@
 
     <!-- Import logs from csv -->
     <?php if((isset($GLOBALS['MODE']))&&(strcmp($GLOBALS['MODE'],"cultipi")==0)) { ?>
-    <form action="/cultibox/index.php?menu=logs" method="get" name="import_log_power_csv" id="import_log_power_csv">
+    <form action="/bulcky/index.php?menu=logs" method="get" name="import_log_power_csv" id="import_log_power_csv">
         <table class="table_width">
             <tr>
                 <td class="log-manage-marge"></td>
@@ -906,7 +906,7 @@
             <td>
                 <input type="text" size="4" maxlength="4" id="plug_power" name="plug_power" value="" onKeypress="return verifInt(event);">W
             </td>
-            <td><div id="error_power_value" class='error_field' style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt='->'><?php echo __('ERROR_POWER_VALUE'); ?></div></td>
+            <td><div id="error_power_value" class='error_field' style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt='->'><?php echo __('ERROR_POWER_VALUE'); ?></div></td>
         </tr>
     </table>
 </div>

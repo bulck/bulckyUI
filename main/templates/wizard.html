@@ -17,7 +17,7 @@
 <br />
 <p class="title_conf"><?php echo __('WIZARD_INTRO'); ?></p>
 <p class="wizard_subtitle"><?php echo __('WIZARD_CONFIGURE_PLUG_NUMBER'); ?><?php echo " $selected_plug: $plug_name"; ?></p>
-<form action="/cultibox/index.php?menu=wizard" method="post" name="submit_wizard" id="submit_wizard">
+<form action="/bulcky/index.php?menu=wizard" method="post" name="submit_wizard" id="submit_wizard">
 
     <p id="title_step" class="step"><?php echo __('WIZARD_STEP')."&nbsp;"; ?><label id="nb_step"><?php echo $step."/2:";?></label></p>
     <br />
@@ -118,13 +118,13 @@
           <td class="wizard-marge-td"></td>
       <td class="wizard-title"><input type="hidden" name="program" value="program"><?php echo __('START_TIME_EQUIPMENT'); ?>:</td>
           <td><input type="text" size="10" name="start_time" id="start_time" value="<?php echo $start_time ?>"/></td>
-          <td><div id="error_start_time" class="error_field" style="display:none"><img src="/cultibox/main/libs/img/arrow_error.png" alt=""><?php echo __('ERROR_FORMAT_TIME_START'); ?></div><div id="error_same_start" class="error_field" style="display:none"><img src="/cultibox/main/libs/img/arrow_error.png" alt=""><?php echo __('ERROR_SAME_TIME'); ?></div></td>
+          <td><div id="error_start_time" class="error_field" style="display:none"><img src="/bulcky/main/libs/img/arrow_error.png" alt=""><?php echo __('ERROR_FORMAT_TIME_START'); ?></div><div id="error_same_start" class="error_field" style="display:none"><img src="/bulcky/main/libs/img/arrow_error.png" alt=""><?php echo __('ERROR_SAME_TIME'); ?></div></td>
         </tr>
         <tr>
           <td></td>
       <td><?php  echo __('END_TIME_EQUIPMENT'); ?>:</td>
           <td><input type="text" size="10" name="end_time" id="end_time" value="<?php echo $end_time ?>"/></td>
-          <td><div id="error_end_time" class="error_field" style="display:none"><img src="/cultibox/main/libs/img/arrow_error.png" alt=""><?php echo __('ERROR_FORMAT_TIME_END'); ?></div><div id="error_same_end" class="error_field" style="display:none"><img src="/cultibox/main/libs/img/arrow_error.png" alt=""><?php echo __('ERROR_SAME_TIME'); ?></div></td>
+          <td><div id="error_end_time" class="error_field" style="display:none"><img src="/bulcky/main/libs/img/arrow_error.png" alt=""><?php echo __('ERROR_FORMAT_TIME_END'); ?></div><div id="error_same_end" class="error_field" style="display:none"><img src="/bulcky/main/libs/img/arrow_error.png" alt=""><?php echo __('ERROR_SAME_TIME'); ?></div></td>
         </tr>
        <tr>
          <td></td>

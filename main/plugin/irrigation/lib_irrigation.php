@@ -338,7 +338,7 @@ function loadUserConfig ()
 // RET none
 function addInMenu() {
 
-    echo '<li id="menu-irrigation" class="level1 item173"><a href="/cultibox/index.php?menu=irrigation" class="level1 href-irrigation" ><span>Irrigation</span></a></li>';
+    echo '<li id="menu-irrigation" class="level1 item173"><a href="/bulcky/index.php?menu=irrigation" class="level1 href-irrigation" ><span>Irrigation</span></a></li>';
 
 }
 

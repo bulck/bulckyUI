@@ -787,7 +787,7 @@ $(document).ready(function() {
             url: "main/modules/external/set_variable.php",
             data: {name:"lang", value: $(this).attr('id'),duration: 31536000}
         });
-        window.location = "/cultibox/";
+        window.location = "/bulcky/";
     });
 
      // Au chargement d'une page, on vérifie la variable tooltip_msg_box qui détermine si on doit affiche la boîte de message ou l'oeil:

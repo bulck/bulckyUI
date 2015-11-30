@@ -34,7 +34,7 @@ if((isset($_COOKIE['LANG']))&&(!empty($_COOKIE['LANG']))) {
 } else {
     $lang=get_configuration("DEFAULT_LANG",$error);
     setcookie("LANG", "$lang", time()+(86400 * 365),"/",false,false);
-    header('Location: /cultibox/');
+    header('Location: /bulcky/');
 }
 __('LANG');
 
@@ -76,30 +76,30 @@ check_database();
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <link href="/cultibox/favicon.ico" rel="shortcut icon"/>
-    <link rel="stylesheet" href="/cultibox/css/base.css?v=<?=@filemtime('css/base.css')?>" />
-    <link rel="stylesheet" href="/cultibox/fonts/opensans.css?v=<?=@filemtime('fonts/opensans.css')?>" />
+    <link href="/bulcky/favicon.ico" rel="shortcut icon"/>
+    <link rel="stylesheet" href="/bulcky/css/base.css?v=<?=@filemtime('css/base.css')?>" />
+    <link rel="stylesheet" href="/bulcky/fonts/opensans.css?v=<?=@filemtime('fonts/opensans.css')?>" />
 
-    <link rel="stylesheet" media="all" type="text/css" href="/cultibox/main/libs/css/jquery-ui-1.8.19.custom.css?v=<?=@filemtime('main/libs/css/jquery-ui-1.8.19.custom.css')?>" />
-    <link rel="stylesheet" media="all" type="text/css" href="/cultibox/main/libs/css/fullcalendar.css?v=<?=@filemtime('main/libs/css/fullcalendar.css')?>" />
-    <link rel="stylesheet" media="all" type="text/css" href="/cultibox/main/libs/css/jquery.colourPicker.css?v=<?=@filemtime('main/libs/css/jquery.colourPicker.css')?>" />
-    <link rel="stylesheet" media="all" type="text/css" href="/cultibox/main/libs/css/cultibox.css?v=<?=@filemtime('main/libs/css/cultibox.css')?>" />
+    <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/jquery-ui-1.8.19.custom.css?v=<?=@filemtime('main/libs/css/jquery-ui-1.8.19.custom.css')?>" />
+    <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/fullcalendar.css?v=<?=@filemtime('main/libs/css/fullcalendar.css')?>" />
+    <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/jquery.colourPicker.css?v=<?=@filemtime('main/libs/css/jquery.colourPicker.css')?>" />
+    <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/cultibox.css?v=<?=@filemtime('main/libs/css/cultibox.css')?>" />
 
-    <script type="text/javascript" src="/cultibox/main/libs/js/jquery-1.8.3.js?v=<?=@filemtime('main/libs/js/jquery-1.8.3.js')?>"></script>
-    <script type="text/javascript" src="/cultibox/main/libs/js/jquery-ui-1.9.2.custom.js?v=<?=@filemtime('main/libs/js/jquery-ui-1.9.2.custom.js')?>"></script>
-    <script type="text/javascript" src="/cultibox/main/libs/js/jquery-ui-1.9.2.custom.min.js?v=<?=@filemtime('main/libs/js/jquery-ui-1.9.2.custom.min.js')?>"></script>
-    <script type="text/javascript" src="/cultibox/main/libs/js/highcharts.js?v=<?=@filemtime('main/libs/js/highcharts.js')?>"></script>
-    <script type="text/javascript" src="/cultibox/main/libs/js/exporting.js?v=<?=@filemtime('main/libs/js/exporting.js')?>"></script>
-    <script type="text/javascript" src="/cultibox/main/libs/js/jquery-ui-timepicker-addon.js?v=<?=@filemtime('main/libs/js/jquery-ui-timepicker-addon.js')?>"></script>
-    <script type="text/javascript" src="/cultibox/main/libs/js/jquery.colourPicker.js?v=<?=@filemtime('main/libs/js/jquery.colourPicker.js')?>"></script>
-    <script type="text/javascript" src="/cultibox/main/libs/js/cultibox.js?v=<?=@filemtime('main/libs/js/cultibox.js')?>"></script>
-    <script type="text/javascript" src="/cultibox/main/libs/js/cultibox-utils.js?v=<?=@filemtime('main/libs/js/cultibox-utils.js')?>"></script>
-    <script type="text/javascript" src="/cultibox/main/libs/js/fullcalendar.js?v=<?=@filemtime('main/libs/js/fullcalendar.js')?>"></script>
-    <script type="text/javascript" src="/cultibox/main/libs/js/jquery.blockUI.js?v=<?=@filemtime('main/libs/js/jquery.blockUI.js')?>"></script>
-    <script type="text/javascript" src="/cultibox/main/libs/js/scrollTo.js?v=<?=@filemtime('main/libs/js/scrollTo.js')?>"></script>
-    <script type="text/javascript" src="/cultibox/main/libs/js/fileDownload.js?v=<?=@filemtime('main/libs/js/fileDownload.js')?>"></script>
-    <script type="text/javascript" src="/cultibox/main/libs/js/jquery.ui.datepicker-<?php echo substr($_COOKIE['LANG'], 0 , 2); ?>.js?v=<?=@filemtime('main/libs/js/jquery.ui.datepicker-'.substr($_COOKIE['LANG'], 0 , 2).'.js')?>"></script>
-    <script type="text/javascript" src="/cultibox/main/libs/js/fileUpload.js?v=<?=@filemtime('main/libs/js/fileUpload.js')?>"></script>
+    <script type="text/javascript" src="/bulcky/main/libs/js/jquery-1.8.3.js?v=<?=@filemtime('main/libs/js/jquery-1.8.3.js')?>"></script>
+    <script type="text/javascript" src="/bulcky/main/libs/js/jquery-ui-1.9.2.custom.js?v=<?=@filemtime('main/libs/js/jquery-ui-1.9.2.custom.js')?>"></script>
+    <script type="text/javascript" src="/bulcky/main/libs/js/jquery-ui-1.9.2.custom.min.js?v=<?=@filemtime('main/libs/js/jquery-ui-1.9.2.custom.min.js')?>"></script>
+    <script type="text/javascript" src="/bulcky/main/libs/js/highcharts.js?v=<?=@filemtime('main/libs/js/highcharts.js')?>"></script>
+    <script type="text/javascript" src="/bulcky/main/libs/js/exporting.js?v=<?=@filemtime('main/libs/js/exporting.js')?>"></script>
+    <script type="text/javascript" src="/bulcky/main/libs/js/jquery-ui-timepicker-addon.js?v=<?=@filemtime('main/libs/js/jquery-ui-timepicker-addon.js')?>"></script>
+    <script type="text/javascript" src="/bulcky/main/libs/js/jquery.colourPicker.js?v=<?=@filemtime('main/libs/js/jquery.colourPicker.js')?>"></script>
+    <script type="text/javascript" src="/bulcky/main/libs/js/cultibox.js?v=<?=@filemtime('main/libs/js/cultibox.js')?>"></script>
+    <script type="text/javascript" src="/bulcky/main/libs/js/cultibox-utils.js?v=<?=@filemtime('main/libs/js/cultibox-utils.js')?>"></script>
+    <script type="text/javascript" src="/bulcky/main/libs/js/fullcalendar.js?v=<?=@filemtime('main/libs/js/fullcalendar.js')?>"></script>
+    <script type="text/javascript" src="/bulcky/main/libs/js/jquery.blockUI.js?v=<?=@filemtime('main/libs/js/jquery.blockUI.js')?>"></script>
+    <script type="text/javascript" src="/bulcky/main/libs/js/scrollTo.js?v=<?=@filemtime('main/libs/js/scrollTo.js')?>"></script>
+    <script type="text/javascript" src="/bulcky/main/libs/js/fileDownload.js?v=<?=@filemtime('main/libs/js/fileDownload.js')?>"></script>
+    <script type="text/javascript" src="/bulcky/main/libs/js/jquery.ui.datepicker-<?php echo substr($_COOKIE['LANG'], 0 , 2); ?>.js?v=<?=@filemtime('main/libs/js/jquery.ui.datepicker-'.substr($_COOKIE['LANG'], 0 , 2).'.js')?>"></script>
+    <script type="text/javascript" src="/bulcky/main/libs/js/fileUpload.js?v=<?=@filemtime('main/libs/js/fileUpload.js')?>"></script>
 </head>
 
 
@@ -122,34 +122,34 @@ check_database();
             <!-- Small eye for displaying message pop up-->
             <script>title_msgbox="<?php echo __('TOOLTIP_MSGBOX_EYES'); ?>";</script>
 
-            <div id="tooltip_msg_box" style="display:none" class="eyes_msgbox"><img src='/cultibox/main/libs/img/eye.png' alt="" title="" id="eyes_msgbox"></div>
+            <div id="tooltip_msg_box" style="display:none" class="eyes_msgbox"><img src='/bulcky/main/libs/img/eye.png' alt="" title="" id="eyes_msgbox"></div>
 
             <div class="wrapper grid-block">
                 <header id="header">
                     <div id="headerbar" class="grid-block">
                         <div class="mod-languages">
                             <ul class="lang-inline">
-                                <li class="translate"><a href="/cultibox/index.php?lang=en_GB" id="en_GB"><img src="/cultibox/main/libs/img/en.gif" alt="Translate the software in English (UK)" title="Translate the software in English (UK)" /></a></li>
+                                <li class="translate"><a href="/bulcky/index.php?lang=en_GB" id="en_GB"><img src="/bulcky/main/libs/img/en.gif" alt="Translate the software in English (UK)" title="Translate the software in English (UK)" /></a></li>
 
-                                <li class="translate"><a href="/cultibox/index.php?lang=fr_FR" id="fr_FR"><img src="/cultibox/main/libs/img/fr.gif" alt="Traduire le logiciel en Français (FR)" title="Traduire le logiciel en Français (FR)" /></a></li>
+                                <li class="translate"><a href="/bulcky/index.php?lang=fr_FR" id="fr_FR"><img src="/bulcky/main/libs/img/fr.gif" alt="Traduire le logiciel en Français (FR)" title="Traduire le logiciel en Français (FR)" /></a></li>
 
-                                <li class="translate"><a href="/cultibox/index.php?lang=it_IT" id="it_IT"><img src="/cultibox/main/libs/img/it.gif" alt="Tradurre il software in Italiano (IT)" title="Tradurre il software in Italiano (IT)" /></a> </li>
+                                <li class="translate"><a href="/bulcky/index.php?lang=it_IT" id="it_IT"><img src="/bulcky/main/libs/img/it.gif" alt="Tradurre il software in Italiano (IT)" title="Tradurre il software in Italiano (IT)" /></a> </li>
 
-                                <li class="translate"><a href="/cultibox/index.php?lang=es_ES" id="es_ES"><img src="/cultibox/main/libs/img/es.gif" alt="Traducir el software en Español (ES)" title="Traducir el sotware en Español (ES)" /></a></li>
+                                <li class="translate"><a href="/bulcky/index.php?lang=es_ES" id="es_ES"><img src="/bulcky/main/libs/img/es.gif" alt="Traducir el software en Español (ES)" title="Traducir el sotware en Español (ES)" /></a></li>
 
-                                <li class="translate"><a href="/cultibox/index.php?lang=de_DE" id="de_DE"><img src="/cultibox/main/libs/img/de.gif" alt="Übersetzen Sie die Software Deutsch (DE)" title="Übersetzen Sie die Software Deutsch (DE)" /></a></li>
+                                <li class="translate"><a href="/bulcky/index.php?lang=de_DE" id="de_DE"><img src="/bulcky/main/libs/img/de.gif" alt="Übersetzen Sie die Software Deutsch (DE)" title="Übersetzen Sie die Software Deutsch (DE)" /></a></li>
                                 
-                                <li><a href="/cultibox/main/scripts/help.php" target="_blank"><img src="/cultibox/main/libs/img/help.png" alt="<?php echo __('MENU_HELP'); ?>" title="<?php echo __('MENU_HELP'); ?>" /></a></li>
+                                <li><a href="/bulcky/main/scripts/help.php" target="_blank"><img src="/bulcky/main/libs/img/help.png" alt="<?php echo __('MENU_HELP'); ?>" title="<?php echo __('MENU_HELP'); ?>" /></a></li>
                             
                             </ul>
                         </div>
 
 
                         <div id="box">
-                            <img src="/cultibox/main/libs/img/box.png" alt="">
+                            <img src="/bulcky/main/libs/img/box.png" alt="">
                         </div>
                                     
-                        <a class="logo" href="/cultibox" id="welcome-logo"><img src="/cultibox/main/libs/img/logo_cultibox.png" alt=""></a>    
+                        <a class="logo" href="/cultibox" id="welcome-logo"><img src="/bulcky/main/libs/img/logo_cultibox.png" alt=""></a>    
                     </div>
                 </header>
                 
@@ -157,18 +157,18 @@ check_database();
                 <!-- Display Menu-->
                 <div id="menubar">
                     <ul id="menubar-ul">
-                            <li id="menu-configuration"><a href="/cultibox/index.php?menu=configuration" class="level1 href-configuration"><span><?php echo __('MENU_CONF'); ?></span></a></li>
+                            <li id="menu-configuration"><a href="/bulcky/index.php?menu=configuration" class="level1 href-configuration"><span><?php echo __('MENU_CONF'); ?></span></a></li>
 
-                            <li id="menu-logs"><a href="/cultibox/index.php?menu=logs" class="level1 href-logs"><span><?php echo __('MENU_LOGS'); ?></span></a></li>
+                            <li id="menu-logs"><a href="/bulcky/index.php?menu=logs" class="level1 href-logs"><span><?php echo __('MENU_LOGS'); ?></span></a></li>
 
-                            <li id="menu-programs"><a href="/cultibox/index.php?menu=programs" class="level1 href-programs"><span><?php echo __('MENU_PROGS'); ?></span></a></li>
+                            <li id="menu-programs"><a href="/bulcky/index.php?menu=programs" class="level1 href-programs"><span><?php echo __('MENU_PROGS'); ?></span></a></li>
 
-                            <li id="menu-calendar"><a href="/cultibox/index.php?menu=calendar" class="level1 href-calendar"><span><?php echo __('MENU_CAL'); ?></span></a></li>
+                            <li id="menu-calendar"><a href="/bulcky/index.php?menu=calendar" class="level1 href-calendar"><span><?php echo __('MENU_CAL'); ?></span></a></li>
 
-                            <li id="menu-wizard" class="level1 item173"><a href="/cultibox/index.php?menu=wizard" class="level1 href-wizard" ><span><?php echo __('MENU_WIZARD'); ?></span></a></li>
+                            <li id="menu-wizard" class="level1 item173"><a href="/bulcky/index.php?menu=wizard" class="level1 href-wizard" ><span><?php echo __('MENU_WIZARD'); ?></span></a></li>
 
                             <?php if((isset($GLOBALS['MODE']))&&(strcmp($GLOBALS['MODE'],"cultipi")==0)) { ?>
-                                    <li id="menu-cultipi" class="level1 item164"><a href="/cultibox/index.php?menu=cultipi" class="level1 href-cultipi" ><span><?php echo __('MENU_CULTIPI'); ?></span></a></li>
+                                    <li id="menu-cultipi" class="level1 item164"><a href="/bulcky/index.php?menu=cultipi" class="level1 href-cultipi" ><span><?php echo __('MENU_CULTIPI'); ?></span></a></li>
                             <?php } ?>
                             
                             <?php

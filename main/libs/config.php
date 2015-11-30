@@ -10,7 +10,7 @@ date_default_timezone_set('UTC');
 define('LANG_FALLBACK', 'fr_FR');
 
 //Default path:
-$GLOBALS['BASE_PATH'] = $_SERVER["DOCUMENT_ROOT"] . '/cultibox/';
+$GLOBALS['BASE_PATH'] = $_SERVER["DOCUMENT_ROOT"] . '/bulcky/';
 
 // Default port use by the application:
 $GLOBALS['SOFT_PORT'] = '6891';
@@ -86,7 +86,7 @@ $GLOBALS['PLUGA_DEFAULT_3500W'] = array('004', '000', '000', '006', '008', '010'
 $GLOBALS['FIRST_LOG_YEAR'] = '2013';
 
 // Remote file to check update for the interface
-$GLOBALS['UPDATE_FILE'] = 'http://www.greenbox-botanic.com/cultibox/download/software/updates/VERSION';
+$GLOBALS['UPDATE_FILE'] = 'http://www.greenbox-botanic.com/bulcky/download/software/updates/VERSION';
 
 //Website to download software:
 $GLOBALS['WEBSITE'] = 'http://cultibox.fr/telechargement.html';
@@ -180,7 +180,7 @@ $GLOBALS['WEBCAM_PALETTE'] = array("AUTO", "PNG","JPEG","MJPEG","S561","RGB32","
 // Software mode : cultipi or cultibox:
 $GLOBALS['MODE']="cultibox";
 
-// For cultipi : path to the conf (for windows : C:/cultibox/xampp/htdocs/cultibox)
+// For cultipi : path to the conf (for windows : C:/bulcky/xampp/htdocs/cultibox)
 $GLOBALS['CULTIPI_CONF_PATH'] = "/etc/cultipi";
 $GLOBALS['CULTIPI_CONF_TEMP_PATH'] = $GLOBALS['CULTIPI_CONF_PATH'] . "/conf_tmp";
 $GLOBALS['CULTIPI_CONF_OUT_PATH']  = $GLOBALS['CULTIPI_CONF_PATH'] . "/01_defaultConf_RPi";

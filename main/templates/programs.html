@@ -93,7 +93,7 @@
 </table>
 
 <div id="program_plug" style="display:none" title="<?php echo __('TOOLTIP_PROGRAM_PLUG'); ?>">
-<form action="/cultibox/index.php?menu=programs" method="post" name="actionprog" id="actionprog">
+<form action="/bulcky/index.php?menu=programs" method="post" name="actionprog" id="actionprog">
     <table class="table_width">
         <tr>
             <td class="program-marge"></td>
@@ -126,38 +126,38 @@
             <td class="program-marge"></td>
             <td class="program-td-title"><div id="start_time_program_title" style="<?php if((!isset($cyclic))||(empty($cyclic))) {  echo ''; } else { echo 'display:none'; } ?>"><?php echo __('START_TIME_PROGRAM'); ?>:</div></td>
             <td class="program-time-field"><div id="start_time_program_field" style="<?php if((!isset($cyclic))||(empty($cyclic))) {  echo ''; } else { echo 'display:none'; } ?>"><input type="text" size="10" name="start_time" id="start_time" <?php if(!empty($start_time)) { ?> value="<?php echo $start_time;?>" <?php } else { ?> value="00:00:00" <?php } ?> onKeypress="return verifTime(event);" maxlength="8" /></div></td>
-            <td><div id="error_start_time" class="error_field" style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_FORMAT_TIME_START'); ?></div><div id="error_same_start" class="error_field" style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_SAME_TIME'); ?></div></td>
+            <td><div id="error_start_time" class="error_field" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_FORMAT_TIME_START'); ?></div><div id="error_same_start" class="error_field" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_SAME_TIME'); ?></div></td>
         </tr>
         <tr>
            <td></td>
            <td><div id="duration_cyclic" style="<?php if((isset($cyclic))&&(!empty($cyclic))) {  echo ''; } else { echo 'display:none'; } ?>"><?php echo __('CYCLIC_DURATION_TIME'); ?>:</div></td>
            <td><div id="duration_cyclic_field" style="<?php if((isset($cyclic))&&(!empty($cyclic))) {  echo ''; } else { echo 'display:none'; } ?>"><input type="text" size="10" name="cyclic_duration" id="cyclic_duration" <?php if(!empty($cyclic_duration)) { ?> value="<?php echo $cyclic_duration;?>" <?php } else { ?> value="02:00:00" <?php } ?> onKeypress="return verifTime(event);" maxlength="8" /></div></td>
-           <td><div id="error_cyclic_duration" class="error_field" style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_FORMAT_TIME_DURATION'); ?></div></td>
+           <td><div id="error_cyclic_duration" class="error_field" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_FORMAT_TIME_DURATION'); ?></div></td>
         </tr>
         <tr>
             <td></td>
             <td><div id="end_time_program_title" style="<?php if((!isset($cyclic))||(empty($cyclic))) {  echo ''; } else { echo 'display:none'; } ?>"><?php echo __('END_TIME_PROGRAM'); ?>:</div></td>
             <td><div id="end_time_program_field" style="<?php if((!isset($cyclic))||(empty($cyclic))) {  echo ''; } else { echo 'display:none'; } ?>"><input type="text" size="10" name="end_time" id="end_time" <?php if(!empty($end_time)) { ?>value="<?php echo $end_time;?>" <?php } else { ?>value="00:00:00" <?php } ?> onKeypress="return verifTime(event);" maxlength="8"/></div></td>
-            <td><div id="error_end_time" class="error_field" style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_FORMAT_TIME_END'); ?></div><div id="error_same_end" class="error_field" style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_SAME_TIME'); ?></div></td>
+            <td><div id="error_end_time" class="error_field" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_FORMAT_TIME_END'); ?></div><div id="error_same_end" class="error_field" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_SAME_TIME'); ?></div></td>
         </tr>
 
         <tr>
             <td></td>
             <td><div id="time_cyclic" style="<?php if((isset($cyclic))&&(!empty($cyclic))) {  echo ''; } else { echo 'display:none'; } ?>"><?php echo __('REPEAT_EVERY'); ?>:<img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_REPEAT_VALUE'); ?>" /></div></td>
             <td> <div id="time_cyclic_field" style="<?php if((isset($cyclic))&&(!empty($cyclic))) {  echo ''; } else { echo 'display:none'; } ?>"><input type="text" size="10" name="repeat_time" id="repeat_time" <?php if(!empty($repeat_time)) { ?>value="<?php echo $repeat_time;?>" <?php } else { ?>value="03:00:00" <?php } ?> onKeypress="return verifTime(event);" maxlength="8" /></div> </td>
-            <td><div id="error_cyclic_time" class="error_field" style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_FORMAT_TIME'); ?></div><div id="error_minimal_cyclic" class="error_field" style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_MINIMAL_TIME'); ?></div></td>
+            <td><div id="error_cyclic_time" class="error_field" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_FORMAT_TIME'); ?></div><div id="error_minimal_cyclic" class="error_field" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_MINIMAL_TIME'); ?></div></td>
         </tr>
         <tr>
            <td></td>
            <td><div id="start_time_cyclic_title" style="<?php if((isset($cyclic))&&(!empty($cyclic))) {  echo ''; } else { echo 'display:none'; } ?>"><?php echo __('START_TIME_PROGRAM'); ?>:</div></td>
            <td><div id="start_time_cyclic_field" style="<?php if((isset($cyclic))&&(!empty($cyclic))) {  echo ''; } else { echo 'display:none'; } ?>"><input type="text" size="10" name="start_time_cyclic" id="start_time_cyclic" <?php if(!empty($start_time_cyclic)) { ?> value="<?php echo $start_time_cyclic;?>" <?php } else { ?> value="00:00:00" <?php } ?> onKeypress="return verifTime(event);" maxlength="8" /></div></td>
-           <td><div id="error_start_time_cyclic" class="error_field" style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_FORMAT_TIME_START'); ?></div><div id="error_cyclic_same_start" class="error_field" style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_SAME_TIME'); ?></div></td>
+           <td><div id="error_start_time_cyclic" class="error_field" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_FORMAT_TIME_START'); ?></div><div id="error_cyclic_same_start" class="error_field" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_SAME_TIME'); ?></div></td>
         </tr>
         <tr>
            <td></td>
            <td><div id="end_time_cyclic_title" style="<?php if((isset($cyclic))&&(!empty($cyclic))) {  echo ''; } else { echo 'display:none'; } ?>"><?php echo __('END_TIME_PROGRAM'); ?>:</div></td>
            <td><div id="end_time_cyclic_field" style="<?php if((isset($cyclic))&&(!empty($cyclic))) {  echo ''; } else { echo 'display:none'; } ?>"><input type="text" size="10" name="end_time_cyclic" id="end_time_cyclic" <?php if(!empty($end_time_cyclic)) { ?> value="<?php echo $end_time_cyclic;?>" <?php } else { ?> value="23:59:59" <?php } ?> onKeypress="return verifTime(event);" maxlength="8" /></div></td>
-           <td><div id="error_end_time_cyclic" class="error_field" style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_FORMAT_TIME_END'); ?></div><div id="error_cyclic_same_end" class="error_field" style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_SAME_TIME'); ?></div></td>
+           <td><div id="error_end_time_cyclic" class="error_field" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_FORMAT_TIME_END'); ?></div><div id="error_cyclic_same_end" class="error_field" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_SAME_TIME'); ?></div></td>
         </tr>
      </table>
      <table class="table_width">
@@ -376,7 +376,7 @@
                 <?php echo __('TITLE_ADD_PLUG'); ?><img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_ADD_PLUG'); ?>" />
             </td>
             <td>
-                <form action="/cultibox/index.php?menu=programs" method="post">
+                <form action="/bulcky/index.php?menu=programs" method="post">
                     <input id="add_plug" type="submit" name="add_plug" <?php if($nb_plugs>=$GLOBALS['NB_MAX_PLUG']) { ?> disabled value="<?php echo __('MAX_PLUG_REACHED'); ?>" class="inputDisable" <?php } else { ?>value="<?php echo __('ADD_PLUG'); ?>" <?php } ?>>
                 </form>
             </td>
@@ -387,7 +387,7 @@
                 <?php echo __('TITLE_REMOVE_PLUG'); ?><img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_REMOVE_PLUG'); ?>" />
             </td>
             <td>
-                <form action="/cultibox/index.php?menu=programs" method="post">
+                <form action="/bulcky/index.php?menu=programs" method="post">
                     <input id="remove_plug" type="submit" name="remove" <?php if($nb_plugs<=$GLOBALS['NB_MIN_PLUG']) { ?> disabled value="<?php echo __('MIN_PLUG_REACHED'); ?>" class="inputDisable" <?php } else { ?>value="<?php echo __('REMOVE_PLUG'); ?>"<?php } ?>>
                 </form>
             </td>
@@ -398,7 +398,7 @@
                 <?php echo __('TITLE_RESET_PROGRAM'); ?><img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_RESET_PROGRAM'); ?>" />
             </td>
             <td>
-                <form action="/cultibox/index.php?menu=programs" method="post" name="reset_program_form" id="reset_program_form">
+                <form action="/bulcky/index.php?menu=programs" method="post" name="reset_program_form" id="reset_program_form">
                     <?php for($i=1;$i<=$nb_plugs;$i++) { ?>
                         <input type="checkbox" name="reset_selected_plug" value="<?php echo $i; ?>" id="reset_selected_plug<?php echo $i; ?>"><?php echo $i; ?><?php if((($i%4)==0)&&($i<$nb_plugs)) { echo "<br />"; } ?>
                     <?php } ?>
@@ -492,7 +492,7 @@
                 <?php echo __('TITLE_EXPORT_PROGRAM'); ?><img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_EXPORT_PROGRAM'); ?>" />
             </td>
             <td>
-                <form action="/cultibox/index.php?menu=programs" method="post">
+                <form action="/bulcky/index.php?menu=programs" method="post">
                     <select name="export_selected_plug" id="export_selected_plug">
                     <?php for($i=1;$i<=$nb_plugs;$i++) {
                             if("$i"=="$export_selected") {
@@ -521,7 +521,7 @@
                 <?php echo __('TITLE_EXPORT_SET_PROGRAM'); ?><img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_EXPORT_SET_PROGRAM'); ?>" />
             </td>
             <td>
-                <form action="/cultibox/index.php?menu=programs" method="post" enctype= "multipart/form-data" name="export_set_form" id="export_set_form">
+                <form action="/bulcky/index.php?menu=programs" method="post" enctype= "multipart/form-data" name="export_set_form" id="export_set_form">
                     <select name="export_set_program_index_id" id="export_set_program_index_id">
                         <?php foreach ($index_info as $row) { ?>
                              <option value="<?php echo $row['id']; ?>" <?php if($program_index_id==$row['id']) echo " selected"; ?>><?php echo $row['name']; ?></option>
@@ -539,7 +539,7 @@
             </td>
             <td>
                 <br />
-                <form action="/cultibox/index.php?menu=programs" method="post" enctype= "multipart/form-data" name="import_form" id="import_form">
+                <form action="/bulcky/index.php?menu=programs" method="post" enctype= "multipart/form-data" name="import_form" id="import_form">
                     <select name="import_selected_plug" id="import_selected_plug">
                     <?php for($i=1;$i<=$nb_plugs;$i++) {
                             if("$i"=="$export_selected") {
@@ -571,7 +571,7 @@
             </td>
             <td>
                 <br />
-                <form action="/cultibox/index.php?menu=programs" method="post" enctype= "multipart/form-data" name="import_set_form" id="import_set_form">
+                <form action="/bulcky/index.php?menu=programs" method="post" enctype= "multipart/form-data" name="import_set_form" id="import_set_form">
                     <select name="import_set_program_index_id" id="import_set_program_index_id">
                         <?php foreach ($index_info as $row) { ?>
                             <option value="<?php echo $row['id']; ?>" <?php if($program_index_id==$row['id']) echo " selected"; ?>><?php echo $row['name']; ?></option>

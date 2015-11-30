@@ -14,7 +14,7 @@ function check_db() {
 // RET none
 function addInMenu() {
 
-    echo '<li id="menu-example" class="level1 item173"><a href="/cultibox/index.php?menu=example" class="level1 href-example" ><span>example</span></a></li>';
+    echo '<li id="menu-example" class="level1 item173"><a href="/bulcky/index.php?menu=example" class="level1 href-example" ><span>example</span></a></li>';
 
 }
 

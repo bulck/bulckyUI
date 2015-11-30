@@ -514,7 +514,7 @@ $(document).ready(function(){
                                 cache: false,
                                 async: true,
                                 url: "main/modules/external/get_mtime.php",
-                                data: {file:"/var/www/cultibox/tmp/webcam"+selected+".jpg"}
+                                data: {file:"/var/www/bulcky/tmp/webcam"+selected+".jpg"}
                             }).done(function(data) {
                                 var objJSON = jQuery.parseJSON(data);
                                 $("#last_webcam"+selected).html(objJSON);

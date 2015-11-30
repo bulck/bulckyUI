@@ -394,7 +394,7 @@ function get_theorical_power($id=0,$type="",&$out,&$error=0) {
         }
 
         if((strcmp($start_hc,"")==0)||(strcmp($stop_hc,"")==0)) {
-            $out[]=__('ERROR_HPC_TIME_NULL')."<a href='/cultibox/index.php?menu=plugs'>".__('HERE')."</a>";  
+            $out[]=__('ERROR_HPC_TIME_NULL')."<a href='/bulcky/index.php?menu=plugs'>".__('HERE')."</a>";  
         } else {
             $stahch=substr($start_hc,0,2);
             $stahcm=substr($start_hc,3,2);

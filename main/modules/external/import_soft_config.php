@@ -31,16 +31,16 @@ if((isset($_GET['filename']))&&(!empty($_GET['filename']))) {
                         exec("/bin/zcat -f \"$file\" > \"$import\"",$output,$err);
                         $file=$import;
                   } 
-                  exec("/usr/bin/mysql --defaults-extra-file=/var/www/cultibox/sql_install/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox < \"$file\"",$output,$err);
+                  exec("/usr/bin/mysql --defaults-extra-file=/var/www/bulcky/sql_install/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox < \"$file\"",$output,$err);
         } else {
             $os=php_uname('s');
             switch($os) {
                 case 'Linux':
-                    exec("/opt/cultibox/bin/mysql --defaults-extra-file=/opt/cultibox/etc/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox < \"$file\"",$output,$err);
+                    exec("/opt/bulcky/bin/mysql --defaults-extra-file=/opt/bulcky/etc/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox < \"$file\"",$output,$err);
                     break;
                 case 'Mac':
                 case 'Darwin':
-                    exec("/Applications/cultibox/xamppfiles/bin/mysql --defaults-extra-file=/Applications/cultibox/xamppfiles/etc/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox < \"$file\"",$output,$err);
+                    exec("/Applications/bulcky/xamppfiles/bin/mysql --defaults-extra-file=/Applications/bulcky/xamppfiles/etc/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox < \"$file\"",$output,$err);
                     break;
                 case 'Windows NT':
                     $file="c:\\cultibox\\xampp\\htdocs\\cultibox\\tmp\\import\\".$_GET['filename'];

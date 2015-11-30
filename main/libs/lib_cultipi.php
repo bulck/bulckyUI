@@ -815,9 +815,9 @@ function get_webcam_conf() {
             }
 
 
-            if(is_file("/var/www/cultibox/tmp/webcam$i.jpg")) {
+            if(is_file("/var/www/bulcky/tmp/webcam$i.jpg")) {
                 date_default_timezone_set('Europe/Paris');
-                $return[$i]['creation']=__('LAST_WEBCAM')." : ".date('d-m-Y H:i:s', filemtime("/var/www/cultibox/tmp/webcam${i}.jpg"));
+                $return[$i]['creation']=__('LAST_WEBCAM')." : ".date('d-m-Y H:i:s', filemtime("/var/www/bulcky/tmp/webcam${i}.jpg"));
             } else {
                 $return[$i]['creation']="";
             }

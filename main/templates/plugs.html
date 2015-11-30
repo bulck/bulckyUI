@@ -5,7 +5,7 @@
             <?php } ?>
         </ul>
 
-<form action="/cultibox/index.php?menu=plugs" method="post" name="plugForm" id="plugForm">
+<form action="/bulcky/index.php?menu=plugs" method="post" name="plugForm" id="plugForm">
     <?php for($i=1;$i<=$nb_plugs;$i++) { ?>
         <div id="div_selected_plug<?php echo $i; ?>" style="<?php if($submenu != $i) echo 'display:none'; ?>">
             <div id="state_plug<?php echo $i; ?>">
@@ -214,7 +214,7 @@
                         <td>
                             <input type="text" size="4" maxlength="4" id="plug_power<?php echo $i; ?>" name="plug_power<?php echo $i; ?>" value="<?php echo $plug_power{$i}; ?>" onKeypress="return verifInt(event);">W
                         </td>
-                        <td><div id="error_power_value<?php echo $i; ?>" class='error_field' style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt='->'><?php echo __('ERROR_POWER_VALUE'); ?></div></td>
+                        <td><div id="error_power_value<?php echo $i; ?>" class='error_field' style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt='->'><?php echo __('ERROR_POWER_VALUE'); ?></div></td>
                     </tr>
                     <tr>
                         <td></td>
@@ -233,10 +233,10 @@
                             </div>
                         </td>
                         <td>
-                            <div class='error_field' id="error_tolerance_value_temp<?php echo $i; ?>" style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt='->'><?php echo __('ERROR_TOLERANCE_VALUE_DEGREE','html'); ?></div>
-                            <div class='error_field' id="error_tolerance_value_humi<?php echo $i; ?>" style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt='->'><?php echo __('ERROR_TOLERANCE_VALUE_POURCENT','html'); ?></div>
-                            <div class='error_field' id="error_tolerance_value_water<?php echo $i; ?>" style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt='->'><?php echo __('ERROR_TOLERANCE_VALUE_CM','html'); ?></div>
-                            <div class='error_field' id="error_tolerance_value_co2<?php echo $i; ?>" style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt='->'><?php echo __('ERROR_TOLERANCE_VALUE_PPM','html'); ?></div>
+                            <div class='error_field' id="error_tolerance_value_temp<?php echo $i; ?>" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt='->'><?php echo __('ERROR_TOLERANCE_VALUE_DEGREE','html'); ?></div>
+                            <div class='error_field' id="error_tolerance_value_humi<?php echo $i; ?>" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt='->'><?php echo __('ERROR_TOLERANCE_VALUE_POURCENT','html'); ?></div>
+                            <div class='error_field' id="error_tolerance_value_water<?php echo $i; ?>" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt='->'><?php echo __('ERROR_TOLERANCE_VALUE_CM','html'); ?></div>
+                            <div class='error_field' id="error_tolerance_value_co2<?php echo $i; ?>" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt='->'><?php echo __('ERROR_TOLERANCE_VALUE_PPM','html'); ?></div>
                          </td>
                     </tr>
                 </table>
@@ -279,7 +279,7 @@
                         </td>
                         <td>
                             <div id="error_select_sensor<?php echo $i; ?>" style="display:none" class="error_field">
-                                <img src="/cultibox/main/libs/img/arrow_error.png" alt=""><?php echo __('ERROR_SELECT_SENSOR'); ?>
+                                <img src="/bulcky/main/libs/img/arrow_error.png" alt=""><?php echo __('ERROR_SELECT_SENSOR'); ?>
                             </div>
                         </td>
                     </tr>
@@ -386,7 +386,7 @@
                                 </div>
                             </td>
                             <td>
-                            <div class='error_field' style="display:none" id="error_regul_value<?php echo $i; ?>"><img src='/cultibox/main/libs/img/arrow_error.png' alt='->'><?php echo __('ERROR_REGUL_VALUE'); ?></div>
+                            <div class='error_field' style="display:none" id="error_regul_value<?php echo $i; ?>"><img src='/bulcky/main/libs/img/arrow_error.png' alt='->'><?php echo __('ERROR_REGUL_VALUE'); ?></div>
                             </td>
                         </tr>
                         <tr>
@@ -403,8 +403,8 @@
                                 </div>
                             </td>
                             <td>
-                                <div id="error_second_tolerance_value_temp<?php echo $i; ?>" class='error_field' style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt='->'><?php echo __('ERROR_TOLERANCE_VALUE_DEGREE','html'); ?></div>
-                                <div id="error_second_tolerance_value_humi<?php echo $i; ?>" class='error_field' style="display:none"><img src='/cultibox/main/libs/img/arrow_error.png' alt='->'><?php echo __('ERROR_TOLERANCE_VALUE_POURCENT','html'); ?></div>
+                                <div id="error_second_tolerance_value_temp<?php echo $i; ?>" class='error_field' style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt='->'><?php echo __('ERROR_TOLERANCE_VALUE_DEGREE','html'); ?></div>
+                                <div id="error_second_tolerance_value_humi<?php echo $i; ?>" class='error_field' style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt='->'><?php echo __('ERROR_TOLERANCE_VALUE_POURCENT','html'); ?></div>
                             </td>
                         </tr>
                     </table>

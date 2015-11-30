@@ -9,24 +9,24 @@ if(isset($GLOBALS['MODE']) && $GLOBALS['MODE'] == "cultipi") {
     if(is_file("$file")) exec("mv $file /tmp/",$output,$err);
     if(is_file("$file.zip")) exec("mv $file.zip /tmp/",$output,$err);
 
-    exec("/usr/bin/mysqldump --defaults-extra-file=/var/www/cultibox/sql_install/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox --ignore-table=cultibox.logs --ignore-table=cultibox.power > /var/www/cultibox/tmp/export/backup_cultibox.sql",$output,$err);
-    exec("/usr/bin/mysqldump --defaults-extra-file=/var/www/cultibox/sql_install/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox --no-data logs >> /var/www/cultibox/tmp/export/backup_cultibox.sql",$output,$err);
-    exec("/usr/bin/mysqldump --defaults-extra-file=/var/www/cultibox/sql_install/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox --no-data power >> /var/www/cultibox/tmp/export/backup_cultibox.sql",$output,$err);
+    exec("/usr/bin/mysqldump --defaults-extra-file=/var/www/bulcky/sql_install/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox --ignore-table=cultibox.logs --ignore-table=cultibox.power > /var/www/bulcky/tmp/export/backup_cultibox.sql",$output,$err);
+    exec("/usr/bin/mysqldump --defaults-extra-file=/var/www/bulcky/sql_install/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox --no-data logs >> /var/www/bulcky/tmp/export/backup_cultibox.sql",$output,$err);
+    exec("/usr/bin/mysqldump --defaults-extra-file=/var/www/bulcky/sql_install/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox --no-data power >> /var/www/bulcky/tmp/export/backup_cultibox.sql",$output,$err);
     exec("zip -j ../../../tmp/export/backup_cultibox.sql.zip $file",$output,$err);
 } else {
     $os=php_uname('s');
     switch($os) {
         case 'Linux':
-            exec("/opt/cultibox/bin/mysqldump --defaults-extra-file=/opt/cultibox/etc/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox --ignore-table=cultibox.logs --ignore-table=cultibox.power > /opt/cultibox/htdocs/cultibox/tmp/export/backup_cultibox.sql",$output,$err);
-            exec("/opt/cultibox/bin/mysqldump --defaults-extra-file=/opt/cultibox/etc/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox --no-data power >> /opt/cultibox/htdocs/cultibox/tmp/export/backup_cultibox.sql",$output,$err);
-            exec("/opt/cultibox/bin/mysqldump --defaults-extra-file=/opt/cultibox/etc/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox --no-data logs >> /opt/cultibox/htdocs/cultibox/tmp/export/backup_cultibox.sql",$output,$err);
+            exec("/opt/bulcky/bin/mysqldump --defaults-extra-file=/opt/bulcky/etc/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox --ignore-table=cultibox.logs --ignore-table=cultibox.power > /opt/bulcky/htdocs/bulcky/tmp/export/backup_cultibox.sql",$output,$err);
+            exec("/opt/bulcky/bin/mysqldump --defaults-extra-file=/opt/bulcky/etc/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox --no-data power >> /opt/bulcky/htdocs/bulcky/tmp/export/backup_cultibox.sql",$output,$err);
+            exec("/opt/bulcky/bin/mysqldump --defaults-extra-file=/opt/bulcky/etc/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox --no-data logs >> /opt/bulcky/htdocs/bulcky/tmp/export/backup_cultibox.sql",$output,$err);
             break;
         case 'Mac':
         case 'Darwin':
             if(is_file("$file.zip")) exec("mv $file.zip /tmp/",$output,$err);
-            exec("/Applications/cultibox/xamppfiles/bin/mysqldump --defaults-extra-file=/Applications/cultibox/xamppfiles/etc/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox --ignore-table=cultibox.logs --ignore-table=cultibox.power > /Applications/cultibox/xamppfiles/htdocs/cultibox/tmp/export/backup_cultibox.sql",$output,$err);
-            exec("/Applications/cultibox/xamppfiles/bin/mysqldump --defaults-extra-file=/Applications/cultibox/xamppfiles/etc/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox --no-data power >> /Applications/cultibox/xamppfiles/htdocs/cultibox/tmp/export/backup_cultibox.sql",$output,$err);
-            exec("/Applications/cultibox/xamppfiles/bin/mysqldump --defaults-extra-file=/Applications/cultibox/xamppfiles/etc/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox --no-data logs >> /Applications/cultibox/xamppfiles/htdocs/cultibox/tmp/export/backup_cultibox.sql",$output,$err);
+            exec("/Applications/bulcky/xamppfiles/bin/mysqldump --defaults-extra-file=/Applications/bulcky/xamppfiles/etc/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox --ignore-table=cultibox.logs --ignore-table=cultibox.power > /Applications/bulcky/xamppfiles/htdocs/bulcky/tmp/export/backup_cultibox.sql",$output,$err);
+            exec("/Applications/bulcky/xamppfiles/bin/mysqldump --defaults-extra-file=/Applications/bulcky/xamppfiles/etc/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox --no-data power >> /Applications/bulcky/xamppfiles/htdocs/bulcky/tmp/export/backup_cultibox.sql",$output,$err);
+            exec("/Applications/bulcky/xamppfiles/bin/mysqldump --defaults-extra-file=/Applications/bulcky/xamppfiles/etc/my-extra.cnf -h 127.0.0.1 --port=3891 cultibox --no-data logs >> /Applications/bulcky/xamppfiles/htdocs/bulcky/tmp/export/backup_cultibox.sql",$output,$err);
             exec("zip -j ../../../tmp/export/backup_cultibox.sql.zip $file",$output,$err);
             break;
         case 'Windows NT':

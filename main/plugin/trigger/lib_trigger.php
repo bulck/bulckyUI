@@ -155,7 +155,7 @@ function check_db() {
 // RET none
 function addInMenu() {
 
-    echo '<li id="menu-trigger" class="level1 item173"><a href="/cultibox/index.php?menu=trigger" class="level1 href-trigger" ><span>Declencheurs</span></a></li>';
+    echo '<li id="menu-trigger" class="level1 item173"><a href="/bulcky/index.php?menu=trigger" class="level1 href-trigger" ><span>Declencheurs</span></a></li>';
 
 }
 

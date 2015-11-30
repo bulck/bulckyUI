@@ -78,14 +78,14 @@ function export_table_csv($name="",$datefrom="",$dateto="",&$out) {
     switch($os) {
         case 'Linux':
             if(isset($GLOBALS['MODE']) && $GLOBALS['MODE'] == "cultipi") {
-                exec("/usr/bin/mysql --defaults-extra-file=/var/www/cultibox/sql_install/my-extra.cnf -B -h 127.0.0.1 --port=3891 cultibox -e 'SELECT ${field} FROM `${name}` ${where}' > $file");
+                exec("/usr/bin/mysql --defaults-extra-file=/var/www/bulcky/sql_install/my-extra.cnf -B -h 127.0.0.1 --port=3891 cultibox -e 'SELECT ${field} FROM `${name}` ${where}' > $file");
             } else {
-                exec("../../../../../bin/mysql --defaults-extra-file=/opt/cultibox/etc/my-extra.cnf -B -h 127.0.0.1 --port=3891 cultibox -e 'SELECT ${field} FROM `${name}` ${where}' > $file");
+                exec("../../../../../bin/mysql --defaults-extra-file=/opt/bulcky/etc/my-extra.cnf -B -h 127.0.0.1 --port=3891 cultibox -e 'SELECT ${field} FROM `${name}` ${where}' > $file");
             }
             break;
         case 'Mac':
         case 'Darwin':
-			exec("../../../../../bin/mysql --defaults-extra-file=/Applications/cultibox/xamppfiles/etc/my-extra.cnf -B -h 127.0.0.1 --port=3891 cultibox -e 'SELECT ${field} FROM `${name}` ${where}' > $file");
+			exec("../../../../../bin/mysql --defaults-extra-file=/Applications/bulcky/xamppfiles/etc/my-extra.cnf -B -h 127.0.0.1 --port=3891 cultibox -e 'SELECT ${field} FROM `${name}` ${where}' > $file");
             break;
         case 'Windows NT':
 			exec("..\..\..\..\..\mysql\bin\mysql.exe --defaults-extra-file=\"C:\cultibox\\xampp\mysql\bin\my-extra.cnf\" -B -h 127.0.0.1 --port=3891 cultibox -e \"SELECT ${field} FROM `${name}` ${where}\" > $file");
