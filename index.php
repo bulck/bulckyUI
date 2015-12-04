@@ -72,7 +72,7 @@ check_database();
     }
 ?>
 
-    <title>Cultibox</title>
+    <title>Bulcky</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
@@ -92,8 +92,8 @@ check_database();
     <script type="text/javascript" src="/bulcky/main/libs/js/exporting.js?v=<?=@filemtime('main/libs/js/exporting.js')?>"></script>
     <script type="text/javascript" src="/bulcky/main/libs/js/jquery-ui-timepicker-addon.js?v=<?=@filemtime('main/libs/js/jquery-ui-timepicker-addon.js')?>"></script>
     <script type="text/javascript" src="/bulcky/main/libs/js/jquery.colourPicker.js?v=<?=@filemtime('main/libs/js/jquery.colourPicker.js')?>"></script>
-    <script type="text/javascript" src="/bulcky/main/libs/js/cultibox.js?v=<?=@filemtime('main/libs/js/cultibox.js')?>"></script>
-    <script type="text/javascript" src="/bulcky/main/libs/js/cultibox-utils.js?v=<?=@filemtime('main/libs/js/cultibox-utils.js')?>"></script>
+    <script type="text/javascript" src="/bulcky/main/libs/js/bulcky.js?v=<?=@filemtime('main/libs/js/bulcky.js')?>"></script>
+    <script type="text/javascript" src="/bulcky/main/libs/js/bulcky-utils.js?v=<?=@filemtime('main/libs/js/bulcky-utils.js')?>"></script>
     <script type="text/javascript" src="/bulcky/main/libs/js/fullcalendar.js?v=<?=@filemtime('main/libs/js/fullcalendar.js')?>"></script>
     <script type="text/javascript" src="/bulcky/main/libs/js/jquery.blockUI.js?v=<?=@filemtime('main/libs/js/jquery.blockUI.js')?>"></script>
     <script type="text/javascript" src="/bulcky/main/libs/js/scrollTo.js?v=<?=@filemtime('main/libs/js/scrollTo.js')?>"></script>
@@ -128,13 +128,6 @@ check_database();
                 <header id="header">
                     <div id="headerbar" class="grid-block">
                         <a href="/bulcky/main/scripts/help.php" target="_blank"><img src="/bulcky/main/libs/img/help.png" alt="<?php echo __('MENU_HELP'); ?>" title="<?php echo __('MENU_HELP'); ?>" /></a>
-
-
-                        <div id="box">
-                            <img src="/bulcky/main/libs/img/box.png" alt="">
-                        </div>
-                                    
-                        <a class="logo" href="/cultibox" id="welcome-logo"><img src="/bulcky/main/libs/img/logo_cultibox.png" alt=""></a>    
                     </div>
                 </header>
                 

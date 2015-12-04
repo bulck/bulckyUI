@@ -2171,15 +2171,8 @@ function get_cost_summary(&$out) {
 
    foreach($res as $result) {
         $resume="<p align='center'><b><i>".__('SUMARY_COST_TITLE').":<br /></i></b></p>";
-        if(isset($_COOKIE['LANG'])) {
-            if((strcmp($_COOKIE['LANG'],"fr_FR")==0)||(strcmp($_COOKIE['LANG'],"de_DE"))||(strcmp($_COOKIE['LANG'],"es_ES"))||(strcmp($_COOKIE['LANG'],"it_IT"))) {
-                $unity="&euro;";
-            } else {
-                $unity="&#163;";
-            }
-        } else {
-            $unity="&#163;";
-        }
+        $unity="&euro;";
+
         if(strcmp($result['COST_TYPE'],"standard")==0) {
             $resume=$resume."<br /><b>".__('SUMARY_COST_TYPE').":</b> ".$result['COST_TYPE'];
             $resume=$resume."<br /><b>".__('SUMARY_COST_PRICE').":</b> ".$result['COST_PRICE'].$unity;

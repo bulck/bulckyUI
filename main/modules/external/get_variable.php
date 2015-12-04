@@ -1,6 +1,6 @@
 <?php 
 
-//Affiche la valeur d'une variable PHP, script appelé par Ajax par le fichier cultibox.js pour récupérer des informations
+//Affiche la valeur d'une variable PHP, script appelé par Ajax par le fichier bulcky.js pour récupérer des informations
 // stockées côté serveur:
 
 require_once('../../libs/utilfunc.php');

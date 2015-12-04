@@ -57,9 +57,9 @@
             }   
             fclose($f);
 
-            exec("sudo mv /tmp/webcam".$id.".conf /etc/culticam/",$output,$err);
+            exec("sudo mv /tmp/webcam".$id.".conf /etc/bulckycam/",$output,$err);
         }
         
-        exec("sudo chown -R bulcky:bulcky /etc/culticam",$output,$err);
+        exec("sudo chown -R bulcky:bulcky /etc/bulckycam",$output,$err);
         echo json_encode("0");
 ?>

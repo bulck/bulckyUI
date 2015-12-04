@@ -52,107 +52,26 @@ $.ajax({
     if(jQuery.parseJSON(data)!="0") lang=jQuery.parseJSON(data);
 });
 
-if(lang=="it_IT") {
-    RELOAD_button="Reti Rescan";
-    SELECT_button="Convalidare";
-    OK_button="Continuare";
-    CANCEL_button="Annullare";
-    CLOSE_button="Chiudere";
-    DELETE_button="Rimuovere";
-    SAVE_button="Registrati";
-    REDUCE_button="Abbassare";
-    EXTEND_button="Ingrandisci";
-    HIDE_button="Nascondere";
-    EXPORT_button="Esportazione";
-    SAVING="Backup dei dati in corso, attendere prego...";
-    DIR_CONF_UPDATE="La configurazione è aggiornato";
-    DIR_CONF_NOT_UPTODATE="La configurazione utilizzata non è aggiornata, clicca qui per aggiornare la configurazione: <button id='update_conf'>Aggiorna configurazione</button>";
-    LOADING="Caricamento in corso, attendere prego...";
-    NEXT_button="Prossimo passo";
-    PREVIOUS_button="Fase precedente";
-    COMPUTE_button="Mostra risultati";
-    TEST_button="Test";
-} else if(lang=="de_DE") {
-    RELOAD_button="Rescan Netzwerke";
-    SELECT_button="Prüfen";
-    OK_button="Weiter";
-    CANCEL_button="Stornieren";
-    CLOSE_button="Schliessen";
-    DELETE_button="Entfernen";
-    SAVE_button="Registrieren";
-    REDUCE_button="Senken";
-    EXTEND_button="Vergrößern";
-    HIDE_button="Verbergen";
-    EXPORT_button="Export";
-    SAVING="Datensicherung läuft, bitte warten...";
-    DIR_CONF_UPDATE="Ihre Konfiguration ist auf dem neuesten Stand";
-    DIR_CONF_NOT_UPTODATE="verwendet wird, nicht aktualisierte Konfiguration, klicken Sie hier, um die Konfiguration zu aktualisieren: <button id='update_conf'>Aktualisieren Sie Konfiguration</button>";
-    LOADING="Laden Laden, bitte warten...";
-    NEXT_button="Nächster Schritt";
-    PREVIOUS_button="Vorheriger Schritt";
-    COMPUTE_button="Ergebnisse anzeigen";
-    TEST_button="Test";
-} else if(lang=="en_GB") {
-    RELOAD_button="Rescan networks";
-    SELECT_button="Validate";
-    OK_button="OK";
-    CANCEL_button="Cancel";
-    CLOSE_button="Close";
-    DELETE_button="Delete";
-    SAVE_button="Save";
-    REDUCE_button="Shorten";
-    EXTEND_button="Enlarge";
-    HIDE_button="Hide";
-    EXPORT_button="Export";
-    SAVING="Data saving in progress, please wait...";
-    DIR_CONF_UPDATE="Your configuration is up to date";
-    DIR_CONF_NOT_UPTODATE="The configuration used is not updated, click here to update the configuration: <button id='update_conf'> Update configuration </button>";
-    LOADING="Loading, please wait...";
-    NEXT_button="Next step";
-    PREVIOUS_button="Previous step";
-    COMPUTE_button="Display result";
-    TEST_button="Test";
-} else if(lang=="es_ES") {
-    RELOAD_button="Volver a examinar las redes";
-    SELECT_button="Validar";
-    OK_button="Continuar";
-    CANCEL_button="Cancelar";
-    CLOSE_button="Cerrar";
-    DELETE_button="Eliminar";
-    SAVE_button="Registro";
-    REDUCE_button="Bajar";
-    EXTEND_button="Agrandar";
-    HIDE_button="Ocultar";
-    EXPORT_button="Exportación";
-    SAVING="Copia de datos en curso, espere por favor...";
-    DIR_CONF_UPDATE="Su configuración está al día";
-    DIR_CONF_NOT_UPTODATE="La configuración utilizada no está actualizado, haga clic aquí para actualizar la configuración: <button id='update_conf'>Actualizar configuración botón</button>";
-    LOADING="Cargando, espere por favor...";
-    NEXT_button="Paso siguiente";
-    PREVIOUS_button="Paso previo";
-    COMPUTE_button="Mostrar resultados";
-    TEST_button="Test";
-} else {
-    RELOAD_button="Re-scanner les réseaux";
-    SELECT_button="Valider";
-    OK_button="Continuer";
-    CANCEL_button="Annuler";
-    CLOSE_button="Fermer";
-    DELETE_button="Supprimer";
-    SAVE_button="Enregistrer";
-    REDUCE_button="Réduire";
-    EXTEND_button="Agrandir";
-    HIDE_button="Cacher";
-    EXPORT_button="Exporter";
-    SAVING="Sauvegarde des données en cours, patientez s'il vous plait..."
-    DIR_CONF_UPDATE="Votre configuration est à jour";
-    DIR_CONF_NOT_UPTODATE="La configuration utilisée n'est pas à jour, cliquez ici pour mettre la configuration à jour: <button id='update_conf'>Mise à jour de la configuration</button>";
-    LOADING="Chargement des données en cours, patientez s'il vous plait...";
-    NEXT_button="Etape suivante";
-    PREVIOUS_button="Etape précédente";
-    COMPUTE_button="Afficher le résultat";
-    TEST_button="Test";
-}
+RELOAD_button="Re-scanner les réseaux";
+SELECT_button="Valider";
+OK_button="Continuer";
+CANCEL_button="Annuler";
+CLOSE_button="Fermer";
+DELETE_button="Supprimer";
+SAVE_button="Enregistrer";
+REDUCE_button="Réduire";
+EXTEND_button="Agrandir";
+HIDE_button="Cacher";
+EXPORT_button="Exporter";
+SAVING="Sauvegarde des données en cours, patientez s'il vous plait..."
+DIR_CONF_UPDATE="Votre configuration est à jour";
+DIR_CONF_NOT_UPTODATE="La configuration utilisée n'est pas à jour, cliquez ici pour mettre la configuration à jour: <button id='update_conf'>Mise à jour de la configuration</button>";
+LOADING="Chargement des données en cours, patientez s'il vous plait...";
+NEXT_button="Etape suivante";
+PREVIOUS_button="Etape précédente";
+COMPUTE_button="Afficher le résultat";
+TEST_button="Test";
+
 
 
 // {{{ secondsToTime()

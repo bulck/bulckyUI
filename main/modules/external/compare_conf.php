@@ -17,7 +17,7 @@
 
     // For each directories, defin a text for en user
     $typicalError["serverAcqSensor"]    = __('DIFF_CONF_SERVERACQSENSOR') ;
-    $typicalError["cultiPi"]            = __('DIFF_CONF_CULTIPI','js') ;
+    $typicalError["bulckyPi"]            = __('DIFF_CONF_CULTIPI','js') ;
     $typicalError["serverIrrigation"]   = __('DIFF_CONF_SERVERIRRIGATION') ;
     $typicalError["serverMail"]         = __('DIFF_CONF_SERVERMAIL') ;
     $typicalError["serverPlugUpdate"]   = __('DIFF_CONF_SERVERPLUGUPDATE') ;
@@ -41,15 +41,15 @@
         switch ($fileAndDirInConfTemp) 
         {
             case "serverAcqSensor" :
-            case "cultiPi" :
+            case "bulckyPi" :
             case "serverIrrigation" :
             case "serverMail" :
             case "serverPlugUpdate" :
             case "serverSupervision" :
-              exec("/bin/grep $fileAndDirInConfTemp ".$GLOBALS['CULTIPI_CONF_TEMP_PATH']."/cultiPi/start.xml 2>/dev/null",$ret,$code);
+              exec("/bin/grep $fileAndDirInConfTemp ".$GLOBALS['CULTIPI_CONF_TEMP_PATH']."/bulckyPi/start.xml 2>/dev/null",$ret,$code);
               $proceed=true;
 
-              if((strcmp("$fileAndDirInConfTemp","cultiPi")!=0)&&(count($ret)<=0)) $proceed=false;
+              if((strcmp("$fileAndDirInConfTemp","bulckyPi")!=0)&&(count($ret)<=0)) $proceed=false;
 
               if($proceed) {
                 // Check if this dir exists in 01_defaultConf_RPi
@@ -65,7 +65,7 @@
                     $errTemp = "";
                     $ret = "";
                     exec("diff -urw $fileConfName $fileTempName",$ret,$errTemp);
-                    $srch = array("<", "/etc/cultipi/","diff -urw");
+                    $srch = array("<", "/etc/bulckypi/","diff -urw");
                     $rep = array("&lt;", "","");
                     
                     // If there are some diff 
