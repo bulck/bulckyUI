@@ -660,9 +660,6 @@ function check_database() {
     // Check configuration DB
     configuration\check_db();
 
-    //Check information table
-    informations\check_db();
-
     //Check sensors table:
     sensors\check_db();
 
@@ -675,8 +672,8 @@ function check_database() {
     //Check power table:
     power\check_db();
 
-    //Check wifi table:
-    cultipi\check_db();
+    //Check bulcky table:
+    bulcky\check_db();
 
 }
 //}}}

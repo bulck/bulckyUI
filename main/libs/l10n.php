@@ -11,7 +11,6 @@ define ('__TRANSLATIONS_MAX_LINE_LENGTH', 8192);
 define ('__TRANSLATIONS_CACHE_FILEPATH', '%s/main/templates_c/l10n.%s.ser');
 define ('__TRANSLATIONS_PO_FILEPATH', '%s/main/locale/%s.utf8.po');
 
-
 if(isset($_COOKIE['LANG'])) {
     define ('__TRANSLATIONS_CACHE_FILEPATH_MODULE', dirname(__FILE__) . '/../templates_c/l10n.'.$_COOKIE['LANG'].'.ser');
     define ('__TRANSLATIONS_PO_FILEPATH_MODULE', dirname(__FILE__) . '/../locale/'.$_COOKIE['LANG'].'.utf8.po');

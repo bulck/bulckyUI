@@ -6,18 +6,10 @@
 // USED BY: templates/configuration.html
 function expand(div) {
       var divConfig = document.getElementById('div_user_interface');
-      var divSystem = document.getElementById('div_system_interface');
-      var divAlarm = document.getElementById('div_alarm_interface');
-      var divCard = document.getElementById('div_card_interface');
       var divSubmit = document.getElementById('div_submit_interface');
 
       var divLabelConfig = document.getElementById('div_user_label');
-      var divLabelSystem = document.getElementById('div_system_label');
-      var divLabelAlarm = document.getElementById('div_alarm_label');
-      var divLabelCard = document.getElementById('div_card_label');
 
-      var divAlarmDesc = document.getElementById('div_alarm_description');
-      
       var divsynoptic_ui = document.getElementById('div_synoptic_ui');
       var divnetwork_conf_ui = document.getElementById('div_network_conf_ui');
       var divadmin_ui = document.getElementById('div_admin_ui');
@@ -30,60 +22,39 @@ function expand(div) {
       switch(div) {
          case 'user_interface' : 
             divConfig.style.display = '';
-            divSystem.style.display = "none";
-            divAlarm.style.display = "none";
-            divCard.style.display = "none";
             divSubmit.style.display = "";
-            divAlarmDesc.style.display = "none";
             divnetwork_conf_ui.style.display = "none";
             divadmin_ui.style.display = "none";
 
             divLabelNetwork.style.color = "black";
             divLabelAdmin.style.color = "black";
-            divLabelCard.style.color = "black";
             divLabelConfig.style.color = "#6E8915";
-            divLabelSystem.style.color = "black";
-            divLabelAlarm.style.color = "black";
 
             //document.configform.submenu.value="user_interface";
 
             break;
          case 'system_interface' : 
             divConfig.style.display = "none";
-            divSystem.style.display = '';
-            divAlarm.style.display = "none";
-            divCard.style.display = "none";
             divSubmit.style.display = "";
-            divAlarmDesc.style.display = "none";
             divnetwork_conf_ui.style.display = "none";
             divadmin_ui.style.display = "none";
             
             divLabelNetwork.style.color = "black";
             divLabelAdmin.style.color = "black";
-            divLabelCard.style.color = "black";
             divLabelConfig.style.color = "black";
-            divLabelSystem.style.color = "#6E8915";
-            divLabelAlarm.style.color = "black";
 
             //document.configform.submenu.value="system_interface";
 
             break;
          case 'alarm_interface' : 
             divConfig.style.display = "none";
-            divSystem.style.display = "none";
-            divAlarm.style.display = '';
-            divCard.style.display = "none";
             divSubmit.style.display = "";
-            divAlarmDesc.style.display = "";
             divnetwork_conf_ui.style.display = "none";
             divadmin_ui.style.display = "none";
             
             divLabelNetwork.style.color = "black";
             divLabelAdmin.style.color = "black";
-            divLabelCard.style.color = "black";
             divLabelConfig.style.color = "black";
-            divLabelSystem.style.color = "black";
-            divLabelAlarm.style.color = "#6E8915";
 
 
             //document.configform.submenu.value="alarm_interface";
@@ -91,59 +62,38 @@ function expand(div) {
             break;
          case 'card_interface' : 
             divConfig.style.display = "none";
-            divSystem.style.display = "none";
-            divAlarm.style.display = "none";
-            divCard.style.display = "";
             divSubmit.style.display = "none";
-            divAlarmDesc.style.display = "none";
             divnetwork_conf_ui.style.display = "none";
             divadmin_ui.style.display = "none";
             
             divLabelNetwork.style.color = "black";
             divLabelAdmin.style.color = "black";
-            divLabelCard.style.color = "#6E8915";
             divLabelConfig.style.color = "black";
-            divLabelSystem.style.color = "black";
-            divLabelAlarm.style.color = "black";
 
             //document.configform.submenu.value="card_interface";
 
             break;
          case 'network_conf_ui' : 
             divConfig.style.display = 'none';
-            divSystem.style.display = "none";
-            divAlarm.style.display = "none";
-            divCard.style.display = "none";
             divSubmit.style.display = "none";
-            divAlarmDesc.style.display = "none";
             divnetwork_conf_ui.style.display = "";
             divadmin_ui.style.display = "none";
 
             divLabelNetwork.style.color = "#6E8915";
             divLabelAdmin.style.color = "black";
-            divLabelCard.style.color = "black";
             divLabelConfig.style.color = "black";
-            divLabelSystem.style.color = "black";
-            divLabelAlarm.style.color = "black";
 
             //document.configform.submenu.value="network_conf_ui";
             break;
          case 'admin_ui' : 
             divConfig.style.display = 'none';
-            divSystem.style.display = "none";
-            divAlarm.style.display = "none";
-            divCard.style.display = "none";
             divSubmit.style.display = "none";
-            divAlarmDesc.style.display = "none";
             divnetwork_conf_ui.style.display = "none";
             divadmin_ui.style.display = "";
 
             divLabelNetwork.style.color = "black";
             divLabelAdmin.style.color = "#6E8915";
-            divLabelCard.style.color = "black";
             divLabelConfig.style.color = "black";
-            divLabelSystem.style.color = "black";
-            divLabelAlarm.style.color = "black";
 
             //document.configform.submenu.value="admin_ui";
             break;

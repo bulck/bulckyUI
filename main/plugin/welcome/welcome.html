@@ -1,0 +1,48 @@
+<script>
+   $("[title]").tooltip({ 
+        position: { my: "left+20 center-30", at: "right+15 center-10" },
+        close: function (event, ui) {
+            ui.tooltip.hover(
+            function () {
+                $(this).stop(true).fadeTo(300, 1);
+            },    
+            function () {
+                $(this).fadeOut("300", function () {
+                    $(this).remove();
+                })
+            });
+        } 
+    });
+</script>
+<br />
+<div class="welcome-paragraph"><?php echo __('WELCOME_MESSAGE'); ?></div>
+<br />
+<hr class="hr_welcome" />
+<br />
+<div class="row welcome-img">
+    <div class="3u 12u(2)">
+        <div class="box highlight">
+            <a href="/bulcky/index.php?menu=logs" id="welcome-log-img">
+                <img src="main/libs/img/logs.png" title="<?php echo __('WELCOME_LOGS'); ?>" alt="<?php echo __('WELCOME_LOGS'); ?>" /></a>
+        </div>
+    </div>
+                            
+    <div class="3u 12u(2)">
+        <div class="box highlight">
+             <a href="/bulcky/index.php?menu=programs" id="welcome-prog-img"><img src="main/libs/img/program.png" title="<?php echo __('WELCOME_PROGRAM'); ?>" alt="<?php echo __('WELCOME_PROGRAM'); ?>" /></a>
+        </div>
+    </div>
+                            
+    <div class="3u 12u(2)">
+        <div class="box highlight">
+             <a href="/bulcky/index.php?menu=calendar" id="welcome-cal-img"><img src="main/libs/img/calendar.png" title="<?php echo __('WELCOME_CALENDAR'); ?>" alt="<?php echo __('WELCOME_CALENDAR'); ?>"/></a>
+        </div>
+    </div>
+    <div class="3u 12u(2)">
+        <div class="box highlight">
+             <a href="/bulcky/index.php?menu=cultipi" id="welcome-synop-img"><img src="main/libs/img/synoptic.png" title="<?php echo __('WELCOME_SYNOP'); ?>" alt="<?php echo __('WELCOME_SYNOP'); ?>"/></a>
+        </div>
+    </div>
+</div>
+<br /><div id="compat" style="display:none" class="compat"><br /><?php echo __('ERROR_COMPAT_BROWSER'); ?></div>
+

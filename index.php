@@ -1,46 +1,38 @@
 <?php
 
-// DOn't put pages in cache:
+// Don't put pages in cache:
 session_cache_limiter('nocache');
 $error=array();
 
+$lang="fr_FR";
+setcookie("LANG", "fr_FR", time()+(86400 * 30),"/",false,false);
 
 //Cookie permettant de stocker le positionnement de la boîte de message, valable pendant 30 jours
 if (!isset($_COOKIE['POSITION'])) {
     setcookie("POSITION", "15,15,325", time()+(86400 * 30),"/",false,false);
 }
 
-//Timezone par défaut pour éviter les problèmes d'ajout d'heures lors des transformations des temps 
+//Timezone par défaut pour éviter les problèmes d'ajout d'heures lors des transformations des temps
 date_default_timezone_set('UTC');
-
 
 //Minimal library required:
 require_once('main/libs/config.php');
 require_once('main/libs/db_get_common.php');
 require_once 'main/libs/utilfunc.php';
 
-// Load every plugins 
-foreach ($GLOBALS['PLUGIN'] as $plugin) { 
+// Load every plugins
+foreach ($GLOBALS['PLUGIN'] as $plugin) {
     $fileName = 'main/plugin/' . $plugin . '/lib_' . $plugin . '.php';
-    if (is_file($fileName)) 
+    if (is_file($fileName))
     {
         require_once $fileName;
     }
 }
 
-//Set lang:
-if((isset($_COOKIE['LANG']))&&(!empty($_COOKIE['LANG']))) {
-    $lang=$_COOKIE['LANG'];
-} else {
-    $lang=get_configuration("DEFAULT_LANG",$error);
-    setcookie("LANG", "$lang", time()+(86400 * 365),"/",false,false);
-    header('Location: /bulcky/');
-}
 __('LANG');
 
 
 setcookie("CHECK_SD", "False", time()+1800,"/",false,false);
-
 
 // Library required:
 require_once('main/libs/db_set_common.php');
@@ -52,41 +44,32 @@ check_database();
 
 ?>
 <!DOCTYPE HTML>
-<head>
-<?php
-    $filename = '../../VERSION.txt';
-    if (file_exists($filename)) {
-        clearstatcache();
-        $time=time();
-        $mod_time=filemtime($filename);
-        $duration=$time-$mod_time;
-
-        //If software is opened 10mn after the installation or the upgrade, we delete the cache:
-        if($duration<600) { 
-            header( 'Expires: Sat, 26 Jul 1997 05:00:00 GMT' );
-            header( 'Last-Modified: ' . gmdate( 'D, d M Y H:i:s' ) . ' GMT' );
-            header( 'Cache-Control: no-store, no-cache, must-revalidate' );
-            header( 'Cache-Control: post-check=0, pre-check=0', false );
-            header( 'Pragma: no-cache' ); 
-        }
-    }
-?>
-
-    <title>Bulcky</title>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <link href="/bulcky/favicon.ico" rel="shortcut icon"/>
-    <link rel="stylesheet" href="/bulcky/css/base.css?v=<?=@filemtime('css/base.css')?>" />
-    <link rel="stylesheet" href="/bulcky/fonts/opensans.css?v=<?=@filemtime('fonts/opensans.css')?>" />
-
-    <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/jquery-ui-1.8.19.custom.css?v=<?=@filemtime('main/libs/css/jquery-ui-1.8.19.custom.css')?>" />
-    <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/fullcalendar.css?v=<?=@filemtime('main/libs/css/fullcalendar.css')?>" />
-    <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/jquery.colourPicker.css?v=<?=@filemtime('main/libs/css/jquery.colourPicker.css')?>" />
-    <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/bulcky.css?v=<?=@filemtime('main/libs/css/bulcky.css')?>" />
+<html>
+	<head>
+		<title>Bulcky</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="icon" href="favicon.ico" />
+		
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-ui.js"></script>
+		<script src="js/bulck.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		
+		<link rel="stylesheet" href="css/jquery-ui.css" />
+		<link rel="stylesheet" href="css/skel.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+        <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/fullcalendar.css?v=<?=@filemtime('main/libs/css/fullcalendar.css')?>" />
+        <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/bulcky.css?v=<?=@filemtime('main/libs/css/bulcky.css')?>" />
+        <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/bulcky.css.old?v=<?=@filemtime('main/libs/css/bulcky.css')?>" />
+        <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/jquery.colourPicker.css?v=<?=@filemtime('main/libs/css/jquery.colourPicker.css')?>" />
 
     <script type="text/javascript" src="/bulcky/main/libs/js/jquery-1.8.3.js?v=<?=@filemtime('main/libs/js/jquery-1.8.3.js')?>"></script>
-    <script type="text/javascript" src="/bulcky/main/libs/js/jquery-ui-1.9.2.custom.js?v=<?=@filemtime('main/libs/js/jquery-ui-1.9.2.custom.js')?>"></script>
     <script type="text/javascript" src="/bulcky/main/libs/js/jquery-ui-1.9.2.custom.min.js?v=<?=@filemtime('main/libs/js/jquery-ui-1.9.2.custom.min.js')?>"></script>
     <script type="text/javascript" src="/bulcky/main/libs/js/highcharts.js?v=<?=@filemtime('main/libs/js/highcharts.js')?>"></script>
     <script type="text/javascript" src="/bulcky/main/libs/js/exporting.js?v=<?=@filemtime('main/libs/js/exporting.js')?>"></script>
@@ -100,113 +83,113 @@ check_database();
     <script type="text/javascript" src="/bulcky/main/libs/js/fileDownload.js?v=<?=@filemtime('main/libs/js/fileDownload.js')?>"></script>
     <script type="text/javascript" src="/bulcky/main/libs/js/jquery.ui.datepicker-<?php echo substr($_COOKIE['LANG'], 0 , 2); ?>.js?v=<?=@filemtime('main/libs/js/jquery.ui.datepicker-'.substr($_COOKIE['LANG'], 0 , 2).'.js')?>"></script>
     <script type="text/javascript" src="/bulcky/main/libs/js/fileUpload.js?v=<?=@filemtime('main/libs/js/fileUpload.js')?>"></script>
-</head>
-
-
-<body id="page" class="page">
+	</head>
+	<body>
     <div id="diff_conf" style="display:none">
-    <?php echo __('DIR_CONF_NOT_UPTODATE_POPUP'); ?>
-    <p class="disable_popup">
-        <?php echo __('DISABLE_POPUP'); ?>
-        <input type="checkbox" id="disable_popup" name="disable_popup" />
-    </p>
+        <?php echo __('DIR_CONF_NOT_UPTODATE_POPUP'); ?>
+        <p class="disable_popup">
+            <?php echo __('DISABLE_POPUP'); ?>
+            <input type="checkbox" id="disable_popup" name="disable_popup" />
+        </p>
     </div>
+
     <div id="sync_conf" style="display:none">
         <?php echo __('SYNC_CONF'); ?>
     </div>
 
     <div id="diff_conf_list" title="<?php echo __('DIFF_CONF'); ?>" style="display:none">
     </div>
-    <div id="page-bg">
-        <div>
-            <!-- Small eye for displaying message pop up-->
-            <script>title_msgbox="<?php echo __('TOOLTIP_MSGBOX_EYES'); ?>";</script>
 
-            <div id="tooltip_msg_box" style="display:none" class="eyes_msgbox"><img src='/bulcky/main/libs/img/eye.png' alt="" title="" id="eyes_msgbox"></div>
+    <div>
+    <!-- Small eye for displaying message pop up-->
+    <script>title_msgbox="<?php echo __('TOOLTIP_MSGBOX_EYES'); ?>";</script>
 
-            <div class="wrapper grid-block">
-                <header id="header">
-                    <div id="headerbar" class="grid-block">
-                        <a href="/bulcky/main/scripts/help.php" target="_blank"><img src="/bulcky/main/libs/img/help.png" alt="<?php echo __('MENU_HELP'); ?>" title="<?php echo __('MENU_HELP'); ?>" /></a>
-                    </div>
-                </header>
-                
-                        
-                <!-- Display Menu-->
-                <div id="menubar">
-                    <ul id="menubar-ul">
-                            <li id="menu-configuration"><a href="/bulcky/index.php?menu=configuration" class="level1 href-configuration"><span><?php echo __('MENU_CONF'); ?></span></a></li>
+    <div id="tooltip_msg_box" style="display:none" class="eyes_msgbox"><img src='/bulcky/main/libs/img/eye.png' alt="" title="" id="eyes_msgbox"></div>
 
-                            <li id="menu-logs"><a href="/bulcky/index.php?menu=logs" class="level1 href-logs"><span><?php echo __('MENU_LOGS'); ?></span></a></li>
+	<div id="elevator-up" class="elevator-up">
+		<a href="" id="arrow_up" title="Haut de page" class="icon-elevator fa-arrow-up" style="visibility:hidden"></a>
+	</div>
 
-                            <li id="menu-programs"><a href="/bulcky/index.php?menu=programs" class="level1 href-programs"><span><?php echo __('MENU_PROGS'); ?></span></a></li>
+	<div id="elevator-down" class="elevator-down">
+		<a href="" style="visibility:hidden" title="Bas de page" id="arrow_down" class="icon-elevator fa-arrow-down"></a>
+	</div>
 
-                            <li id="menu-calendar"><a href="/bulcky/index.php?menu=calendar" class="level1 href-calendar"><span><?php echo __('MENU_CAL'); ?></span></a></li>
-                                    <li id="menu-cultipi" class="level1 item164"><a href="/bulcky/index.php?menu=cultipi" class="level1 href-cultipi" ><span><?php echo __('MENU_CULTIPI'); ?></span></a></li>
-                            
-                            <?php
-                                // If there are some plugins to show in menu, display it 
-                                foreach ($GLOBALS['PLUGIN'] as $plugin) { 
-                                    
-                                    // Check if function exists
-                                    if (function_exists($plugin . '\addInMenu'))
-                                    {
-                                        call_user_func($plugin . '\addInMenu');
-                                    }
-                                }
-                            ?>
-                   </ul>
-            </div>
+	<img src="./images/logo_bulck.png" class="logo" alt="" />
 
-                <div class="message" style="display:none" title="<?php echo __('MESSAGE_BOX'); ?>">
-                    <br />
-                    <div id="pop_up_information_container">
-                        <img src="main/libs/img/informations.png" alt="" />
-                        <label class="info_title"><?php echo __('INFORMATION'); ?>:</label>
-                        <div class="info"  id="pop_up_information_part">
-                            <ul>
-                            </ul>
-                            <br />
-                        </div>
-                    </div>
-                    <div id="pop_up_error_container">
-                        <img src="main/libs/img/warning.png" alt="" />
-                        <label class="error_title"><?php  echo __('WARNING'); ?>:</label>
-                        <div class="error" id="pop_up_error_part">
-                            <ul>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <br />
-
-                <!-- To check that javascript is enable: -->
-                <noscript>
-                <div id="compat-js" class="text_info">
-                <p><?php echo __('ENABLE_JAVASCRIPT'); ?></p>
-                </div>
-                </noscript>
-                
-                <!--  Main content part: -->
-                <div id="main" class="grid-block">
-                    <div id="maininner" class="grid-box">
-                        <div id="content" class="grid-block">
-                        </div>
-                        <div class="shortlogo"><img src="main/libs/img/shortlogo2.png" alt=""></div>
-                    </div> 
-                </div>
-            </div>
-            
-            <footer id="footer" class="grid-block">
-                    <p class="p_center">
-                        <!-- Displays version and license for the software at the footer -->
+	<!-- Header -->
+		<div id="header">
+			<!-- Menu -->
+				<nav id="nav">
+					<ul id="menubar-ul">
                         <?php
-                            $error="";
-                            echo "v".get_configuration("VERSION",$error)."&nbsp;&nbsp;GPL-V3<br />";
+                            // If there are some plugins to show in menu, display it
+                            foreach ($GLOBALS['PLUGIN'] as $plugin) {
+                                // Check if function exists
+                                if (function_exists($plugin . '\addInMenu'))
+                                {
+                                    call_user_func($plugin . '\addInMenu');
+                                }
+                            }
                         ?>
-                    </p>
-            </footer>
+					</ul>
+				</nav>
+		</div>
+
+        <div class="message" style="display:none" title="<?php echo __('MESSAGE_BOX'); ?>">
+            <br />
+            <div id="pop_up_information_container">
+                <img src="main/libs/img/informations.png" alt="" />
+                <label class="info_title"><?php echo __('INFORMATION'); ?>:</label>
+                <div class="info"  id="pop_up_information_part">
+                    <ul>
+                    </ul>
+                    <br />
+                </div>
+            </div>
+
+            <div id="pop_up_error_container">
+                <img src="main/libs/img/warning.png" alt="" />
+                <label class="error_title"><?php  echo __('WARNING'); ?>:</label>
+                <div class="error" id="pop_up_error_part">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
-</body>
+
+		<!-- Banner -->
+			<div id="banner">
+			    <a href="/bulcky/index.php?menu=welcome" class="href-welcome"><img src="./images/bulck.png" class="logo_bulck" alt="" /></a>
+			</div>
+		
+		<nav class="nav"></nav>
+		<!-- Highlights -->
+			<div class="wrapper style1">
+				<!-- Div content -->
+				<div class="container" id="content">
+                     <!-- To check that javascript is enable: -->
+                    <noscript>
+                        <div id="compat-js" class="compat">
+                            <?php echo __('ENABLE_JAVASCRIPT'); ?>
+                        </div>
+                    </noscript>
+				</div>
+			</div>
+		
+		
+			<nav class="nav"></nav>
+			
+			<!-- Footer -->
+			<div id="footer">
+                <br />
+				<!-- Copyright -->
+					<div class="copyright">
+						<ul class="menu">
+                            <li>Contact : <a href"mailto:info@bulck.fr">info@bulck.fr</a></li>
+							<li>&copy; Bulck SAS. Tout droits réservés</li>
+						</ul>
+					</div>
+
+			</div>
+	</body>
 </html>

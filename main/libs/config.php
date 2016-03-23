@@ -177,11 +177,8 @@ $GLOBALS['WEBCAM_RESOLUTION'] = array("320x240", "320x480", "640x480", "800x600"
 //Webcam palette:
 $GLOBALS['WEBCAM_PALETTE'] = array("AUTO", "PNG","JPEG","MJPEG","S561","RGB32","RGB24","BGR32","BGR24","YUYV","UYVY","YUV420P","BAYER","SGBRG8","SGRBG8","RGB565","RGB555","Y16","GREY");
 
-// Software mode : cultipi or cultibox:
-$GLOBALS['MODE']="cultibox";
-
 // For cultipi : path to the conf (for windows : C:/bulcky/xampp/htdocs/cultibox)
-$GLOBALS['CULTIPI_CONF_PATH'] = "/etc/cultipi";
+$GLOBALS['CULTIPI_CONF_PATH'] = "/etc/bulckypi";
 $GLOBALS['CULTIPI_CONF_TEMP_PATH'] = $GLOBALS['CULTIPI_CONF_PATH'] . "/conf_tmp";
 $GLOBALS['CULTIPI_CONF_OUT_PATH']  = $GLOBALS['CULTIPI_CONF_PATH'] . "/01_defaultConf_RPi";
 
@@ -212,7 +209,8 @@ $GLOBALS['CULTIPI']['TRACE_LEVEL']['serverCultibox']    = "info";
 
 
 // ----------------- Plugin ----------------- 
-$GLOBALS['PLUGIN'] = array();
+$GLOBALS['PLUGIN'] = array('welcome','configuration','plugs','logs','calendar','bulcky');
+
 
 
 // Load user config file

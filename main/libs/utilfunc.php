@@ -3,38 +3,38 @@
 // Load libraries
 if(is_file("main/libs/l10n.php")) {
    require_once 'main/libs/l10n.php';
-   require_once 'main/libs/lib_programs.php';
-   require_once 'main/libs/lib_calendar.php';
-   require_once 'main/libs/lib_configuration.php';
-   require_once 'main/libs/lib_logs.php';
-   require_once 'main/libs/lib_informations.php';
    require_once 'main/libs/lib_sensors.php';
-   require_once 'main/libs/lib_plugs.php';
    require_once 'main/libs/lib_power.php';
-   require_once 'main/libs/lib_cultipi.php';
+   require_once 'main/plugin/bulcky/lib_bulcky.php';
+   $PATH_PLUGIN='main/plugin';
+
 } else if(is_file("../libs/l10n.php")) {
    require_once '../libs/l10n.php';
-   require_once '../libs/lib_programs.php';
-   require_once '../libs/lib_calendar.php';
-   require_once '../libs/lib_configuration.php';
-   require_once '../libs/lib_logs.php';
-   require_once '../libs/lib_informations.php';
+   $PATH_PLUGIN='../main/plugin';
    require_once '../libs/lib_sensors.php';
-   require_once '../libs/lib_plugs.php';
    require_once '../libs/lib_power.php';
-   require_once '../libs/lib_cultipi.php';
+   require_once '../lib_bulcky.php';
 } else {
    require_once '../../libs/l10n.php';
-   require_once '../../libs/lib_programs.php';
-   require_once '../../libs/lib_calendar.php';
-   require_once '../../libs/lib_configuration.php';
-   require_once '../../libs/lib_logs.php';
-   require_once '../../libs/lib_informations.php';
+   $PATH_PLUGIN='../../main/plugin';
    require_once '../../libs/lib_sensors.php';
-   require_once '../../libs/lib_plugs.php';
    require_once '../../libs/lib_power.php';
-   require_once '../../libs/lib_cultipi.php';
+   require_once '../../plugin/bulcky/lib_bulcky.php';
 }
+
+
+$handler = opendir($PATH_PLUGIN);
+while ($file = readdir($handler)) {
+    $handler_plugin = opendir($PATH_PLUGIN."/".$file);
+    while ($plugin = readdir($handler_plugin)) {
+        if ($plugin != "." && $plugin != "..") {
+            if(strpos($plugin, 'lib_') !== false) {
+                require_once  "$PATH_PLUGIN/".$file."/".$plugin;
+            }
+        }
+    }
+}
+    
 
 
 
@@ -60,7 +60,7 @@ function __() {
 
   
    if (!isset($__translations)) {
-      $__translations = __translations_get($_COOKIE['LANG']);
+      $__translations = __translations_get("fr_FR");
       $__translations_fallback = __translations_get(LANG_FALLBACK);
 
       if (empty($__translations_fallback)) {
@@ -819,7 +819,7 @@ function check_browser_compat($tab) {
                 break;
             case 'chrome':
                 //Support every version of chrome
-                return true;
+                return false;
                 break;
             case 'safari':
 		        //Support for Mac Os X Safari

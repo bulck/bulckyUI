@@ -23,14 +23,16 @@
     $typicalError["serverPlugUpdate"]   = __('DIFF_CONF_SERVERPLUGUPDATE') ;
     $typicalError["serverSupervision"]  = __('DIFF_CONF_SERVERSUPERVISION') ;
     
-    
     // Foreach folder in conf_temp
     // - Check if this folder exists in 01_defaultConf_RPi
     // - Check difference
     $filesAndDirsInConfTemp = array_diff(scandir($tmp_conf), array('..', '.'));
 
+
+
     foreach ($filesAndDirsInConfTemp As $fileAndDirInConfTemp)
     {
+
         $fileTempName = $tmp_conf     . "/" . $fileAndDirInConfTemp;
         $fileConfName = $current_conf . "/" . $fileAndDirInConfTemp;
 
