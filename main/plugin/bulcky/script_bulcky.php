@@ -7,17 +7,10 @@ $start_load = getmicrotime();
 $main_error=array();
 $main_info=array();
 
-// Trying to find if a cultibox SD card is currently plugged and if it's the case, get the path to this SD card
-if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) {
-    if((!isset($sd_card))||(empty($sd_card))) {
-        $sd_card=get_sd_card();
-    }
-} else {
-    $sd_card = $GLOBALS['CULTIPI_CONF_TEMP_PATH'];
-    if((!is_dir($sd_card."/serverAcqSensor"))||(!is_dir($sd_card."/serverHisto"))||(!is_dir($sd_card."/serverPlugUpdate"))||(!is_dir($sd_card."/serverLog"))) {
-        if(strpos($_SERVER['REMOTE_ADDR'],"10.0.0.100")!==false) {
-            check_and_update_sd_card($sd_card,$info,$error,false);
-        }
+$sd_card = $GLOBALS['CULTIPI_CONF_TEMP_PATH'];
+if((!is_dir($sd_card."/serverAcqSensor"))||(!is_dir($sd_card."/serverHisto"))||(!is_dir($sd_card."/serverPlugUpdate"))||(!is_dir($sd_card."/serverLog"))) {
+    if(strpos($_SERVER['REMOTE_ADDR'],"10.0.0.100")!==false) {
+        check_and_update_sd_card($sd_card,$info,$error,false);
     }
 }
 
@@ -27,7 +20,7 @@ if((!isset($sd_card))||(empty($sd_card))) {
 }
 
 
-$webcam_conf = cultipi\get_webcam_conf();
+$webcam_conf = bulcky\get_webcam_conf();
 
 for($i=0;$i<$GLOBALS['MAX_WEBCAM'];$i++)
 {

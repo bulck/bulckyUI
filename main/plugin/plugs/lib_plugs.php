@@ -162,7 +162,7 @@ function getDB($plug = "") {
 // ROLE Add in menu
 // RET none
 function addInMenu() {
-    echo '<li id="menu-plugs"><a href="/bulcky/index.php?menu=plugs"><span>Prises</span></a></li>';
+    echo '<li id="menu-plugs"><a class="href-plugs" href="/bulcky/index.php?menu=plugs"><span>Prises</span></a></li>';
 }
 
 }

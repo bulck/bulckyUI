@@ -591,7 +591,7 @@ function save_log($file="",$month=0,$day=0,$type="logs") {
 // ROLE Add in menu
 // RET none
 function addInMenu() {
-    echo '<li id="menu-logs"><a href="/bulcky/index.php?menu=logs"><span>Logs</span></a></li>';
+    echo '<li id="menu-logs"><a class="href-logs" href="/bulcky/index.php?menu=logs"><span>Logs</span></a></li>';
 }
 
 

@@ -652,7 +652,7 @@ function check_and_update_column_db ($tableName, $officialColumn) {
 // ROLE check and update database
 function check_database() {
     // Check program_index database consitency
-    program\check_db();
+    programs\check_db();
 
     // Check calendar database consitency
     calendar\check_db();

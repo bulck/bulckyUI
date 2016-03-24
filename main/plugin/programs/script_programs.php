@@ -30,7 +30,7 @@ $real_resume=array();
 $export_selected=1;
 
 $index_info=array();
-program\get_program_index_info($index_info);
+programs\get_program_index_info($index_info);
 
 
 //Valeur du radio bouton qui définit si le programme sera cyclic ou non:
@@ -84,7 +84,7 @@ if(!isset($program_index_id)) {
 if($program_index_id == "") $program_index_id = 1;
 
 // Get "number" field of program table
-$program_index = program\get_field_from_program_index ("program_idx",$program_index_id);
+$program_index = programs\get_field_from_program_index ("program_idx",$program_index_id);
 
 
 // Get number of daily program recorded:
@@ -210,7 +210,7 @@ if((strcmp($regul_program,"on")==0)||(strcmp($regul_program,"off")==0)) {
     $value_program="";
 } 
 
-require_once('plugs.php');
+require_once('../../plugin/plugs/script_plugs.php');
 
 //Compute time loading for debug option
 $end_load = getmicrotime();

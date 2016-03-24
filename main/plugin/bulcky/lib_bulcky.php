@@ -989,7 +989,8 @@ function serverSupervision_createXMLConf () {
 // ROLE Add in menu
 // RET none
 function addInMenu() {
-    echo '<li id="menu-bulcky"><a href="/bulcky/index.php?menu=bulcky"><span>En direct</span></a></li>';
+    echo '<li id="menu-bulcky"><a href="/bulcky/index.php?menu=bulcky" class="href-bulcky"><span>En direct</span></a></li>';
+
 }
 
 

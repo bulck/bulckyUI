@@ -1,6 +1,6 @@
 <script> 
     // Include specific css
-    loadCSS("main/libs/css/page_cultipi.css");
+    loadCSS("main/libs/css/page_bulcky.css");
 </script>
 <script>
    $("[title]").tooltip({ 
@@ -20,7 +20,7 @@
 </script>
 
 <?php 
-    cultipi\check_db();
+    bulcky\check_db();
 ?>
 
 <!-- Section synoptic -->
@@ -82,10 +82,10 @@
             // Add every sensor
 
             // Read sensor list
-            $sensorList = cultipi\getSensorOfSynoptic();
+            $sensorList = bulcky\getSensorOfSynoptic();
 
             // retrieve values
-            $sensorValues = cultipi\getAllSensorLiveValue();
+            $sensorValues = bulcky\getAllSensorLiveValue();
 
             foreach ($sensorList as $index => $sensor) 
             {
@@ -198,10 +198,10 @@
             // Add plugs
 
             // Read plug list
-            $plugList = cultipi\getPlugOfSynoptic();
+            $plugList = bulcky\getPlugOfSynoptic();
             
             // retrieve values
-            $plugValues = cultipi\getAllPlugLiveValue();
+            $plugValues = bulcky\getAllPlugLiveValue();
 
             foreach ($plugList as $index => $plug) 
             {
@@ -262,7 +262,7 @@
             }
             
             // Add other items
-            $otherList = cultipi\getOtherOfSynoptic();
+            $otherList = bulcky\getOtherOfSynoptic();
             foreach ($otherList as $index => $other) 
             {
                 echo '<div id="syno_elem_' . $other["id"] . '" class="" style="position:absolute; top:' . $other["y"] . 'px ; left:' . $other["x"] . 'px ;z-index:' . $other["z"] . '" >';

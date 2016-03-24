@@ -27,7 +27,7 @@
     switch ($action) {
         case "getSensors" :
        
-            cultipi\check_db();
+            bulcky\check_db();
             
             $ret_array = configuration\getConfElem("NB_PLUGS");
             
@@ -40,7 +40,7 @@
             if((isset($_POST['id'])) && (!empty($_POST['id']))) {
                 $id=$_POST['id'];
             }     
-            cultipi\deleteElementInSynoptic($id);        
+            bulcky\deleteElementInSynoptic($id);        
             break;
         case "addElementOther" :
             $image = "";
@@ -55,7 +55,7 @@
             if((isset($_POST['y'])) && (!empty($_POST['y']))) {
                 $y=$_POST['y'];
             }
-            $ret_array = cultipi\addElementInSynoptic("other", 0, $image, $x, $y);
+            $ret_array = bulcky\addElementInSynoptic("other", 0, $image, $x, $y);
             
             break;
         case "updatePosition" :
@@ -71,7 +71,7 @@
             if((isset($_POST['y'])) && (!empty($_POST['y']))) {
                 $y=$_POST['y'];
             }
-            cultipi\updatePosition($elem,$x,$y);
+            bulcky\updatePosition($elem,$x,$y);
             break;
         case "updateZScaleImageRotation" :
             $id = "";
@@ -95,19 +95,19 @@
                 $rotation=$_POST['rotation'];
             }
             echo "$id , $z , $scale , $image , $rotation";
-            cultipi\updateZScaleImageRotation($id,$z,$scale,$image,$rotation);
+            bulcky\updateZScaleImageRotation($id,$z,$scale,$image,$rotation);
             break;
         case "getParam" :
             $elem = "";
             if((isset($_POST['id'])) && (!empty($_POST['id']))) {
-                $ret_array = cultipi\getSynopticDBElemByID($_POST['id']);
+                $ret_array = bulcky\getSynopticDBElemByID($_POST['id']);
             }
             break;
         case "getAllSensorLiveValue" :
-            $ret_array = cultipi\getAllSensorLiveValue();
+            $ret_array = bulcky\getAllSensorLiveValue();
             break;
         case "getAllPlugLiveValue" :
-            $ret_array = cultipi\getAllPlugLiveValue();
+            $ret_array = bulcky\getAllPlugLiveValue();
             break;
         case "getSensorLiveValue" :
             $index = "";
@@ -115,7 +115,7 @@
                 $index = $_POST['index'];
             }
             
-            $ret_array = cultipi\getSensorLiveValue($index);
+            $ret_array = bulcky\getSensorLiveValue($index);
 
             break;
         case "getPlugLiveValue" :
@@ -124,7 +124,7 @@
                 $index = $_POST['index'];
             }
             
-            $ret_array = cultipi\getPlugLiveValue($index);
+            $ret_array = bulcky\getPlugLiveValue($index);
 
             break;
         case "forcePlug" :
@@ -142,19 +142,19 @@
             }
             
             # retrieve plug number from id
-            $plugParam = cultipi\getSynopticDBElemByID($id);
+            $plugParam = bulcky\getSynopticDBElemByID($id);
             
             # Pilot plug
-            $ret_array = cultipi\forcePlug($plugParam["indexElem"],$time,$value);
+            $ret_array = bulcky\forcePlug($plugParam["indexElem"],$time,$value);
 
             break;  
         case "getPlugInformation" :
             if((isset($_POST['id'])) && (!empty($_POST['id']))) {
-                $ret_array = cultipi\getPlugInformation($_POST['id']);
+                $ret_array = bulcky\getPlugInformation($_POST['id']);
             }
             break;
         case "getCultiPiStatus" :
-            $ret_array = cultipi\getCultiPiStatus();
+            $ret_array = bulcky\getCultiPiStatus();
             break;            
         default:
             break;

@@ -59,3 +59,11 @@
 
 }
 
+.eyes_msgbox {
+    position: absolute;
+    top: 4%;
+    left: 45%;
+    cursor: pointer; 
+    color: #ffffff;
+}
+

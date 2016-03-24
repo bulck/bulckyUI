@@ -209,7 +209,7 @@ $GLOBALS['CULTIPI']['TRACE_LEVEL']['serverCultibox']    = "info";
 
 
 // ----------------- Plugin ----------------- 
-$GLOBALS['PLUGIN'] = array('welcome','configuration','plugs','logs','calendar','bulcky');
+$GLOBALS['PLUGIN'] = array('welcome','configuration','programs','logs','calendar','bulcky');
 
 
 

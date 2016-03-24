@@ -104,8 +104,6 @@ check_database();
     <!-- Small eye for displaying message pop up-->
     <script>title_msgbox="<?php echo __('TOOLTIP_MSGBOX_EYES'); ?>";</script>
 
-    <div id="tooltip_msg_box" style="display:none" class="eyes_msgbox"><img src='/bulcky/main/libs/img/eye.png' alt="" title="" id="eyes_msgbox"></div>
-
 	<div id="elevator-up" class="elevator-up">
 		<a href="" id="arrow_up" title="Haut de page" class="icon-elevator fa-arrow-up" style="visibility:hidden"></a>
 	</div>
@@ -115,6 +113,8 @@ check_database();
 	</div>
 
 	<img src="./images/logo_bulck.png" class="logo" alt="" />
+
+    <div id="tooltip_msg_box" style="display:none" class="eyes_msgbox"><i class="fa fa-lg fa-eye" id="eyes_msgbox"></i></div>
 
 	<!-- Header -->
 		<div id="header">

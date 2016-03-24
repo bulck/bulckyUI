@@ -318,6 +318,10 @@ $(window).unload( function () {
 $(document).ready(function() {
     var position_set=$("#content").position();
 
+    $('a').click(function(){
+        $(this).blur();
+    });
+
     $(document.body).on('click', '.scroll' ,function(e){
             e.preventDefault();
             $('html, body').animate( { scrollTop: $($(this).attr('href')).offset().top }, 500 );
@@ -425,6 +429,11 @@ $(document).ready(function() {
        get_content("programs",get_array);
     });
 
+    $(".href-plugs").click(function(e) {
+       e.preventDefault();
+       get_content("plugs",get_array);
+    });
+
     $(".href-calendar").click(function(e) {
        e.preventDefault();
        get_content("calendar",get_array);
@@ -450,9 +459,9 @@ $(document).ready(function() {
        get_content("welcome",get_array);
     });
 
-    $(".href-cultipi").click(function(e) {
+    $(".href-bulcky").click(function(e) {
        e.preventDefault();
-       get_content("cultipi",get_array);
+       get_content("bulcky",get_array);
     });
 
     //To deal with dynamic content with href in message box

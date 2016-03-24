@@ -1,6 +1,6 @@
 <?php
 
-namespace program {
+namespace programs {
 
 // {{{ update_db()
 // ROLE update dabase
@@ -877,6 +877,13 @@ function export_program($id,$program_index,$file="") {
       fclose($f);
 }
 // }}}
+
+// {{{ addInMenu()
+// ROLE Add in menu
+// RET none
+function addInMenu() {
+    echo '<li id="menu-programs"><a class="href-programs" href="/bulcky/index.php?menu=programs"><span>Programmes</span></a></li>';
+}
 
 }
 

@@ -10,16 +10,22 @@ if(is_file("main/libs/l10n.php")) {
 
 } else if(is_file("../libs/l10n.php")) {
    require_once '../libs/l10n.php';
-   $PATH_PLUGIN='../main/plugin';
+   $PATH_PLUGIN='../plugin';
    require_once '../libs/lib_sensors.php';
    require_once '../libs/lib_power.php';
    require_once '../lib_bulcky.php';
-} else {
+} else if(is_file("../../libs/l10n.php")) {
    require_once '../../libs/l10n.php';
-   $PATH_PLUGIN='../../main/plugin';
+   $PATH_PLUGIN='../../plugin';
    require_once '../../libs/lib_sensors.php';
    require_once '../../libs/lib_power.php';
    require_once '../../plugin/bulcky/lib_bulcky.php';
+} else {
+   require_once '../../../libs/l10n.php';
+   $PATH_PLUGIN='../../../plugin';
+   require_once '../../../libs/lib_sensors.php';
+   require_once '../../../libs/lib_power.php';
+   require_once '../../../plugin/bulcky/lib_bulcky.php';
 }
 
 
