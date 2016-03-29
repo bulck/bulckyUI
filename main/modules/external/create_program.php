@@ -21,7 +21,7 @@ $pop_up_error_message="";
 $resume=array();
 
 $index_info=array();
-program\get_program_index_info($index_info);
+programs\get_program_index_info($index_info);
 
 $plugsInfo = plugs\getDB($selected_plug);
 $plugInfo = $plugsInfo[0];
@@ -48,7 +48,7 @@ $program_index_id = getvar("program_index_id");
 if($program_index_id == "") $program_index_id = 1;
 
 // Get "number" field of program table
-$program_index = program\get_field_from_program_index ("program_idx",$program_index_id);
+$program_index = programs\get_field_from_program_index ("program_idx",$program_index_id);
 
 // Get number of daily program recorded:
 $nb_daily_program = get_nb_daily_program($main_error);

@@ -53,36 +53,38 @@ check_database();
 		<link rel="icon" href="favicon.ico" />
 		
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery-ui.js"></script>
-		<script src="js/bulck.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-layers.min.js"></script>
-		<script src="js/init.js"></script>
+		<script src="js/jquery.min.js?v=<?=@filemtime('js/jquery.min.js')?>"></script>
+		<script src="js/jquery-ui.js?v=<?=@filemtime('js/jquery-ui.js')?>"></script>
+		<script src="js/skel.min.js?v=<?=@filemtime('js/skel.min.js')?>"></script>
+		<script src="js/skel-layers.min.js?v=<?=@filemtime('js/skel-layers.min.js')?>"></script>
+		<script src="js/init.js?v=<?=@filemtime('js/init.js')?>"></script>
+        <script src="js/bulcky.js?v=<?=@filemtime('js/bulcky.js')?>"></script>
+        <script src="js/bulcky-utils.js?v=<?=@filemtime('js/bulcky-utils.js')?>"></script>
+        <script src="js/jquery.blockUI.js?v=<?=@filemtime('js/jquery.blockUI.js')?>"></script>
+        <script src="js/fileUpload.js?v=<?=@filemtime('js/fileUpload.js')?>"></script> 
+        <script src="js/highcharts.js?v=<?=@filemtime('js/highcharts.js')?>"></script>
+        <script src="js/exporting.js?v=<?=@filemtime('js/exporting.js')?>"></script>
+        <script src="js/jquery-ui-timepicker-addon.js?v=<?=@filemtime('js/jquery-ui-timepicker-addon.js')?>"></script>
+        <script src="js/jquery.colourPicker.js?v=<?=@filemtime('js/jquery.colourPicker.js')?>"></script>
+        <script src="js/fullcalendar.js?v=<?=@filemtime('main/libs/js/fullcalendar.js')?>"></script>
+        <script src="js/scrollTo.js?v=<?=@filemtime('main/libs/js/scrollTo.js')?>"></script>
+        <script src="js/fileDownload.js?v=<?=@filemtime('main/libs/js/fileDownload.js')?>"></script>
+        <script src="js/jquery.ui.datepicker-fr.js?v=<?=@filemtime('js/jquery.ui.datepicker-fr.js')?>"></script>
+   
+    
+    
+   
 		
-		<link rel="stylesheet" href="css/jquery-ui.css" />
-		<link rel="stylesheet" href="css/skel.css" />
-		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/skel.css?v=<?=@filemtime('css/skel.css')?>" />
+        <!-- <link rel="stylesheet" href="css/jquery-ui.css?v=<?=@filemtime('css/jquery-ui.css')?>" />-->
+        <link rel="stylesheet" href="css/jquery-ui.custom.css?v=<?=@filemtime('css/jquery-ui.custom.css')?>" />
+		<link rel="stylesheet" href="css/style.css?v=<?=@filemtime('css/style.css')?>" />
+        <link rel="stylesheet" href="css/bulcky.css?v=<?=@filemtime('css/bulcky.css')?>" />
+        <link rel="stylesheet" href="css/fullcalendar.css?v=<?=@filemtime('css/fullcalendar.css')?>" />
+        <link rel="stylesheet" href="css/jquery.colourPicker.css?v=<?=@filemtime('csss/jquery.colourPicker.css')?>" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-        <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/fullcalendar.css?v=<?=@filemtime('main/libs/css/fullcalendar.css')?>" />
-        <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/bulcky.css?v=<?=@filemtime('main/libs/css/bulcky.css')?>" />
-        <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/bulcky.css.old?v=<?=@filemtime('main/libs/css/bulcky.css')?>" />
-        <link rel="stylesheet" media="all" type="text/css" href="/bulcky/main/libs/css/jquery.colourPicker.css?v=<?=@filemtime('main/libs/css/jquery.colourPicker.css')?>" />
 
-    <script type="text/javascript" src="/bulcky/main/libs/js/jquery-1.8.3.js?v=<?=@filemtime('main/libs/js/jquery-1.8.3.js')?>"></script>
-    <script type="text/javascript" src="/bulcky/main/libs/js/jquery-ui-1.9.2.custom.min.js?v=<?=@filemtime('main/libs/js/jquery-ui-1.9.2.custom.min.js')?>"></script>
-    <script type="text/javascript" src="/bulcky/main/libs/js/highcharts.js?v=<?=@filemtime('main/libs/js/highcharts.js')?>"></script>
-    <script type="text/javascript" src="/bulcky/main/libs/js/exporting.js?v=<?=@filemtime('main/libs/js/exporting.js')?>"></script>
-    <script type="text/javascript" src="/bulcky/main/libs/js/jquery-ui-timepicker-addon.js?v=<?=@filemtime('main/libs/js/jquery-ui-timepicker-addon.js')?>"></script>
-    <script type="text/javascript" src="/bulcky/main/libs/js/jquery.colourPicker.js?v=<?=@filemtime('main/libs/js/jquery.colourPicker.js')?>"></script>
-    <script type="text/javascript" src="/bulcky/main/libs/js/bulcky.js?v=<?=@filemtime('main/libs/js/bulcky.js')?>"></script>
-    <script type="text/javascript" src="/bulcky/main/libs/js/bulcky-utils.js?v=<?=@filemtime('main/libs/js/bulcky-utils.js')?>"></script>
-    <script type="text/javascript" src="/bulcky/main/libs/js/fullcalendar.js?v=<?=@filemtime('main/libs/js/fullcalendar.js')?>"></script>
-    <script type="text/javascript" src="/bulcky/main/libs/js/jquery.blockUI.js?v=<?=@filemtime('main/libs/js/jquery.blockUI.js')?>"></script>
-    <script type="text/javascript" src="/bulcky/main/libs/js/scrollTo.js?v=<?=@filemtime('main/libs/js/scrollTo.js')?>"></script>
-    <script type="text/javascript" src="/bulcky/main/libs/js/fileDownload.js?v=<?=@filemtime('main/libs/js/fileDownload.js')?>"></script>
-    <script type="text/javascript" src="/bulcky/main/libs/js/jquery.ui.datepicker-<?php echo substr($_COOKIE['LANG'], 0 , 2); ?>.js?v=<?=@filemtime('main/libs/js/jquery.ui.datepicker-'.substr($_COOKIE['LANG'], 0 , 2).'.js')?>"></script>
-    <script type="text/javascript" src="/bulcky/main/libs/js/fileUpload.js?v=<?=@filemtime('main/libs/js/fileUpload.js')?>"></script>
+
 	</head>
 	<body>
     <div id="diff_conf" style="display:none">

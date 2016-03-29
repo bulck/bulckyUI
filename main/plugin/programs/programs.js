@@ -183,7 +183,7 @@ $(document).ready(function(){
         get_content("wizard",getUrlVars("selected_plug="+$("#selected_plug_conf option:selected").val()));
     });
 
-    $("#show_program_details").live("click",function(e) {
+    $("#show_program_details").on("click",function(e) {
         e.preventDefault();
         $("#program_details").html(real_resume[$('#selected_plug').val()]);
         $("#program_details").dialog({
@@ -1406,7 +1406,6 @@ $(document).ready(function() {
     });
     $.unblockUI();
 
-    //$('#selected_plug').live("change",function() {
     $('#selected_plug').change(function() {
         $("#error_value_program").css("display","none");
         $.each( chart.series, function() {

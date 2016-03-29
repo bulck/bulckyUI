@@ -94,7 +94,7 @@ if((!isset($path))||(empty($path))) {
 
             // For pluXX :
             $program_index=array();
-            program\get_program_index_info($program_index);
+            programs\get_program_index_info($program_index);
 
             foreach ($program_index as $key => $value) {
                 // Read from database program

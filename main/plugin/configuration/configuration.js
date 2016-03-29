@@ -320,7 +320,7 @@ $(document).ready(function(){
         });
     <?php } ?>
 
-    $("#manual_upgrade").live("click",function(e) {
+    $("#manual_upgrade").on("click",function(e) {
         e.preventDefault();
         $('#upgradeupload').trigger('click');
     });

@@ -53,7 +53,7 @@ function check_and_update_sd_card($sd_card="",&$main_info_tab,&$main_error_tab,$
     $conf_uptodate = true;
 
     $program_index = array();
-    program\get_program_index_info($program_index);
+    programs\get_program_index_info($program_index);
    
 
     $confsave_prog=true;

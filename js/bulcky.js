@@ -322,6 +322,33 @@ $(document).ready(function() {
         $(this).blur();
     });
 
+
+     // Tooltip only Text
+     $(document).on('mouseenter','a',function(){
+                alert("test");
+                // Hover over code
+                var title = $(this).attr('title');
+                if(title) {
+                    $(this).data('tipText', title).removeAttr('title');
+                    $('<p class="tooltip"></p>')
+                    .text(title)
+                    .appendTo('body')
+                    .fadeIn('slow');
+                }
+        }, function() {
+                // Hover out code
+                if($(this).data('tipText')) {
+                    $(this).attr('title', $(this).data('tipText'));
+                    $('.tooltip').remove();
+                }
+        }).mousemove(function(e) {
+                var mousex = e.pageX + 20; //Get X coordinates
+                var mousey = e.pageY + 10; //Get Y coordinates
+                $('.tooltip')
+                .css({ top: mousey, left: mousex })
+        });
+
+
     $(document.body).on('click', '.scroll' ,function(e){
             e.preventDefault();
             $('html, body').animate( { scrollTop: $($(this).attr('href')).offset().top }, 500 );
@@ -583,7 +610,7 @@ $(document).ready(function() {
     }
 
 
-    $("a[name='details_diff_link']").live('click',function(e) {
+    $("a[name='details_diff_link']").on('click',function(e) {
         e.preventDefault();
         var show=false;
         if($("#details_diff_"+$(this).attr('target')).css('display')=="none") {

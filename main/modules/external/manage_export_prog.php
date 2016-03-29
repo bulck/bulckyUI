@@ -35,12 +35,12 @@ if((isset($_GET['selected_plug']))&&(!empty($_GET['selected_plug']))&&(isset($_G
     }
 
 
-    $name=program\get_field_from_program_index("name",$program_index);
+    $name=programs\get_field_from_program_index("name",$program_index);
     for($plug;$plug<=$nb_plugs;$plug++) {
         if(strcmp("$type","set")==0) { 
-            program\export_program($plug,$program_index,$path."/program_plug{$plug}.csv");
+            programs\export_program($plug,$program_index,$path."/program_plug{$plug}.csv");
         } else {
-            program\export_program($plug,$program_index,$path."/program_plug{$plug}_{$name}.csv");
+            programs\export_program($plug,$program_index,$path."/program_plug{$plug}_{$name}.csv");
         }
     }
 

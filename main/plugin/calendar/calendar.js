@@ -519,7 +519,7 @@ function update_title_list () {
 // Init program index array
 <?php
 $program_index = array();
-program\get_program_index_info($program_index);
+programs\get_program_index_info($program_index);
 ?>
 
 // Full calendar

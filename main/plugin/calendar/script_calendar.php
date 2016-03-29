@@ -33,7 +33,7 @@ if((!isset($sd_card))||(empty($sd_card))) {
 
 // Read program index
 $program_index = array();
-program\get_program_index_info($program_index);
+programs\get_program_index_info($program_index);
 
 $count_program_index=false;
 foreach ($program_index as $key => $value) {

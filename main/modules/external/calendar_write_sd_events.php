@@ -12,7 +12,7 @@ $sd_card = $_GET['sd_card'];
 // Create all plugXX programm       
 // Read program index       
 $program_index = array();       
-program\get_program_index_info($program_index);         
+programs\get_program_index_info($program_index);         
         
 // Foreach programm, create the programm        
 foreach ($program_index as $key => $value)      {       

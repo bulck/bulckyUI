@@ -34,10 +34,10 @@ switch ($datatype)
 {
     case "program" :
         // Retrieve program curve
-        $retarray['plug_1']['data'] = program\get_plug_programm($plug_number,$startDay,$endDay,$_GET['month']);
+        $retarray['plug_1']['data'] = programs\get_plug_programm($plug_number,$startDay,$endDay,$_GET['month']);
 
         // Read information
-        $retInfo = program\get_curve_information("program",$plug_number - 1);
+        $retInfo = programs\get_curve_information("program",$plug_number - 1);
         
         // Init return array
         $retarray['plug_1']['name']     = $retInfo['name'] . " " . __('PLUG_MENU') . " " . $plug_number;
@@ -51,10 +51,10 @@ switch ($datatype)
         
     case "power" :
         // Retrieve power curve
-        $retarray['plug_1']['data'] = program\get_plug_power($plug_number,$startDay,$endDay,$_GET['month']);
+        $retarray['plug_1']['data'] = programs\get_plug_power($plug_number,$startDay,$endDay,$_GET['month']);
         
         // Read information
-        $retInfo = program\get_curve_information("power",$plug_number - 1);
+        $retInfo = programs\get_curve_information("power",$plug_number - 1);
         
         // Init return array
         $retarray['plug_1']['name']     = $retInfo['name'] . " " . __('PLUG_MENU') . " " . $plug_number;
@@ -83,7 +83,7 @@ switch ($datatype)
 
         // Read information about this sensor 
         // Todo : Super moche
-        $retInfo = program\get_curve_information($db_sensors[0]['type'] . "1",$_GET['sensor'] - 1);
+        $retInfo = programs\get_curve_information($db_sensors[0]['type'] . "1",$_GET['sensor'] - 1);
         
         $retarray['sensor_1']['data'] = $logsValue[0];
 
@@ -101,7 +101,7 @@ switch ($datatype)
         if ($db_sensors[0]['type'] == 2)
         {
         
-            $retInfo = program\get_curve_information($db_sensors[1]['type'] . "2");
+            $retInfo = programs\get_curve_information($db_sensors[1]['type'] . "2");
         
             $retarray['sensor_2']['data'] = $logsValue[1];
             

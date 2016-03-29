@@ -78,16 +78,16 @@ foreach ($conf_arr as $key => $value) {
 
 // Build array for y axis
 $yaxis_array = array();
-$yaxis_array[0] = program\get_curve_information('temperature');
-$yaxis_array[1] = program\get_curve_information('humidity');
-$yaxis_array[2] = program\get_curve_information('water');
-$yaxis_array[3] = program\get_curve_information('level');
-$yaxis_array[4] = program\get_curve_information('ph');
-$yaxis_array[5] = program\get_curve_information('ec');
-$yaxis_array[6] = program\get_curve_information('od');
-$yaxis_array[7] = program\get_curve_information('orp');
-$yaxis_array[8] = program\get_curve_information('power');
-$yaxis_array[9] = program\get_curve_information('program');
+$yaxis_array[0] = programs\get_curve_information('temperature');
+$yaxis_array[1] = programs\get_curve_information('humidity');
+$yaxis_array[2] = programs\get_curve_information('water');
+$yaxis_array[3] = programs\get_curve_information('level');
+$yaxis_array[4] = programs\get_curve_information('ph');
+$yaxis_array[5] = programs\get_curve_information('ec');
+$yaxis_array[6] = programs\get_curve_information('od');
+$yaxis_array[7] = programs\get_curve_information('orp');
+$yaxis_array[8] = programs\get_curve_information('power');
+$yaxis_array[9] = programs\get_curve_information('program');
 
 // Used to alert user if export is could be done
 $check_log  = logs\check_export_table_csv("logs",$main_error);
@@ -127,7 +127,7 @@ if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) {
 
 //More default values:
 if(!isset($startday) || empty($startday) || $reload_import) {
-	$startday = program\get_last_day_with_logs();
+	$startday = programs\get_last_day_with_logs();
 } 
 $startday=str_replace(' ','',"$startday");
 

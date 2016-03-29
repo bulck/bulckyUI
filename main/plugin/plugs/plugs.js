@@ -180,7 +180,7 @@ $(document).ready(function(){
     ?>
     
     
-     $('select[id^="plug_sensor"]').live("change",function () {
+     $('select[id^="plug_sensor"]').on("change",function () {
         //Récupération du numéro de la prise en cours d'édition. L'information est contenue dans l'id de l'élément, on découpe donc l'id pour récupérer l'information
         var plug = $(this).attr('id').substring(11,12);
         var nb_sensor=0;
@@ -206,7 +206,7 @@ $(document).ready(function(){
 
 
     //Display options for selected output :
-    $("select[name*='plug_module']").live("change",function () {
+    $("select[name*='plug_module']").on("change",function () {
         var id=$(this).attr('name').replace(/\D+/g,'');
 
 
@@ -302,7 +302,7 @@ $(document).ready(function(){
     });
 
 
-    $('[id*="plug_type"]').live("change",function() {
+    $('[id*="plug_type"]').on("change",function() {
         var plug = $(this).attr('id').substring(9,10);
 
         if(plug!="") {

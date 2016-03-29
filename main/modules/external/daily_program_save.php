@@ -13,14 +13,14 @@
     }
     
     // Get a programm index not used
-    $program_idx = program\get_programm_number_empty();
+    $program_idx = programs\get_programm_number_empty();
 
     // create programm line
-    $id = program\add_row_program_idx($_GET['name'], $_GET['version'], $program_idx, "","Programme " . $_GET['name']);
-    $program_index = program\get_field_from_program_index ("program_idx",$_GET['input']);
+    $id = programs\add_row_program_idx($_GET['name'], $_GET['version'], $program_idx, "","Programme " . $_GET['name']);
+    $program_index = programs\get_field_from_program_index ("program_idx",$_GET['input']);
     
     // Save programm
-    program\copy($program_index,$program_idx);
+    programs\copy($program_index,$program_idx);
     
     // Create return array
     $ret_array = array();

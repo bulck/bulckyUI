@@ -68,35 +68,4 @@
 
 			}
 	});
-	
-	function get_menu(link) {
-		$('#content').load(link.attr('href'));
-		$(".menu-list").removeClass('current');
-		$("a[href='"+link.attr('href')+"']").parent().addClass('current');
-		$('html, body').animate( { scrollTop: $('html').offset().top }, 100 );
-	}
-	
-	$(document).ready(function(){
-		$( document ).tooltip();
-		
-		//For dynamic content :
-		$(document.body).on('click', '.menu-content' ,function(e){
-			e.preventDefault();
-			get_menu($(this));
-		});
-		
-		
-		//For dynamic scroll content :
-		$(document.body).on('click', '.scroll' ,function(e){
-			e.preventDefault();
-			$('html, body').animate( { scrollTop: $($(this).attr('href')).offset().top }, 500 );
-		});
-		
-		//For static content : 
-		$(".menu-content").click(function (e){
-			e.preventDefault();
-			get_menu($(this));
-		});
-		
-	});
 })(jQuery);

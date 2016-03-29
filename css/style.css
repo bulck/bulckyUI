@@ -23,7 +23,7 @@
 	body, input, select, textarea {
 		color: #474747;
 		font-family: 'Source Sans Pro', sans-serif;
-		font-size: 1em;
+		font-size: 14pt;
 		font-weight: 300;
 		line-height: 1em;
 	}
@@ -40,6 +40,7 @@
 
 		a:hover {
 			color: #BAE1AE;
+			border-bottom-color: transparent;
 		}
 
 	strong, b {
@@ -241,6 +242,7 @@
 
 			.image.left img {
 				display: block;
+				float: right;
 				width: 100%;
 			}
 
@@ -448,6 +450,7 @@
 		border-radius: 5px;
 		border: 0;
 		color: white;
+		cursor: pointer;
 		display: inline-block;
 		padding: 0 1.5em;
 		line-height: 2.75em;
@@ -673,7 +676,7 @@
 /* Banner */
 
 	#banner {
-		background-image: url("../images/banner.png");
+		background-image: url("../images/banner.jpg");
 		background-position: center center;
 		background-size: cover;
 		width :  100%;
@@ -786,6 +789,7 @@
 
 	    a:hover.footer   {
 			color: #686863;
+			border-bottom-color: transparent;
 		}
 		
 		#footer .container {
@@ -821,7 +825,7 @@
 
 .title {
 	text-align: center;
-	font-size:  1.5em;
+	font-size:  20pt;
 	font-weight: bold;
 }
 
@@ -846,17 +850,16 @@
 	text-align: center;
 }
 
-.ui-tooltip {
-       background: black;
-       border-radius:10px;  
-	   font-size: 0.8em;
-       color: #ffffff;
-       position: absolute;
-       padding: 6px;
-       padding-left: 12px;
-       padding-right: 12px;
-       max-width: 23%;
-       z-index: 10000; 
+.tooltip {
+	display:none;
+	position:absolute;
+	border:1px solid #333;
+	background: black;
+	border-radius:10px;  
+	padding:10px;
+	color:#fff;
+	font-size:12px Arial;
+    z-index: 10000; 
 }
 
 .logo {
@@ -879,16 +882,13 @@
     -webkit-filter: hue-rotate(120deg);
 }
 
-/*a:focus {
-  outline: none;
-}*/
-
 
 .elevator-up {
 	opacity: 0.5;
 	position: fixed;
 	left: 90%;
 	top: 9%;
+    z-index: 1001;
 }
 
 .elevator-down {
@@ -896,6 +896,7 @@
 	position: fixed;
 	left: 90%;
 	top: 85%;
+    z-index: 1001;
 }
 		
 .icon-elevator {
@@ -903,9 +904,30 @@
 		text-align: center;
 		color: #DEE57B;
 		display: inline-block;
-		font-size: 3em;
+		font-size: 60px;
 		line-height: 2em;
 }
 
+
+.list_bulck {
+	list-style : circle;
+	padding-left: 5%;
+}
+
+
+.center {
+	text-align: center;
+}
 /* #6890ca -> #7BAB67 -> #7BAB67 */
 
+.conceptions {
+	border:3px solid #E4E4E4;
+	text-align: center;
+	background: #bae1ae;
+	padding: 1em;
+	width:50px; /** fix width ***/
+	text-align: center;
+	display: inline;
+	border-radius: 75%;
+	line-height: 50px;  /** for vertical center - if needed **/
+}

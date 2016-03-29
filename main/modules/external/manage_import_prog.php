@@ -19,8 +19,8 @@ if((isset($_GET['selected_plug']))&&(!empty($_GET['selected_plug']))&&(isset($_G
         $type="";
     }
 
-    $program_index = program\get_field_from_program_index ("program_idx",$program_index_id);
-    $name = program\get_field_from_program_index ("name",$program_index_id);
+    $program_index = programs\get_field_from_program_index ("program_idx",$program_index_id);
+    $name = programs\get_field_from_program_index ("name",$program_index_id);
 
     $target_path="../../../tmp/import/".basename($file);
     if(!is_dir("../../../tmp/import")) @mkdir("../../../tmp/import");
@@ -46,7 +46,7 @@ if((isset($_GET['selected_plug']))&&(!empty($_GET['selected_plug']))&&(isset($_G
            $data_prog=generate_program_from_file("../../../tmp/import/".basename($file),$plug,$program_index,$main_error);
        }
        if(count($data_prog)>0) {
-           program\export_program($plug,$program_index,"../../../tmp/export/program_plug${plug}_save.csv");
+           programs\export_program($plug,$program_index,"../../../tmp/export/program_plug${plug}_save.csv");
            clean_program($plug,$program_index,$main_error);
 
            if(!insert_program($data_prog,$main_error,$program_index)) {

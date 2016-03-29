@@ -12,8 +12,6 @@ var main_error = <?php echo json_encode($main_error); ?>;
 var main_info = <?php echo json_encode($main_info); ?>;
 
 
-console.log(<?php echo $compat ?>);
-
 <?php if(!$compat) { ?>
 $(document).ready(
 function(){
@@ -46,7 +44,6 @@ $(document).ready(function(){
 
     $("#welcome-log-img").click(function(e) {
        e.preventDefault(); 
-       console.log("ohho");
        get_content("logs");
     });
 

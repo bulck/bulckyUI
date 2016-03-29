@@ -13,7 +13,7 @@
     }
     
     // delete program and index
-    program\delete_program($_GET['program_delete_index']);
+    programs\delete_program($_GET['program_delete_index']);
     
  
 ?>
