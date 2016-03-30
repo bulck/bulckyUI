@@ -30,7 +30,7 @@ function check_and_update_sd_card($sd_card="",&$main_info_tab,&$main_error_tab,$
 
     // If we are in cultipi mode, create file systeme structure
     if(!is_dir($sd_card))                           mkdir($sd_card);
-    if(!is_dir($sd_card . "/cultiPi"))              mkdir($sd_card . "/cultiPi");
+    if(!is_dir($sd_card . "/bulckyPi"))              mkdir($sd_card . "/bulckyPi");
     if(!is_dir($sd_card . "/serverAcqSensor"))      mkdir($sd_card . "/serverAcqSensor");
     if(!is_dir($sd_card . "/serverHisto"))          mkdir($sd_card . "/serverHisto");
     if(!is_dir($sd_card . "/serverLog"))            mkdir($sd_card . "/serverLog");
@@ -45,9 +45,9 @@ function check_and_update_sd_card($sd_card="",&$main_info_tab,&$main_error_tab,$
     // Create cultipi conf.xml file
     $paramListCultipiConf[] = array (
         "name" => "verbose",
-        "level" => $GLOBALS['CULTIPI']['TRACE_LEVEL']['cultiPi']
+        "level" => $GLOBALS['CULTIPI']['TRACE_LEVEL']['bulckyPi']
     );
-    create_conf_XML($sd_card . "/cultiPi/conf.xml" , $paramListCultipiConf);
+    create_conf_XML($sd_card . "/bulckyPi/conf.xml" , $paramListCultipiConf);
     
     // Create cultipi start.xml file
     $paramListCultipiStart[] = array ( 
@@ -111,7 +111,7 @@ function check_and_update_sd_card($sd_card="",&$main_info_tab,&$main_error_tab,$
         }
     }
     
-    create_conf_XML($sd_card . "/cultiPi/start.xml" , $paramListCultipiStart,"starts");
+    create_conf_XML($sd_card . "/bulckyPi/start.xml" , $paramListCultipiStart,"starts");
     
     // Server acq sensor
     sensors\serverAcqSensor_createXMLConf();
@@ -313,7 +313,7 @@ function check_and_update_sd_card($sd_card="",&$main_info_tab,&$main_error_tab,$
             return ERROR_COPY_PLGIDX;
         }
     } else {
-        if(!check_and_copy_plgidx($sd_card)) {
+       if(!check_and_copy_plgidx($sd_card)) {
              $main_error_tab[]=__('ERROR_COPY_TPL');
              return ERROR_COPY_TPL;
         }

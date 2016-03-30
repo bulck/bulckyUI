@@ -20,7 +20,7 @@ function check_db() {
     $synoptic_col["image"]         = array ( 'Field' => "image", 'Type' => "VARCHAR(50)", "default_value" => "", 'carac' => "NOT NULL");
 
     // Check if table configuration exists
-    $sql = "SHOW TABLES FROM cultibox LIKE 'synoptic';";
+    $sql = "SHOW TABLES FROM bulcky LIKE 'synoptic';";
 
     $db = \db_priv_pdo_start("root");
     try {
@@ -76,7 +76,7 @@ function check_db() {
     $supervision_col["monthlyReport_en"]    = array ( 'Field' => "monthlyReport_en",  'Type' => "VARCHAR(3)", "default_value" => "off", 'carac' => "NOT NULL");
     
     // Check if table configuration exists
-    $sql = "SHOW TABLES FROM cultibox LIKE 'supervision';";
+    $sql = "SHOW TABLES FROM bulcky LIKE 'supervision';";
 
     try {
         $sth=$db->prepare($sql);
@@ -455,7 +455,7 @@ function getAllSensorLiveValue() {
     $return_array = array();
     $return_array["error"] = "";
     
-    $commandLine = 'tclsh "/opt/cultipi/cultiPi/get.tcl" serverAcqSensor localhost ';
+    $commandLine = 'tclsh "/opt/bulckypi/bulckyPi/get.tcl" serverAcqSensor localhost ';
     for ($i = 1; $i <= 6; $i++) {
         $commandLine = $commandLine . ' "::sensor(' . $i . ',value)"';
     }
@@ -500,7 +500,7 @@ function getSensorLiveValue($number) {
     $return_array["error"] = "";
     
     try {
-        $ret = exec('tclsh "/opt/cultipi/cultiPi/get.tcl" serverAcqSensor localhost "::sensor(' . $number . ',value)"');
+        $ret = exec('tclsh "/opt/bulckypi/bulckyPi/get.tcl" serverAcqSensor localhost "::sensor(' . $number . ',value)"');
     } catch (Exception $e) {
         echo 'Exception reçue : ',  $e->getMessage(), "\n";
         $return_array["error"] = $e->getMessage();
@@ -527,7 +527,7 @@ function getAllPlugLiveValue() {
     $return_array = array();
     $return_array["error"] = "";
     
-    $commandLine = 'tclsh "/opt/cultipi/cultiPi/get.tcl" serverPlugUpdate localhost ';
+    $commandLine = 'tclsh "/opt/bulckypi/bulckyPi/get.tcl" serverPlugUpdate localhost ';
     for ($i = 1; $i <= 16; $i++) {
         $commandLine = $commandLine . ' "::plug(' . $i . ',value)"';
     }
@@ -571,7 +571,7 @@ function getPlugLiveValue($number) {
     $return_array["error"] = "";
     
     try {
-        $ret = exec('tclsh "/opt/cultipi/cultiPi/get.tcl" serverPlugUpdate localhost "::plug(' . $number . ',value)"');
+        $ret = exec('tclsh "/opt/bulckypi/bulckyPi/get.tcl" serverPlugUpdate localhost "::plug(' . $number . ',value)"');
     } catch (Exception $e) {
         echo 'Exception reçue : ',  $e->getMessage(), "\n";
         $return_array["error"] = $e->getMessage();
@@ -687,7 +687,7 @@ function forcePlug($number,$time,$value) {
                 $return_array["status"] = exec('C:\Tcl\bin\tclsh.exe "D:\CBX\cultipiCore\cultiPi\getCommand.tcl" serverPlugUpdate localhost setGetRepere ' . $number . ' ' . $value . ' ' . $time);
                 break;
             default : 
-                $return_array["status"] = exec('tclsh "/opt/cultipi/cultiPi/getCommand.tcl" serverPlugUpdate localhost setGetRepere ' . $number . ' ' . $value . ' ' . $time);
+                $return_array["status"] = exec('tclsh "/opt/bulckypi/bulckyPi/getCommand.tcl" serverPlugUpdate localhost setGetRepere ' . $number . ' ' . $value . ' ' . $time);
                 break;
         }
     } catch (Exception $e) {
@@ -733,7 +733,7 @@ function getCultiPiStatus() {
     $return_array["error"] = "";
     
     try {
-        $ret = exec('tclsh "/opt/cultipi/cultiPi/get.tcl"  serverCultipi localhost statusInitialisation cultipiActualHour');
+        $ret = exec('tclsh "/opt/bulckypi/bulckyPi/get.tcl"  serverBulckypi localhost statusInitialisation bulckypiActualHour');
     } catch (Exception $e) {
         echo 'Exception reçue : ',  $e->getMessage(), "\n";
         $return_array["error"] = $e->getMessage();

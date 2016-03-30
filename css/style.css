@@ -2,10 +2,6 @@
 
 /* Basic */
 
-	body,
-	#skel-layers-wrapper {
-		background: #f7f7f7 url("images/bg01.png");
-	}
 
 	body.is-loading * {
 		-moz-transition: none !important;
@@ -23,9 +19,7 @@
 	body, input, select, textarea {
 		color: #474747;
 		font-family: 'Source Sans Pro', sans-serif;
-		font-size: 14pt;
-		font-weight: 300;
-		line-height: 1em;
+		font-size: 12pt;
 	}
 
 	a {
@@ -49,10 +43,6 @@
 
 	em, i {
 		font-style: italic;
-	}
-
-	p, ul, ol, dl, table, blockquote {
-		margin: 0 0 2em 0;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -288,11 +278,6 @@
 			text-align: center;
 			cursor: default;
 			background-color: #7BAB67;
-			background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-			background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-			background-image: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-			background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-			background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
 			color: white;
 			border-radius: 100%;
 			display: inline-block;
@@ -417,11 +402,6 @@
 
 			table.default thead {
 				background-color: #555555;
-				background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-				background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-				background-image: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-				background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-				background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
 				color: #fff;
 			}
 
@@ -442,38 +422,33 @@
 		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 		background-color: #7BAB67;
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-		background-image: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-		background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-		border-radius: 5px;
+		border-radius: 10px;
 		border: 0;
 		color: white;
 		cursor: pointer;
 		display: inline-block;
-		padding: 0 1.5em;
-		line-height: 2.75em;
-		min-width: 9em;
+		line-height: 2.1em;
 		text-align: center;
 		text-decoration: none;
-		font-weight: 600;
-		letter-spacing: -0.025em;
+		font-weight: 10pt;
+        border-style: solid;
+        border-width: 2px;
+        border-color: #798173;
 	}
 
 		input[type="submit"]:hover,
 		input[type="reset"]:hover,
 		input[type="button"]:hover,
 		.button:hover {
-			background-color: #78a0da;
-			color: white !important;
+			background-color: #bae1ae;
+			color: black;
 		}
 
 		input[type="submit"]:active,
 		input[type="reset"]:active,
 		input[type="button"]:active,
 		.button:active {
-			background-color: #5880ba;
+			background-color: #bae1ae;
 			color: white;
 		}
 
@@ -555,7 +530,6 @@
 	#header {
 		text-align: center;
 		background-color: #fff;
-		background-image: url("images/bg02.png"), url("images/bg02.png"), url("images/bg01.png");
 		background-position: top left,					top left,					top left;
 		background-size: 100% 6em,					100% 6em,					auto;
 		background-repeat: no-repeat,					no-repeat,					repeat;
@@ -575,22 +549,12 @@
 	#nav {
 		cursor: default;
 		background-color: #333;
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
-		background-image: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
-		background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
 		padding: 0;
 	}
 	
 	.nav {
 		cursor: default;
 		background-color: #333;
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
-		background-image: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
-		background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
 		padding: 0;
 	}
 	
@@ -600,7 +564,6 @@
 			width: 100%;
 			height: 0.75em;
 			background-color: #7BAB67;
-			background-image: url("images/bg01.png");
 	}
 	
 
@@ -610,7 +573,6 @@
 			width: 100%;
 			height: 0.75em;
 			background-color: #7BAB67;
-			background-image: url("images/bg01.png");
 		}
 
 		#nav > ul {
@@ -658,7 +620,6 @@
 						left: 50%;
 						margin-left: -0.375em;
 						background-color: #7BAB67;
-						background-image: url("images/bg01.png");
 					}
 
 					#nav > ul > li.current a {
@@ -732,7 +693,6 @@
 
 		.wrapper.style2 {
 			background-color: #fff;
-			background-image: url("images/bg02.png"), url("images/bg03.png"), url("images/bg01.png");
 			background-position: top left,						bottom left,					top left;
 			background-size: 100% 6em,						100% 6em,						auto;
 			background-repeat: no-repeat,						no-repeat,						repeat;
@@ -740,11 +700,6 @@
 
 		.wrapper.style3 {
 			background-color: #7BAB67;
-			background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-			background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-			background-image: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-			background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-			background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
 			color: white;
 		}
 
@@ -848,18 +803,6 @@
 .footer_title {
 	margin-top: 15px;
 	text-align: center;
-}
-
-.tooltip {
-	display:none;
-	position:absolute;
-	border:1px solid #333;
-	background: black;
-	border-radius:10px;  
-	padding:10px;
-	color:#fff;
-	font-size:12px Arial;
-    z-index: 10000; 
 }
 
 .logo {

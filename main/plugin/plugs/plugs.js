@@ -348,7 +348,8 @@ $(document).ready(function(){
 
 
     var htmlPlug = $("#plugs_dialog").html();
-    $("#plug_settings").click(function(e) {
+
+    $("#plug_settings").on('click',function(e) {
         e.preventDefault();
         open_plugs_dial(htmlPlug);
     });

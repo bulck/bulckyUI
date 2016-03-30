@@ -26,51 +26,9 @@ function expand(div) {
             divnetwork_conf_ui.style.display = "none";
             divadmin_ui.style.display = "none";
 
-            divLabelNetwork.style.color = "black";
-            divLabelAdmin.style.color = "black";
-            divLabelConfig.style.color = "#6E8915";
-
-            //document.configform.submenu.value="user_interface";
-
-            break;
-         case 'system_interface' : 
-            divConfig.style.display = "none";
-            divSubmit.style.display = "";
-            divnetwork_conf_ui.style.display = "none";
-            divadmin_ui.style.display = "none";
-            
-            divLabelNetwork.style.color = "black";
-            divLabelAdmin.style.color = "black";
+            divLabelNetwork.style.color = "white";
+            divLabelAdmin.style.color = "white";
             divLabelConfig.style.color = "black";
-
-            //document.configform.submenu.value="system_interface";
-
-            break;
-         case 'alarm_interface' : 
-            divConfig.style.display = "none";
-            divSubmit.style.display = "";
-            divnetwork_conf_ui.style.display = "none";
-            divadmin_ui.style.display = "none";
-            
-            divLabelNetwork.style.color = "black";
-            divLabelAdmin.style.color = "black";
-            divLabelConfig.style.color = "black";
-
-
-            //document.configform.submenu.value="alarm_interface";
-
-            break;
-         case 'card_interface' : 
-            divConfig.style.display = "none";
-            divSubmit.style.display = "none";
-            divnetwork_conf_ui.style.display = "none";
-            divadmin_ui.style.display = "none";
-            
-            divLabelNetwork.style.color = "black";
-            divLabelAdmin.style.color = "black";
-            divLabelConfig.style.color = "black";
-
-            //document.configform.submenu.value="card_interface";
 
             break;
          case 'network_conf_ui' : 
@@ -83,7 +41,6 @@ function expand(div) {
             divLabelAdmin.style.color = "black";
             divLabelConfig.style.color = "black";
 
-            //document.configform.submenu.value="network_conf_ui";
             break;
          case 'admin_ui' : 
             divConfig.style.display = 'none';
@@ -95,72 +52,10 @@ function expand(div) {
             divLabelAdmin.style.color = "#6E8915";
             divLabelConfig.style.color = "black";
 
-            //document.configform.submenu.value="admin_ui";
             break;
       }
 }
 // }}}
-
-
-// {{{ expand_wizard()
-// ROLE expand or reduce submenu of the wizard menu
-// IN step: number of the step to be expanded
-//    last: last plus configured (true or false)
-//    plug: plug configured
-// HOW IT WORKS: get div id to be expanded reduced other menu
-// USED BY: templates/wizard.html
-function expand_wizard(step,last,plug) {
-    previous=document.getElementById('previous');
-    next=document.getElementById('next');
-    next_plug=document.getElementById("next_plug");
-    finish=document.getElementById("finish");
-    for(i=1;i<=2;i++) {
-        div_step=document.getElementById('step'+i);
-        div_subtitle=document.getElementById('subtitle_step'+i);
-
-        if(step>1) {
-            previous.style.display = "";
-        } else {
-            previous.style.display = "none";
-        }
-
-        if(step<2) {
-            next.style.display = "";
-        } else {
-            next.style.display = "none";
-        }
-
-        if((step==2)&&(!last)) {    
-            next_plug.style.display = "";
-        } else {
-            next_plug.style.display = "none";
-        }
-
-        if(step==2) {
-            finish.style.display = "";
-        } else {
-            finish.style.display = "none";
-        }
-
-        if(plug==1) {
-            div_step.style.display = "";
-            div_subtitle.style.display= "";
-        } else {
-            if(step==i) {
-                div_step.style.display = "";
-                div_subtitle.style.display= "";
-            } else {
-                div_step.style.display = "none";
-                div_subtitle.style.display= "none";
-            }
-        }
-    }
-    
-    nb_step=document.getElementById("nb_step");
-    nb_step.innerHTML = step+"/2";
-}
-
-
 
 
 // {{{ verifDigit()

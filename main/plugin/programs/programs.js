@@ -178,11 +178,6 @@ $(document).ready(function(){
         });
     }
 
-    $("#jumpto_wizard").click(function(e) {
-        e.preventDefault();
-        get_content("wizard",getUrlVars("selected_plug="+$("#selected_plug_conf option:selected").val()));
-    });
-
     $("#show_program_details").on("click",function(e) {
         e.preventDefault();
         $("#program_details").html(real_resume[$('#selected_plug').val()]);
@@ -1752,9 +1747,9 @@ $(document).ready(function() {
             });
         });
     });
+
 });
 
-
-<?php include('page_plugs.js'); ?>
+<?php include('../../plugin/plugs/plugs.js'); ?>
 
 </script>

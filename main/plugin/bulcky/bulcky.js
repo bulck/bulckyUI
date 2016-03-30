@@ -231,7 +231,7 @@ $(document).ready(function(){
                             url: "main/modules/external/move_uploaded_file.php",
                             data: {filename:$("#label_on_img").html()+"===="+$("#label_off_img").html(),upload_dir:upload_dir,type:"plug"}
                         }).done(function(data) {
-                            get_content("cultipi");
+                            get_content("bulcky");
                         });
                         return false;
                     }
@@ -635,7 +635,7 @@ $(document).ready(function(){
     });
 
     
-    $('#syno_webcam').click(function(e) {
+    $('#syno_webcam').on('click',function(e) {
         e.preventDefault();
         $.blockUI({
             message: "<?php echo __('LOADING_DATA'); ?>  <img src=\"main/libs/img/waiting_small.gif\" />",
@@ -925,7 +925,7 @@ $(document).ready(function(){
                     url: "main/modules/external/move_uploaded_file.php",
                     data: {filename:name,upload_dir:upload_dir}
                  }).done(function(data) {
-                    get_content("cultipi");
+                    get_content("bulcky");
                  });
             }
         });

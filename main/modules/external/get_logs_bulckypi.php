@@ -30,18 +30,18 @@
             exec("sudo tail -n " . $nbLine . " /var/log/lighttpd/error.log 2>/dev/null",$ret[1],$err);
             break;
 
-        case "logs_cultipi":
-            exec("sudo tail -n " . $nbLine . " /var/log/cultipi/cultipi.log 2>/dev/null",$ret[0],$err);
+        case "logs_bulckypi":
+            exec("sudo tail -n " . $nbLine . " /var/log/bulcky/bulckypi-service.log 2>/dev/null",$ret[0],$err);
             $ret[1]="";
             break;
 
         case "logs_service":
-            exec("sudo tail -n " . $nbLine . " /var/log/cultipi/cultipi-service.log 2>/dev/null",$ret[0],$err);
+            exec("sudo tail -n " . $nbLine . " /var/log/bulcky/bulcky-services.log 2>/dev/null",$ret[0],$err);
             $ret[1]="";
             break;
 
         case "logs_server":
-            exec("sudo cat /var/log/cultipi/cultipi.log 2>/dev/null | grep " . $server . " | tail -n " . $nbLine ,$ret[0],$err);
+            exec("sudo cat /var/log/bulcky/bulckypi.log 2>/dev/null | grep " . $server . " | tail -n " . $nbLine ,$ret[0],$err);
             $ret[1]="";
             break;
         case "logs_system":

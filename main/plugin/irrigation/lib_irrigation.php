@@ -591,7 +591,7 @@ function fillCuve ($idxCuve) {
     $return_array = array();
     $return_array["error"] = "";
     
-    $commandLine = 'tclsh "/opt/cultipi/cultiPi/setCommand.tcl" serverIrrigation localhost fillCuve ' . $idxCuve;
+    $commandLine = 'tclsh "/opt/bulckypi/bulckyPi/setCommand.tcl" serverIrrigation localhost fillCuve ' . $idxCuve;
     
     try {
         $ret = exec($commandLine);

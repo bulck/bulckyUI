@@ -18,61 +18,60 @@
 <p class="title_conf"><?php echo __('CONFIGURE_TITLE_CULTIBOX'); ?></p>
 <br />
 <form action="/bulcky/index.php?menu=configuration" method="post" name="configform" id="configform">
-    <table class="table_width">
-        <tr>    
-            <td class="conf-menu-marge"></td>
-            <td class="center_menu">
-                <button id="div_user_label" class="cultipi_menu_h1" onclick="expand('user_interface'); return false;"><?php echo __('USER_CONF'); ?></button>
-            </td>
-            <td>
-                <button id="div_card_label" style="display:none" class="menu_h1" onclick="expand('card_interface'); return false;"><?php echo __('CONFIGURE_CARD'); ?></button>
-            </td>
-             <td class="center_menu">
-                <button id="div_network_label" class="cultipi_menu_h1" onclick="expand('network_conf_ui'); return false;"><?php echo __('CULTIPI_NETWORK_CONF'); ?></button>
-            </td>
-            <td class="center_menu">
-                <button id="div_admin_label" class="cultipi_menu_h1" onclick="expand('admin_ui'); return false;"><?php echo __('CULTIPI_ADMIN'); ?></button>
-            </td>
-            <td class="conf-menu-marge"></td>
-        </tr>
-    </table>    
-    <br />
-    <div id="div_alarm_description" style="display:none">
-        <br />
-        <table class="table_width">
-            <tr>
-                <td class="conf-menu-marge"></td>
-                <td><?php echo __('ALARM_DESCRIPTION'); ?></td>
-                <td class="conf-menu-marge"></td>
-            </tr>
-        </table>
-        <br />
+<br />
+<div class="row">
+    <div class="4u 12u(2)">
+        <div class="box highlight">
+            <button id="div_user_label" class="button" onclick="expand('user_interface'); return false;"><?php echo __('USER_CONF'); ?></button>   
+        </div>
     </div>
+    <div class="4u 12u(2)">
+        <div class="box highlight">
+            <button id="div_network_label" class="button" onclick="expand('network_conf_ui'); return false;"><?php echo __('CULTIPI_NETWORK_CONF'); ?></button>
+        </div>
+    </div>
+    <div class="4u 12u(2)">
+        <div class="box highlight">
+            <button id="div_admin_label" class="button" onclick="expand('admin_ui'); return false;"><?php echo __('CULTIPI_ADMIN'); ?></button>
+        </div>
+    </div>
+</div>
+<br />
 <hr />
 <br />
-
 <div id="div_user_interface" style="display:none">
-      <table class="table_width">
-        <tr>
-            <td class="calendar-conf-marge"></td>
-            <td class="icon_menu">
-        <a href="" id="export_conf"><img src='/bulcky/main/libs/img/dl_conf.png' alt='' title="<b><?php echo __('EXPORT_CONF'); ?> : </b><?php echo __('TOOLTIP_EXPORT_CONF'); ?>"></a>
-            </td>
-            <td class="icon_menu">
-                <a href="" id="import_conf"><img src='/bulcky/main/libs/img/up_conf.png' alt='' title="<b><?php echo __('IMPORT_CONF_CULTIPI'); ?> : </b><?php echo __('TOOLTIP_IMPORT_CONF'); ?>"></a><input id="confupload" type="file" name="files[]" style="display:none">
-            </td>
-            <td></td>
-        </tr>
-    </table>
-    <hr class="hr_cultipi" />
-    <br />
+  <div class="row">
+    <div class="3u 12u(2)">
+        <div class="box highlight">
+        </div>
+    </div>
 
-    <table class="conf-table">
-       <tr>
-            <td class="conf-marge"></td>
-            <td class="conf-marge-td"><?php echo __('CONFIGURE_NB_PLUGS'); ?>:</td>
-            <td>
-               <select name="nb_plugs" id="nb_plugs">
+    <div class="3u 12u(2)">
+        <div class="box highlight">
+            <a href="" id="export_conf"><i class="fa fa-2x fa-download" title="<b><?php echo __('EXPORT_CONF'); ?> : </b><?php echo __('TOOLTIP_EXPORT_CONF'); ?>"></i></a>
+        </div>
+    </div>
+    <div class="3u 12u(2)">
+        <div class="box highlight">
+            <a href="" id="import_conf"><i class="fa fa-2x fa-upload" title="<b><?php echo __('IMPORT_CONF_CULTIPI'); ?> : </b><?php echo __('TOOLTIP_IMPORT_CONF'); ?>"></i></a><input id="confupload" type="file" name="files[]" style="display:none">
+        </div>
+    </div>
+    <div class="3u 12u(2)">
+        <div class="box highlight">
+        </div>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="3u 12u(2)">
+        <div class="box highlight">
+            <?php echo __('CONFIGURE_NB_PLUGS'); ?>:
+        </div>
+    </div>
+
+    <div class="3u 12u(2)">
+        <div class="box highlight">
+            <select name="nb_plugs" id="nb_plugs">
                     <?php
                         for($i=$GLOBALS['NB_MIN_PLUG'];$i<=$GLOBALS['NB_MAX_PLUG'];$i++) {
                             if(!strcmp ("$i","$nb_plugs")) {
@@ -83,29 +82,43 @@
                         }
                     ?>
             </select>
-            </td>
-            <td></td>
-       </tr>
-        <tr>
-            <td class="conf-marge"></td>
-            <td class="conf-marge-td"><?php echo __('ADVANCED_REGUL_OPTIONS'); ?>:<img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_SECOND_REGUL_ENABLE'); ?>" /></td>
-            <td>
+        </div>
+    </div>
+
+    <div class="3u 12u(2)">
+        <div class="box highlight">
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="3u 12u(2)">
+        <div class="box highlight">
+            <?php echo __('ADVANCED_REGUL_OPTIONS'); ?>:<img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_SECOND_REGUL_ENABLE'); ?>" />
+        </div>
+    </div>
+
+    <div class="3u 12u(2)">
+        <div class="box highlight">
                 <select name="advanced_regul_options" id="advanced_regul_options">
                     <option value="True" <?php if(strcmp("$advanced_regul","True")==0) echo "selected"; ?>><?php echo __('YES'); ?></option>
                     <option value="False" <?php if(strcmp("$advanced_regul","False")==0) echo "selected"; ?>><?php echo __('NO'); ?></option>
                 </select>
-            </td>
-            <td></td>
-        </tr>
-    </table>
+        </div>
+    </div>
+    <div class="3u 12u(2)">
+        <div class="box highlight">
+        </div>
+    </div>
+  </div>
 </div>
 <!-- End of Interface tab -->
 
 <div id="div_submit_interface" style="display:none">
-    <br />
     <hr />
+     
     <input type="hidden" id="submenu" name="submenu" value="<?php echo $submenu; ?>" />
-    <br /><p class="p_center">
+    <p class="p_center">
        <input type="hidden" value="<?php echo __('VALIDATION_CONF'); ?>" id="submit_conf_value" name="submit_conf_value">
        <input type="submit" value="<?php echo __('VALIDATION_CONF'); ?>" id="submit_conf" name="submit_conf">
     </p>
@@ -225,7 +238,7 @@
         </tr>
     </table>
     <br />
-    <hr class="hr_cultipi" />
+    <hr />
     <br />
     <br />
 
@@ -407,7 +420,7 @@
     </table>
 
     <br />
-    <hr class="hr_cultipi" />
+    <hr />
     <br />
     <br />
     <p class="title_conf"><?php echo __('MGT_ACCESS'); ?></p>
@@ -426,11 +439,12 @@
 <div id="dialog_view_logs" style="display:none">
     <?php echo __('CULTIPI_VIEW_LOGS_TITLE'); ?>:
     <ul class="list_class">
-        <li><a class="note_link" href="" id="logs_httpd" name="cultipi_logs"><?php echo __('CULTIPI_LOGS_HTTPD'); ?></a></li>
-        <li><a class="note_link" href="" id="logs_mysql" name="cultipi_logs"><?php echo __('CULTIPI_LOGS_MYSQL'); ?></a></li>
-        <li><a class="note_link" href="" id="logs_service" name="cultipi_logs"><?php echo __('CULTIPI_LOGS_SERVICE'); ?></a></li>
-        <li><a class="note_link" href="" id="logs_cultipi" name="cultipi_logs"><?php echo __('CULTIPI_LOGS_CULTIPI'); ?></a></li>
-        <li><a class="note_link" href="" id="logs_system" name="cultipi_logs"><?php echo __('CULTIPI_LOGS_SYSTEM'); ?></a></li>
+        <li><a class="note_link" href="" id="logs_httpd" name="bulckypi_logs"><?php echo __('CULTIPI_LOGS_HTTPD'); ?></a></li>
+        <li><a class="note_link" href="" id="logs_mysql" name="bulckypi_logs"><?php echo __('CULTIPI_LOGS_MYSQL'); ?></a></li>
+        <li><a class="note_link" href="" id="logs_service" name="bulckypi_logs"><?php echo __('CULTIPI_LOGS_SERVICE'); ?></a></li>
+        <li><a class="note_link" href="" id="logs_bulckypi" name="bulckypi_logs"><?php echo __('CULTIPI_LOGS_CULTIPI'); ?></a></li>
+        <li><a class="note_link" href="" id="logs_system" name="bulckypi_logs"><?php echo __('CULTIPI_LOGS_SYSTEM'); ?></a></li>
+        <li><a class="note_link" href="" id="logs_server" name="bulckypi_logs"><?php echo __('CULTIPI_LOGS_SERVER'); ?></a></li>
     </ul>
 </div>
 
@@ -443,6 +457,7 @@
         <li><a class="note_link" href="" id="dl_logs_service" name="dl_cultipi_logs"><?php echo __('CULTIPI_LOGS_SERVICE'); ?></a></li>
         <li><a class="note_link" href="" id="dl_logs_cultipi" name="dl_cultipi_logs"><?php echo __('CULTIPI_LOGS_CULTIPI'); ?></a></li>
         <li><a class="note_link" href="" id="dl_logs_system" name="dl_cultipi_logs"><?php echo __('CULTIPI_LOGS_SYSTEM'); ?></a></li>
+        <li><a class="note_link" href="" id="dl_logs_server" name="dl_cultipi_logs"><?php echo __('CULTIPI_LOGS_SERVER'); ?></a></li>
     </ul>
 </div>
 
@@ -459,7 +474,7 @@
 </div>
 
 
-<div id="dialog_logs_cultipi" style="display:none">
+<div id="dialog_logs_bulckypi" style="display:none">
     <div id="div_title_output"><p class="p_center info_logs"><?php echo __('OUTPUT_LOGS'); ?>:</p></div>
     <div id="output_logs"></div>
 

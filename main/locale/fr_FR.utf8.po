@@ -170,7 +170,7 @@ msgid "DISABLE_HTTPS"
 msgstr "Désactiver la connexion sécurisée de l'interface"
 
 msgid "DL_FIRM_WIFI"
-msgstr "<b>Si vous possédez le module Cultipi Wifi et que vous souhaitez l'activer, veuillez copier le fichier téléchargé (firm.hex) à la racine de la carte SD de la Cultibox :</b>"
+msgstr "<b>Si vous possédez le module Bulckypi Wifi et que vous souhaitez l'activer, veuillez copier le fichier téléchargé (firm.hex) à la racine de la carte SD de la Cultibox :</b>"
 
 msgid "DL_FIRM_CULTIBOX"
 msgstr "<b>Les utilisateurs expérimentés peuvent revenir à l'ancien mode de fonctionnement de la Cultibox en téléchargeant le firmware ci-dessous :</b>"
@@ -212,7 +212,7 @@ msgid "DL_CULTIBOX_FIRM"
 msgstr "Mise à niveau de la cultibox vers le module Wifi"
 
 msgid "CONFIGURE_TITLE_CULTIBOX"
-msgstr "Configurer votre système Cultibox"
+msgstr "Configuration du système "
 
 msgid "USER_CONF"
 msgstr "Interface"
@@ -251,7 +251,7 @@ msgid "CONFIGURE_CO2"
 msgstr "Couleur des courbes de CO²"
 
 msgid "CONFIGURE_NB_PLUGS"
-msgstr "Nombre de prises de votre système"
+msgstr "Nombre de prises du système"
 
 msgid "VALIDATION_CONF"
 msgstr "Enregistrer la nouvelle configuration"
@@ -1973,7 +1973,7 @@ msgid "CURRENT_PROG_COMMENT"
 msgstr "Programme courant"
 
 
-# For the Cultipi part 
+# For the Bulckypi part 
 msgid "AUTO"
 msgstr "Automatique"
 
@@ -2086,22 +2086,22 @@ msgid "TOOLTIP_UPDATE_RPI"
 msgstr "Cliquez sur l'image pour vérifier la présence de mise à jour pour votre système"
 
 msgid "CONFIRM_RESTART_CULTIPI_TITLE"
-msgstr "Redémarrage du service Cultipi"
+msgstr "Redémarrage du service Bulckypi"
 
 msgid "CONFIRM_RESTART_CULTIPI"
-msgstr "Voulez-vous redémarrer le service Cultipi?"
+msgstr "Voulez-vous redémarrer le service Bulckypi?"
 
 msgid "SUCCESS_RESTART_RPI"
 msgstr "Le module a été redémarré avec succès, il sera de nouveau disponible dans quelques secondes."
 
 msgid "CONFIRM_RESTART_RPI_TITLE"
-msgstr "Redémarrage du Cultipi"
+msgstr "Redémarrage du Bulckypi"
 
 msgid "CONFIRM_RESTART_RPI"
-msgstr "Voulez-vous redémarrer le module Cultipi?"
+msgstr "Voulez-vous redémarrer le module Bulckypi?"
 
 msgid "RPI_RESTART"
-msgstr "Cliquez sur l'image pour redémarrer le Cultipi"
+msgstr "Cliquez sur l'image pour redémarrer le Bulckypi"
 
 msgid "ERROR_SAVE_PASSWORD"
 msgstr "Erreur lors du changement de mot de passe, l'ancien mot de passe sera conservé"
@@ -2143,10 +2143,13 @@ msgid "CULTIPI_LOGS_MYSQL"
 msgstr "du service Mysql"
 
 msgid "CULTIPI_LOGS_CULTIPI"
-msgstr "du service Cultipi"
+msgstr "du service Bulckypi"
 
 msgid "CULTIPI_LOGS_SERVICE"
-msgstr "des autres services Cultipi"
+msgstr "des autres services Bulckipi"
+
+msgid "CULTIPI_LOGS_SERVER"
+msgstr "du serveur Bulckypi"
 
 msgid "NA"
 msgstr "Non définit"
@@ -2173,7 +2176,7 @@ msgid "CULTICONF_SOFT"
 msgstr "Culticonf"
 
 msgid "CULTIPI_SOFT"
-msgstr "Cultipi"
+msgstr "Bulckypi"
 
 msgid "CULTIBOX_SOFT"
 msgstr "Cultibox"
@@ -2329,10 +2332,10 @@ msgid "NO_IFACE_FOUND"
 msgstr "Pas d'interface détectée"
 
 msgid "TOOLTIP_MANUAL_IP"
-msgstr "Si cette option est sélectionnée, il vous faudra rentrer manuellement l'adresse voulue pour votre module Cultipi"
+msgstr "Si cette option est sélectionnée, il vous faudra rentrer manuellement l'adresse voulue pour votre module Bulckypi"
 
 msgid "TOOLTIP_DYNAMIC_IP"
-msgstr "Si cette option est sélectionnée, une adresse sera automatiquement donnée à votre module Cultipi"
+msgstr "Si cette option est sélectionnée, une adresse sera automatiquement donnée à votre module Bulckypi"
 
 msgid "WIRE_CONF"
 msgstr "Connexion filaire"
@@ -2437,7 +2440,7 @@ msgid "ERROR_NET_FILE_CREATION"
 msgstr "Une erreur est survenue lors de la création des fichiers de configuration du réseau"
 
 msgid "AVAILABLE_MODULE_SET"
-msgstr "Votre module est maintenant connecté sur le(s) réseau(x) configuré(s). Vous pouvez vous reconnecter à votre réseau et accéder au module Cultipi à l'adresse suivante dans votre navigateur favori"
+msgstr "Votre module est maintenant connecté sur le(s) réseau(x) configuré(s). Vous pouvez vous reconnecter à votre réseau et accéder au module Bulckypi à l'adresse suivante dans votre navigateur favori"
 
 msgid "RESTORED_CONF"
 msgstr "Une erreur est survenue lors de la mise en place de votre configuration réseau. La configuration précédente a été restauré"

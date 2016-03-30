@@ -1,6 +1,4 @@
 <script>
-
-
 <?php
     if((isset($sd_card))&&(!empty($sd_card))) {
         echo "sd_card = " . json_encode($sd_card) ;
@@ -17,26 +15,6 @@ var advanced_regul =  <?php echo json_encode($advanced_regul); ?>;
 var ajax_format;
 var sd_wizard="";
 
-
-formatCard = function(hdd,pourcent) {
-    ajax_format = $.ajax({ 
-        cache: false,
-        url: "main/modules/external/format.php",
-        data: {hdd:hdd, progress: parseInt(pourcent)}
-    }).done(function (data) {
-        $("#progress_bar").progressbar({ value: 4*parseInt(data) });
-        if(data==100) { 
-            $("#success_format").show();
-            $("#btnCancel").html('<span class="ui-button-text">'+CLOSE_button+'</span>');
-            return true;
-        } else if(data>=0) { 
-                formatCard(hdd,parseInt(data)); 
-        } else {
-            $("#error_format").show();
-            $("#btnCancel").html('<span class="ui-button-text">'+CLOSE_button+'</span>');
-        }
-    });
-}
 
 // {{{
 function check_rpi_update() {
@@ -158,23 +136,6 @@ function check_rpi_update() {
 }
 // }}}
 
-// {{{ getAlarm()
-// ROLE display or not the alarm part from the configuration menu
-// IN  input value: display or not 
-// HOW IT WORKS: get id from div to be displayed the alarm configuration or not and display it (or not) depending the input value
-// USED BY: templates/configuration.html
-function getAlarm(i) {
-      var divAval = document.getElementById('div_alarm_value');
-      var labelAvalue = document.getElementById('label_alarm_value');
-
-      switch(i) {
-         case 0 : divAval.style.display = ''; labelAvalue.style.display = ''; break;
-         case 1 : divAval.style.display = 'none'; labelAvalue.style.display = 'none'; break;
-         default: divAval.style.display = ''; labelAvalue.style.display = ''; break;
-      }
-}
-//}}}
-
 
 // {{{ manageHttp()
 // ROLE enable or disable https access
@@ -289,9 +250,7 @@ $(document).ready(function(){
         });
     }
 
-    // Only for cultipi
-    <?php if((isset($GLOBALS['MODE']))&&(strcmp($GLOBALS['MODE'],"cultipi")==0)) { ?>
-        $.ajax({
+    $.ajax({
               cache: false,
               async: true,
               url: "main/modules/external/get_soft_version.php"
@@ -318,7 +277,6 @@ $(document).ready(function(){
                  $("#wifi_essid_list").append('<b>'+value+' : </b><input type="radio" name="wifi_essid" value="'+value+'" '+checked+' /><br />');
              });
         });
-    <?php } ?>
 
     $("#manual_upgrade").on("click",function(e) {
         e.preventDefault();
@@ -436,24 +394,6 @@ $(document).ready(function(){
         }});
 
 
-
-
-    $('#reset_minmax').timepicker({
-        <?php echo "timeOnlyTitle: '".__('TIMEPICKER_SELECT_TIME')."',"; ?>
-        showOn: 'both',
-        buttonImage: "main/libs/img/datepicker.png",
-        buttonImageOnly: 'true',
-        buttonText: "<?php echo __('TIMEPICKER_BUTTON_TEXT') ;?>",
-        timeFormat: 'hh:mm',
-        timeText: "<?php echo __('TIMEPICKER_TIME') ;?>",
-        hourText: "<?php echo __('TIMEPICKER_HOUR') ;?>",
-        minuteText: "<?php echo __('TIMEPICKER_MINUTE') ;?>",
-        secondText: "<?php echo __('TIMEPICKER_SECOND') ;?>",
-        currentText: "<?php echo __('TIMEPICKER_ENDDAY') ;?>",
-        closeText: "<?php echo __('TIMEPICKER_CLOSE') ;?>"
-    });
-
- 
     //Manage http or https procotol: 
     if(window.location.protocol=="http:") {
         $("#conf_https").show();
@@ -621,9 +561,9 @@ $(document).ready(function(){
             $("#preparing-file-modal").dialog('close');
             var json = jQuery.parseJSON(data);
             if(json==1) {
-                $.fileDownload('tmp/export/backup_cultibox.sql');
+                $.fileDownload('tmp/export/backup_bulckypi.sql');
             } else if(json==2) {
-                $.fileDownload('tmp/export/backup_cultibox.sql.zip');
+                $.fileDownload('tmp/export/backup_bulckypi.sql.zip');
             }
         });
     });
@@ -1289,7 +1229,7 @@ $(document).ready(function(){
     });
 
 
-    $("a[name='cultipi_logs']").click(function(e) {
+    $("a[name='bulckypi_logs']").click(function(e) {
         e.preventDefault();
         $("#dialog_view_logs").dialog('close');
         var id=$(this).attr('id');
@@ -1312,7 +1252,7 @@ $(document).ready(function(){
             $.ajax({
                 cache: false,
                 async: true,
-                url: "main/modules/external/get_logs_cultipi.php",
+                url: "main/modules/external/get_logs_bulckypi.php",
                 data: {
                     action:id
                 },
@@ -1339,7 +1279,7 @@ $(document).ready(function(){
 
                     $.unblockUI(); 
 
-                    $("#dialog_logs_cultipi").dialog({
+                    $("#dialog_logs_bulckypi").dialog({
                         modal: true,
                         width: 800,
                         height: $( window ).height(),
@@ -2706,9 +2646,9 @@ function open_dialog_wifi_wizard(step) {
                     $("#preparing-file-modal").dialog('close');
                     var json = jQuery.parseJSON(data);
                     if(json==1) {
-                        $.fileDownload('tmp/export/backup_cultibox.sql');
+                        $.fileDownload('tmp/export/backup_bulckypi.sql');
                     } else if(json==2) {
-                        $.fileDownload('tmp/export/backup_cultibox.sql.zip');
+                        $.fileDownload('tmp/export/backup_bulckypi.sql.zip');
                     }
                 });
 

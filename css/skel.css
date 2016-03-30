@@ -59,10 +59,6 @@
 
 /* Grid */
 
-	.row {
-		border-bottom: solid 1px transparent;
-	}
-
 	.row > * {
 		float: left;
 	}
@@ -81,6 +77,10 @@
 	.row.uniform > * > :last-child {
 		margin-bottom: 0;
 	}
+
+    .row > * {
+        padding: 15px 0 0 50px !important;
+    }
 
 	/* Gutters */
 
