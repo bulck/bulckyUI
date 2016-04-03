@@ -214,36 +214,36 @@
 <!-- Conf reseau -->
 <div id="div_network_conf_ui" style="display:none">
     <!-- Top button -->
-    <table class="table_width">
-        <tr>
-            <td class="calendar-conf-marge"></td>
-            <td class="icon_menu">
-                <a href="" id="reset_network_img"><img src='/bulcky/main/libs/img/service_restart.png' alt='' title="<?php echo __('RESET_NETWORK_CONF'); ?>"></a>
-            </td>
-            <td class="icon_menu">
-                <a href="" id="dl-bonjour"><img src='/bulcky/main/libs/img/download-bonjour.png' alt='' title="<?php echo __('CULTIPI_DL_BONJOUR'); ?>"></a>
-            </td>
-            <td class="icon_menu">
-                <a href="" id="mail-config"><img src='/bulcky/main/libs/img/mail_icon.png' alt='' title="<?php echo __('MAIL_CONFIG'); ?>"></a>
-            </td>
-            <td class="icon_menu">
-                <a href="" id="supervision_config"><img src='/bulcky/main/libs/img/supervision.png' id="supervision_config" alt='' title="<?php echo __('CONF_SUPERVISION'); ?>"></a>
-            </td>
-            <td class="icon_menu">
-                <input type="image" src='/bulcky/main/libs/img/lock.png' id="conf_https" alt='' title="<?php echo __('ENABLE_HTTPS'); ?>" style="display:none" />
-                <input type="image" src='/bulcky/main/libs/img/unlock.png' id="conf_http" alt='' title="<?php echo __('DISABLE_HTTPS'); ?>" style="display:none" />
-            </td>
-            <td>
-            </td>
-        </tr>
-    </table>
+    <br />
+    <div class="row">
+    <div class="3u 12u(2)">
+        <div class="box highlight">
+             <a href="" id="reset_network_img"><i class="fa fa-2x fa-refresh" title="<?php echo __('RESET_NETWORK_CONF'); ?>"></i></a>
+        </div>
+    </div>
+    <div class="3u 12u(2)">
+        <div class="box highlight">
+            <a href="" id="mail-config"><i class="fa fa-2x fa-envelope" title="<?php echo __('MAIL_CONFIG'); ?>"></i></a>
+        </div>
+    </div>
+    <div class="3u 12u(2)">
+        <div class="box highlight">
+             <a href="" id="supervision_config"><i class="fa fa-2x fa-share" id="supervision_config" title="<?php echo __('CONF_SUPERVISION'); ?>"></i></a>
+        </div>
+    </div>
+    <div class="3u 12u(2)">
+        <div class="box highlight">
+          <a href="" id="conf_https" title="<?php echo __('ENABLE_HTTPS'); ?>" style="display:none"><i class="fa fa-2x fa-lock"></i></a>
+          <a href="" id="conf_http" title="<?php echo __('DISABLE_HTTPS'); ?>" style="display:none"><i class="fa fa-2x fa-unlock"></i></a>
+        </div>
+    </div>
+    </div>
     <br />
     <hr />
     <br />
-    <br />
 
     <label class="title_conf"><?php echo __('CONFIGURE_TITLE_CULTIBOX_NET'); ?></label>
-    <p class="p_center"><?php echo __('CONFIGURE_SUBTITLE'); ?></p>
+    <?php echo __('CONFIGURE_SUBTITLE'); ?>
     <br /><br />
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="configform_network" id="configform_network">
 
@@ -332,7 +332,7 @@
                         <td>
                             <input  type="password" size="15" 
                                     name="wifi_password" id="wifi_password" value="" <?php if(strcmp("$wifi_key_type","NONE")==0) { echo 'disabled'; } ?> />
-                            <img src='/bulcky/main/libs/img/eye.png' alt='' title="<?php echo __('SHOW_CURRENT_PWD'); ?>" id="eyes" <?php if(strcmp("$wifi_key_type","NONE")==0) echo 'style="display:none"';  ?>>
+                            <i class="fa fa-eye" title="<?php echo __('SHOW_CURRENT_PWD'); ?>" id="eyes" <?php if(strcmp("$wifi_key_type","NONE")==0) echo 'style="display:none"';  ?>></i>
                         </td>
                         <td>
                             <div id="error_wifi_password" style="display:none" class="error_field"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_PASSWORD_VALUE'); ?></div><?php echo __('HEX_PASSWORD'); ?>:<input id="hex_password" type="checkbox" <?php if(strcmp("$wifi_key_type","WEP")!=0) { echo 'disabled'; } ?> />
@@ -393,32 +393,33 @@
 
 <!-- Admin -->
 <div id="div_admin_ui" style="display:none">
-    <table class="table_width">
-        <tr>
-            <td class="calendar-conf-marge"></td>
-            <td class="icon_menu2">
-                <a href="" id="view_logs"><img src='/bulcky/main/libs/img/view_logs.png' alt='' title="<?php echo __('CULTIPI_VIEW_LOGS'); ?>"></a>
-            </td>
-            <td class="icon_menu2">
-                <a href="" id="dl_logs"><img src='/bulcky/main/libs/img/dl_logs.png' alt='' title="<?php echo __('CULTIPI_DL_LOGS'); ?>"></a>
-            </td>
-            <td class="icon_menu2">
-                <a href="" id="dl_firm" name="dl_firm"><img src='/bulcky/main/libs/img/box_icon.png' alt='' title="<?php echo __('DL_CULTIBOX_FIRM'); ?>"></a>
-            </td>
-            <td class="icon_menu2">
-                <img src='/bulcky/main/libs/img/versions.png' id="version_soft" alt='' title="">
-                <input id="upgradeupload" type="file" name="files[]" style="display:none">
-            </td>
-            <td class="icon_menu2">
-                <a href="" name="restart_rpi" id="restart_rpi"><img src='/bulcky/main/libs/img/rpi_restart.png' alt='' title="<?php echo __('RPI_RESTART'); ?>" /></a>
-            </td>
-            <td class="icon_menu2">
-                <a href="" name="update_rpi" id="update_rpi"><img src='/bulcky/main/libs/img/update_rpi.png' alt='' title="<?php echo __('TOOLTIP_UPDATE_RPI'); ?>" /></a>
-            </td>
-            <td></td>
-        </tr>
-    </table>
+    <div class="row">
+     <div class="3u 12u(2)">
+        <div class="box highlight">
+            <a href="" id="view_logs"><i class="fa fa-2x fa-binoculars" title="<?php echo __('CULTIPI_VIEW_LOGS'); ?>" /></a>
+        </div>
+     </div>
+    
+     <div class="3u 12u(2)">
+        <div class="box highlight">
+            <a href="" id="dl_logs"><img src='/bulcky/main/libs/img/dl_logs.png' alt='' title="<?php echo __('CULTIPI_DL_LOGS'); ?>"></a>
+        </div>
+      </div>
+    
+     <div class="3u 12u(2)">
+        <div class="box highlight">
+            <a href="" name="restart_rpi" id="restart_rpi"><img src='/bulcky/main/libs/img/rpi_restart.png' alt='' title="<?php echo __('RPI_RESTART'); ?>" /></a>
+        </div>
+      </div>
 
+      <div class="3u 12u(2)">
+        <div class="box highlight">
+            <a href="" name="update_rpi" id="update_rpi"><img src='/bulcky/main/libs/img/update_rpi.png' alt='' title="<?php echo __('TOOLTIP_UPDATE_RPI'); ?>" /></a>
+            <img src='/bulcky/main/libs/img/versions.png' id="version_soft" alt='' title="">
+            <input id="upgradeupload" type="file" name="files[]" style="display:none">
+        </div>
+      </div>
+    </div>
     <br />
     <hr />
     <br />
@@ -438,7 +439,8 @@
 
 <div id="dialog_view_logs" style="display:none">
     <?php echo __('CULTIPI_VIEW_LOGS_TITLE'); ?>:
-    <ul class="list_class">
+    <br /><br />
+    <ul class="li_info">
         <li><a class="note_link" href="" id="logs_httpd" name="bulckypi_logs"><?php echo __('CULTIPI_LOGS_HTTPD'); ?></a></li>
         <li><a class="note_link" href="" id="logs_mysql" name="bulckypi_logs"><?php echo __('CULTIPI_LOGS_MYSQL'); ?></a></li>
         <li><a class="note_link" href="" id="logs_service" name="bulckypi_logs"><?php echo __('CULTIPI_LOGS_SERVICE'); ?></a></li>
@@ -451,7 +453,8 @@
 
 <div id="dialog_dl_logs" style="display:none">
     <?php echo __('CULTIPI_DL_LOGS_TITLE'); ?>:
-    <ul class="list_class">
+    <br /><br />
+    <ul class="li_info">
         <li><a class="note_link" href="" id="dl_logs_httpd" name="dl_cultipi_logs"><?php echo __('CULTIPI_LOGS_HTTPD'); ?></a></li>
         <li><a class="note_link" href="" id="dl_logs_mysql" name="dl_cultipi_logs"><?php echo __('CULTIPI_LOGS_MYSQL'); ?></a></li>
         <li><a class="note_link" href="" id="dl_logs_service" name="dl_cultipi_logs"><?php echo __('CULTIPI_LOGS_SERVICE'); ?></a></li>

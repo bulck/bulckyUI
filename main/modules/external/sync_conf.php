@@ -35,7 +35,7 @@
             exec("sudo chown -R bulcky:bulcky $path_output",$ret,$err);
 
             //Restart service:
-            exec("sudo /etc/init.d/cultipi force-reload >/dev/null",$ret,$err);
+            exec("sudo /etc/init.d/bulckypi force-reload >/dev/null",$ret,$err);
             break;
     }
     

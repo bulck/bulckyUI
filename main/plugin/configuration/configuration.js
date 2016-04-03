@@ -593,42 +593,6 @@ $(document).ready(function(){
         var checked=true;
 
        
-        if(typeof($("#reset_minmax").val())!="undefined") { 
-            $.ajax({
-                cache: false,
-                async: false,
-                url: "main/modules/external/check_value.php",
-                data: {value:$("#reset_minmax").val(),type:'short_time'}
-            }).done(function (data) {
-                if(data!=1) {
-                    $("#error_min_max").show(700);
-                    checked=false;
-                    expand('system_interface');
-                } else {
-                    $("#error_min_max").css("display","none");
-                }
-            });
-        }
-
-        if($("#alarm_activ option:selected").val()=="0001") {
-            $("#alarm_value").val($("#alarm_value").val().replace(",","."));
-            $.ajax({
-                cache: false,
-                async: false,
-                url: "main/modules/external/check_value.php",
-                data: {value:$("#alarm_value").val(),type:'alarm_value'}
-            }).done(function (data) {
-                if(data!=1) {
-                    $("#error_alarm_value").show(700);
-                    checked=false;
-                    expand('alarm_interface');
-                } else {
-                    $("#error_alarm_value").css("display","none");
-                }
-            });
-        }
-
-
         if(checked) {
             var check_update=true;
 
@@ -1367,12 +1331,6 @@ $(document).ready(function(){
         }});
     });
 
-
-    //Dl Bonjour setup
-    $("#dl-bonjour").click(function(e) {
-        e.preventDefault();
-        $.fileDownload('../BonjourPSSetup.exe');
-    });
 
     //Update RPI:
     $("#update_rpi").click(function(e) {

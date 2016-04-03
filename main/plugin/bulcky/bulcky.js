@@ -1266,7 +1266,6 @@ $(document).ready(function(){
             success: function (data) {
             
                 if(data != "") {
-                    console.log(data);
                     syno_pilot_element_object = jQuery.parseJSON(data);
                     
                     typeOfElem = syno_pilot_element_object.PLUG_MODULE;

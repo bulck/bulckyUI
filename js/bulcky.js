@@ -161,10 +161,10 @@ function clean_pop_up_messages() {
 function pop_up_add_information(message, id, type) {
     // Add message
     if (type == "information")
-        $("#pop_up_information_part ul").append('<li id="' + id + '">' + message + '</li>');
+        $("#pop_up_information_part ul").append('<li class="li_info" id="' + id + '">' + message + '</li>');
         
     if (type == "error")
-        $("#pop_up_error_part ul").append('<li id="' + id + '">' + message + '</li>');
+        $("#pop_up_error_part ul").append('<li class="li_info" id="' + id + '">' + message + '</li>');
 
     // If there is element in error part, show this part
     if ($("#pop_up_error_part ul li").length > 0)
@@ -189,10 +189,6 @@ function  pop_up_remove(id) {
         $("#pop_up_information_container").css("display", "none");
     
 };
-
-function scrolltodiv(div) {
-   $.scrollTo("#"+div,300); 
-}
 
 
 // brief : select the matching menu
@@ -268,31 +264,6 @@ function get_content(page,get_array) {
     });
 }
 
-(function(){
-  var isAlt = false;
-  $(document).keydown(function(e) {
-    if (e.which == 18) {
-      isAlt = true;
-    }
-    else if (e.which == 67 && isAlt) {
-        var $dialog = $('<div></div>').html('<iframe id="console_iframe" style="border: 0px; " src="main/scripts/webconsole.php" width="100%" height="100%"></iframe>').dialog({
-           autoOpen: false,
-           modal: true,
-           height: 600,
-           width: 800,
-           title: "",
-           buttons: [{ text: CLOSE_button, click: function() { $( this ).dialog( "close" ); } }]
-       });
-       $dialog.dialog('open');
-       $("#console_iframe").focus();
-    }
-  }).keyup(function(e) {
-    if (e.which == 18) {
-      isAlt = false;
-    }
-  });
-})();
-
 $(window).unload( function () { 
     $.ajax({
         cache: false,
@@ -316,6 +287,21 @@ $(window).unload( function () {
 });
 
 $(document).ready(function() {
+   $("[title]").tooltip({
+        position: { my: "left+20 center-30", at: "right+15 center-10" },
+        close: function (event, ui) {
+            ui.tooltip.hover(
+            function () {
+                $(this).stop(true).fadeTo(300, 1);
+            },
+            function () {
+                $(this).fadeOut("300", function () {
+                    $(this).remove();
+                })
+            });
+        }
+    });
+
     var position_set=$("#content").position();
 
     $('a').click(function(){
@@ -610,7 +596,7 @@ $(document).ready(function() {
     }
 
 
-    $("a[name='details_diff_link']").on('click',function(e) {
+    $("a[name='details_diff_link']").live('click',function(e) {
         e.preventDefault();
         var show=false;
         if($("#details_diff_"+$(this).attr('target')).css('display')=="none") {
@@ -767,7 +753,8 @@ $(document).ready(function() {
                     reduced="False";
                     $(this).parent().find(".ui-dialog-buttonset .ui-button-text:eq(1)").text(REDUCE_button);
                }
-            } 
+            } ,
+            open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); }
          });
          $(".message").dialog().parent().css('position', 'fixed');
     });
@@ -826,8 +813,8 @@ $(document).ready(function() {
     });
 
 
-  $(".pop_up_message").dialog({ width: 550, resizable: false, closeOnEscape: false, buttons: [{ text: CLOSE_button, click: function() { $( this ).dialog( "close" ); if(typeof anchor != 'undefined') {  $.scrollTo("#"+anchor,300);  } } } ], hide: "fold", modal: true,  dialogClass: "popup_message"  });
-   $( ".pop_up_error" ).dialog({ width: 550, resizable: false, closeOnEscape: false, buttons: [ { text: CLOSE_button, click: function() { $( this ).dialog( "close" ); if(typeof anchor != 'undefined') {  $.scrollTo("#"+anchor,300);  } } } ], hide: "fold", modal: true,  dialogClass: "popup_error" });
+  $(".pop_up_message").dialog({ width: 550, resizable: false, closeOnEscape: false, buttons: [{ text: CLOSE_button, click: function() { $( this ).dialog( "close" ); if(typeof anchor != 'undefined') {  $('html, body').animate({ scrollTop: $("#"+anchor).offset().top}, 300); } } } ], hide: "fold", modal: true,  dialogClass: "popup_message"  });
+   $( ".pop_up_error" ).dialog({ width: 550, resizable: false, closeOnEscape: false, buttons: [ { text: CLOSE_button, click: function() { $( this ).dialog( "close" ); if(typeof anchor != 'undefined') {  $('html, body').animate({ scrollTop: $("#"+anchor).offset().top}, 300);  } } } ], hide: "fold", modal: true,  dialogClass: "popup_error" });
 
 
     //Lors du click sur l'oeil - on doit cacher l'oeil et afficher la boîte de messages:     

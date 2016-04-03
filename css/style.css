@@ -103,7 +103,6 @@
 		color: #999999;
 		font-size: 1.25em;
 		position: relative;
-		margin-top: -1.25em;
 		margin-bottom: 2.25em;
 	}
 
@@ -139,32 +138,6 @@
 		}
 
 /* Form */
-
-	input[type="text"],
-	input[type="password"],
-	input[type="email"],
-	textarea {
-		-moz-appearance: none;
-		-webkit-appearance: none;
-		-o-appearance: none;
-		-ms-appearance: none;
-		appearance: none;
-		-moz-transition: border-color 0.2s ease-in-out;
-		-webkit-transition: border-color 0.2s ease-in-out;
-		-o-transition: border-color 0.2s ease-in-out;
-		-ms-transition: border-color 0.2s ease-in-out;
-		transition: border-color 0.2s ease-in-out;
-		background: #fff;
-		border: solid 1px #e0e0e0;
-		border-radius: 5px;
-		color: inherit;
-		display: block;
-		outline: 0;
-		padding: 0.75em;
-		text-decoration: none;
-		width: 100%;
-	}
-
 		input[type="text"]:focus,
 		input[type="password"]:focus,
 		input[type="email"]:focus,
@@ -427,14 +400,17 @@
 		color: white;
 		cursor: pointer;
 		display: inline-block;
-		line-height: 2.1em;
+		line-height: 1.6em;
 		text-align: center;
 		text-decoration: none;
 		font-weight: 10pt;
         border-style: solid;
         border-width: 2px;
         border-color: #798173;
+        margin-top: 15px;
+        margin-bottom: 15px;
 	}
+    
 
 		input[type="submit"]:hover,
 		input[type="reset"]:hover,

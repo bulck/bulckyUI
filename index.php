@@ -67,7 +67,6 @@ check_database();
         <script src="js/jquery-ui-timepicker-addon.js?v=<?=@filemtime('js/jquery-ui-timepicker-addon.js')?>"></script>
         <script src="js/jquery.colourPicker.js?v=<?=@filemtime('js/jquery.colourPicker.js')?>"></script>
         <script src="js/fullcalendar.js?v=<?=@filemtime('main/libs/js/fullcalendar.js')?>"></script>
-        <script src="js/scrollTo.js?v=<?=@filemtime('main/libs/js/scrollTo.js')?>"></script>
         <script src="js/fileDownload.js?v=<?=@filemtime('main/libs/js/fileDownload.js')?>"></script>
         <script src="js/jquery.ui.datepicker-fr.js?v=<?=@filemtime('js/jquery.ui.datepicker-fr.js')?>"></script>
    
@@ -76,7 +75,6 @@ check_database();
    
 		
 		<link rel="stylesheet" href="css/skel.css?v=<?=@filemtime('css/skel.css')?>" />
-        <!-- <link rel="stylesheet" href="css/jquery-ui.css?v=<?=@filemtime('css/jquery-ui.css')?>" />-->
         <link rel="stylesheet" href="css/jquery-ui.custom.css?v=<?=@filemtime('css/jquery-ui.custom.css')?>" />
 		<link rel="stylesheet" href="css/style.css?v=<?=@filemtime('css/style.css')?>" />
         <link rel="stylesheet" href="css/bulcky.css?v=<?=@filemtime('css/bulcky.css')?>" />
@@ -102,7 +100,8 @@ check_database();
     <div id="diff_conf_list" title="<?php echo __('DIFF_CONF'); ?>" style="display:none">
     </div>
 
-    <div>
+    <div id="tooltip_msg_box" style="display:none" class="eyes_msgbox"><i class="fa fa-lg fa-eye" id="eyes_msgbox"></i></div>
+
     <!-- Small eye for displaying message pop up-->
     <script>title_msgbox="<?php echo __('TOOLTIP_MSGBOX_EYES'); ?>";</script>
 
@@ -115,8 +114,6 @@ check_database();
 	</div>
 
 	<img src="./images/logo_bulck.png" class="logo" alt="" />
-
-    <div id="tooltip_msg_box" style="display:none" class="eyes_msgbox"><i class="fa fa-lg fa-eye" id="eyes_msgbox"></i></div>
 
 	<!-- Header -->
 		<div id="header">
@@ -140,8 +137,12 @@ check_database();
         <div class="message" style="display:none" title="<?php echo __('MESSAGE_BOX'); ?>">
             <br />
             <div id="pop_up_information_container">
-                <img src="main/libs/img/informations.png" alt="" />
-                <label class="info_title"><?php echo __('INFORMATION'); ?>:</label>
+                <span class="fa-stack fa-lg icon_info">
+                    <i class="fa fa-circle-thin fa-stack-2x"></i>
+                    <i class="fa fa-info fa-stack-1x"></i>
+                </span>
+                <b class="info_title"><?php echo __('INFORMATION'); ?>:</b>
+                <br /><br />
                 <div class="info"  id="pop_up_information_part">
                     <ul>
                     </ul>
@@ -150,8 +151,11 @@ check_database();
             </div>
 
             <div id="pop_up_error_container">
-                <img src="main/libs/img/warning.png" alt="" />
-                <label class="error_title"><?php  echo __('WARNING'); ?>:</label>
+                <span class="fa-stack fa-lg icon_error">
+                    <i class="fa fa-circle-thin fa-stack-2x"></i>
+                    <i class="fa fa-warning fa-stack-1x"></i>
+                </span>
+                <b class="error_title"><?php  echo __('WARNING'); ?>:</b>
                 <div class="error" id="pop_up_error_part">
                     <ul>
                     </ul>
@@ -187,7 +191,7 @@ check_database();
 				<!-- Copyright -->
 					<div class="copyright">
 						<ul class="menu">
-                            <li>Contact : <a href"mailto:info@bulck.fr">info@bulck.fr</a></li>
+                            <li>Contact : <a href="mailto:info@bulck.fr">info@bulck.fr</a></li>
 							<li>&copy; Bulck SAS. Tout droits réservés</li>
 						</ul>
 					</div>

@@ -2206,10 +2206,10 @@ msgid "DIR_CONF_UPDATE"
 msgstr "Votre configuration est à jour"
 
 msgid "DIR_CONF_NOT_UPTODATE"
-msgstr "La configuration utilisée par votre module ne correspond plus à celle du logiciel: <p align='center'><button id='update_conf'>Synchroniser les configurations</button></p>"
+msgstr "La configuration utilisée par votre module ne correspond plus à celle du logiciel: <p align='center'><button class='button' d='update_conf'>Synchroniser les configurations</button></p>"
 
 msgid "DISPLAY_DIFF"
-msgstr "Afficher les différences des configurations: <p align='center'><button id='show_diff_conf'>Afficher les différences</button></p>"
+msgstr "Afficher les différences des configurations: <p align='center'><button class='button' id='show_diff_conf'>Afficher les différences</button></p>"
 
 msgid "DIFF_CONF"
 msgstr "Différences entre la configuration actuelle de votre module et la configuration du logiciel"
