@@ -1657,9 +1657,9 @@ $(document).ready(function(){
             success: function (data) {
 
                 var objJSON = jQuery.parseJSON(data);
-
+            
                 if (objJSON.error == "") {
-                
+                    $('#synoptic_updateCultipiStatus').removeClass();     
                     switch (objJSON.status) {
                         case "starting" :
                         case "loading_serverLog" :
@@ -1669,18 +1669,18 @@ $(document).ready(function(){
                         case "loading_serverAcqSensor" :
                         case "loading_serverPlugUpdate" :
                         case "loading_serverHisto" :
-                            $('#synoptic_updateCultipiStatus').attr('src','main/libs/img/service_restart.png');
+                            $('#synoptic_updateCultipiStatus').addClass('fa fa-2x fa-pause orange');
                             $('#synoptic_updateCultipiStatus').attr('title','<?php echo __('SYNO_UPDATE_CULTIPI_STATUS_START'); ?>' + "<br />Heure locale : " + objJSON.cultihour);
                             break;
                         case "initialized" :
-                            $('#synoptic_updateCultipiStatus').attr('src','main/libs/img/service_on.png');
+                            $('#synoptic_updateCultipiStatus').addClass('fa fa-2x fa-play-circle green');
                             $('#synoptic_updateCultipiStatus').attr('title','<?php echo __('SYNO_UPDATE_CULTIPI_STATUS_STARTED'); ?>' + "<br />Heure locale : " + objJSON.cultihour);
                             break;
                         case "TIMEOUT" :
                         case "DEFCOM" :
                         case "NA" :
                         default :
-                            $('#synoptic_updateCultipiStatus').attr('src','main/libs/img/button_cancel.png');
+                            $('#synoptic_updateCultipiStatus').addClass('fa fa-2x fa-remove red');
                             $('#synoptic_updateCultipiStatus').attr('title','<?php echo __('SYNO_UPDATE_CULTIPI_STATUS_TIMEOUT'); ?>' + "<br />Heure locale : " + objJSON.cultihour);
                             break;
                     }

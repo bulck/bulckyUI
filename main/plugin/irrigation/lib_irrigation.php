@@ -24,7 +24,7 @@ function check_db() {
     $zone_col["tempsOffApresMidi"]  = array ( 'Field' => "tempsOffApresMidi", 'Type' => "int(11)", "default_value" => 0, 'carac' => "NOT NULL");
 
     // Check if table configuration exists
-    $sql = "SHOW TABLES FROM cultibox LIKE 'irrigation_zone';";
+    $sql = "SHOW TABLES FROM bulcky LIKE 'irrigation_zone';";
 
     $db = \db_priv_pdo_start("root");
     try {
@@ -97,7 +97,7 @@ function check_db() {
     $plateforme_col["tempsAutoRemplissage"]  = array ( 'Field' => "tempsAutoRemplissage", 'Type' => "int(11)", "default_value" => 30, 'carac' => "NOT NULL");
 
     // Check if table configuration exists
-    $sql = "SHOW TABLES FROM cultibox LIKE 'irrigation_plateforme';";
+    $sql = "SHOW TABLES FROM bulcky LIKE 'irrigation_plateforme';";
 
     $db = \db_priv_pdo_start("root");
     try {
@@ -164,7 +164,7 @@ function check_db() {
     $lt_col["timeNuitStarter"] = array ( 'Field' => "timeNuitStarter", 'Type' => "int(11)", "default_value" => 0, 'carac' => "NOT NULL");
     
     // Check if table configuration exists
-    $sql = "SHOW TABLES FROM cultibox LIKE 'irrigation_lt';";
+    $sql = "SHOW TABLES FROM bulcky LIKE 'irrigation_lt';";
 
     $db = \db_priv_pdo_start("root");
     try {
@@ -220,7 +220,7 @@ function check_db() {
     $engrais_col["useNuitNormal"] = array ( 'Field' => "useNuitNormal", 'Type' => "VARCHAR(5)", "default_value" => 'false', 'carac' => "NOT NULL");
 
     // Check if table configuration exists
-    $sql = "SHOW TABLES FROM cultibox LIKE 'irrigation_engrais';";
+    $sql = "SHOW TABLES FROM bulcky LIKE 'irrigation_engrais';";
 
     $db = \db_priv_pdo_start("root");
     try {

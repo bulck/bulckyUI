@@ -41,7 +41,7 @@ if(is_file("/tmp/interfaces")) {
                 }
             }
         }
-        exec("sudo /bin/mv /var/cache/lighttpd/compress/cultibox /tmp/",$output,$err);
+        exec("sudo /bin/mv /var/cache/lighttpd/compress/bulcky /tmp/",$output,$err);
         exec("sudo /etc/init.d/ntp force-reload",$output,$err);
 		echo json_encode("1");
     } else {

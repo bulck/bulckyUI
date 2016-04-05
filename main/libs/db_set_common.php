@@ -125,28 +125,6 @@ function insert_configuration($key,$value,&$out) {
 // }}}
 
 
-// {{{ insert_informations()
-// ROLE set informations value for specific entries
-// IN $key      the key selectable from the database 
-//    $value   value of the key to insert
-// RET none
-//Note: if to select a value is limited to 1. Only one configuration is available,
-//there isn't a user configuration management yet.
-function insert_informations($key,$value) {
-   $sql = <<<EOF
-UPDATE `informations` SET  {$key} = "{$value}" WHERE id = 1
-EOF;
-   $db=db_priv_pdo_start();
-   try {
-        $db->exec("$sql");
-   } catch(PDOException $e) {
-        $ret=$e->getMessage();
-   }
-   $db=null;
-}
-// }}}
-
-
 // {{{ insert_plug_conf()
 // ROLE set plug configuration value for specific entries
 // IN $key      the key selectable from the database 

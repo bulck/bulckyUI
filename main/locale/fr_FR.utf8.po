@@ -2166,6 +2166,9 @@ msgstr "Logs de sortie"
 msgid "ERROR_LOGS"
 msgstr "Logs d'erreur"
 
+msgid "PROCESS_GET_VERSION"
+msgstr "Récupération des numéros de version en cours... <img src='/bulcky/main/libs/img/waiting_small.gif' alt='' />"
+
 msgid "CULTIPI_IMAGE_VERSION"
 msgstr "Version de l'image"
 
@@ -2218,13 +2221,13 @@ msgid "WAIT_UPDATED_CONF"
 msgstr "Vérification de la configuration"
 
 msgid "SYNO_UPDATE_CULTIPI_STATUS_START"
-msgstr "Module Wifi en cours de démarrage"
+msgstr "Module de pilotage en cours de démarrage"
 
 msgid "SYNO_UPDATE_CULTIPI_STATUS_STARTED"
-msgstr "Module Wifi démarré"
+msgstr "Module de pilotage démarré"
 
 msgid "SYNO_UPDATE_CULTIPI_STATUS_TIMEOUT"
-msgstr "Module Wifi ne répond pas"
+msgstr "Module de pilotage ne répond pas"
 
 msgid "SYNO_UPDATE_PLUG_HOUR"
 msgstr "Dernière mise à jour des prises : "

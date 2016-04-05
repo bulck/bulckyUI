@@ -238,7 +238,7 @@ function check_and_update_sd_card($sd_card="",&$main_info_tab,&$main_error_tab,$
     ); 
     $paramListSupervisionProcess[] = array (
         "name" => "error,action",
-        "level" => "sendMail info@cultibox.fr"
+        "level" => "sendMail info@bulck.fr"
     );
     create_conf_XML($sd_card . "/serverSupervision/process_0.xml" , $paramListSupervisionProcess);
     */

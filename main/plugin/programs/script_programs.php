@@ -135,14 +135,7 @@ if(empty($apply)||(!isset($apply))) {
     $regul_program="on";
 }
 
-// Trying to find if a cultibox SD card is currently plugged and if it's the case, get the path to this SD card
-if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) { 
-    if((!isset($sd_card))||(empty($sd_card))) {
-        $sd_card=get_sd_card();
-    }
-} else {
-    $sd_card = $GLOBALS['CULTIPI_CONF_TEMP_PATH'];
-}
+$sd_card = $GLOBALS['CULTIPI_CONF_TEMP_PATH'];
 
 
 if((!isset($sd_card))||(empty($sd_card))) {

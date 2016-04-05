@@ -23,57 +23,63 @@
     bulcky\check_db();
 ?>
 
+<br />
+<hr />
+<br />
 <!-- Section synoptic -->
 <div id="div_synoptic_ui" style="">
     <!-- Display buttons -->
-    <table class="table_width">
-        <tr>
-            <td class="calendar-conf-marge"></td> 
-            <td class="cultipi_icon">
-                <!-- Button to add a element -->
-                <input type="image" id="syno_add_element" name="syno_add_element"
-                       title="<?php echo __('CULTIPI_SYNO_ADD_ELEMENT'); ?>"
-                       src="main/libs/img/db_add.png"  
-                       alt="calendar"  
-                />        
-            </td><td class="cultipi_icon">
-                <input type="image" id="syno_webcam" name="syno_webcam"
-                       title="<?php echo __('TOOLTIP_WEBCAM'); ?>"
-                       src="main/libs/img/webcam_icon.png"  
-                       alt="webcam"  
-                />
-            <td class="cultipi_icon">
-                <input type="image" id="manage_images" name="manage_images"
-                       title="<?php echo __('TOOLTIP_MANAGE_IMAGES'); ?>"
-                       src="main/libs/img/upload.png"  
-                       alt="settings"  
-                       width="22"
-                />
-            <td class="cultipi_icon">
-                <input type="image" id="restart_cultipi" name="restart_cultipi"  
-                       src='/bulcky/main/libs/img/service_restart.png' 
-                       alt='restart' 
-                       title="<?php echo __('RESTART_SERVICE'); ?>"
-                        width="24"
-                 />
-            </td>
-            <td class="cultipi_blank"></td>
-            <td class="calendar-conf-marge"></td>
-            <td ><p class="pInline p_center" ><?php echo __('SYNO_UPDATE_SENSOR_HOUR'); ?></p><p class="pInline p_center" id="synoptic_updateSensorHour" ></p></td>
-            <td ><p class="pInline p_center" ><?php echo __('SYNO_UPDATE_PLUG_HOUR'); ?></p><p class="pInline p_center" id="synoptic_updatePlugHour" ></p></td>
-            <td ><p class="pInline" >
-                <input type="image" id="synoptic_updateCultipiStatus"
-                       title="<?php echo __('SYNO_UPDATE_CULTIPI_STATUS_START'); ?>"
-                       src="main/libs/img/one_pixel.png"  
-                       alt="starting"
-                       width="14"
-                />
-                </p>
-            </td>
-        </tr>
-    </table>
+  <br />
+  <div class="row">
+    <div class="1u 12u(2)">
+        <div class="box highlight">
+        </div>
+    </div>
+     <div class="1u 12u(2)">
+        <div class="box highlight">
+             <a href="" id="syno_add_element" name="syno_add_element" title="<?php echo __('CULTIPI_SYNO_ADD_ELEMENT'); ?>"><i class="fa fa-2x fa-plus-circle"></i></a>
+        </div>
+    </div>
+
+     <div class="1u 12u(2)">
+        <div class="box highlight">
+            <a href="" id="syno_webcam" name="syno_webcam" title="<?php echo __('TOOLTIP_WEBCAM'); ?>"><i class="fa fa-2x fa-video-camera"></i></a>
+        </div>
+    </div>
+
+
+     <div class="1u 12u(2)">
+        <div class="box highlight">
+                <a href=""  d="manage_images" name="manage_images" title="<?php echo __('TOOLTIP_MANAGE_IMAGES'); ?>"><i class="fa fa-2x fa-bars"></i></a>
+        </div>
+    </div>
+
+
+     <div class="1u 12u(2)">
+        <div class="box highlight">
+            <a href="" id="restart_cultipi" name="restart_cultipi" src='/bulcky/main/libs/img/service_restart.png' title="<?php echo __('RESTART_SERVICE'); ?>"><i class="fa fa-2x fa-refresh"></i></a>
+        </div>
+    </div>
+
+    <div class="1u 12u(2)">
+        <div class="box highlight">
+        </div>
+    </div>
+    <div class="3u 12u(2)">
+            <p class="pInline" ><?php echo __('SYNO_UPDATE_SENSOR_HOUR'); ?><p class="pInline" id="synoptic_updateSensorHour" ></p><br />
+            <p class="pInline" ><?php echo __('SYNO_UPDATE_PLUG_HOUR'); ?></p><p class="pInline" id="synoptic_updatePlugHour" ></p>
+    </div>
+     <div class="1u 12u(2)">
+        <div class="box highlight">
+             <a href="" class="fake_link"><i id="synoptic_updateCultipiStatus" title="<?php echo __('SYNO_UPDATE_CULTIPI_STATUS_START'); ?>" class="fa fa-2x fa-remove red"/></i></a>
+        </div>
+    </div>
+    <div class="1u 12u(2)">
+        </div>
+    </div>
+  </div>
     <br />
-    <hr class="hr_cultipi" />
+    <hr />
     <br />
 
     <div id="set" style="min-height: 700px;position:relative;" >

@@ -21,7 +21,7 @@ function check_db() {
     $sensors_index_col["statusOK2"] = array ( 'Field' => "statusOK2", 'Type' => "int(11)", 'default_value' => 1, 'carac' => "NOT NULL");
     
     // Check if table configuration exists
-    $sql = "SHOW TABLES FROM cultibox LIKE 'sensors';";
+    $sql = "SHOW TABLES FROM bulcky LIKE 'sensors';";
     
     $db = \db_priv_pdo_start("root");
     try {
@@ -97,7 +97,7 @@ function check_db() {
 
 
     // Check if table configuration exists
-    $sql = "SHOW TABLES FROM cultibox LIKE 'sensors_directRead';";
+    $sql = "SHOW TABLES FROM bulcky LIKE 'sensors_directRead';";
     
     $db = \db_priv_pdo_start("root");
     try {

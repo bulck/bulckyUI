@@ -46,7 +46,7 @@ function check_db() {
     $conf_index_col["EMAIL_USE_SSL"]        = array ( 'Field' => "EMAIL_USE_SSL", 'Type' => "varchar(5)", 'default_value' => 'true','carac' => "NOT NULL");
 
     // Check if table configuration exists
-    $sql = "SHOW TABLES FROM cultibox LIKE 'configuration';";
+    $sql = "SHOW TABLES FROM bulcky LIKE 'configuration';";
     
     $db = \db_priv_pdo_start("root");
     try {

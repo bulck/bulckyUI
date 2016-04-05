@@ -72,24 +72,6 @@ INSERT INTO `configuration` (`id`, `VERSION`, `COLOR_HUMIDITY_GRAPH`, `COLOR_TEM
 -- --------------------------------------------------------
 
 --
--- Table structure for table `informations`
---
-
-CREATE TABLE IF NOT EXISTS `informations` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `cbx_id` int(5) NOT NULL DEFAULT '0',
-  `firm_version` varchar(7) NOT NULL DEFAULT '000.000',
-  `log` mediumtext,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
-INSERT INTO `informations` (`ID` ,`cbx_id` ,`firm_version`, `log`) VALUES (NULL , '0', '', '');
-
-
--- --------------------------------------------------------
-
-
---
 -- Table structure for table `calendar`
 --
 

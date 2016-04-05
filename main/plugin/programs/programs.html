@@ -34,63 +34,50 @@
 </div>
 
 <!-- Menu button -->
-<table class="table_width">
-    <tr>
-        <td class="calendar-conf-marge"></td>
-        <td class="icon_menu2">
-            <!-- Button for program -->
-            <input type="image" id="program_plug_icon" name="program_plug_icon" 
-                src="main/libs/img/clock.png" 
-                title="<?php echo __('TOOLTIP_PROGRAM_PLUG'); ?>" 
-                alt="program"
-                width="28"
-            />
-        </td>
-        <td class="icon_menu2">
-            <!-- Button for plug -->
-            <input type="image" id="plug_settings" name="plug_settings" 
-                src="main/libs/img/plug_icon.png" 
-                title="<?php echo __('TOOLTIP_PARAMETERS_PLUGS'); ?>" 
-                alt="plug"
-                height="36"
-            />
-        </td>
-        <td class="icon_menu2">
-            <!-- Button for param -->
-            <input type="image" id="program_settings" name="program_settings" 
-                src="main/libs/img/advancedsettings.png" 
-                title="<?php echo __('TOOLTIP_PARAMETERS_PROGRAM'); ?>" 
-                alt="param"
-            />
-        </td> 
-        <td class="icon_menu2">
-             <input type="image"  id="jumpto_wizard" src='main/libs/img/wizard.png' alt='<?php echo __('WIZARD'); ?>' title="<?php echo __('WIZARD_ENABLE_FUNCTION'); ?>" />
+<hr />
+<br />
+<br />
+ <div class="row">
+    <div class="2u 12u(2)">
+        <div class="box highlight">
+        </div>
+    </div>
+     <div class="2u 12u(2)">
+        <div class="box highlight">
+            <a href="" id="program_plug_icon" name="program_plug_icon" title="<?php echo __('TOOLTIP_PROGRAM_PLUG'); ?>"><i class="fa fa-2x fa-clock-o"></i></a>
+        </div>
+    </div>
+     <div class="2u 12u(2)">
+        <div class="box highlight">
+              <a href="" id="plug_settings" name="plug_settings" title="<?php echo __('TOOLTIP_PARAMETERS_PLUGS'); ?>"><i class="fa fa-2x fa-plug"></i></a>
+        </div>
+    </div>
+     <div class="2u 12u(2)">
+        <div class="box highlight">
+              <a href="" id="program_settings" name="program_settings" title="<?php echo __('TOOLTIP_PARAMETERS_PROGRAM'); ?>"><i class="fa fa-2x fa-bars"></i></a>
+        </div>
+    </div>
+     <div class="2u 12u(2)">
+        <div class="box highlight">
+            <a href="" id="resume_img" title="<?php echo $resume[$selected_plug].'<br />'.$resume_regul[$selected_plug]; ?>"><i class="fa fa-2x fa-comment"></i></a>
+        </div>
+    </div>
+    
+    <div class="2u 12u(2)">
+        <div class="box highlight">
+        </div>
+    </div>
+  </div>
+<br />
+<hr />
+<br />
 
-        </td>      
-        <td class="marge-resume"></td>
-        <td><img src="main/libs/img/resume.png" alt="" id="resume_img" title="<?php echo $resume[$selected_plug].'<br />'.$resume_regul[$selected_plug]; ?>" /></td>
-        <td></td>
-    </tr>
-</table>
+<div id="plug" class="plug_content"></div>
 
-
-
-<table class="table_width">
-    <tr>
-        <td class="program-div-margin"></td><td class="program-div"><div id="plug" style="width: 100%; height: 350px; margin: 0 auto"></div></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>
-            <p class="p_center">
-                <button id="resetXzoom" name="buttonX" style="display:none"><?php echo __('RESET_ZOOM_TITLE'); ?></button>
-                <button id="resetzoom" name="button" style="display:none"><?php echo __('RESET_ZOOM_TITLE'); ?></button>
-            </p>
-        </td>
-        <td></td>
-    </tr>
-</table>
+<p class="p_center">
+    <button class="button" id="resetXzoom" name="buttonX" style="display:none"><?php echo __('RESET_ZOOM_TITLE'); ?></button>
+    <button class="button" id="resetzoom" name="button" style="display:none"><?php echo __('RESET_ZOOM_TITLE'); ?></button>
+</p>
 
 <div id="program_plug" style="display:none" title="<?php echo __('TOOLTIP_PROGRAM_PLUG'); ?>">
 <form action="/bulcky/index.php?menu=programs" method="post" name="actionprog" id="actionprog">

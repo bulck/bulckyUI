@@ -8,7 +8,7 @@ namespace logs {
 function check_db() {
 
     // Check if table configuration exists
-    $sql = "SHOW TABLES FROM cultibox LIKE 'logs';";
+    $sql = "SHOW TABLES FROM bulcky LIKE 'logs';";
 
     $db = \db_priv_pdo_start("root");
     try {
@@ -74,23 +74,7 @@ function export_table_csv($name="",$datefrom="",$dateto="",&$out) {
         $where='WHERE date_catch BETWEEN "'.$datefrom.'" AND "'.$dateto.'"';
     }    
 
-    $os=php_uname('s');
-    switch($os) {
-        case 'Linux':
-            if(isset($GLOBALS['MODE']) && $GLOBALS['MODE'] == "cultipi") {
-                exec("/usr/bin/mysql --defaults-extra-file=/var/www/bulcky/sql_install/my-extra.cnf -B -h 127.0.0.1 --port=3891 cultibox -e 'SELECT ${field} FROM `${name}` ${where}' > $file");
-            } else {
-                exec("../../../../../bin/mysql --defaults-extra-file=/opt/bulcky/etc/my-extra.cnf -B -h 127.0.0.1 --port=3891 cultibox -e 'SELECT ${field} FROM `${name}` ${where}' > $file");
-            }
-            break;
-        case 'Mac':
-        case 'Darwin':
-			exec("../../../../../bin/mysql --defaults-extra-file=/Applications/bulcky/xamppfiles/etc/my-extra.cnf -B -h 127.0.0.1 --port=3891 cultibox -e 'SELECT ${field} FROM `${name}` ${where}' > $file");
-            break;
-        case 'Windows NT':
-			exec("..\..\..\..\..\mysql\bin\mysql.exe --defaults-extra-file=\"C:\cultibox\\xampp\mysql\bin\my-extra.cnf\" -B -h 127.0.0.1 --port=3891 cultibox -e \"SELECT ${field} FROM `${name}` ${where}\" > $file");
-			break;
-    }
+    exec("/usr/bin/mysql --defaults-extra-file=/var/www/bulcky/sql_install/my-extra.cnf -B -h 127.0.0.1 --port=3891 bulcky -e 'SELECT ${field} FROM `${name}` ${where}' > $file");
 }
 // }}}
 

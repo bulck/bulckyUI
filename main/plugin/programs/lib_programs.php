@@ -19,7 +19,7 @@ function check_db() {
     $program_index_col["comments"]      = array ( 'Field' => "comments", 'Type' => "VARCHAR(500)");
 
     // Check if table program_index exists
-    $sql = "SHOW TABLES FROM cultibox LIKE 'program_index';";
+    $sql = "SHOW TABLES FROM bulcky LIKE 'program_index';";
     
     $db = \db_priv_pdo_start("root");
     try {
@@ -73,7 +73,7 @@ function check_db() {
     $program_col["type"]        = array ( 'Field' => "type", 'Type' => "int(11)",  'default_value' => '0', 'carac' => "NOT NULL");
 
     // Check if table programs exists
-    $sql = "SHOW TABLES FROM cultibox LIKE 'programs';";
+    $sql = "SHOW TABLES FROM bulcky LIKE 'programs';";
 
     $db = \db_priv_pdo_start("root");
     try {

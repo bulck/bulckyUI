@@ -17,18 +17,7 @@ if((!isset($calendar_start))||(empty($calendar_start))) {
 
 $title_list = calendar\get_title_list(); //Get list of titles available from the database to be used in the calendar form
     
-// Trying to find if a cultibox SD card is currently plugged and if it's the case, get the path to this SD card
-if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) { 
-    if((!isset($sd_card))||(empty($sd_card))) {
-        $sd_card=get_sd_card();
-    }
-} else {
-    $sd_card = $GLOBALS['CULTIPI_CONF_TEMP_PATH'];
-}
-
-if((!isset($sd_card))||(empty($sd_card))) {
-    setcookie("CHECK_SD", "False", time()+1800,"/",false,false);
-}
+$sd_card = $GLOBALS['CULTIPI_CONF_TEMP_PATH'];
 
 
 // Read program index

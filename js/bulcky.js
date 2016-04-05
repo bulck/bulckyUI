@@ -309,6 +309,11 @@ $(document).ready(function() {
     });
 
 
+    $(document.body).on('click', '.fake_link' ,function(e){
+        e.preventDefault();
+    });
+
+
      // Tooltip only Text
      $(document).on('mouseenter','a',function(){
                 alert("test");

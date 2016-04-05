@@ -8,12 +8,10 @@
 ?>
 
 
-var rtc_offset_value=<?php echo json_encode($rtc_offset) ?>;
 var main_error = <?php echo json_encode($main_error); ?>;
 var main_info = <?php echo json_encode($main_info); ?>;
 var advanced_regul =  <?php echo json_encode($advanced_regul); ?>;
 var ajax_format;
-var sd_wizard="";
 
 
 // {{{
@@ -114,7 +112,7 @@ function check_rpi_update() {
                                                         text: CLOSE_button,
                                                         click: function () {
                                                             $( this ).dialog("close");
-                                                            window.location = "/cultibox"
+                                                            window.location = "/bulcky"
                                                         }
                                                     }]
                                                 });
@@ -208,7 +206,7 @@ function manageHttp(action) {
                                 text: CLOSE_button,
                                 click: function () {
                                     $( this ).dialog("close");
-                                    window.location = "/cultibox";
+                                    window.location = "/bulcky";
                                     return false;
                                 }
                             }]
@@ -257,7 +255,7 @@ $(document).ready(function(){
         }).done(function (data) {
              var objJSON = jQuery.parseJSON(data);
             
-            var version="<p class='p_center'><b><i><?php echo __('CULTIPI_SOFT_VERSION'); ?>:</i></b></p><br /><?php echo __('CULTIPI_SOFT'); ?>:  <b>"+objJSON[0]+"</b><br /><?php echo __('CULTIBOX_SOFT'); ?>:  <b>"+objJSON[1]+"</b><br /><?php echo __('CULTIRAZ_SOFT'); ?>:  <b>"+objJSON[2]+"</b><br /><?php echo __('CULTITIME_SOFT'); ?>:  <b>"+objJSON[3]+"</b><br /><?php echo __('CULTICONF_SOFT'); ?>:  <b>"+objJSON[4]+"</b><br /><?php echo __('CULTICAM_SOFT'); ?>:  <b>"+objJSON[5]+"</b><br /><?php echo __('CULTIDOC_SOFT'); ?>:  <b>"+objJSON[6]+"</b><br /><?php echo __('CULTIPI_IMAGE_VERSION'); ?>:  <b>"+objJSON[7]+"</b><br /><p class='p_center'><button id='manual_upgrade'><?php echo __('MANUAL_UPGRADE'); ?></button></p>";
+            var version="<p class='p_center'><b><i><?php echo __('CULTIPI_SOFT_VERSION'); ?>:</i></b></p><br /><?php echo __('CULTIPI_SOFT'); ?>:  <b>"+objJSON[0]+"</b><br /><?php echo __('CULTIBOX_SOFT'); ?>:  <b>"+objJSON[1]+"</b><br /><?php echo __('CULTIRAZ_SOFT'); ?>:  <b>"+objJSON[2]+"</b><br /><?php echo __('CULTITIME_SOFT'); ?>:  <b>"+objJSON[3]+"</b><br /><?php echo __('CULTICONF_SOFT'); ?>:  <b>"+objJSON[4]+"</b><br /><?php echo __('CULTICAM_SOFT'); ?>:  <b>"+objJSON[5]+"</b><br /><?php echo __('CULTIDOC_SOFT'); ?>:  <b>"+objJSON[6]+"</b><br /><?php echo __('CULTIPI_IMAGE_VERSION'); ?>:  <b>"+objJSON[7]+"</b><br /><p class='p_center'><button class='button' id='manual_upgrade'><?php echo __('MANUAL_UPGRADE'); ?></button></p>";
 
             $('#version_soft').attr('title', version);
         });
@@ -692,32 +690,6 @@ $(document).ready(function(){
 
 
 
-            //RTC OFFSET process:
-            newValue    = $("#rtc_offset").val();
-            varToUpdate = $("#rtc_offset").attr('name');
-
-            if ($( "#rtc_offset" ).length && varToUpdate.trim() != "") {
-                 $.ajax({
-                    type: "GET",
-                    cache: false,
-                    async: false,
-                    url: "main/modules/external/update_configuration.php",
-                    data: {
-                        value:newValue, 
-                        variable:varToUpdate,
-                        sd_card:sd_card
-                    }
-                }).done(function (data) {
-                    try {
-                            if($.parseJSON(data)!="") {
-                                check_update=false;
-                            }
-                        } catch(err) {
-                            check_update=false;
-                        }
-                });
-            }
-
             //RESET MIN MAX process:
             newValue    = $("#reset_minmax").val();
             varToUpdate = $("#reset_minmax").attr('name');
@@ -774,31 +746,6 @@ $(document).ready(function(){
                         check_update=false;
                     }
                 });
-            }
-
-
-            if(sd_card!="") {
-                $.ajax({
-                    type: "GET",
-                    url: "main/modules/external/check_and_update_sd.php",
-                    data: {
-                        force_rtc_offset_value:1,
-                        sd_card:sd_card
-                    },
-                    async: false
-                }).done(function(data, textStatus, jqXHR) {
-                    try {
-                        // Parse result
-                        var json = jQuery.parseJSON(data);
-
-                        // For each information, show it
-                        json.error.forEach(function(entry) {
-                            check_update=false;
-                        });
-                    } catch(err) {
-                        check_update=false;
-                    }
-                }); 
             }
 
 
@@ -883,94 +830,6 @@ $(document).ready(function(){
     }); 
    
 
-    <?php if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) { ?>
-        $("#rtc_offset_slider").slider({
-            max: 100,
-            min: -100,
-            slide: function( event, ui ) {
-                // While sliding, update the value in the div element
-                $("#rtc_offset").val(ui.value);
-            },
-            step: 1,
-            value: rtc_offset_value
-        });
-    <?php } ?> 
-    
-
-    $("#reset_sd_card_submit").click(function(e) {
-        e.preventDefault();
-        $.ajax({
-            cache: false,
-            url: "main/modules/external/check_sd.php",
-            data: {path:$("#selected_hdd").val()}
-         }).done(function (data) {
-            if(data=="0") {
-                $("#locked_sd_card").dialog({
-                    width: 550,
-                    resizable: false,
-                    closeOnEscape: false,
-                    buttons: [{ 
-                        text: CLOSE_button,
-                        click: function() {
-                            $( this ).dialog( "close" );
-                            get_content("configuration",getUrlVars("submenu=card_interface"));
-                        }
-                    }],
-                    hide: "fold",
-                    modal: true,
-                    dialogClass: "popup_error"
-                });
-            } else {
-                $("#format_dialog_sd").dialog({
-                    resizable: false,
-                    height:200,
-                    width: 500,
-                    closeOnEscape: false,
-                    modal: true,
-                    dialogClass: "dialog_cultibox",
-                    buttons: [{
-                        text: OK_button,
-                        click: function () {
-                            $( this ).dialog( "close" ); 
-                            $("#progress").dialog({
-                                resizable: false,
-                                height:200,
-                                width: 500,
-                                closeOnEscape: false,
-                                modal: true,
-                                dialogClass: "popup_message",
-                                buttons: [{
-                                    text: CANCEL_button,
-                                    "id": "btnCancel",
-                                    click: function () {
-                                        var get_array = getUrlVars('submenu=card_interface');
-                                        $(this).dialog('destroy').remove();
-                                        get_content("configuration",get_array);
-                                    }
-                                }]
-                            });
-                            stop_format=false;
-                            $("#progress_bar").progressbar({value:0});
-                            $("#success_format").css("display","none");
-                            $("#error_format").css("display","none");
-                            formatCard($("#selected_hdd").val(),0);
-                        }
-                    }, {
-                        text: CANCEL_button,
-                        click: function () {
-                            ajax_format.abort();
-                            var get_array = getUrlVars('submenu=card_interface');
-                            $(this).dialog('destroy').remove();
-                            get_content("configuration",get_array);
-                        }
-                    }]
-                });
-            }
-        });
-    });
-    
-
-    
     //Reset network config:
     $("#reset_network_img").click(function(e) {
         e.preventDefault();
@@ -1287,7 +1146,7 @@ $(document).ready(function(){
     });
 
 
-    $("a[name='dl_cultipi_logs']").click(function(e) {
+    $("a[name='dl_bulckypi_logs']").click(function(e) {
         e.preventDefault();
         $("#dialog_dl_logs").dialog('close');
         var id=$(this).attr('id');
@@ -1931,60 +1790,7 @@ $(document).ready(function() {
 
     
 
-    $('#wifi_wizard_link').click(function(e) {
-       e.preventDefault();
-       var count_wifi=1;
-       open_dialog_wifi_wizard(count_wifi);
-    });
-
-    $('#dl_firm').click(function(e) {
-       e.preventDefault();
-       $("#dl_firm_div").dialog({
-            resizable: false,
-            width: 700,
-            modal: true,
-            closeOnEscape: true,
-            dialogClass: "popup_message",
-            buttons: [{
-               text: CLOSE_button,
-               id: "btnCloseFirm",
-               click: function () {
-                 $( this ).dialog( "close" );
-                 return false;
-               }
-            }]
-       });
-    });
-
-    $('#dl_cultibox_firm').click(function(e) {
-       e.preventDefault();
-       $.fileDownload('main/templates/data/cultibox_firmware/firm.hex');
-    });
-
-    $('#dl_wifi_firm').click(function(e) {
-       e.preventDefault();
-       $("#dl_firm_div").dialog('close');
-       $("#wifi_upgrade").dialog({
-            resizable: false,
-            width: 700,
-            modal: false,
-            closeOnEscape: true,
-            dialogClass: "popup_message",
-            buttons: [{
-               text: CLOSE_button,
-               click: function () {
-                 $( this ).dialog( "close" );
-                 $("#dl_firm_div").dialog('open');
-                 return false;
-               }
-            }]
-       });
-       $.fileDownload('main/templates/data/cultibox_firmware_wifi/firm.hex');
-    });
-
-    
     // Send mail section
-    
     //Initial HTML:
     var htmlMail = $("#mail_config_div").html();
 
@@ -2525,112 +2331,4 @@ $(document).ready(function() {
     
     
 });
-
-
-
-function open_dialog_wifi_wizard(step) {
-    $("#error_sd_wizard").css('display','none');
-
-    $("#wifi_wizard_step"+step).dialog({
-        resizable: false,
-        width: 700,
-        modal: true,
-        dialogClass: "popup_message",
-        closeOnEscape: false,
-        buttons: [{
-           text: CLOSE_button,
-           style:"margin-right:90px;",
-           click: function () {
-             sd_wizard="";
-             $( this ).dialog( "close" );
-             return false;
-           }
-        },{
-           text: NEXT_button,
-           id: "btnNEXT",
-           style:"margin-right:90px;",
-           click: function () {
-             if(step==1) {
-                $( this ).dialog("destroy");
-                open_dialog_wifi_wizard(step+1)
-                return false;
-             }
-
-             if(step==2) {
-                 $.ajax({
-                    cache: false,
-                    async: false,
-                    url: "main/modules/external/get_sd.php"
-                 }).done(function(data) {
-                    sd_wizard = jQuery.parseJSON(data);
-                 });
-
-
-                 if(sd_wizard!="") {
-                    $.ajax({
-                        cache: false,
-                        async: false,
-                        url: "main/modules/external/copy_firm_sd.php",
-                        data: {path:sd_wizard,reverse:0}
-                    }).done(function(data) {
-                        var ret=jQuery.parseJSON(data);
-
-                        if(ret=="false") {
-                             $.ajax({
-                                cache: false,
-                                async: false,
-                                url: "main/modules/external/copy_firm_sd.php",
-                                data: {path:sd_wizard,reverse:1}
-                            });
-                        }
-                    });
-
-                    $( this ).dialog( "destroy" );
-                    open_dialog_wifi_wizard(step+1)
-                    return false; 
-                 } else {
-                    $("#error_sd_wizard").show();
-                 }
-             }
-
-
-             if(step==3) {
-                $("#preparing-file-modal").dialog({ modal: true, resizable: false });
-                $.ajax({
-                    cache: false,
-                    async: false,
-                    url: "main/modules/external/export_conf.php"
-                }).done(function (data) {
-                    $("#preparing-file-modal").dialog('close');
-                    var json = jQuery.parseJSON(data);
-                    if(json==1) {
-                        $.fileDownload('tmp/export/backup_bulckypi.sql');
-                    } else if(json==2) {
-                        $.fileDownload('tmp/export/backup_bulckypi.sql.zip');
-                    }
-                });
-
-                $( this ).dialog( "destroy" );
-                open_dialog_wifi_wizard(step+1)
-                return false;
-             }
-
-             if(step==4) {
-                $( this ).dialog( "destroy" );
-                open_dialog_wifi_wizard(step+1)
-                return false;
-             }
-           }
-        }],
-        open: function(event, ui) { 
-            if(step==4) {
-                $('#btnNEXT').css("display", 'none');
-            } else {
-                 $("#btnNEXT").show();
-            }
-        }
-    });
-}
-
-
 </script>

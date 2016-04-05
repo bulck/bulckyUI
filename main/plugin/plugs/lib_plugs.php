@@ -30,7 +30,7 @@ function check_db() {
     $plugs_index_col["PLUG_START_OFFSET"]   = array ( 'Field' => "PLUG_START_OFFSET", 'Type' => "int(11)", 'default_value' => '0', 'carac' => "NOT NULL");
 
     // Check if table configuration exists
-    $sql = "SHOW TABLES FROM cultibox LIKE 'plugs';";
+    $sql = "SHOW TABLES FROM bulcky LIKE 'plugs';";
     
     $db = \db_priv_pdo_start("root");
     try {

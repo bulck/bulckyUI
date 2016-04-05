@@ -22,7 +22,7 @@ function check_db() {
 
     
     // Check if table program_index exists
-    $sql = "SHOW TABLES FROM cultibox LIKE 'calendar';";
+    $sql = "SHOW TABLES FROM bulcky LIKE 'calendar';";
 
     $db = \db_priv_pdo_start("root");
     try {

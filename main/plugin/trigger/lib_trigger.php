@@ -13,7 +13,7 @@ function check_db() {
     $zone_col["name"]          = array ( 'Field' => "name", 'Type' => "varchar(20)", "default_value" => 'nom', 'carac' => "NOT NULL");
 
     // Check if table configuration exists
-    $sql = "SHOW TABLES FROM cultibox LIKE 'trigger_index';";
+    $sql = "SHOW TABLES FROM bulcky LIKE 'trigger_index';";
 
     $db = \db_priv_pdo_start("root");
     try {
@@ -58,7 +58,7 @@ function check_db() {
     $zone_col["value"]         = array ( 'Field' => "value", 'Type' => "varchar(20)", "default_value" => '1 on', 'carac' => "NOT NULL");
 
     // Check if table configuration exists
-    $sql = "SHOW TABLES FROM cultibox LIKE 'trigger_action';";
+    $sql = "SHOW TABLES FROM bulcky LIKE 'trigger_action';";
 
     $db = \db_priv_pdo_start("root");
     try {
@@ -108,7 +108,7 @@ function check_db() {
     $zone_col["value"]         = array ( 'Field' => "value", 'Type' => "varchar(20)", "default_value" => '1 on', 'carac' => "NOT NULL");
 
     // Check if table configuration exists
-    $sql = "SHOW TABLES FROM cultibox LIKE 'trigger_condition';";
+    $sql = "SHOW TABLES FROM bulcky LIKE 'trigger_condition';";
 
     $db = \db_priv_pdo_start("root");
     try {

@@ -28,14 +28,6 @@ if((!isset($name))||(empty($name))) {
                  echo json_encode("0");
             }
             break;
-        case 'SD_CARD':
-            $sd_card=get_sd_card();
-            if(!$sd_card) {
-                echo json_encode("");
-            } else {
-                echo json_encode("$sd_card");
-            }
-            break;
         case 'IMPORTANT':
             if((isset($_COOKIE['IMPORTANT']))&&(!empty($_COOKIE['IMPORTANT']))) {
                 echo json_encode($_COOKIE['IMPORTANT']);

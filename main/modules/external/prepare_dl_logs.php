@@ -25,18 +25,18 @@
                 $name="lighttpd.log";
             }
             break;
-        case "dl_logs_cultipi":
-            exec("sudo cp /var/log/cultipi/cultipi.log /var/www/bulcky/tmp/export/ 2>/dev/null",$ret,$err);
-            exec("sudo chown www-data:www-data /var/www/bulcky/tmp/export/cultipi.log 2>/dev/null");
+        case "dl_logs_bulckypi":
+            exec("sudo cp /var/log/bulcky/bulckypi-service.log /var/www/bulcky/tmp/export/ 2>/dev/null",$ret,$err);
+            exec("sudo chown www-data:www-data /var/www/bulcky/tmp/export/bulckypi-service.log 2>/dev/null");
             if($err==0) {
-                $name="cultipi.log"; 
+                $name="bulckypi-service.log"; 
             }
             break;
         case "dl_logs_service":
-            exec("sudo cp /var/log/cultipi/cultipi-service.log /var/www/bulcky/tmp/export/ 2>/dev/null",$ret,$err);
-            exec("sudo chown www-data:www-data /var/www/bulcky/tmp/export/cultipi-service.log 2>/dev/null");
+            exec("sudo cp /var/log/bulcky/bulcky-services.log /var/www/bulcky/tmp/export/ 2>/dev/null",$ret,$err);
+            exec("sudo chown www-data:www-data /var/www/bulcky/tmp/export/bulcky-services.log 2>/dev/null");
             if($err==0) {
-                $name="cultipi-service.log";
+                $name="bulcky-services.log";
             }
             break;
         case "dl_logs_system":
