@@ -66,13 +66,17 @@
   <hr />
   <br />
   <div class="row">
-    <div class="3u 12u(2)">
+     <div class="2u 12u(2)">
+        <div class="box highlight">
+        </div>
+    </div>
+    <div class="2u 12u(2)">
         <div class="box highlight">
             <?php echo __('CONFIGURE_NB_PLUGS'); ?>:
         </div>
     </div>
 
-    <div class="3u 12u(2)">
+    <div class="2u 12u(2)">
         <div class="box highlight">
             <select name="nb_plugs" id="nb_plugs">
                     <?php
@@ -88,20 +92,24 @@
         </div>
     </div>
 
-    <div class="3u 12u(2)">
+    <div class="6u 12u(2)">
         <div class="box highlight">
         </div>
     </div>
   </div>
 
   <div class="row">
-    <div class="3u 12u(2)">
+    <div class="2u 12u(2)">
+        <div class="box highlight">
+        </div>
+    </div>
+    <div class="2u 12u(2)">
         <div class="box highlight">
             <?php echo __('ADVANCED_REGUL_OPTIONS'); ?>:<img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_SECOND_REGUL_ENABLE'); ?>" />
         </div>
     </div>
 
-    <div class="3u 12u(2)">
+    <div class="2u 12u(2)">
         <div class="box highlight">
                 <select name="advanced_regul_options" id="advanced_regul_options">
                     <option value="True" <?php if(strcmp("$advanced_regul","True")==0) echo "selected"; ?>><?php echo __('YES'); ?></option>
@@ -109,7 +117,7 @@
                 </select>
         </div>
     </div>
-    <div class="3u 12u(2)">
+    <div class="6u 12u(2)">
         <div class="box highlight">
         </div>
     </div>
@@ -127,55 +135,6 @@
     </p>
 </div>
 </form>
-
-<div id="div_card_interface" style="display:none">
-    <form action="/bulcky/index.php?menu=configuration" method="post" id="format_sd_form" name="format_sd_form">
-        <table class="conf-table">
-        <tr>
-            <td class="conf-marge"></td>
-            <td class="conf-marge-td"><?php echo __('MANAGE_RESET_SD_CARD'); ?>:<img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_FORMAT_SD'); ?>" /></td>
-            <td >
-                <?php 
-                    if((isset($hdd_list))&&(count($hdd_list)>0)) { ?>
-                        <select name="selected_hdd" id="selected_hdd">
-                            <?php  foreach($hdd_list as $hdd) { ?>
-                                <option value="<?php echo "$hdd"; ?>"><?php echo "$hdd"; ?></option>
-                            <?php } ?>
-                        </select>
-                <?php  } ?>
-                <button id="reset_sd_card_submit" name="reset_sd_card_submit" 
-                <?php if((isset($hdd_list))&&(count($hdd_list)>0)) { ?> 
-                    class="delete"><?php echo __('MANAGE_RESET_CARD'); ?>
-                <?php } else { ?>
-                    disabled class="inputDisable"><?php echo __('MANAGE_RESET_CARD_NOT_FOUND'); ?>
-                <?php } ?>
-                </button>
-
-            </td>
-            <td></td>
-        </tr>
-        </table>
-        <div id="format_dialog_sd" title="<?php echo __('CONFIRMATION'); ?>" style="display:none">
-        <p><?php echo __('RESET_CONFIRM_SD_CARD'); ?></p>
-        </div>
-        <br />
-        <hr />
-    </form>
-
-    <div id="progress" title="<?php echo __('FORMAT_PROGRESS'); ?>" style="display:none">
-        <div id="progress_bar"></div>
-        <br />
-        <p class="p_center">
-            <label class="format_success" id="success_format" style="display:none"><?php echo __('SUCCESS_FORMAT'); ?></label>
-            <label class="format_error" id="error_format" style="display:none"><?php echo __('ERROR_FORMAT'); ?></label>
-        </p>
-    </div>
-</div>
-
-<div class="format_error" id="locked_sd_card" title="" style="display:none">
-    <p><?php echo __('LOCKED_CARD'); ?></p>
-</div>
-
 
 <div class="popup_message" id="update_conf" title="" style="display:none">
     <p><?php echo __('VALID_UPDATE_CONF'); ?></p>
@@ -542,7 +501,7 @@
 </div>
 
 
-<div id="dialog_logs_bulckypi" style="display:none">
+<div id="dialog_logs_bulckypi" style="display:none" title="<?php echo __('CULTIPI_VIEW_LOGS_TITLE'); ?>">
     <div id="div_title_output"><p class="p_center info_logs"><?php echo __('OUTPUT_LOGS'); ?>:</p></div>
     <div id="output_logs"></div>
 

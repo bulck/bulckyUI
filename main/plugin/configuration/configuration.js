@@ -276,7 +276,7 @@ $(document).ready(function(){
              });
         });
 
-    $("#manual_upgrade").on("click",function(e) {
+    $("#manual_upgrade").live("click",function(e) {
         e.preventDefault();
         $('#upgradeupload').trigger('click');
     });
@@ -689,81 +689,6 @@ $(document).ready(function(){
             }
 
 
-
-            //RESET MIN MAX process:
-            newValue    = $("#reset_minmax").val();
-            varToUpdate = $("#reset_minmax").attr('name');
-
-            if ($( "#reset_minmax" ).length && varToUpdate.trim() != "") {
-                $.ajax({
-                    type: "GET",
-                    cache: false,
-                    async: false,
-                    url: "main/modules/external/update_configuration.php",
-                    data: {
-                            value:newValue,
-                            variable:varToUpdate,
-                            sd_card:sd_card
-                        }
-                }).done(function (data) {
-                    try {
-                        if($.parseJSON(data)!="") {
-                            check_update=false;
-                        }
-                    } catch(err) {
-                        check_update=false;
-                    }
-                });
-            }
-
-
-            //ALARM VALUE process:
-            if($("#alarm_activ option:selected").val()=="0001") {
-                newValue    = $("#alarm_value").val();
-            } else {
-                newValue    = 60;
-            }
-
-            varToUpdate = $("#alarm_value").attr('name');
-
-            if ($( "#alarm_value" ).length && varToUpdate.trim() != "") {
-                $.ajax({
-                    type: "GET",
-                    cache: false,
-                    async: false,
-                    url: "main/modules/external/update_configuration.php",
-                    data: {
-                            value:newValue,
-                            variable:varToUpdate,
-                            sd_card:sd_card
-                        }
-                }).done(function (data) {
-                    try {
-                        if($.parseJSON(data)!="") {
-                            check_update=false;
-                        }
-                    } catch(err) {
-                        check_update=false;
-                    }
-                });
-            }
-
-
-             $.ajax({
-                cache: false,
-                url: "main/modules/external/get_variable.php",
-                data: {name:"cost"}
-            }).done(function (data) {
-                try {
-                    if(jQuery.parseJSON(data)=="1") {
-                        $("#menu-cost").show();
-                    } else {
-                        $("#menu-cost").css('display','none');
-                    }
-                } catch(err) {
-
-                }
-            });
 
             if($("#advanced_regul_options option:selected").val()=="False") {
                 var bet="False";

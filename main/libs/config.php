@@ -85,15 +85,6 @@ $GLOBALS['PLUGA_DEFAULT_3500W'] = array('004', '000', '000', '006', '008', '010'
 // Variable to define the first year to be used for the log part:
 $GLOBALS['FIRST_LOG_YEAR'] = '2013';
 
-// Remote file to check update for the interface
-$GLOBALS['UPDATE_FILE'] = 'http://www.greenbox-botanic.com/bulcky/download/software/updates/VERSION';
-
-//Website to download software:
-$GLOBALS['WEBSITE'] = 'http://cultibox.fr/telechargement.html';
-
-// Remote site to test internet connection
-$GLOBALS['REMOTE_SITE'] = 'www.greenbox-botanic.com';
-
 // List of value possible for log's research: 2, 3, 6 or 12 months
 $GLOBALS['LOG_SEARCH'] = array('2', '3', '6', '12');
 
@@ -122,9 +113,6 @@ $GLOBALS['GRAPHIC_COLOR_GRID_YELLOW'] = "#FCE91D";
 // Color for the calendar:
 $GLOBALS['LIST_GRAPHIC_COLOR_CALENDAR'] = array ('00', '44', '88', 'DD', 'CC','FF');
 
-// Remote script to send informations:
-$GLOBALS['REMOTE_DATABASE'] = "http://www.cbx.greenbox-botanic.com/index.php";
-
 // List and equivalence between sensor number and type of the sensor from the index file:
 $GLOBALS['SENSOR_DEFINITION']=array(
                                 '0' => 'none',
@@ -142,9 +130,6 @@ $GLOBALS['SENSOR_DEFINITION']=array(
 
 //Number of state's changement allowed by the cultibox for the plugv file:
 $GLOBALS['PLUGV_MAX_CHANGEMENT']=999;
-
-//To hide/show RTC configuration:
-$GLOBALS['SHOW_RTC']=false;
 
 //Limit for a program depending plug's definition:
 $GLOBALS['LIMIT_PLUG_PROGRAM']=array(
@@ -209,7 +194,7 @@ $GLOBALS['CULTIPI']['TRACE_LEVEL']['serverCultibox']    = "info";
 
 
 // ----------------- Plugin ----------------- 
-$GLOBALS['PLUGIN'] = array('welcome','configuration','programs','logs','calendar','bulcky');
+$GLOBALS['PLUGIN'] = array('welcome','configuration','programs','logs','calendar','bulcky','cost');
 
 
 

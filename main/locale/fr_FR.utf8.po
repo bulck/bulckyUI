@@ -110,10 +110,10 @@ msgid "TOOLTIP_ENABLE_BETA"
 msgstr "L'activation des mises à jours des versions de test  permet d'accéder à de nouvelles fonctionnalités encore en phase de développement. Ces fonctionnalités peuvent donc rendre instable le logiciel."
 
 msgid "CULTIPI_VIEW_LOGS_TITLE"
-msgstr "Afficher les logs"
+msgstr "Affichage des logs"
 
 msgid "CULTIPI_DL_LOGS_TITLE"
-msgstr "Télécharger les logs" 
+msgstr "Téléchargement des logs" 
 
 msgid "UPGRADE_BUTTON"
 msgstr "Rechercher les mises à jour"
@@ -373,7 +373,7 @@ msgid "SELECT_DISPLAYED_DAY"
 msgstr "Afficher les informations pour"
 
 msgid "SELECT_LOG_TITLE"
-msgstr "Affichage des données enregistrées par la Cultibox"
+msgstr "Affichage des données enregistrées par le Bulcky "
 
 msgid "ONE_DAY"
 msgstr "un jour"
@@ -1122,62 +1122,6 @@ msgid "AND"
 msgstr "et"
 
 
-# For the wizard part :
-msgid "ERROR_CANAL_STATUS"
-msgstr "Plus aucun canal n'est disponible pour le variateur"
-
-msgid "WIZARD_FIRST_USE"
-msgstr "Bienvenue dans l'interface de configuration et d'utilisation de votre Cultibox. L'assistant va vous permettre facilement de configurer les programmes associés à vos prises, de configurer le type de prise et leur comportement. Cliquer sur le bouton <b>suivant</b> pour lancer l'assistant. Vous pouvez passer cette étape et configurer manuellement vos prises en cliquant sur le bouton <b>Fermer l'assistant</b>"
-
-msgid "CLOSE_WIZARD"
-msgstr "Fermer l'assistant"
-
-msgid "WIZARD_INTRO"
-msgstr "Assistant de configuration des prises"
-
-msgid "WIZARD_CONFIGURE_PLUG_NUMBER"
-msgstr "Prise numéro"
-
-msgid "WIZARD_NEXT_STEP"
-msgstr "Suivant >"
-
-msgid "WIZARD_PREVIOUS_STEP"
-msgstr "< Précédent"
-
-msgid "WIZARD_FINISH_STEP"
-msgstr "Enregistrer et fermer l'assistant"
-
-msgid "WIZARD_OTHER_STEP"
-msgstr "Enregistrer et configurer une autre prise"
-
-msgid "WIZARD_PLUG_TYPE"
-msgstr "La prise numéro 1 sera configurée comme une lampe. Cette prise pourra accueillir une lampe de <b>600 Watts</b> au <b>maximum</b>."
-
-msgid "WIZARD_PLUG_LAMP"
-msgstr "Vous pouvez maintenant choisir l'heure d'allumage et d'extinction de la lampe afin de déterminer le fonctionnement de votre équipement."
-
-msgid "WIZARD_PLUG_PROGRAM"
-msgstr "Vous pouvez maintenant choisir l'heure d'allumage et d'extinction de votre équipement. Pour cela choisissez une heure de départ où l'équipement se mettra en route et une heure de fin où l'équipement s'éteindra."
-
-msgid "WIZARD_STEP"
-msgstr "Etape"
-
-msgid "WIZARD_CONFIGURE_OTHER_PLUG"
-msgstr "Configuration de la prise"
-
-msgid "WIZARD_OTHER_PLUG_NUMBER"
-msgstr "Vous allez maintenant configurer une nouvelle prise."
-
-msgid "WIZARD_OTHER_PLUG_TYPE"
-msgstr "Choisir le type de prise à utiliser : <ul class='list_class_wizard'><li>un chauffage pour augmenter la température</li><li>un ventilateur pour abaisser la température</li><li>un humidificateur pour augmenter l'humidité</li><li>un déshumidificateur pour diminuer l'humidité</li><li>une pompe à eau pour augmenter le niveau d'eau</li><li>une lampe</li><li>'autre' servant pour tous les autres type d'équipements. <br /><br />Si vous choisissez de configurer une nouvelle lampe, celle-ci doit être <b>moins puissante que 200 Watts</b>"
-
-msgid "START_TIME_EQUIPMENT"
-msgstr "Heure d'allumage de l'équipement"
-
-msgid "END_TIME_EQUIPMENT"
-msgstr "Heure d'extinction de l'équipement"
-
-
 #For the calendar part :
 msgid "TOOLTIP_ADD_XML"
 msgstr "Ajouter vos fichiers d'engrais"
@@ -1543,9 +1487,6 @@ msgstr "Jour à afficher : erreur dans le format (AAAA-MM-JJ)"
 msgid "ERROR_FORMAT_DATE_MONTH"
 msgstr "Mois à afficher : erreur dans le format (MM)"
 
-msgid "ERROR_SD_CARD"
-msgstr "Aucune carte SD compatible Cultibox détectée, vérifier que votre carte soit correctement branchée"
-
 msgid "ERROR_FORMAT_TIME"
 msgstr "Erreur dans le format de l'heure : HH:MM:SS"
 
@@ -1728,9 +1669,6 @@ msgstr "Assistant"
 msgid "CLASSIC"
 msgstr "Classique"
 
-msgid "INFO_SD_CARD"
-msgstr "Une carte SD compatible Cultibox est branchée"
-
 msgid "VALID_UPDATE_CONF"
 msgstr "Configuration mise à jour avec succès"
 
@@ -1779,7 +1717,7 @@ msgid "TOOLTIP_WEBCAM"
 msgstr "Cliquez sur l'image pour afficher les webcams connectées"
 
 msgid "TOOLTIP_IMPORT_CONF"
-msgstr "cette fonctionnalité permet d'importer la configuration d'un logiciel Cultibox précédemment exportée. Les données des capteurs et des puissances doivent être importées depuis l'onglet 'Logs'"
+msgstr "cette fonctionnalité permet d'importer la configuration d'un logiciel Bulcky précédemment exportée. Les données des capteurs et des puissances doivent être importées depuis l'onglet 'Logs'"
 
 msgid "TOOLTIP_EXPORT_CONF"
 msgstr "cette fonctionnalité permet d'exporter la configuration du logiciel. Les données des capteurs et des puissances doivent être exportées depuis l'onglet 'Logs'"
@@ -1790,14 +1728,11 @@ msgstr "Cette fonctionnalité permet de changer le mot de passe demandé lors de
 msgid "TOOLTIP_AVANCED_PLUG_WIZARD"
 msgstr "L'assistant permet uniquement le branchement d'une lampe sur la prise 1. Si vous désirez brancher un autre élément, rendez vous dans l'onglet 'Prise'"
 
-msgid "TOOLTIP_SEND_INFOS"
-msgstr "En activant cette option, vous permettez l'envoie d'informations sur un site distant afin d'aider au développement et à la correction d'erreurs du système Cultibox. Les informations envoyées concernent: la version du logiciel, le type de votre navigateur, les versions des firmwares de la Cultibox et votre type de système d'exploitation"
-
 msgid "TOOLTIP_VALUE"
-msgstr "La Cultibox va éteindre ou allumer cette prise pour atteindre cette valeur. Les limites de valeur de régulation disponible dépendent du capteur et de l'hystérésis (tolérance) choisie. Pour plus d'information voir l'aide."
+msgstr "Le Bulcky  va éteindre ou allumer cette prise pour atteindre cette valeur. Les limites de valeur de régulation disponible dépendent du capteur et de l'hystérésis (tolérance) choisie. Pour plus d'information voir l'aide."
 
 msgid "TOOLTIP_DIMMER_VALUE"
-msgstr "La Cultibox va utiliser la prise variateur pour n'utiliser que la puissance désirée de l'équipement"
+msgstr "Le Bulcky va utiliser la prise variateur pour n'utiliser que la puissance désirée de l'équipement"
 
 msgid "TOOLTIP_POWER"
 msgstr "La puissance de l'équipement branché (en Watt). Renseigner ce champ vous permet de calculer la consommation de votre installation, son prix..."
@@ -1806,7 +1741,7 @@ msgid "TOOLTIP_POWER_LOG"
 msgstr "Cette option calcule et affiche la puissance consommée pour la/les prise(s) sélectionnée(s). Pour que cela soit possible il faudra renseigner le champ 'puissance' dans la partie de configuration des prises"
 
 msgid "TOOLTIP_LOG_PROGRAM"
-msgstr "Cette option permet d'afficher le programme d'une prise afin de comparer les données enregistrées par la Cultibox et le comportement théorique de la prise."
+msgstr "Cette option permet d'afficher le programme d'une prise afin de comparer les données enregistrées par le Bulcky et le comportement théorique de la prise."
 
 msgid "TOOLTIP_PLUG_TOLERANCE"
 msgstr "La tolérance d'une prise permet de définir quelle doit être la précision des valeurs de régulation. Par exemple, si vous avez rentré une valeur de régulation de 22°C pour un chauffage et que la tolérance est de 2°C, le chauffage sera mis en marche/arrêt entre 20°C et 24°C (votre régulation +/- la tolérance)"
@@ -1819,9 +1754,6 @@ msgstr "Le prix du  kilowatt-heure."
 
 msgid "TOOLTIP_COST_TYPE"
 msgstr "Votre installation électrique peut être définie de façon 'standard': vous payez le kilowatt-heure au même prix à n'importe quelle heure de la journée. Vous pouvez aussi définir votre installation comme étant en 'Heure pleine/Heure creuse': le prix du kilowatt-heure varie en fonction de l'heure à laquelle vous le consommez."
-
-msgid "TOOLTIP_FORMAT_SD"
-msgstr "La carte SD sélectionnée sera rendue compatible Cultibox. Pour cela les fichiers de configuration des prises, des programmes et de la Cultibox seront régénérés en fonction de vos paramètres actuels et les fichiers contenant vos futurs logs seront mis en place. Si des logs sont déjà présents sur votre carte SD ils peuvent être perdus lors du processus<br /><b><i>Note: </i></b>afin que votre carte soit reconnue par la Cultibox, elle doit être formatée en FAT16 et ne doit donc pas dépasser 2Go"
 
 msgid "TOOLTIP_RESET_LOG"
 msgstr "En cliquant sur ce bouton toutes les données enregistrées par les capteurs seront supprimées."
@@ -2176,25 +2108,25 @@ msgid "CULTIPI_SOFT_VERSION"
 msgstr "Version des logiciels"
 
 msgid "CULTICONF_SOFT"
-msgstr "Culticonf"
+msgstr "Bulckyconf"
 
 msgid "CULTIPI_SOFT"
 msgstr "Bulckypi"
 
 msgid "CULTIBOX_SOFT"
-msgstr "Cultibox"
+msgstr "Bulckyface"
 
 msgid "CULTIRAZ_SOFT"
-msgstr "CultiRAZ"
+msgstr "BulckyRAZ"
 
 msgid "CULTITIME_SOFT"
-msgstr "Cultitime"
+msgstr "Bulckytime"
 
 msgid "CULTICAM_SOFT"
-msgstr "Culticam"
+msgstr "Bulckycam"
 
 msgid "CULTIDOC_SOFT"
-msgstr "Cultidoc"
+msgstr "Bulckydoc"
 
 msgid "RESTART_SERVICE"
 msgstr "Cliquez sur l'image pour redémarrer le service"

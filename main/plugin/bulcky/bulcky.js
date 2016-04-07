@@ -551,11 +551,11 @@ $(document).ready(function(){
                     cache: false,
                     async: true,
                     url: "main/modules/external/enable_webcam.php",
-                    data: {action:"enable",webcam:selected}
+                    data: {action:"enable",webcam:selected, url: "true"}
                 }).done(function(data) {
                     $.unblockUI();
-                    d = new Date();
-                    $("#stream_src").attr("src", "http://<?php echo $_SERVER['SERVER_ADDR']; ?>:8081/?action=stream&v="+d.getTime());
+                    var objJSON = jQuery.parseJSON(data);
+                    $("#stream_src").attr("src", objJSON);
                     $("#show_stream").dialog({
                         resizable: true,
                         modal: true,

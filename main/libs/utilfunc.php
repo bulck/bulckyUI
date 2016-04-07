@@ -507,20 +507,6 @@ function check_format_values_program($value="0",$type="temp",$tol=0) {
 // }}}
 
 
-// {{{ check_alarm_value()
-// ROLE check is a value for the alarm is correct
-// IN   $value       value to check
-// OUT  false is there is a wrong value, true else
-function check_alarm_value($value="0") {
-   $value=str_replace(',','.',$value);
-   $value=str_replace(' ','',$value);
-   if(($value>=100)||($value<=0)) return false;
-   if(!is_numeric($value)) return false;
-   return true;
-}
-// }}}
-
-
 // {{{ check_regul_value()
 // ROLE check is a value for the regulation is correct
 // IN   $value       value to check
@@ -600,55 +586,6 @@ function get_nb_days($start_date="",$end_date="") {
           if($first>$second) { return -1; }
 
           return round(($second-$first)/86400);
-}
-// }}}
-
-
-// {{{ check_update_available()
-// ROLE get the update file from a distant site and check available updates
-// IN    $version version of the current software
-//       $out     errors or warnings messages
-// RET   none  
-function check_update_available($version,&$out) {
-
-    // Gets only version number (remove -noarch)
-    $temp    = explode("-", $version);
-    $version = $temp[0];
-    
-    // Only 3 first numbers are usefull
-    $temp    = explode(".", $version);
-    $version = $temp[0] . $temp[1] . $temp[2];
-
-    if(isset($GLOBALS['UPDATE_FILE'])&&(!empty($GLOBALS['UPDATE_FILE']))) {
-        $file = $GLOBALS['UPDATE_FILE'];
-        
-        // Open the file
-        if($handle=@fopen($file,"r")) {
-        
-            // Gets text
-            $val=fgets($handle);
-            
-            // Close the file
-            fclose($handle);
-            
-            // If not empty
-            if(!empty($val)) { 
-            
-                // Read only 3 first numbers
-                $temp    = explode(".", $val);
-                $tmp_version = $temp[0] . $temp[1] . $temp[2];
-            
-                // Compar to actual version
-                $tmp_version=trim($tmp_version);
-                if($version < $tmp_version) {
-                    return true;
-                }
-             }
-        } else {
-            $out[]=__('ERROR_REMOTE_UPDATE_FILE');
-        }
-    }
-    return false;
 }
 // }}}
 
@@ -902,38 +839,6 @@ function get_sensor_type($sd_card,&$sensor_type) {
     return true;
 }
 // }}}
-
-
-//{{{ get_rtc_offset()
-// ROLE get rtc offset value to be recorded in the configuration file
-// RET rtc offset value to be recorded 
-function get_rtc_offset($rtc = 0) {
-
-    // If RTC is not defined, return default value 0000
-    if($rtc == 0) { return "0000"; }
-
-    while(strlen("$rtc")<4) {
-            $rtc="0$rtc";
-    }
-    
-    return "$rtc";
-}
-//}}}
-
-
-//{{{ get_decode_rtc_offset()
-// ROLE get rtc offset value recorded in the configuration file
-// RET rtc offset decoded
-function get_decode_rtc_offset($offset=0) {
-    $temp = explode("-", $offset);
-
-    if(count($temp)==1) {
-        return $offset;
-    } else {
-        return "-".$temp[1];
-    }
-}
-
 
 
 //{{{ translate_PlugType()
@@ -1447,6 +1352,30 @@ function readBySocket($server, $ip, $message) {
         
 }
 //}}}
+
+
+// {{{ readBySocket()
+// ROLE Send data using socket
+// IN  $server server name
+// IN  $ip ip
+// IN  $message message to send
+// RET Reading value
+function get_reverse_webcam_port($webcam="") {
+    if(strcmp("$webcam","")==0) {
+       return ""; 
+    }
+
+    exec("ps aux|grep localhost:808".$webcam."|grep -v grep|head -1|awk -F \" \" '{print $17}'|awk -F \":\" '{print $1'}",$out,$err);
+    if(count($out)==1) {
+        $port=explode("-",$out[0]);
+        return $port[$webcam-1];
+    }
+
+    return "";
+     
+
+}
+// }}}
 
 ?>
 

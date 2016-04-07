@@ -78,8 +78,6 @@ check_database();
         <link rel="stylesheet" href="css/jquery-ui.custom.css?v=<?=@filemtime('css/jquery-ui.custom.css')?>" />
 		<link rel="stylesheet" href="css/style.css?v=<?=@filemtime('css/style.css')?>" />
         <link rel="stylesheet" href="css/bulcky.css?v=<?=@filemtime('css/bulcky.css')?>" />
-        <link rel="stylesheet" href="css/fullcalendar.css?v=<?=@filemtime('css/fullcalendar.css')?>" />
-        <link rel="stylesheet" href="css/jquery.colourPicker.css?v=<?=@filemtime('csss/jquery.colourPicker.css')?>" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 
 
@@ -137,11 +135,9 @@ check_database();
         <div class="message" style="display:none" title="<?php echo __('MESSAGE_BOX'); ?>">
             <br />
             <div id="pop_up_information_container">
-                <span class="fa-stack fa-lg icon_info">
-                    <i class="fa fa-circle-thin fa-stack-2x"></i>
-                    <i class="fa fa-info fa-stack-1x"></i>
-                </span>
-                <b class="info_title"><?php echo __('INFORMATION'); ?>:</b>
+                <span class="info_title">
+                <i class="fa fa-info-circle fa-2x icon_info"></i>
+                <b><?php echo __('INFORMATION'); ?>:</b></span>
                 <br /><br />
                 <div class="info"  id="pop_up_information_part">
                     <ul>
@@ -151,11 +147,8 @@ check_database();
             </div>
 
             <div id="pop_up_error_container">
-                <span class="fa-stack fa-lg icon_error">
-                    <i class="fa fa-circle-thin fa-stack-2x"></i>
-                    <i class="fa fa-warning fa-stack-1x"></i>
-                </span>
-                <b class="error_title"><?php  echo __('WARNING'); ?>:</b>
+                <span class="error_title"><i class="fa fa-2x fa-exclamation-triangle icon_error"></i>
+                <b><?php  echo __('WARNING'); ?>:</b></span>
                 <div class="error" id="pop_up_error_part">
                     <ul>
                     </ul>

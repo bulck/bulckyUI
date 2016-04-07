@@ -99,21 +99,6 @@ $check_power= logs\check_export_table_csv("power",$main_error);
 $sd_card = $GLOBALS['CULTIPI_CONF_TEMP_PATH'];
 
 
-// Read and update DB with index file
-if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) {
-    $sensor_type = array(); 
-    if (get_sensor_type($sd_card,$sensor_type))
-    {
-        // Update database with sensors
-        update_sensor_type($sensor_type);
-    }
-    // Clean index file
-    clean_index_file($sd_card);
-}
-
-
-
-
 //More default values:
 if(!isset($startday) || empty($startday) || $reload_import) {
 	$startday = programs\get_last_day_with_logs();

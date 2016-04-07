@@ -285,11 +285,6 @@ Highcharts.setOptions({
 $(function () {
     var chart;
     $(document).ready(function() {
-        //COmpute cost page:
-        $('#cost').click(function() {
-            get_content("cost");
-        });
-
         // Call the fileupload widget and set some parameters:
         var upload_type="";
         $('#import_logs_csv_file, #import_logs_power_csv_file').fileupload({
@@ -932,51 +927,6 @@ $(function () {
 
 // Function used at start to load logs
 $(document).ready(function() {
-
-    <?php if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) { ?>
-
-    var name="load_log";
-    $.ajax({
-        cache: false,
-        url: "main/modules/external/get_variable.php",
-        data: {name:name}
-    }).done(function (data) {
-        if(jQuery.parseJSON(data)!="True") {
-            var name="sd_card";
-            $.ajax({
-                cache: false,
-                url: "main/modules/external/get_variable.php",
-                data: {name:name}
-            }).done(function (data) {
-                if($.trim(data).replace(/(\r\n|\n|\r)/gm,"")!="") {
-                    $("#progress_load").dialog({
-                        resizable: false,
-                        width: 550,
-                        modal: true,
-                        closeOnEscape: false,
-                        dialogClass: "popup_message",
-                        buttons: [{ 
-                            text: CANCEL_button,
-                            "id": "btnClose",
-                            click: function () {
-                                $(this).dialog('destroy').remove();
-                                $("#reload_import").val("1");
-                                get_content("logs",getFormInputs('display-log'));
-                            }
-                        }]
-                    });
-
-                    $("#progress_bar_load").progressbar({value:0});
-                    $("#progress_bar_load_power").progressbar({value:0});
-                    loadLog("31",0,"logs","31","auto",data);
-                    loadLog("31",0,"power","31","auto",data);
-                }
-            });
-        }
-    });
-
-    <?php } ?>
-
     $("#import_log").click(function(e) {
         e.preventDefault();
         $("#progress_load").dialog({

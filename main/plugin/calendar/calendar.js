@@ -440,6 +440,9 @@ $(document).ready(function() {
         
     });
 
+
+     $("#span.ui-icon.ui-icon-circle-triangle-w").addClass('fa fa-remove orange');
+
 });
 
 // Function to check overlapping of two daily program
@@ -1470,24 +1473,6 @@ $(document).ready(function() {
         
 });
 
-<?php if((!isset($GLOBALS['MODE']))||(strcmp($GLOBALS['MODE'],"cultipi")!=0)) { ?>
-$(document).ready(function() {
-    // Rewrite on SD cards every events (and plgXX programm)
-    <?php if(isset($sd_card) && !empty($sd_card)) { ?>
-    
-        // Add message to prevent user
-        pop_up_add_information('<?php echo __('CALENDAR_UPDATE_SD_EVENT') ;?> <img src=\"main/libs/img/waiting_small.gif\" />', "update_calendar_progress", "information");
-    
-        $.ajax({
-           cache: false,
-           data: {sd_card:sd_card},
-           url: "main/modules/external/calendar_write_sd_events.php"
-        }).done(function (data) {
-            pop_up_remove("update_calendar_progress");
-        });
-    <?php } ?>
-});
-<?php } ?>
 
 // When user click on daily program checkbutton in create dialog UI
 $(document).ready(function() {

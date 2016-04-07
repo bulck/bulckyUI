@@ -14,10 +14,10 @@ define("ERROR_SD_NOT_FOUND", "13");
 define("ERROR_COPY_PLGIDX", "14");
 
 // {{{ check_and_update_sd_card()
-// ROLE If a cultibox SD card is plugged, manage some administrators operations: check the firmaware and log.txt files, check if 'programs' are up tp date...
+// ROLE If a cultibox SD card is plugged, manage some administrators operations: check the files, check if 'programs' are up tp date...
 // IN   $sd_card    sd card path 
 // RET 0 if the sd card is updated, 1 if the sd card has been updated, return > 1 if an error occured
-function check_and_update_sd_card($sd_card="",&$main_info_tab,&$main_error_tab,$force_rtc_offset=false) {
+function check_and_update_sd_card($sd_card="",&$main_info_tab,&$main_error_tab) {
 
     // Check and update path
     $logs = "$sd_card/logs";
@@ -127,34 +127,6 @@ function check_and_update_sd_card($sd_card="",&$main_info_tab,&$main_error_tab,$
         "value" => "$updatefrequency"
     );
 
-
-    $alarmenable    = get_configuration("ALARM_ACTIV",$main_error);
-    $alarmvalue     = get_configuration("ALARM_VALUE",$main_error);
-
-    $alarmvalue=$alarmvalue*100;
-    while(strlen($alarmvalue)<4) {
-        $alarmvalue="0$alarmvalue";
-    }
-
-    $paramListServerPlugUpdate[] = array (
-        "name" => "alarm_activ",
-        "value" => "$alarmenable"
-    );
-
-    $paramListServerPlugUpdate[] = array (
-        "name" => "alarm_value",
-        "value" => "$alarmvalue"
-    );
-
-    $paramListServerPlugUpdate[] = array (
-        "name" => "alarm_sensor",
-        "value" => "T"
-    );
-
-    $paramListServerPlugUpdate[] = array (
-        "name" => "alarm_sens",
-        "value" => "+"
-    );
 
     $paramListServerPlugUpdate[] = array (
         "name" => "pwm_output",
@@ -520,12 +492,12 @@ function check_and_copy_plgidx($sd_card="") {
     //On essaye de déterminer le chemin du fichier de référence:
     if(is_file("tmp/cnf/prg/plgidx")) {
         $path="tmp/cnf/prg/plgidx";
-    } else if(is_file("../tmp/cnf/prg/plgidx")) {
-        $path="../tmp/cnf/prg/plgidx";
-    } else if(is_file("../../tmp/cnf/prg/plgidx")) {
-        $path="../../tmp/cnf/prg/plgidx";
+    } else if(is_file("../main/templates/data/plgidx")) {
+        $path="../main/templates/data/plgidx";
+    } else if(is_file("../../n/templates/data/plgidx")) {
+        $path="../../main/templates/data/plgidx";
     } else if(is_file("../../../tmp/cnf/prg/plgidx")) {
-        $path="../../../tmp/cnf/prg/plgidx";
+        $path="../../../main/templates/data/plgidx";
     }
 
 

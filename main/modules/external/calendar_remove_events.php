@@ -14,7 +14,7 @@
     $main_error=array();
     
     // Init connexion to DB
-    $db = db_priv_pdo_start();
+    $db = db_priv_pdo_start("root");
 
     // Read days to update
     $sql = "SELECT * FROM calendar WHERE Id = '{$id}' ;";
@@ -31,6 +31,8 @@
 
     // Delete event from calendar
     $sql = "DELETE FROM calendar WHERE Id = '{$id}' ;";
+
+    echo "$sql";
 
     $sth=$db->prepare($sql);
     $sth-> execute();

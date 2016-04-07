@@ -10,12 +10,15 @@ p {
 .error_title {
     color:red;
     font-size:14pt;
+    vertical-align: middle;
 }
 
 
 .info_title {
     color: #3A951F;
     font-size:14pt;
+    vertical-align: middle;
+    line-height: 2em;
 }
 
 .icon_info {

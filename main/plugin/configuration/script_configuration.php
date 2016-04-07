@@ -43,14 +43,8 @@ if(is_file("/etc/apt/sources.list.d/bulcky-dev.list")) {
 //update_conf sert à définir si la configuration impacte la carte SD
 $conf_arr = array();
 $conf_arr["NB_PLUGS"]               = array ("update_conf" => "0", "var" => "nb_plugs");
-$conf_arr["STATISTICS"]             = array ("update_conf" => "0", "var" => "stats");
-$conf_arr["SHOW_COST"]              = array ("update_conf" => "0", "var" => "show_cost");
 $conf_arr["ADVANCED_REGUL_OPTIONS"] = array ("update_conf" => "1", "var" => "advanced_regul");
-$conf_arr["RTC_OFFSET"]             = array ("update_conf" => "1", "var" => "rtc_offset");
-$conf_arr["RESET_MINMAX"]           = array ("update_conf" => "1", "var" => "reset_minmax");
-$conf_arr["ALARM_VALUE"]            = array ("update_conf" => "1", "var" => "alarm_value");
 $conf_arr["VERSION"]                = array ("update_conf" => "0", "var" => "version");
-$conf_arr["ALARM_ACTIV"]            = array ("update_conf" => "1", "var" => "alarm_activ");
 $conf_arr["ENABLE_LED"]             = array ("update_conf" => "1", "var" => "enable_led");
 $conf_arr["SHOW_WEBCAM"]            = array ("update_conf" => "0", "var" => "show_webcam");
 

@@ -427,9 +427,9 @@ $(document).ready(function() {
     } 
 
 
-    $(".href-welcome").click(function(e) {
-        e.preventDefault();
-        get_content("welcome",get_array);
+    $(document).on('click','.href-welcome',function(e){
+       e.preventDefault();
+       get_content("welcome",get_array);
     });
 
     $(".href-configuration").click(function(e) {
@@ -457,19 +457,9 @@ $(document).ready(function() {
        get_content("calendar",get_array);
     });
 
-    $(".href-cost").click(function(e) {
+    $(document).on('click','.href-cost',function(e){
        e.preventDefault();
        get_content("cost",get_array);
-    });
-
-    $(".href-wizard").click(function(e) {
-       e.preventDefault();
-       get_content("wizard",get_array);
-    });
-
-    $(".href-webcam").click(function(e) {
-        e.preventDefault();
-        get_content("webcam",get_array);
     });
 
     $(".welcome-logo").click(function(e) {

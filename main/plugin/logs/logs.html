@@ -18,57 +18,43 @@
 <label class="title_conf"><?php echo __('SELECT_LOG_TITLE'); ?></label>
 
 <!-- Display buttons -->
-<table class="table_width">
-    <tr>
-        <td class="calendar-conf-marge"></td>
-            <td class="icon_menu2">
-                <!-- Button to change parameters-->
-                <input type="image" id="button_parameters" 
-                    name="button_parameters"
-                    title="<?php echo __('TOOLTIP_PARAMETERS_LOGS'); ?>"
-                    src="main/libs/img/advancedsettings.png" 
-                    alt="parameters"
-                />
-            </td>
-            <td class="icon_menu2">
-                <!-- Button to view curve to select-->
-                <input type="image" id="curve_select_button"
-                    name="curve_select_button"
-                    title="<?php echo __('SELECT_CURVE_TO_DISPLAY'); ?>"
-                    src="main/libs/img/text-x-log.png"
-                    alt="parameters"
-                />
-            </td>
-            <td class="icon_menu2">
-                <!-- Button to manage database-->
-                <input type="image" id="database_management_button"
-                    name="database_management_button"
-                    title="<?php echo __('MANAGE_LOG_INFOS'); ?>"
-                    src="main/libs/img/database.png" 
-                    alt="parameters"
-                />
-            </td>
-            <td class="icon_menu2">
-                <!-- Button to show cost-->
-                <input type="image" id="cost"
-                    name="cost"
-                    title="<?php echo __('COST_PRICE_COMPUTE'); ?>"
-                    src="main/libs/img/cost.png" 
-                    alt="cost"
-                />
-            </td>
-            <td class="icon_menu2">
-                <!-- Button to show sensor type-->
-                <input type="image" id="button_sensors_parameters"
-                    name="button_sensors_parameters"
-                    title="Paramètres capteur"
-                    src="main/libs/img/Farm-Fresh_temperature_1.png" 
-                    alt="sensors_parameters"
-                />
-            </td>
-            <td></td>
-    </tr>
-</table>
+<br />
+<hr />
+<br />
+<br />
+<div class="row">
+    <div class="2u 12u(2)">
+        <div class="box highlight">
+            <a href="" id="button_parameters" name="button_parameters" title="<?php echo __('TOOLTIP_PARAMETERS_LOGS'); ?>"><i class="fa fa-2x fa-bars"></i></a>
+        </div>
+    </div>
+    <div class="2u 12u(2)">
+        <div class="box highlight">
+             <a href="" id="curve_select_button" name="curve_select_button" title="<?php echo __('SELECT_CURVE_TO_DISPLAY'); ?>"><i class="fa fa-2x fa-area-chart"></i></a>
+        </div>
+    </div>
+    <div class="2u 12u(2)">
+        <div class="box highlight">
+                 <a href="" id="database_management_button" name="database_management_button" title="<?php echo __('MANAGE_LOG_INFOS'); ?>"><i class="fa fa-2x fa-database"></i></a>
+        </div>
+    </div>
+     <div class="2u 12u(2)">
+        <div class="box highlight">
+             <a href="/bulcky/index.php?menu=cost" id="cost" title="<?php echo __('COST_PRICE_COMPUTE'); ?>" class="href-cost"t><i class="fa fa-2x fa-euro"></i></a>
+        </div>
+    </div>
+    <div class="2u 12u(2)">
+        <div class="box highlight">
+                <a href="" id="button_sensors_parameters" name="button_sensors_parameters" title="Paramètres capteur"><i class="fa fa-2x fa-gear"></i></a>
+        </div>
+    </div>
+    <div class="2u 12u(2)">
+        <div class="box highlight">
+        </div>
+    </div>
+</div>
+<br />
+<hr />
 <br />
 
 <div id="label_select_type">
@@ -216,31 +202,30 @@
 <hr />
 
 <br />
-<table class="table_width">
-    <tr>
-        <td class="left_log"></td>
-        <td class="center_log"></td>
-        <td class="right_log">
-            <?php 
+
+<p class="p_right"> 
+      <?php
                     echo '<img id="regul_and_minmax_summary" src="main/libs/img/resume.png" alt="" title="';
                     if(count($resume_regul)>0) {
                         foreach($resume_regul as $res_regul) {
-                            echo $res_regul; 
+                            echo $res_regul;
                         }
                     }
                     echo '" />';
-            ?>
-        </td>
-    </tr>
-    <tr>
-        <td class="left_log">
-            <form action="/bulcky/index.php?menu=logs" method="get" name="previous" id="previous-form">
+      ?>
+</p>
+
+
+<div class="row">
+    <div class="2u 12u(2)">
+        <div class="box highlight">
+              <form action="/bulcky/index.php?menu=logs" method="get" name="previous" id="previous-form">
                 <input type="submit" value="<" name="previous" id="previous" class="button_log" title="<?php if(strcmp($type,"day")==0) echo __('PREVIOUS_BUTTON_DAY'); else echo __('PREVIOUS_BUTTON_MONTH'); ?>">
                 <?php if($type == "day") { ?>
                     <input type="hidden" name="startday" value="<?php echo date('Y-m-d',strtotime("-1 day", strtotime("$startday"))); ?>">
                 <?php } else {
                         if("$startmonth" == "01") {
-                            $month="12"; 
+                            $month="12";
                          } else {
                             $month=$startmonth-1;
                             if(strlen($month)<2) {
@@ -257,11 +242,17 @@
                 <input type="hidden" name="select_sensor" value="1">
                 <input type="hidden" name="select_power" value="">
             </form>
-        </td>
-        <td class="center_log"><div id="container" style="width: 850px; height: 425px; margin: 0 auto"></div></td>
-        <td class="right_log">
-            <?php 
-                 $dd=date('d');    
+        </div>
+    </div>
+    <div class="8u 12u(2)">
+        <div class="box highlight">
+            <div id="container" style="width: 850px; height: 425px; margin: 0 auto"></div>
+        </div>
+    </div>
+    <div class="2u 12u(2)">
+        <div class="box highlight">
+             <?php
+                 $dd=date('d');
                  $yy=date('Y');
                  $mm=date('m');
             ?>
@@ -270,9 +261,9 @@
                 <?php if(strcmp($type,"day")==0) { ?>
                     <input type="hidden" name="startday" value="<?php echo date('Y-m-d',strtotime("+1 day", strtotime("$startday"))); ?>">
                 <?php } else { ?>
-                    <?php 
+                    <?php
                         if($startmonth == "12") {
-                                $month="01"; 
+                                $month="01";
                          } else {
                                 $month=$startmonth+1;
                                 if(strlen($month)<2) {
@@ -290,9 +281,10 @@
                 <input type="hidden" name="select_sensor" value="1">
                 <input type="hidden" name="select_power" value="">
             </form>
-        </td>
-    </tr>
-</table>
+        </div>
+    </div>
+</div>
+
 <p class="p_center"><button id="resetXzoom" name="buttonX" style="display:none"><?php echo __('RESET_ZOOM_TITLE'); ?></button> <button id="resetzoom" name="button" style="display:none"><?php echo __('RESET_ZOOM_TITLE'); ?></button></p>
 
 

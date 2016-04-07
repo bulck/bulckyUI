@@ -6,12 +6,9 @@ $start_load = getmicrotime();
 // Language for the interface, using a COOKIE variable and the function __('$msg') from utilfunc.php library to print messages
 $main_error=array();
 $main_info=array();
-$version=get_configuration("VERSION",$main_error); //Current version of the software
 
 // ================= VARIABLES ================= //
 $sd_card=""; //Path of the SD card
-$wizard=true; 
-$nb_plugs = get_configuration("NB_PLUGS",$main_error); //Get current actives number of plugs
 $compat=true; //Variable to check if the browser used is compatible with the software
 $browser=get_browser_infos(); //Get browsers informations by PHP: browser name, version...
 
