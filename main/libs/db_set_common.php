@@ -373,7 +373,7 @@ function clean_program($plug_id,$programm_index,&$out) {
 
    $sql = "DELETE FROM programs WHERE plug_id = \"$plug_id\" AND number = \"$programm_index\" ";
    
-   $db=db_priv_pdo_start();
+   $db=db_priv_pdo_start("root");
    try {
         $db->exec("$sql");
    } catch(PDOException $e) {

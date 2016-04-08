@@ -496,7 +496,7 @@ function reset_log($table="",$start="",$end="") {
         $sql = "DELETE FROM {$table} WHERE date_catch BETWEEN '{$start}' AND '{$end}';";
     }
     
-    $db=\db_priv_pdo_start();
+    $db=\db_priv_pdo_start("root");
     try {
         $db->exec($sql);
     } catch(\PDOException $e) {
@@ -519,7 +519,7 @@ function reset_log($table="",$start="",$end="") {
 function reset_fake_log() {
     $sql = "DELETE FROM logs WHERE fake_log LIKE 'True';";
 
-    $db=\db_priv_pdo_start();
+    $db=\db_priv_pdo_start("root");
     try {
         $db->exec($sql);
     } catch(\PDOException $e) {

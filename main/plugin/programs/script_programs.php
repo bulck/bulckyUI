@@ -33,6 +33,7 @@ $index_info=array();
 programs\get_program_index_info($index_info);
 
 
+
 //Valeur du radio bouton qui définit si le programme sera cyclic ou non:
 if(!isset($cyclic)) {
     $cyclic=getvar("cyclic");

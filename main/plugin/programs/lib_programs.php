@@ -313,7 +313,7 @@ function get_field_from_program_index ($variable,$program_idx)
 function delete_program ($program_idx)
 {
     // Open connection to dabase
-    $db = \db_priv_pdo_start();
+    $db = \db_priv_pdo_start("root");
     
     //delete from program table
     $sql = "SELECT program_idx FROM program_index WHERE id = \"$program_idx\";";
