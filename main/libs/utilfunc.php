@@ -762,7 +762,7 @@ function check_browser_compat($tab) {
                 break;
             case 'chrome':
                 //Support every version of chrome
-                return false;
+                return true;
                 break;
             case 'safari':
 		        //Support for Mac Os X Safari
