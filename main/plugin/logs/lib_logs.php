@@ -132,6 +132,8 @@ function check_export_table_csv($name="",&$out) {
 // ':' => 'od' => 100 => mg/l
 // ';' => 'orp' => 1 => mV 
 // '10' => CO²  => 1 => ppm 
+// '11' => Pression  => 100 => bar 
+// '12' => Humidité  => 100 => % 
 
 function get_sensor_db_type($sensor = "") {
 
@@ -308,6 +310,20 @@ function get_sensor_db_type($sensor = "") {
                     "translation" => "PRESSURE_SENSOR",
                     "unity" => "bar",
                     "display" => "program"
+                );
+                $nb_sens=$nb_sens+1;
+                break;
+
+            case '11': 
+                $sensors[]=array(
+                    "id" => $sens['id'],
+                    "type" => $sens['type'],
+                    "sensor_nb" => $nb_sens,
+                    "ratio" => 100,
+                    "sensorName" => "humidity",
+                    "translation" => "HUMI_SENSOR",
+                    "unity" => "%",
+                    "display" => ""
                 );
                 $nb_sens=$nb_sens+1;
                 break;
