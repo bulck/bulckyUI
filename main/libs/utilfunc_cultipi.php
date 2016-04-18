@@ -72,13 +72,6 @@ function check_and_update_sd_card($sd_card="",&$main_info_tab,&$main_error_tab) 
         'xmlconf' => "./serverPlugUpdate/conf.xml",
     );
     $paramListCultipiStart[] = array ( 
-        'name' => "serverHisto",
-        'waitAfterUS' => "100",
-        'pathexe' => "tclsh",
-        'path' => "./serverHisto/serverHisto.tcl",
-        'xmlconf' => "./serverHisto/conf.xml",
-    );
-    $paramListCultipiStart[] = array ( 
         'name' => "serverCultibox",
         'waitAfterUS' => "100",
         'pathexe' => "tclsh",
@@ -110,6 +103,14 @@ function check_and_update_sd_card($sd_card="",&$main_info_tab,&$main_error_tab) 
             $paramListCultipiStart[] = call_user_func($plugin . '\addInStartXMLCultiCore');                                        
         }
     }
+    
+    $paramListCultipiStart[] = array ( 
+        'name' => "serverHisto",
+        'waitAfterUS' => "1000",
+        'pathexe' => "tclsh",
+        'path' => "./serverHisto/serverHisto.tcl",
+        'xmlconf' => "./serverHisto/conf.xml",
+    );
     
     create_conf_XML($sd_card . "/bulckyPi/start.xml" , $paramListCultipiStart,"starts");
     
