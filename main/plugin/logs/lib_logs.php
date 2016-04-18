@@ -314,7 +314,7 @@ function get_sensor_db_type($sensor = "") {
                 $nb_sens=$nb_sens+1;
                 break;
 
-            case '11': 
+            case '12': 
                 $sensors[]=array(
                     "id" => $sens['id'],
                     "type" => $sens['type'],
