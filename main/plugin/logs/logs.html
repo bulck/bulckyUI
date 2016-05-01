@@ -132,7 +132,7 @@
                                     // Read sensor informations
                                     $sensorInfo = logs\get_sensor_db_type($i);
 
-                                    if ($sensorInfo[0]['type'] != "0") {
+                                    if((strcmp($sensorInfo[0]['type'],"0")!=0)&&((strcmp($sensorInfo[0]['type'],"")!=0))) {
                                         $count=$count+1;
                                         if($sensorInfo[0]['type'] != "2") {
                                             echo '<td>' . __('SENSOR'). " " . $i . ' (' . __($sensorInfo[0]['translation']) . ')</td>';
