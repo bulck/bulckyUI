@@ -2162,10 +2162,10 @@ msgid "SYNO_UPDATE_CULTIPI_STATUS_TIMEOUT"
 msgstr "Module de pilotage ne répond pas"
 
 msgid "SYNO_UPDATE_PLUG_HOUR"
-msgstr "Dernière mise à jour des prises : "
+msgstr "Mise à jour des prises (heure locale) : "
 
 msgid "SYNO_UPDATE_SENSOR_HOUR"
-msgstr "Dernière mise à jour des capteurs : "
+msgstr "Mise à jour des capteurs (heure locale): "
 
 msgid "IMPORT_CONF_CULTIPI"
 msgstr "Importer une configuration"

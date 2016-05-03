@@ -9,10 +9,10 @@
     $err="";
     
     switch ($action) {
-        case "restart_cultipi" :
+        case "restart_bulckypi" :
             exec("sudo /etc/init.d/bulckypi force-reload >/dev/null 2>&1",$ret,$ret_var);
             break;
-        case "status_cultipi" :
+        case "status_bulckypi" :
             exec("/etc/init.d/bulckypi status >/dev/null 2>&1",$ret,$ret_var);
             break;
         case "restart_rpi" :

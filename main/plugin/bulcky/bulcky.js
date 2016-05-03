@@ -142,16 +142,26 @@ $(document).ready(function(){
      pop_up_remove("main_error");
      pop_up_remove("main_info");
 
-     $("#syno_configure_element_force_plug_time").slider({
-        max: 3599,
-        min: 1,
-        slide: function( event, ui) {
-            $("#equi_time").html(secondsToTime(ui.value));
-            $("#duration_plug_label").val(ui.value);
-        },
-        step: 1,
-        value: 1
-     });
+
+    $("#syno_configure_element_force_plug_time").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+             // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+             // Allow: Ctrl+C
+            (e.keyCode == 67 && e.ctrlKey === true) ||
+             // Allow: Ctrl+X
+            (e.keyCode == 88 && e.ctrlKey === true) ||
+             // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+                 // let it happen, don't do anything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
 
      for(i=0;i<nb_webcam;i++) {
         var val=i;
@@ -334,9 +344,9 @@ $(document).ready(function(){
         }
     });
 
-    $("#restart_cultipi").click(function(e) {
+    $("#restart_bulckypi").click(function(e) {
            e.preventDefault();
-           $("#confirm_restart_cultipi").dialog({
+           $("#confirm_restart_bulckypi").dialog({
                 resizable: false,
                 height:150,
                 width: 500,
@@ -366,7 +376,7 @@ $(document).ready(function(){
                                     cache: false,
                                     async: true,
                                     url: "main/modules/external/services_status.php",
-                                    data: {action:"restart_cultipi"},
+                                    data: {action:"restart_bulckypi"},
                                     success: function (data) {
                                         var objJSON = jQuery.parseJSON(data);
                                         if(objJSON=="0") {
@@ -374,7 +384,7 @@ $(document).ready(function(){
                                                 cache: false,
                                                 async: true,
                                                 url: "main/modules/external/services_status.php",
-                                                data: {action:"status_cultipi"}
+                                                data: {action:"status_bulckypi"}
                                             }).done(function (data) {
                                                 $.unblockUI();
 
@@ -1310,7 +1320,7 @@ $(document).ready(function(){
 
                     $("#syno_pilotPlug_element").dialog({
                         resizable: true,
-                        width: 600,
+                        width: 400,
                         closeOnEscape: true,
                         position: { 
                             my: "left top", 
@@ -1365,6 +1375,11 @@ $(document).ready(function(){
                                         color: '#fffff'
                                     },
                                     onBlock: function() {
+                                        if($("#syno_configure_element_force_plug_time").val()=="") {
+                                            var time="0";
+                                        } else {
+                                            var time=$("#syno_configure_element_force_plug_time").val();
+                                        }
                                         $.ajax({
                                             cache: false,
                                             type: "POST",
@@ -1372,7 +1387,7 @@ $(document).ready(function(){
                                                 action:"forcePlug",
                                                 id:idOfElem,
                                                 value:valToSend,
-                                                time:$("#duration_plug_label").val()
+                                                time:time
                                             },
                                             url: "main/modules/external/synoptic.php",
                                             success: function (data) {
@@ -1670,18 +1685,18 @@ $(document).ready(function(){
                         case "loading_serverPlugUpdate" :
                         case "loading_serverHisto" :
                             $('#synoptic_updateCultipiStatus').addClass('fa fa-2x fa-pause orange');
-                            $('#synoptic_updateCultipiStatus').attr('title','<?php echo __('SYNO_UPDATE_CULTIPI_STATUS_START'); ?>' + "<br />Heure locale : " + objJSON.cultihour);
+                            $('#synoptic_updateCultipiStatus').attr('title','<?php echo __('SYNO_UPDATE_CULTIPI_STATUS_START'); ?>' + "<br />Heure du module: " + objJSON.cultihour);
                             break;
                         case "initialized" :
                             $('#synoptic_updateCultipiStatus').addClass('fa fa-2x fa-play-circle green');
-                            $('#synoptic_updateCultipiStatus').attr('title','<?php echo __('SYNO_UPDATE_CULTIPI_STATUS_STARTED'); ?>' + "<br />Heure locale : " + objJSON.cultihour);
+                            $('#synoptic_updateCultipiStatus').attr('title','<?php echo __('SYNO_UPDATE_CULTIPI_STATUS_STARTED'); ?>' + "<br />Heure du module : " + objJSON.cultihour);
                             break;
                         case "TIMEOUT" :
                         case "DEFCOM" :
                         case "NA" :
                         default :
                             $('#synoptic_updateCultipiStatus').addClass('fa fa-2x fa-remove red');
-                            $('#synoptic_updateCultipiStatus').attr('title','<?php echo __('SYNO_UPDATE_CULTIPI_STATUS_TIMEOUT'); ?>' + "<br />Heure locale : " + objJSON.cultihour);
+                            $('#synoptic_updateCultipiStatus').attr('title','<?php echo __('SYNO_UPDATE_CULTIPI_STATUS_TIMEOUT'); ?>' + "<br />Heure du module : " + objJSON.cultihour);
                             break;
                     }
                 }

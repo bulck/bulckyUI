@@ -377,3 +377,16 @@ a:hover.note_link {
 }
 
 
+td.conf-title-webcam {
+    width: 25%;
+}
+
+td.td_blanck {
+    width: 25%;
+}
+
+#syno_configure_element_force_plug_time {
+    width: 60px;
+}
+
+

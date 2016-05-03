@@ -54,11 +54,6 @@ function check_db() {
             $ret = $e->getMessage();
             print_r($ret);
         }
-        
-        // Add one tente and one CBX
-        addElementInSynoptic("other", 1, "cultipi.png", 850, 450, 2, 74);
-        addElementInSynoptic("other", 2, "tente_1_espace.png", 600, 350, 1, 250);
-        
     } else {
         // Check column
         check_and_update_column_db ("synoptic", $synoptic_col);
