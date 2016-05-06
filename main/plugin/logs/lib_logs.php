@@ -44,6 +44,63 @@ function check_db() {
         }
     }
     $db = null;
+    
+    // Check the second table 
+    $sql = "SHOW TABLES FROM bulcky LIKE 'bpilogs';";
+
+    $db = \db_priv_pdo_start("root");
+    try {
+        $sth=$db->prepare($sql);
+        $sth->execute();
+        $res = $sth->fetchAll(\PDO::FETCH_ASSOC);
+    } catch(\PDOException $e) {
+        $ret=$e->getMessage();
+    }
+
+    // If table exists, return
+    if ($res == null)
+    {
+
+        // Buil MySQL command to create table
+        $sql = "CREATE TABLE bpilogs ("
+            ."timestamp DATETIME NOT NULL,"
+            ."sensor1 int(4) DEFAULT NULL,"
+            ."sensor2 int(4) DEFAULT NULL,"
+            ."sensor3 int(4) DEFAULT NULL,"
+            ."sensor4 int(4) DEFAULT NULL,"
+            ."sensor5 int(4) DEFAULT NULL,"
+            ."sensor6 int(4) DEFAULT NULL,"
+            ."sensor7 int(4) DEFAULT NULL,"
+            ."sensor8 int(4) DEFAULT NULL,"
+            ."sensor9 int(4) DEFAULT NULL,"
+            ."sensor10 int(4) DEFAULT NULL,"
+            ."sensor11 int(4) DEFAULT NULL,"
+            ."sensor12 int(4) DEFAULT NULL,"
+            ."sensor13 int(4) DEFAULT NULL,"
+            ."sensor14 int(4) DEFAULT NULL,"
+            ."sensor15 int(4) DEFAULT NULL,"
+            ."sensor16 int(4) DEFAULT NULL,"
+            ."sensor17 int(4) DEFAULT NULL,"
+            ."sensor18 int(4) DEFAULT NULL,"
+            ."sensor19 int(4) DEFAULT NULL,"
+            ."sensor20 int(4) DEFAULT NULL,"
+            ."sensor21 int(4) DEFAULT NULL,"
+            ."sensor22 int(4) DEFAULT NULL,"
+            ."sensor23 int(4) DEFAULT NULL,"
+            ."sensor24 int(4) DEFAULT NULL,"
+            ."KEY timestamp (timestamp));";
+
+        // Create table
+        try {
+            $sth = $db->prepare($sql);
+            $sth->execute();
+        } catch(\PDOException $e) {
+            $ret = $e->getMessage();
+            print_r($ret);
+        }
+    }
+    $db = null;
+    
 }
 
 
