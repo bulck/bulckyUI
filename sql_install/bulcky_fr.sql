@@ -106,6 +106,43 @@ CREATE TABLE IF NOT EXISTS `logs` (
   KEY `timestamp` (`timestamp`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `logs`
+--
+
+CREATE TABLE IF NOT EXISTS `bpilogs` (
+  `timestamp` DATETIME NOT NULL,
+  `sensor1` int(4) DEFAULT NULL,
+  `sensor2` int(4) DEFAULT NULL,
+  `sensor3` int(4) DEFAULT NULL,
+  `sensor4` int(4) DEFAULT NULL,
+  `sensor5` int(4) DEFAULT NULL,
+  `sensor6` int(4) DEFAULT NULL,
+  `sensor7` int(4) DEFAULT NULL,
+  `sensor8` int(4) DEFAULT NULL,
+  `sensor9` int(4) DEFAULT NULL,
+  `sensor10` int(4) DEFAULT NULL,
+  `sensor11` int(4) DEFAULT NULL,
+  `sensor12` int(4) DEFAULT NULL,
+  `sensor13` int(4) DEFAULT NULL,
+  `sensor14` int(4) DEFAULT NULL,
+  `sensor15` int(4) DEFAULT NULL,
+  `sensor16` int(4) DEFAULT NULL,
+  `sensor17` int(4) DEFAULT NULL,
+  `sensor18` int(4) DEFAULT NULL,
+  `sensor19` int(4) DEFAULT NULL,
+  `sensor20` int(4) DEFAULT NULL,
+  `sensor21` int(4) DEFAULT NULL,
+  `sensor22` int(4) DEFAULT NULL,
+  `sensor23` int(4) DEFAULT NULL,
+  `sensor24` int(4) DEFAULT NULL,
+  KEY `timestamp` (`timestamp`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 -- --------------------------------------------------------
 
 --
@@ -262,6 +299,9 @@ CREATE TABLE IF NOT EXISTS `synoptic` (
     `rotation` int(11) NOT NULL DEFAULT '0',
     `image` varchar(50) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `synoptic` (`element`,`indexElem`,`image`,`x`, `y`, `z`,`scale`) VALUES('other','1','cultipi.png' , '850', '450', '2' , '74');
+INSERT INTO `synoptic` (`element`,`indexElem`,`image`,`x`, `y`, `z`,`scale`) VALUES('other','2','tente_1_espace.png' , '600', '350', '1' , '250');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
