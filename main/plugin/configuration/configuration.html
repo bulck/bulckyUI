@@ -17,7 +17,7 @@
 <br />
 <p class="title_conf"><?php echo __('CONFIGURE_TITLE_CULTIBOX'); ?></p>
 <br />
-<form action="/bulcky/index.php?menu=configuration" method="post" name="configform" id="configform">
+<form action="index.php?menu=configuration" method="post" name="configform" id="configform">
 <br />
 <div class="row">
     <div class="4u 12u(2)">
@@ -229,7 +229,7 @@
                             <input type="text" size="15" id="wire_address" name="wire_address" maxlength=15 value="<?php echo $wire_address; ?>">
                     </div>
                     <div class="2u 12u(2)">
-                            <div id="error_wire_ip" style="display:none" class="error_field"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_WIFI_IP'); ?></div>
+                            <div id="error_wire_ip" style="display:none" class="error_field"><img src='main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_WIFI_IP'); ?></div>
                     </div>
                 </div>
 
@@ -244,7 +244,7 @@
                             <input type="text" size=15 maxlength=15 id="wire_mask" name="wire_mask" value="<?php echo $wire_mask; ?>">
                     </div>
                     <div class="2u 12u(2)">
-                            <div id="error_wire_mask" style="display:none" class="error_field"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_WIFI_IP_MASK'); ?></div>
+                            <div id="error_wire_mask" style="display:none" class="error_field"><img src='main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_WIFI_IP_MASK'); ?></div>
                     </div>
                 </div>
 
@@ -283,7 +283,7 @@
                             <input  type="text" size="15" name="wifi_ssid" id="wifi_ssid" value="<?php echo $wifi_ssid; ?>" />
                     </div>
                     <div class="2u 12u(2)">
-                             <div id="error_wifi_ssid" style="display:none" class="error_field"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_SSID_VALUE'); ?></div>
+                             <div id="error_wifi_ssid" style="display:none" class="error_field"><img src='main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_SSID_VALUE'); ?></div>
                     </div>
               </div>
 
@@ -319,11 +319,11 @@
                             <i class="fa fa-eye" title="<?php echo __('SHOW_CURRENT_PWD'); ?>" id="eyes" <?php if(strcmp("$wifi_key_type","NONE")==0) echo 'style="display:none"';  ?>></i>
                     </div>
                     <div class="2u 12u(2)">
-                             <div id="error_wifi_password" style="display:none" class="error_field"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_PASSWORD_VALUE'); ?></div><?php echo __('HEX_PASSWORD'); ?>:<input id="hex_password" type="checkbox" <?php if(strcmp("$wifi_key_type","WEP")!=0) { echo 'disabled'; } ?> />
-                            <div id="error_wifi_empty_password" style="display:none" class="error_field"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_EMPTY_PASSWORD'); ?></div>
-                            <div id="error_password_wep" style="display:none" class="error_field"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_WEP_KEY_TYPE'); ?></div>
-                            <div id="error_password_wep_hexa" style="display:none" class="error_field"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_WEP_KEY_TYPE_HEXA'); ?></div>
-                            <div id="error_password_wpa" style="display:none" class="error_field"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_WPA_KEY_TYPE'); ?></div>
+                             <div id="error_wifi_password" style="display:none" class="error_field"><img src='main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_PASSWORD_VALUE'); ?></div><?php echo __('HEX_PASSWORD'); ?>:<input id="hex_password" type="checkbox" <?php if(strcmp("$wifi_key_type","WEP")!=0) { echo 'disabled'; } ?> />
+                            <div id="error_wifi_empty_password" style="display:none" class="error_field"><img src='main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_EMPTY_PASSWORD'); ?></div>
+                            <div id="error_password_wep" style="display:none" class="error_field"><img src='main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_WEP_KEY_TYPE'); ?></div>
+                            <div id="error_password_wep_hexa" style="display:none" class="error_field"><img src='main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_WEP_KEY_TYPE_HEXA'); ?></div>
+                            <div id="error_password_wpa" style="display:none" class="error_field"><img src='main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_WPA_KEY_TYPE'); ?></div>
                     </div>
                 </div>
 
@@ -338,7 +338,7 @@
                                 <input type="password" size="15" name="wifi_password_confirm" id="wifi_password_confirm" value="" <?php if(strcmp("$wifi_key_type","NONE")==0) { echo 'disabled'; } ?>/>
                     </div>
                     <div class="2u 12u(2)">
-                            <div id="error_wifi_password_confirm" style="display:none" class="error_field"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_PASSWORD_VALUE'); ?></div>
+                            <div id="error_wifi_password_confirm" style="display:none" class="error_field"><img src='main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_PASSWORD_VALUE'); ?></div>
                     </div>
                 </div>
 
@@ -369,7 +369,7 @@
                             <input type="text" size="15" name="wifi_ip" id="wifi_ip" value="<?php echo $wifi_address; ?>" />
                     </div>
                     <div class="2u 12u(2)">
-                            <div id="error_wifi_ip" style="display:none" class="error_field"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_WIFI_IP'); ?></div>
+                            <div id="error_wifi_ip" style="display:none" class="error_field"><img src='main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_WIFI_IP'); ?></div>
                     </div>
                 </div>
 
@@ -384,7 +384,7 @@
                             <input type="text" size="15" name="wifi_mask" id="wifi_mask" value="<?php echo $wifi_mask; ?>" />
                     </div>
                     <div class="2u 12u(2)">
-                            <div id="error_wifi_mask" style="display:none" class="error_field"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_WIFI_IP_MASK'); ?></div>
+                            <div id="error_wifi_mask" style="display:none" class="error_field"><img src='main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_WIFI_IP_MASK'); ?></div>
                     </div>
                 </div>
 
@@ -553,7 +553,7 @@
                 <td class="conf-marge"></td>
                 <td class="password-title"><?php echo __('NEW_PASSWORD'); ?>:</td>
                 <td class="password-field"><input type="password" id="new_password" /></td>
-                <td><div id="error_same_password" class="error_field" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_SAME_PASSWORD'); ?></div><div id="error_empty_password" class="error_field" style="display:none"><img src='/bulcky/main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_EMPTY_PASSWORD'); ?></div></td>
+                <td><div id="error_same_password" class="error_field" style="display:none"><img src='main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_SAME_PASSWORD'); ?></div><div id="error_empty_password" class="error_field" style="display:none"><img src='main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_EMPTY_PASSWORD'); ?></div></td>
             </tr>
             <tr>
                 <td></td>

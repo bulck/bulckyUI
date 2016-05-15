@@ -578,7 +578,7 @@ $(function () {
                                                 if (item.fake_log != "0")
                                                 {
                                                     <?php
-                                                    echo "chart.renderer.image('/bulcky/main/libs/img/fake_log_".__('LANG').".png', 600, 15, 130, 50)";
+                                                    echo "chart.renderer.image('main/libs/img/fake_log_".__('LANG').".png', 600, 15, 130, 50)";
                                                     echo ".add();";
                                                     ?>
                                                     fakeLogsImageDisplayed = true;

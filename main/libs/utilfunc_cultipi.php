@@ -30,7 +30,7 @@ function check_and_update_sd_card($sd_card="",&$main_info_tab,&$main_error_tab) 
 
     // If we are in cultipi mode, create file systeme structure
     if(!is_dir($sd_card))                           mkdir($sd_card);
-    if(!is_dir($sd_card . "/bulckyPi"))              mkdir($sd_card . "/bulckyPi");
+    if(!is_dir($sd_card . "/bulckyPi"))             mkdir($sd_card . "/bulckyPi");
     if(!is_dir($sd_card . "/serverAcqSensor"))      mkdir($sd_card . "/serverAcqSensor");
     if(!is_dir($sd_card . "/serverHisto"))          mkdir($sd_card . "/serverHisto");
     if(!is_dir($sd_card . "/serverLog"))            mkdir($sd_card . "/serverLog");
@@ -40,7 +40,7 @@ function check_and_update_sd_card($sd_card="",&$main_info_tab,&$main_error_tab) 
     if(!is_dir($sd_card . "/serverMail"))           mkdir($sd_card . "/serverMail");
     if(!is_dir($sd_card . "/serverCultibox"))       mkdir($sd_card . "/serverCultibox");
     if(!is_dir($sd_card . "/serverSupervision"))    mkdir($sd_card . "/serverSupervision");
-    if(!is_dir($sd_card . "/serverIrrigation"))    mkdir($sd_card . "/serverIrrigation");
+    if(!is_dir($sd_card . "/serverIrrigation"))     mkdir($sd_card . "/serverIrrigation");
     
     // Create cultipi conf.xml file
     $paramListCultipiConf[] = array (
@@ -588,7 +588,9 @@ function create_conf_XML($file, $paramList,$tag="conf") {
 
     // Check if directory exists
     if(!is_dir(dirname($file)))
+	{
         mkdir(dirname($file));
+	}
 
     // Open in write mode
     $fid = fopen($file,"w+");

@@ -69,7 +69,7 @@ msgid "DID_YOU_KNOW"
 msgstr "Le saviez-vous?"
 
 msgid "WELCOME_MESSAGE"
-msgstr "Ce logiciel va vous permettre d'accèder simplement aux différentes fonctionnalités de votre installation : <a href="/bulcky/index.php?menu=plugs" class="href-plugs">configuration du comportement</a> de vos équipements, <a href="/bulcky/index.php?menu=logs" class="href-logs">visualisation des données</a> enregistrées des capteurs, <a href="/bulcky/index.php?menu=bulcky" class="href-bulcky">aperçu de l'état</a> en direct de votre espace, <a href="/bulcky/index.php?menu=calendar" class="href-calendar">création d'un calendrier</a> de tâches..."
+msgstr "Ce logiciel va vous permettre d'accèder simplement aux différentes fonctionnalités de votre installation : <a href="index.php?menu=plugs" class="href-plugs">configuration du comportement</a> de vos équipements, <a href="index.php?menu=logs" class="href-logs">visualisation des données</a> enregistrées des capteurs, <a href="index.php?menu=bulcky" class="href-bulcky">aperçu de l'état</a> en direct de votre espace, <a href="index.php?menu=calendar" class="href-calendar">création d'un calendrier</a> de tâches..."
 
 msgid "WELCOME_FOLLOW_LINK"
 msgstr "Cliquer sur le bouton suivant pour lancer l'assistant de configuration et commencer à manipuler votre Cultibox"
@@ -2099,7 +2099,7 @@ msgid "ERROR_LOGS"
 msgstr "Logs d'erreur"
 
 msgid "PROCESS_GET_VERSION"
-msgstr "Récupération des numéros de version en cours... <img src='/bulcky/main/libs/img/waiting_small.gif' alt='' />"
+msgstr "Récupération des numéros de version en cours... <img src='main/libs/img/waiting_small.gif' alt='' />"
 
 msgid "CULTIPI_IMAGE_VERSION"
 msgstr "Version de l'image"

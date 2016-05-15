@@ -535,9 +535,9 @@ $(document).ready(function(){
                         var return_array = JSON.parse(data);
                         if(parseInt(return_array['error'])>1) {
                             if(parseInt(return_array['error'])==2) {
-                                $("#error_value_program").html("<img src='/bulcky/main/libs/img/arrow_error.png' alt=''>"+error_valueJS[parseInt(return_array['error'])]);
+                                $("#error_value_program").html("<img src='main/libs/img/arrow_error.png' alt=''>"+error_valueJS[parseInt(return_array['error'])]);
                             } else {
-                                $("#error_value_program").html("<img src='/bulcky/main/libs/img/arrow_error.png' alt=''>"+error_valueJS[parseInt(return_array['error'])]+": "+return_array['min']+return_array['unity']+" <?php echo __('AND'); ?> "+return_array['max']+return_array['unity']);
+                                $("#error_value_program").html("<img src='main/libs/img/arrow_error.png' alt=''>"+error_valueJS[parseInt(return_array['error'])]+": "+return_array['min']+return_array['unity']+" <?php echo __('AND'); ?> "+return_array['max']+return_array['unity']);
 
                             }
                             $("#error_value_program").show(700);
@@ -545,7 +545,7 @@ $(document).ready(function(){
                         } 
                     });
                 } else {
-                     $("#error_value_program").html("<img src='/bulcky/main/libs/img/arrow_error.png' alt=''>"+error_valueJS[2]);
+                     $("#error_value_program").html("<img src='main/libs/img/arrow_error.png' alt=''>"+error_valueJS[2]);
                      $("#error_value_program").show(700);
                      checked=false;
                 }

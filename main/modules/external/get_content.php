@@ -6,11 +6,11 @@ if((isset($_GET['page']))&&(!empty($_GET['page']))) {
    $page=$_GET['page'];
 
     require_once('../../libs/config.php');
-    require_once($GLOBALS['BASE_PATH'].'main/libs/db_get_common.php');
-    require_once($GLOBALS['BASE_PATH'].'main/libs/db_set_common.php');
-    require_once($GLOBALS['BASE_PATH'].'main/libs/debug.php');
-    require_once $GLOBALS['BASE_PATH'].'main/libs/utilfunc.php';
-    require_once($GLOBALS['BASE_PATH'].'main/libs/utilfunc_sd_card.php');
+    require_once('../../libs/db_get_common.php');
+    require_once('../../libs/db_set_common.php');
+    require_once('../../libs/debug.php');
+    require_once '../../libs/utilfunc.php';
+    require_once('../../libs/utilfunc_sd_card.php');
 
     if((isset($_GET['get_array']))&&(!empty($_GET['get_array']))) {
         $get_array=json_decode($_GET['get_array'],true);
@@ -41,32 +41,32 @@ if((isset($_GET['page']))&&(!empty($_GET['page']))) {
     }
 
     // Load lib
-    $fileName = $GLOBALS['BASE_PATH'] . 'main/plugin/' . $page . '/lib_' . $page . '.php';
+    $fileName = '../../plugin/' . $page . '/lib_' . $page . '.php';
     if (is_file($fileName)) {
         require_once $fileName;
     }
     
     // Load script
-    $fileName = $GLOBALS['BASE_PATH'] . 'main/plugin/' . $page . '/script_' . $page . '.php';
+    $fileName = '../../plugin/' . $page . '/script_' . $page . '.php';
     if (is_file($fileName)) {
         include $fileName;
     }
 
-    include $GLOBALS['BASE_PATH'].'main/scripts/post_script.php';
+    include '../../scripts/post_script.php';
          
     // Load javascript
-    $fileName = $GLOBALS['BASE_PATH'] . 'main/plugin/' . $page . '/' . $page . '.js';
+    $fileName = '../../plugin/' . $page . '/' . $page . '.js';
     if (is_file($fileName)) {
         include $fileName;
     }
         
     // Load HTML
-    $fileName = $GLOBALS['BASE_PATH'] . 'main/plugin/' . $page . '/' . $page . '.html';
+    $fileName = '../../plugin/' . $page . '/' . $page . '.html';
     if (is_file($fileName)) {
         include $fileName;
     }
         
-    include $GLOBALS['BASE_PATH'].'main/libs/js/send_info_error.js';
+    include '../../libs/js/send_info_error.js';
         
 
     $include = ob_get_clean();

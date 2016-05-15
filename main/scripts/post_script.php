@@ -6,6 +6,6 @@
         $send_stat=false;
     }
     
-    include $GLOBALS['BASE_PATH'].'main/libs/js/check_sd.js';
+    include '../../libs/js/check_sd.js';
   
 ?>

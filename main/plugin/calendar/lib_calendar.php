@@ -434,7 +434,7 @@ function insert_calendar($event,&$out) {
 // ROLE Add in menu
 // RET none
 function addInMenu() {
-    echo '<li id="menu-calendar"><a href="/bulcky/index.php?menu=calendar" class="href-calendar"><span>Calendrier</span></a></li>';
+    echo '<li id="menu-calendar"><a href="index.php?menu=calendar" class="href-calendar"><span>Calendrier</span></a></li>';
 }
 
 
