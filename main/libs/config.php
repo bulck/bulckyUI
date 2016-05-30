@@ -163,7 +163,7 @@ $GLOBALS['WEBCAM_RESOLUTION'] = array("320x240", "320x480", "640x480", "800x600"
 $GLOBALS['WEBCAM_PALETTE'] = array("AUTO", "PNG","JPEG","MJPEG","S561","RGB32","RGB24","BGR32","BGR24","YUYV","UYVY","YUV420P","BAYER","SGBRG8","SGRBG8","RGB565","RGB555","Y16","GREY");
 
 // For cultipi : path to the conf (for windows : C:/bulcky/xampp/htdocs/cultibox)
-$GLOBALS['CULTIPI_CONF_PATH'] = "C:/cultibox/xampp/htdocs";
+$GLOBALS['CULTIPI_CONF_PATH'] = "/etc/bulcky";
 $GLOBALS['CULTIPI_CONF_TEMP_PATH'] = $GLOBALS['CULTIPI_CONF_PATH'] . "/conf_tmp";
 $GLOBALS['CULTIPI_CONF_OUT_PATH']  = $GLOBALS['CULTIPI_CONF_PATH'] . "/01_defaultConf_RPi";
 
