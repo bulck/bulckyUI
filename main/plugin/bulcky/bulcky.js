@@ -15,6 +15,8 @@ var nb_webcam = <?php echo json_encode($GLOBALS['MAX_WEBCAM']); ?>;
 var webcam_conf = <?php echo json_encode($webcam_conf); ?>;
 var upload_dir="../../libs/img/";
 var jqXHR;
+var sensor_def = <?php echo json_encode($GLOBALS['SENSOR_DEFINITION']); ?>;
+
 
 
 // GLobal var for slidder
@@ -1494,49 +1496,20 @@ $(document).ready(function(){
                             if (value != "DEFCOM" && value != "TIMEOUT" ) {
                                 newBaseName = baseName($('img[name="syno_elemSensorImage_' + key + '"]').attr('src'));
                                 var valueSplitted = value.split(" "); 
-                                switch(newBaseName) {
-                                    case 'T_RH_sensor.png' :
-                                        $('#syno_elemValueSensor_val1_' + key).html(valueSplitted[0]  + "°C " + valueSplitted[1] + "RH");
+                                var senType=$('img[name="syno_elemSensorImage_' + key + '"]').attr('sensor_type');
+
+                                if(sensor_def.hasOwnProperty(senType)) {
+                                    if(senType=="2") {
+                                        /* TO BE DELETED */
+                                        $('#syno_elemValueSensor_val1_' + key).html(valueSplitted[0]  + "°C " + valueSplitted[1] + "%RH");
                                         $('img[name="syno_elemSensorImage_' + key + '"]').attr('title',valueSplitted[0]  + "°C " + valueSplitted[1] + "RH");
-                                        break;
-                                    case 'water_T_sensor.png': 
-                                        $('#syno_elemValueSensor_val1_' + key).html(valueSplitted[0]  + "°C");
-                                        $('img[name="syno_elemSensorImage_' + key + '"]').attr('title',valueSplitted[0]  + "°C");
-                                        break;
-                                    case 'symbole_cuve.png': 
-                                    case 'level_sensor.png': 
-                                        $('#syno_elemValueSensor_val1_' + key).html(valueSplitted[0]  + "cm");
-                                        $('img[name="syno_elemSensorImage_' + key + '"]').attr('title',valueSplitted[0]  + "cm");
-                                        break;
-                                    case 'pH-sensor.png': 
-                                        $('#syno_elemValueSensor_val1_' + key).html(valueSplitted[0]  + "ph");
-                                        $('img[name="syno_elemSensorImage_' + key + '"]').attr('title',valueSplitted[0]  + "ph");
-                                        break;
-                                    case 'conductivity-sensor.png': 
-                                        $('#syno_elemValueSensor_val1_' + key).html(valueSplitted[0]  + "ec");
-                                        $('img[name="syno_elemSensorImage_' + key + '"]').attr('title',valueSplitted[0]  + "ec");
-                                        break;
-                                    case 'dissolved-oxygen-sensor.png': 
-                                        $('#syno_elemValueSensor_val1_' + key).html(valueSplitted[0]  + "OD");
-                                        $('img[name="syno_elemSensorImage_' + key + '"]').attr('title',valueSplitted[0]  + "OD");
-                                        break;
-                                    case 'ORP-sensor.png': 
-                                        $('#syno_elemValueSensor_val1_' + key).html(valueSplitted[0]  + "ORP");
-                                        $('img[name="syno_elemSensorImage_' + key + '"]').attr('title',valueSplitted[0]  + "ORP");
-                                        break;
-                                    case 'co2-sensor.png': 
-                                        $('#syno_elemValueSensor_val1_' + key).html(valueSplitted[0]  + "ppm");
-                                        $('img[name="syno_elemSensorImage_' + key + '"]').attr('title',valueSplitted[0]  + "ppm");
-                                        break;
-                                    case 'manometre-sensor.png': 
-                                        $('#syno_elemValueSensor_val1_' + key).html(valueSplitted[0]  + "bar");
-                                        $('img[name="syno_elemSensorImage_' + key + '"]').attr('title',valueSplitted[0]  + "bar");
-                                        break;                                        
-                                    default :
-                                        $('#syno_elemValueSensor_val1_' + key).html(valueSplitted[0]  + "???");
-                                        $('img[name="syno_elemSensorImage_' + key + '"]').attr('title',valueSplitted[0]  + "???");
-                                        break;
-                                }
+ 
+                                    } else {
+                                        $('#syno_elemValueSensor_val1_' + key).html(valueSplitted[0]  + sensor_def[senType]['unity']);
+                                        $('img[name="syno_elemSensorImage_' + key + '"]').attr('title',valueSplitted[0]  + sensor_def[senType]['unity']);
+                                    }
+                                } 
+
                                 $('img[name="syno_elemSensorImage_' + key + '"]').css("opacity", "1");
                             } else if (value == "TIMEOUT") {
                                 $('#syno_elemValueSensor_val1_' + key).html("");

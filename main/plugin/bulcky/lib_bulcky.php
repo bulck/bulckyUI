@@ -299,36 +299,12 @@ function getSensorOfSynoptic () {
 
         // If empty create them 
         if (empty($sensorParameters) && $sensor["type"] != "0") {
-
-            switch ($sensor["type"])
-            {
-                case '2' :
-                    $image = "T_RH_sensor.png";
-                    break;
-                case '3': 
-                    $image = "water_T_sensor.png";
-                    break;
-                case '6': 
-                case '7': 
-                    $image = "level_sensor.png";
-                    break;
-                case '8': 
-                    $image = "pH-sensor.png";
-                    break;
-                case '9': 
-                    $image = "conductivity-sensor.png";
-                    break;
-                case '10': 
-                    $image = "dissolved-oxygen-sensor.png";
-                    break;
-                case '11': 
-                    $image = "ORP-sensor.png";
-                    break;
-                default :
-                    $image = "T_RH_sensor.png";
-                    break;
+            if(array_key_exists($sensor["type"], $GLOBALS['SENSOR_DEFINITION'])) {
+                $image=$GLOBALS['SENSOR_DEFINITION']["${sensor['type']}"]['image'];
+            } else {
+                $image="T_RH_sensor.png";
             }
-        
+
             addElementInSynoptic("sensor", $sensor["id"], $image);
             
             $ret_array[] = getSynopticDBElemByname("sensor",$sensor["id"]);
@@ -340,7 +316,6 @@ function getSensorOfSynoptic () {
         }
 
     }
-
     return $ret_array;
 }
 // }}}

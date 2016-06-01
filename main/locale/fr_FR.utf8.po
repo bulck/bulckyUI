@@ -342,6 +342,15 @@ msgstr "seconde(s)"
 
 
 # For the logs part:
+msgid "RJ12"
+msgstr "RJ12"
+
+msgid "DIRECT_READ"
+msgstr "Lecture directe"
+
+msgid "SERIAL_LINK"
+msgstr "Liaison série"
+
 msgid "ERROR_POWER_EMPTY"
 msgstr "Puissance de la prise selectionnée non renseignée"
 
@@ -2288,10 +2297,17 @@ msgid "DEACTIVATED"
 msgstr "Désactivée"
 
 msgid "MANUAL_IP_ADDR"
-msgstr "Configuration manuelle"
+msgstr "Manuel"
 
 msgid "DYNAMIC_IP_ADDR"
+msgstr "Automatique"
+
+msgid "MANUAL_CONF"
+msgstr "Configuration manuelle"
+
+msgid "DYNAMIC_CONF"
 msgstr "Configuration automatique"
+
 
 msgid "IP_ADDR"
 msgstr "Adresse du réseau"

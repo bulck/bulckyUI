@@ -73,7 +73,7 @@ switch ($datatype)
         }
 
         // Gets type of each sensor logged
-        $db_sensors = logs\get_sensor_db_type($_GET['sensor']);
+        $db_sensors = logs\get_sensor_db_type($_GET['sensor'],$GLOBALS['SENSOR_DEFINITION']);
 
         // Retrieve logs curve
         $logsValue = logs\get_sensor_log($_GET['sensor'],$startDay,$endDay,$_GET['month'],$db_sensors[0]['ratio'],$db_sensors[0]['display']);

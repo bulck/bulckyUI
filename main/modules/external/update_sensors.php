@@ -20,7 +20,7 @@ if((!isset($sd_card))||(empty($sd_card))) {
 
 // Read index file and update sensors type
 $sensor_type = array(); 
-if (get_sensor_type($sd_card,$sensor_type))
+if(get_sensor_type($sd_card,$sensor_type))
 {
     // Update database with sensors
     update_sensor_type($sensor_type);

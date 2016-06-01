@@ -93,75 +93,6 @@ delete_logs = function(type, type_reset, nb_jours, start,count) {
     });
 }
 
-loadLog = function(nb_day,pourcent,type,pourcent,search,sd_card) {
-    $.ajax({
-        beforeSend: function(jqXHR) {
-                $.xhrPool.push(jqXHR);
-        },
-        complete: function(jqXHR) {
-            var index = $.xhrPool.indexOf(jqXHR);
-            if (index > -1) {
-                $.xhrPool.splice(index, 1);
-            }
-        },
-        cache: false,
-        url: "main/modules/external/load_log.php",
-        data: {nb_day:nb_day, type:type,search:search,sd_card:sd_card}
-    }).done(function (data) {
-        if(nb_day != 0) {
-            if(type=="power") {
-                $("#progress_bar_load_power").progressbar({ value: parseInt(((pourcent-nb_day)/pourcent)*100) });
-            } else {
-                $("#progress_bar_load").progressbar({ value: parseInt(((pourcent-nb_day)/pourcent)*100) });
-            }
-
-            if(!$.isNumeric(data)) {
-                if(type=="power") {
-                    $("#error_load_power").show();
-                } else {
-                    $("#error_load").show();
-                }
-                finished=finished+1;
-                if(finished==2) {
-                    $("#btnClose").html('<span class="ui-button-text">'+CLOSE_button+'</span>');
-                }
-                return true;
-            }
-            loadLog(nb_day-1,data,type,pourcent,search,sd_card);
-        } else {
-            if(search=="submit") {
-                if(type=="power") {
-                    $("#success_load_power").show();
-                    $("#progress_bar_load_power").progressbar({ value: 100 });
-                } else {
-                    $("#success_load").show();
-                    $("#progress_bar_load").progressbar({ value: 100 });
-                }
-                finished=finished+1;
-                if(finished==2) {
-                    $("#btnClose").html('<span class="ui-button-text">'+CLOSE_button+'</span>');
-                }
-                return true;
-            } else {
-                if(type=="power") {
-                    $("#success_load_power_auto").show();
-                    $("#progress_bar_load_power").progressbar({ value: 100 });
-                } else {
-                    $("#success_load_auto").show();
-                    $("#progress_bar_load").progressbar({ value: 100 });
-                }
-                finished=finished+1;
-                if(finished==2) {
-                    $("#btnClose").html('<span class="ui-button-text">'+CLOSE_button+'</span>');
-                    if(data==-2) {
-                       $("#success_load_still_log").show();
-                    }
-                }
-                return true;
-            }
-        } 
-    });
-}
 
 // Define datepicker
 $(function() {
@@ -285,6 +216,11 @@ Highcharts.setOptions({
 $(function () {
     var chart;
     $(document).ready(function() {
+         var contain = $('#container');
+         var width = contain.width();
+         console.log(width);
+         contain.css('height', parseInt(width*0.4)+"px");
+
         // Call the fileupload widget and set some parameters:
         var upload_type="";
         $('#import_logs_csv_file, #import_logs_power_csv_file').fileupload({
@@ -741,7 +677,7 @@ $(function () {
                 shared: true,
                 useHTML: true,
                 formatter: function() {
-                    var s = '<table class="table_width"><tr>';
+                    var s = '<table class="data_logs"><tr><td td colspan="2"><label class="p_center"><b>Date de la capture: '+Highcharts.dateFormat('%Y-%m-%d %H:%M', this.x) +'</b></label></td></tr><tr>';
                     var chart = $('#container').highcharts();
 
                     var xVal=this.x;
@@ -760,42 +696,14 @@ $(function () {
                         }
 
                         if(valueToTidsplay==null) valueToTidsplay="N/A";
-                        s += '<td class="log-tooltip"><font color="' + serie.yAxis.userOptions.labels.style.color + '">' + serie.options.name + ' : '+ valueToTidsplay + " " + serie.options.tooltip.valueSuffix + '</font></td>';
+                        s += '<td class="td_data_logs"><font color="' + serie.yAxis.userOptions.labels.style.color + '">' + serie.options.name + ' : '+ valueToTidsplay + " " + serie.options.tooltip.valueSuffix + '</font></td>';
                         if(count%2===0) s=s+"</tr><tr>";
                     });
 
                     $("#data_logs").html(s);
 
-                    var position="";
-                    if($("#data_logs").is(':visible')) { 
-                        var position=$("#data_logs").offset();
-                        $("#data_logs").dialog("widget").position(
-                            position
-                        );
-                        $("#data_logs").dialog({
-                            title: '<b>'+Highcharts.dateFormat('%Y-%m-%d %H:%M', this.x) +'</b>'
-                        });
-                    } else {
-                        var position='right top';
-                        $("#data_logs").dialog({
-                        resizable: true,
-                        width: 550,
-                        modal: false,
-                        closeOnEscape: false,
-                        dialogClass: "popup_message",
-                        title: '<b>'+Highcharts.dateFormat('%Y-%m-%d %H:%M', this.x) +'</b>',
-                        buttons: [{
-                            text: CLOSE_button,
-                            "id": "btnClose",
-                            click: function () {
-                                $(this).dialog('close');
-                            }
-                        }]
-                        });
-
-                        $("#data_logs").dialog({
-                            position: position
-                        });
+                    if(!$("#data_logs").is(':visible')) {
+                       $("#data_logs").show();
                     }
 
                     return false;
@@ -927,46 +835,6 @@ $(function () {
 
 // Function used at start to load logs
 $(document).ready(function() {
-    $("#import_log").click(function(e) {
-        e.preventDefault();
-        $("#progress_load").dialog({
-            resizable: false,
-            width: 550,
-            modal: true,
-            closeOnEscape: false,
-            dialogClass: "popup_message",
-            buttons: [{
-                text: CANCEL_button,
-                "id": "btnClose",
-                click: function () {
-                    $(this).dialog('destroy').remove();
-                    $("#reload_import").val("1");
-                    get_content("logs",getFormInputs('display-log'));
-                }
-            }]
-
-         });
-         $("#ui_db_management").dialog('close');
-         $("#progress_bar_load").progressbar({value:0});
-         $("#progress_bar_load_power").progressbar({value:0});
-
-		 var name="sd_card";
-         $.ajax({
-            cache: false,
-            url: "main/modules/external/get_variable.php",
-            data: {name:name}
-         }).done(function (data) {
-            if($.trim(data)) {
-				loadLog($("#log_search").val()*31,0,"logs",$("#log_search").val()*31,"submit",data);
-				loadLog($("#log_search").val()*31,0,"power",$("#log_search").val()*31,"submit",data);
-			} else {
-                $("#error_load_power").show();
-                $("#error_load").show();
-            }
-		});
-    });
-
-    
     $("#reset_log_submit").click(function(e) {
         e.preventDefault();
         $("#delete_log_form").dialog({
@@ -1533,7 +1401,7 @@ $(document).ready(function() {
         // Display parmateres UI
         $("#ui_parameters").dialog({
             resizable: false,
-            width: 750,
+            width: 500,
             closeOnEscape: true,
             modal: true,
             dialogClass: "popup_message",

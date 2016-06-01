@@ -389,4 +389,50 @@ td.td_blanck {
     width: 60px;
 }
 
+.center_verti {
+    margin-top: 100%;
+}
+
+
+td.log-manage-marge {
+   width: 2%;
+}
+
+td.log-manage-field {
+   width: 30%;
+}
+
+td.log-manage-title {
+   width: 58%;
+}
+
+th {
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.data_logs {
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    width: auto;
+    border-radius: 10px;
+    background-color: #D7DEDD;
+}
+
+.td_data_logs {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.delete_message_border {
+    width: 80%;
+}
+
+
+
+        
+
+
 

@@ -113,21 +113,6 @@ $GLOBALS['GRAPHIC_COLOR_GRID_YELLOW'] = "#FCE91D";
 // Color for the calendar:
 $GLOBALS['LIST_GRAPHIC_COLOR_CALENDAR'] = array ('00', '44', '88', 'DD', 'CC','FF');
 
-// List and equivalence between sensor number and type of the sensor from the index file:
-$GLOBALS['SENSOR_DEFINITION']=array(
-                                '0' => 'none',
-                                '2' => 'tem_humi',
-                                '3' => 'water_temp',
-                                '5' => 'wifi',
-                                '6' => 'water_level',
-                                '7' => 'water_level',
-                                '8' => 'ph',
-                                '9' => 'ec',
-                                ':' => 'od',
-                                ';' => 'orp',
-                                '10' => 'co2',
-                                '11' => 'pressure');
-
 //Number of state's changement allowed by the cultibox for the plugv file:
 $GLOBALS['PLUGV_MAX_CHANGEMENT']=999;
 
@@ -196,6 +181,39 @@ $GLOBALS['CULTIPI']['TRACE_LEVEL']['serverCultibox']    = "info";
 // ----------------- Plugin ----------------- 
 $GLOBALS['PLUGIN'] = array('welcome','configuration','programs','logs','calendar','bulcky','cost');
 
+// ----------------- Sensors --------------------
+$GLOBALS['SENSOR'] = array('none','co2','ec','od','orp','ph','pressure','temp_humi','water_level','water_temp','humi');
+
+// Load every sensor
+$directory_sensor_config='main/libs/sensors_config';
+if(is_dir('../../libs/sensors_config')) {
+    $directory_sensor_config='../../libs/sensors_config';
+}
+foreach ($GLOBALS['SENSOR'] as $sensor) {
+    $fileName =  $directory_sensor_config . '/' . $sensor . '.php';
+    if (is_file($fileName))
+    {
+        include "$fileName";
+    } 
+            
+}
+
+
+$GLOBALS['SENSOR_READ_TYPE'] = array(
+        'rj12' => array (
+            'value' => 'rj12',
+            'display' => 'RJ12'
+        ),
+        'rs232' => array (
+            'value' => 'rs232',
+            'display' => 'SERIAL_LINK'
+        ),
+        'directread' => array (
+            'value' => 'directread',
+            'display' => 'DIRECT_READ'
+        ),
+);
+
 
 
 // Load user config file
@@ -216,8 +234,6 @@ foreach (scandir($directory_user_config) as $user_config_file)
         }
     }
 }
-
-$GLOBALS['MODE'] = 'cultipi';
 
 ?>
 

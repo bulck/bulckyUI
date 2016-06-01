@@ -67,11 +67,11 @@
   <br />
   <div class="row">
      <div class="2u 12u(2)">
-        <div class="box highlight">
+        <div class="box">
         </div>
     </div>
     <div class="2u 12u(2)">
-        <div class="box highlight">
+        <div class="box">
             <?php echo __('CONFIGURE_NB_PLUGS'); ?>:
         </div>
     </div>
@@ -93,18 +93,18 @@
     </div>
 
     <div class="6u 12u(2)">
-        <div class="box highlight">
+        <div class="box">
         </div>
     </div>
   </div>
 
   <div class="row">
     <div class="2u 12u(2)">
-        <div class="box highlight">
+        <div class="box">
         </div>
     </div>
     <div class="2u 12u(2)">
-        <div class="box highlight">
+        <div class="box">
             <?php echo __('ADVANCED_REGUL_OPTIONS'); ?>:<img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_SECOND_REGUL_ENABLE'); ?>" />
         </div>
     </div>
@@ -118,7 +118,7 @@
         </div>
     </div>
     <div class="6u 12u(2)">
-        <div class="box highlight">
+        <div class="box">
         </div>
     </div>
   </div>
@@ -213,8 +213,8 @@
         <label class="subsub_title"><?php echo __('WIRE_CONF'); ?>:</label><img src="main/libs/img/infos.png" alt="" title="<?php if(strcmp("$eth_phy","")==0) { echo __('NO_IFACE_FOUND'); } else { echo __('PHY_ADDR').": ".strtoupper($eth_phy); } ?>" />
         <div id="wire_interface" <?php if((!$wire_enable)||(strcmp("$eth_phy","")==0)) echo 'style="display:none"'; ?>>
              <p class="p_center">
-               <input type="radio" name="wire_type" value="dhcp" <?php if($wire_dhcp) echo 'checked'; ?>><?php echo __('DYNAMIC_IP_ADDR'); ?><img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_DYNAMIC_IP'); ?>" />
-               <input type="radio" name="wire_type" value="static" <?php if($wire_static) echo 'checked'; ?>><?php echo __('MANUAL_IP_ADDR'); ?><img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_MANUAL_IP'); ?>" />
+               <input type="radio" name="wire_type" value="dhcp" <?php if($wire_dhcp) echo 'checked'; ?>><?php echo __('DYNAMIC_CONF'); ?><img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_DYNAMIC_IP'); ?>" />
+               <input type="radio" name="wire_type" value="static" <?php if($wire_static) echo 'checked'; ?>><?php echo __('MANUAL_CONF'); ?><img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_MANUAL_IP'); ?>" />
             </p>
 
             <div id="wire_static" <?php if(!$wire_static) echo 'style="display:none"'; ?>>            
