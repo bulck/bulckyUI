@@ -795,8 +795,9 @@ function get_curve_information($curveType, $curveIndex = 0) {
             $ret_array['yaxis']     = 8;
             $ret_array['unit']      = "W";
             $ret_array['curveType'] = "power";
-            break;   
+            break;
         case 'program': 
+        default :
             $ret_array['name']      = __('PROGRAM_LEGEND'); 
             $ret_array['color']     = $GLOBALS["LIST_GRAPHIC_COLOR_PROGRAM"][$curveIndex % 10] ;
             $ret_array['legend']    = __('PROGRAM_LEGEND');
