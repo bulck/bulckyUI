@@ -252,7 +252,14 @@ CREATE TABLE IF NOT EXISTS `sensors` (
   `id` int(11) NOT NULL,
   `type` varchar(2) NOT NULL DEFAULT '0',
   `detectionAuto` varchar(5) NOT NULL DEFAULT 'true',  
-  `name` varchar(20) NOT NULL DEFAULT 'capteur',    
+  `name` varchar(20) NOT NULL DEFAULT 'capteur',
+  `source` varchar(10) NOT NULL DEFAULT 'rj12',
+  `input` varchar(2) NOT NULL DEFAULT 'NA',
+  `value` varchar(2) NOT NULL DEFAULT 'NA',
+  `input2` varchar(2) NOT NULL DEFAULT 'NA',
+  `value2` varchar(2) NOT NULL DEFAULT 'NA',
+  `statusOK` int(11) NOT NULL DEFAULT '1',
+  `statusOK2` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

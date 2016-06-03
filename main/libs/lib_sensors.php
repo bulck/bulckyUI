@@ -283,6 +283,111 @@ function serverAcqSensor_createXMLConf () {
 }
 // }}}
 
+// {{{ serverAcqSensorV2_createXMLConf()
+// ROLE Create serverAcqSensorV2 configuration XML
+// RET
+function serverAcqSensorV2_createXMLConf () {
+
+    $paramListServerAcqSensor[] = array (
+        "name" => "verbose",
+        "level" => $GLOBALS['CULTIPI']['TRACE_LEVEL']['serverAcqSensor']
+    );
+
+    $paramListServerAcqSensor[] = array (
+        "name" => "simulator",
+        "value" => "off"
+    );
+
+    $paramListServerAcqSensor[] = array (
+        "name" => "auto_search",
+        "value" => "off"
+    );
+
+    // Retriev sensor infos 
+    $sensorList = getDB();
+
+    // foreach sensor,add every informations
+    $sensorTRH = 1;
+    foreach ($sensorList as $index => $sensorInfos){
+        
+        if ($sensorInfos["type"] != 0) {
+
+            $paramListServerAcqSensor[] = array (
+                "name" => "sensor," . $sensorInfos["id"] . ",nom" ,
+                "value" => $sensorInfos["name"]
+            );
+            $paramListServerAcqSensor[] = array (
+                "name" => "sensor," . $sensorInfos["id"] . ",type" ,
+                "value" => $sensorInfos["source"]
+            );
+            $paramListServerAcqSensor[] = array (
+                "name" => "sensor," . $sensorInfos["id"] . ",index" ,
+                "value" => $sensorTRH
+            );
+            
+            if ($sensorInfos["source"] == "rj12") {
+                $sensorTRH++;
+            }
+
+            // If the sensor is a direct read, add it
+            if ($sensorInfos["source"] == "directread") 
+            {
+                $paramListServerAcqSensor[] = array (
+                    "name" => "direct_read," . $sensorInfos["id"] . ",input",
+                    "value" => $sensorInfos["input"]
+                );
+                $paramListServerAcqSensor[] = array (
+                    "name" => "direct_read," . $sensorInfos["id"] . ",value",
+                    "value" => $sensorInfos["value"]
+                );
+                $paramListServerAcqSensor[] = array (
+                    "name" => "direct_read," . $sensorInfos["id"] . ",input2",
+                    "value" => $sensorInfos["input2"]
+                );
+                $paramListServerAcqSensor[] = array (
+                    "name" => "direct_read," . $sensorInfos["id"] . ",value2",
+                    "value" => $sensorInfos["value2"]
+                );
+                $paramListServerAcqSensor[] = array (
+                    "name" => "direct_read," . $sensorInfos["id"] . ",type",
+                    "value" => $sensorInfos["type"]
+                );
+                $paramListServerAcqSensor[] = array (
+                    "name" => "direct_read," . $sensorInfos["id"] . ",statusOK",
+                    "value" => $sensorInfos["statusOK"]
+                );
+                $paramListServerAcqSensor[] = array (
+                    "name" => "direct_read," . $sensorInfos["id"] . ",statusOK2",
+                    "value" => $sensorInfos["statusOK2"]
+                );
+            }
+        }
+        
+        
+    }
+
+    if ($GLOBALS['CULTIPI']['USE_REMOTE_SENSOR'] == 1)
+    {
+        foreach ($GLOBALS['CULTIPI']['REMOTE_SENSOR'] as $elemOfArray)
+        {
+            $paramListserverAcqSensor[] = array (
+                "name" => "network_read," . $elemOfArray["SENSOR_INDEX_IN_MASTER"] . ",ip",
+                "ip" => $GLOBALS['CULTIPI']['REMOTE_SLAVE']["IP_" . $elemOfArray["REMOTE_SLAVE"]]
+            );
+            
+            $paramListserverAcqSensor[] = array (
+                "name" => "network_read," . $elemOfArray["SENSOR_INDEX_IN_MASTER"] . ",sensor",
+                "sensor" => $elemOfArray["SENSOR_INDEX_IN_SLAVE"]
+            );
+        }
+    }
+    
+    
+    \create_conf_XML($GLOBALS['CULTIPI_CONF_TEMP_PATH'] . "/serverAcqSensorV2/conf.xml" , $paramListServerAcqSensor);
+    
+}
+// }}}
+
 }
 
 ?>

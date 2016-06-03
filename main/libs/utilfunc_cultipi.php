@@ -31,7 +31,7 @@ function check_and_update_sd_card($sd_card="",&$main_info_tab,&$main_error_tab) 
     // If we are in cultipi mode, create file systeme structure
     if(!is_dir($sd_card))                           mkdir($sd_card);
     if(!is_dir($sd_card . "/bulckyPi"))             mkdir($sd_card . "/bulckyPi");
-    if(!is_dir($sd_card . "/serverAcqSensor"))      mkdir($sd_card . "/serverAcqSensor");
+    if(!is_dir($sd_card . "/serverAcqSensorV2"))    mkdir($sd_card . "/serverAcqSensorV2");
     if(!is_dir($sd_card . "/serverHisto"))          mkdir($sd_card . "/serverHisto");
     if(!is_dir($sd_card . "/serverLog"))            mkdir($sd_card . "/serverLog");
     if(!is_dir($sd_card . "/serverPlugUpdate"))     mkdir($sd_card . "/serverPlugUpdate");
@@ -58,11 +58,11 @@ function check_and_update_sd_card($sd_card="",&$main_info_tab,&$main_error_tab) 
         'xmlconf' => "./serverLog/conf.xml",
     );
     $paramListCultipiStart[] = array ( 
-        'name' => "serverAcqSensor",
+        'name' => "serverAcqSensorV2",
         'waitAfterUS' => "100",
         'pathexe' => "tclsh",
-        'path' => "./serverAcqSensor/serverAcqSensor.tcl",
-        'xmlconf' => "./serverAcqSensor/conf.xml",
+        'path' => "./serverAcqSensorV2/serverAcqSensorV2.tcl",
+        'xmlconf' => "./serverAcqSensorV2/conf.xml",
     );
     $paramListCultipiStart[] = array ( 
         'name' => "serverPlugUpdate",
@@ -115,7 +115,7 @@ function check_and_update_sd_card($sd_card="",&$main_info_tab,&$main_error_tab) 
     create_conf_XML($sd_card . "/bulckyPi/start.xml" , $paramListCultipiStart,"starts");
     
     // Server acq sensor
-    sensors\serverAcqSensor_createXMLConf();
+    sensors\serverAcqSensorV2_createXMLConf();
     
     // Server plug update
     $paramListServerPlugUpdate[] = array (
@@ -256,7 +256,7 @@ function check_and_update_sd_card($sd_card="",&$main_info_tab,&$main_error_tab) 
     //For plugv
     $program = create_program_from_database($main_error);
 
-     $fileName = $sd_card . "/serverPlugUpdate/prg/" . "plugv";
+    $fileName = $sd_card . "/serverPlugUpdate/prg/" . "plugv";
 
 
     if(!save_program_on_sd($fileName,$program)) {
