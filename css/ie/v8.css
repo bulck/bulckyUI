@@ -66,8 +66,3 @@
 		-ms-behavior: url("css/ie/backgroundsize.min.htc");
 	}
 
-/* Wrapper */
-
-	.wrapper.style2 {
-		background: #fdfdfd url("../images/bg01.png");
-	}

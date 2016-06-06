@@ -40,10 +40,6 @@ foreach (calendar\get_external_calendar_file() as $fileArray)
 if(!check_sd_card($sd_card)) {
     $main_error[]=__('ERROR_WRITE_CALENDAR');
 } else {
-    if(!write_calendar($sd_card,$data,$main_error)) {
-        $main_error[]=__('ERROR_WRITE_CALENDAR');
-    }
-
     $plgidx=create_plgidx($data);
     if(count($plgidx)>0) {
         write_plgidx($plgidx,$sd_card);

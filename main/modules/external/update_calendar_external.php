@@ -227,8 +227,6 @@ if(    !empty($program_substrat)
                     calendar\read_event_from_XML($fileArray['filename'],$calendar,strtotime($calendar_start)-7200,strtotime($calendar_end));
             }
             
-            // Write calendar on SD card
-            write_calendar($sd_card,$calendar,$main_error,strtotime($calendar_start),strtotime($calendar_end));
         }
         echo "1";
     } else {

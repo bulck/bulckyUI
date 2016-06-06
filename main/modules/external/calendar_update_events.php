@@ -71,7 +71,6 @@ EOF;
                         calendar\read_event_from_XML($fileArray['filename'],$calendar,0,strtotime($start)-7200,strtotime($end));
                 }
             
-                write_calendar($sd_card,$calendar,$main_error,strtotime($start),strtotime($end));
                 $plgidx=create_plgidx($calendar);
                 if(count($plgidx)>0) {
                     write_plgidx($plgidx,$sd_card);
@@ -102,7 +101,6 @@ EOF;
                 }
             }
 
-            write_calendar($sd_card,$calendar,$main_error,strtotime($start),strtotime($end));
             $plgidx=create_plgidx($calendar);
             if(count($plgidx)>0) {
                 write_plgidx($plgidx,$sd_card);

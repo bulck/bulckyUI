@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
    <updated>2013-08-09T01:45:00+02:00</updated>
-   <id>http://www.cultibox.fr/</id>
+   <id>http://www.bulck.fr/</id>
    <title>Biocanna Terre Floraison</title>
    <subtitle></subtitle>
    <author>
       <name>fastenspy</name>
-      <uri>http://www.cultibox.fr/</uri>
-      <email>info@cultibox.fr</email>
+      <uri>http://www.bulck.fr/</uri>
+      <email>info@bulck.fr</email>
    </author>
    <category term = "engrais" label = "engrais">
     <substrat>terre</substrat>
     <periode>floraison</periode>
     <marque>BIOCANNA</marque>
    </category>
-   <link rel="self" href="www.cultibox.fr/biocanna_terre_floraison.xml" />
+   <link rel="self" href="www.bulck.fr/biocanna_terre_floraison.xml" />
    <icon></icon>
    <logo></logo>
    <rights type = "text">
-    © Cultibox, 2013
+    © Bulck, 2013
    </rights>
    
    <entry>
       <title>Phase Floraison Semaine 1</title>
       <summary>Phase Floraison Semaine 1</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text">* N'oubliez pas le changement d'engrais BioFlores + BioBoost!
 * Température conseillée jour : 23 °C , nuit : 18 °C
@@ -49,7 +49,7 @@
       <title>Phase Floraison Semaine 2</title>
       <summary>Phase Floraison Semaine 2</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text">* Température conseillée jour : 23 °C , nuit : 18 °C
 * RH conseillée: 70%</content>
@@ -72,7 +72,7 @@
       <title>Phase Floraison Semaine 3</title>
       <summary>Phase Floraison Semaine 3</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text">* Température conseillée jour : 25 - 26°C Nuit: 19 °C
 * RH conseillée: 60%</content>
@@ -96,7 +96,7 @@
       <title>Phase Floraison Semaine 4</title>
       <summary>Phase Floraison Semaine 4</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text">* Température conseillée jour : 25 - 26°C Nuit: 19 °C
 * RH conseillée: 60%</content>
@@ -119,7 +119,7 @@
       <title>Phase Floraison Semaine 5</title>
       <summary>Phase Floraison Semaine 5</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text">* Température conseillée jour : 25 - 26°C Nuit: 19 °C
 * RH conseillée: 60%</content>
@@ -143,7 +143,7 @@
       <title>Phase Floraison Semaine 6</title>
       <summary>Phase Floraison Semaine 6</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text">* Température conseillée jour : 26°C Nuit: 19 °C
 * RH conseillée: 60%</content>
@@ -165,7 +165,7 @@
       <title>Phase Floraison Semaine 7</title>
       <summary>Phase Floraison Semaine 7</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text">* Température conseillée jour : 26°C Nuit: 19 °C
 * RH conseillée: 60%</content>
@@ -187,7 +187,7 @@
       <title>Fin de floraison</title>
       <summary>Fin de floraison</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text">* Période de rinçage à l'eau claire</content>
       <duration>21</duration>

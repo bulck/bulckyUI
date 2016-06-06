@@ -437,6 +437,7 @@ $(document).ready(function() {
        get_content("configuration",get_array);
     });
 
+
     $(".href-logs").click(function(e) {
        e.preventDefault();
        get_content("logs",get_array);

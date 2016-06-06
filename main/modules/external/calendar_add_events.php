@@ -10,7 +10,6 @@ $title=$_GET["title"];
 $start=$_GET["start"];
 $end=$_GET["end"];
 $color=$_GET["color"];
-$sd_card=$_GET["card"];
 $important=$_GET["important"];
 $main_error=array();
 
@@ -40,28 +39,8 @@ if(    isset($title) && !empty($title)
             }
 
             $db=null;
-
-            $calendar = array();
-            
-            if((isset($sd_card))&&(!empty($sd_card))) {
-                if ($start == $end)
-                    $end = "";
-            
-                // Read event from DB
-                calendar\read_event_from_db($calendar,strtotime($start), strtotime($end));
-                
-                // Read event from XML
-                foreach (calendar\get_external_calendar_file() as $fileArray)
-                {
-                    if ($fileArray['activ'] == 1)
-                        calendar\read_event_from_XML($fileArray['filename'],$calendar,0,strtotime($start)-7200, strtotime($end));
-                }
-                    
-                // Write event into SD card
-                write_calendar($sd_card,$calendar,$main_error,strtotime($start), strtotime($end));
-            }
-
         }
+
 }
 echo "1";
 ?>

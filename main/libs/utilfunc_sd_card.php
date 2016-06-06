@@ -25,31 +25,6 @@ function get_error_sd_card_update_message($id=0) {
 // }}}
 
 
-// {{{ copy_template_file()
-// ROLE copy an empty file to a new file destination
-// IN  $name     name of the file to be copied
-//     $file     destination of the file
-// RET true if the copy is errorless, false else
-function copy_template_file($name="", $file) {
-   if(strcmp("$name","")==0) return false;
-   //Trying to find the template file from the current path:
-   if(is_file("main/templates/data/$name")) {
-        $filetpl = "main/templates/data/$name";
-   } else if(is_file("../main/templates/data/$name")) {
-        $filetpl = "../main/templates/data/$name";
-   } else if(is_file("../../main/templates/data/$name")) {
-        $filetpl = "../../main/templates/data/$name";
-   } else {
-        $filetpl = "../../../main/templates/data/$name";
-   }
-
-   //Copying the template file if one has been found:
-   if(!@copy($filetpl, $file)) return false;
-   return true;
-}
-//}}}
-
-
 // {{{ save_program_on_sd()
 // ROLE write programs into the sd card
 // IN   $sd_card        path to the sd card to save datas
