@@ -250,6 +250,7 @@ CREATE TABLE IF NOT EXISTS `programs` (
 
 CREATE TABLE IF NOT EXISTS `sensors` (
   `id` int(11) NOT NULL,
+  `sensorIndex` varchar(2) NOT NULL DEFAULT 'NA',
   `type` varchar(2) NOT NULL DEFAULT '0',
   `detectionAuto` varchar(5) NOT NULL DEFAULT 'true',  
   `name` varchar(20) NOT NULL DEFAULT 'capteur',
@@ -267,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `sensors` (
 -- Dumping data for table `sensors`
 --
 
-INSERT INTO `sensors` (`id`, `type`) VALUES (1, '2'), (2, '2'), (3, '2'), (4, '2'), (5, '0'), (6, '0'), (7, '0'), (8, '0'), (9, '0'), (10, '0'), (11, '0'), (12, '0'), (13, '0'), (14, '0'), (15, '0'), (16, '0'), (17, '0'), (18, '0'), (19, '0'), (20, '0'), (21, '0'), (22, '0'), (23, '0'), (24, '0'), (25, '0'), (26, '0'), (27, '0'), (28, '0'), (29, '0'), (30, '0'), (31, '0'), (32, '0');
+INSERT INTO `sensors` (`id`, `sensorIndex`, `type`, `source`) VALUES (1, '0', '2', 'I2C'), (2, '1', '12', 'I2C');
 
 
 -- --------------------------------------------------------
@@ -307,7 +308,6 @@ CREATE TABLE IF NOT EXISTS `synoptic` (
     `image` varchar(50) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `synoptic` (`element`,`indexElem`,`image`,`x`, `y`, `z`,`scale`) VALUES('other','1','cultipi.png' , '850', '450', '2' , '74');
 INSERT INTO `synoptic` (`element`,`indexElem`,`image`,`x`, `y`, `z`,`scale`) VALUES('other','2','tente_1_espace.png' , '600', '350', '1' , '250');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
