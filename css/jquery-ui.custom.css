@@ -30,6 +30,15 @@
 /* states and images */
 .ui-icon { display: block; text-indent: -99999px; overflow: hidden; background-repeat: no-repeat; }
 
+.ui-icon[class*=" icon-"] {
+    /* Remove the jQuery UI Icon */
+    background: none repeat scroll 0 0 transparent;
+    /* Remove the jQuery UI Text Indent */
+    text-indent: 0;
+    /* Bump it up - jQuery UI is -8px */
+    margin-top: -0.5em;
+}
+
 
 /* Misc visuals
 ----------------------------------*/
@@ -242,7 +251,7 @@
 .ui-icon-circle-close { background-position: -32px -192px; }
 .ui-icon-circle-triangle-e { background-position: -48px -192px; }
 .ui-icon-circle-triangle-s { background-position: -64px -192px; }
-.ui-icon-circle-triangle-w { background-position: -80px -192px; }
+.ui-icon-circle-triangle-w { background-position: -80px -192px; @extend .fa-angle-double-left }
 .ui-icon-circle-triangle-n { background-position: -96px -192px; }
 .ui-icon-circle-arrow-e { background-position: -112px -192px; }
 .ui-icon-circle-arrow-s { background-position: -128px -192px; }

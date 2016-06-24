@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
    <updated>2014-06-11T10:37:57+02:00</updated>
-   <id>http://www.cultibox.fr/</id>
+   <id>http://www.bulck.fr/</id>
    <title>Genesis Normal Terre</title>
    <subtitle></subtitle>
    <author>
-      <name>Cultibox</name>
-      <uri>http://www.cultibox.fr/</uri>
-      <email>info@cultibox.fr</email>
+      <name>Bulck</name>
+      <uri>http://www.bulck.fr/</uri>
+      <email>info@bulck.fr</email>
    </author>
    <category term = "engrais" label = "engrais">
     <substrat>Terre</substrat>
     <periode>Normal</periode>
     <marque>Genesis</marque>
    </category>
-   <link rel="self" href="www.cultibox.fr/Genesis_Terre.xml" />
+   <link rel="self" href="www.bulck.fr/Genesis_Terre.xml" />
    <icon></icon>
    <logo></logo>
    <rights type = "text">
-    © Cultibox, 2013
+    © Bulck, 2013
    </rights>
     <entry>
       <title>S1 Croissance</title>
       <summary>S1 Croissance</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text"></content>
       <ec>0,6</ec>
@@ -50,7 +50,7 @@
       <title>S2 Croissance</title>
       <summary>S2 Croissance</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text"></content>
       <ec>0,9</ec>
@@ -76,7 +76,7 @@
       <title>S3 Croissance</title>
       <summary>S3 Croissance</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text"></content>
       <ec>1,2</ec>
@@ -102,7 +102,7 @@
       <title>S4 Floraison</title>
       <summary>S4 Floraison</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text"></content>
       <ec>1,4</ec>
@@ -128,7 +128,7 @@
       <title>S5 Floraison</title>
       <summary>S5 Floraison</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text"></content>
       <ec>1,6</ec>
@@ -154,7 +154,7 @@
       <title>S6 Floraison</title>
       <summary>S6 Floraison</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text"></content>
       <ec>1,6</ec>
@@ -180,7 +180,7 @@
       <title>S7 Floraison</title>
       <summary>S7 Floraison</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text"></content>
       <ec>1,8</ec>
@@ -206,7 +206,7 @@
       <title>S8 Floraison</title>
       <summary>S8 Floraison</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text"></content>
       <ec>1,8</ec>
@@ -232,7 +232,7 @@
       <title>S9 Floraison</title>
       <summary>S9 Floraison</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text"></content>
       <ec>1,8</ec>
@@ -254,7 +254,7 @@
       <title>S10 Floraison</title>
       <summary>S10 Floraison</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text"></content>
       <ec>1,6</ec>
@@ -276,7 +276,7 @@
       <title>S11 Floraison</title>
       <summary>S11 Floraison</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text"></content>
       <ec>1,2</ec>
@@ -298,7 +298,7 @@
       <title>S12 Rincage</title>
       <summary>S12 Rincage</summary>
       <updated>2008-05-29T13:14:57+02:00</updated>
-      <id>http://www.cultibox.fr/id1</id>
+      <id>http://www.bulck.fr/id1</id>
       <category term = "vegetation" label = "Vegetation" />
       <content type = "text">Rincage</content>
       <ec>0</ec>

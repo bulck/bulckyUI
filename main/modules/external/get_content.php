@@ -32,6 +32,8 @@ if((isset($_GET['page']))&&(!empty($_GET['page']))) {
             setcookie("ADHOC", "True", time()+(86400 * 30),"/",false,false);
         }
     }
+
+
     ob_start();
     
     // Check if it's a plugin or not
@@ -39,6 +41,7 @@ if((isset($_GET['page']))&&(!empty($_GET['page']))) {
     {
         $page="welcome";
     }
+
 
     // Load lib
     $fileName = '../../plugin/' . $page . '/lib_' . $page . '.php';
@@ -52,7 +55,7 @@ if((isset($_GET['page']))&&(!empty($_GET['page']))) {
         include $fileName;
     }
 
-    include '../../scripts/post_script.php';
+    include '../../libs/post_script.php';
          
     // Load javascript
     $fileName = '../../plugin/' . $page . '/' . $page . '.js';

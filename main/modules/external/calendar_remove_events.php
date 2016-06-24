@@ -32,26 +32,9 @@
     // Delete event from calendar
     $sql = "DELETE FROM calendar WHERE Id = '{$id}' ;";
 
-    echo "$sql";
-
     $sth=$db->prepare($sql);
     $sth-> execute();
     $res=$sth->fetchAll(PDO::FETCH_ASSOC);
     $db=null;
 
-    if(isset($sd_card) && !empty($sd_card)) {
-
-        $calendar = array();
-        calendar\read_event_from_db($calendar,strtotime($start),strtotime($end));
-        
-        // Read event from XML
-        foreach (calendar\get_external_calendar_file() as $fileArray)
-        {
-            if ($fileArray['activ'] == 1)
-                calendar\read_event_from_XML($fileArray['filename'],$calendar,0,strtotime($start)-7200,strtotime($end));
-        }
-           
-        write_calendar($sd_card,$calendar,$main_error,strtotime($start)-7200,strtotime($end));
-    }
-    
 ?>

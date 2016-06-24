@@ -29,6 +29,8 @@ foreach ($GLOBALS['PLUGIN'] as $plugin) {
     }
 }
 
+
+ 
 __('LANG');
 
 
@@ -159,6 +161,7 @@ check_database();
 		<!-- Banner -->
 			<div id="banner">
 			    <a href="/bulcky/index.php?menu=welcome" class="href-welcome"><img src="./images/bulck.png" class="logo_bulck" alt="" /></a>
+                <a href="/bulcky/main/plugin/help/help.php" target="_blanck" class="href-help"><i class="fa fa-2x fa-question-circle help-page"></i></a>
 			</div>
 		
 		<nav class="nav"></nav>
