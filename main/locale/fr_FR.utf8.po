@@ -94,6 +94,18 @@ msgstr "Page du résumé de l'état de votre espace"
 
 
 # For the configuration part:
+msgid "SUPERVISION_TITLE_SENSOR"
+msgstr "Ajout de la supervision d'un capteur"
+
+msgid "SUPERVISION_TITLE_PING"
+msgstr "Ajout de la supervision d'une adresse réseau"
+
+msgid "SUPERVISION_TITLE_MAIL"
+msgstr "Configuration du rapport de supervision"
+
+msgid "RAZ_TITLE"
+msgstr "Remise à zéro de la configuration réseau"
+
 msgid "WIFI_UPGRADE_TITLE"
 msgstr "Procédure de mise à jour du firmware Wifi"
 
@@ -2380,6 +2392,9 @@ msgstr "Aucune configuration réseau (filaire ou sans fil) n'a été activé. Vo
 
 msgid "WIFI_SCAN_ESSID"
 msgstr "Réseaux disponibles"
+
+msgid "WIFI_CURRENT_SCAN"
+msgstr "Scan en cours"
 
 msgid "WIFI_ESSID_SCAN_TITLE"
 msgstr "Sélection d'un réseau Wifi"

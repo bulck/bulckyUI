@@ -226,6 +226,24 @@ function manageHttp(action) {
 
 
 $(document).ready(function(){
+    $.ajax({
+         cache: false,
+         async: true,
+         url: "main/modules/external/scan_network.php"
+    }).done(function (data) {
+         $("#wifi_scan").html("<?php echo __('WIFI_SCAN_ESSID'); ?>");
+         $("#wifi_scan").prop('disabled', false);
+         $("#wifi_essid_list").empty();
+         $("#wifi_essid_list").append("<p><?php echo __('WIFI_SCAN_SUBTITLE'); ?></p>");
+         $.each($.parseJSON(data),function(index,value) {
+             var checked="";
+             if($("#wifi_ssid").val()==value) {
+                 checked="checked";
+             }
+             $("#wifi_essid_list").append('<b>'+value+' : </b><input type="radio" name="wifi_essid" value="'+value+'" '+checked+' /><br />');
+         });
+    });
+
      pop_up_remove("main_error");
      pop_up_remove("main_info");
 
@@ -762,6 +780,7 @@ $(document).ready(function(){
             resizable: false,
             width: 800,
             modal: true,
+            title: "<?php echo __('RAZ_TITLE'); ?>",
             closeOnEscape: false,
             dialogClass: "dialog_cultibox",
             buttons: [{
@@ -1926,7 +1945,7 @@ $(document).ready(function() {
                 dialogMsgToShow = "supervision_edit_checkSensor";
                 break;
             case "report" :
-                dialogMsgToShow = "supervision_edit_dailyReport";
+                dialogMsgToShow = "supervision_edit_report";
                 break;
         }
         
