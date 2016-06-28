@@ -94,6 +94,27 @@ msgstr "Page du résumé de l'état de votre espace"
 
 
 # For the configuration part:
+msgid "NEW_LOGIN"
+msgstr "Identifiant"
+
+msgid "ERROR_LOGIN"
+msgstr "Erreur dans le nom de l'identifiant"
+
+msgid "ADD_USER"
+msgstr "Ajouter un nouvel utilisateur"
+
+msgid "TOOLTIP_DELETE_USER"
+msgstr "Supprimer un utilisateur"
+
+msgid "MANAGE_USERS"
+msgstr "Gestion des utilicateurs"
+
+msgid "USERS"
+msgstr "Utilisateurs"
+
+msgid "ACTION_USERS"
+msgstr "Actions"
+
 msgid "SUPERVISION_TITLE_SENSOR"
 msgstr "Ajout de la supervision d'un capteur"
 
@@ -2059,6 +2080,21 @@ msgstr "Cliquez sur l'image pour redémarrer le Bulckypi"
 msgid "ERROR_SAVE_PASSWORD"
 msgstr "Erreur lors du changement de mot de passe, l'ancien mot de passe sera conservé"
 
+msgid "ERROR_ADD_USER"
+msgstr "Erreur lors de l'enregistrement du nouvel utilisateur"
+
+msgid "SUCCESS_ADD_USER"
+msgstr "Nouvel utilisateur enregistré avec succés"
+
+msgid "ERROR_DELETE_USER"
+msgstr "Erreur lors de la suppréssion d'un utilisateur"
+
+msgid "SUCCESS_DELETE_USER"
+msgstr "Utilisateur supprimé avec succés"
+
+msgid "CONFIRM_DELETE_USER"
+msgstr "Voulez-vous vraiment supprimer un utilisateur?"
+
 msgid "SAVED_PASSWORD"
 msgstr "Mot de passe changé avec succès"
 
@@ -2213,7 +2249,7 @@ msgid "CONFIRM_NEW_PASSWORD"
 msgstr "Confirmation du mot de passe"
 
 msgid "SAVE_PASSWORD"
-msgstr "Enregistrer le mot de passe"
+msgstr "Enregistrer la configuration"
 
 msgid "CULTIPI_PLUG_FORCE_WAIT"
 msgstr "Pilotage en cours ..."

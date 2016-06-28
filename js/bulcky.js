@@ -310,6 +310,7 @@ $(document).ready(function() {
 
 
     $(document.body).on('click', '.fake_link' ,function(e){
+        $(this).blur();
         e.preventDefault();
     });
 

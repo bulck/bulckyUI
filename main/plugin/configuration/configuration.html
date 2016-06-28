@@ -430,53 +430,52 @@
 <div id="div_admin_ui" style="display:none">    
     <br />
     <div class="row">
-     <div class="3u 12u(2)">
+     <div class="1u 12u(2)">
+        <div class="box highlight">
+        </div>
+     </div>
+
+     <div class="2u 12u(2)">
         <div class="box highlight">
             <a href="" id="view_logs"><i class="fa fa-2x fa-binoculars" title="<?php echo __('CULTIPI_VIEW_LOGS'); ?>" /></a>
         </div>
      </div>
     
-     <div class="3u 12u(2)">
+     <div class="2u 12u(2)">
         <div class="box highlight">
             <a href="" id="dl_logs"><i class="fa fa-2x fa-download" title="<?php echo __('CULTIPI_DL_LOGS'); ?>" /></a>
         </div>
       </div>
     
-     <div class="3u 12u(2)">
+     <div class="2u 12u(2)">
         <div class="box highlight">
             <a href="" name="restart_rpi" id="restart_rpi"><i class="fa fa-2x fa-refresh" title="<?php echo __('RPI_RESTART'); ?>" /></a>
         </div>
       </div>
 
-      <div class="3u 12u(2)">
+
+       <div class="2u 12u(2)">
+        <div class="box highlight">
+           <a href="" name="restart_rpi" id="manage_users"><i class="fa fa-2x fa-users" title="<?php echo __('MANAGE_USERS'); ?>"></i></a>
+        </div>
+    </div>
+
+      <div class="2u 12u(2)">
         <div class="box highlight">
             <a href="" name="update_rpi" id="update_rpi"><i class='fa fa-2x fa-angle-double-up update_rpi_icon' title="<?php echo __('TOOLTIP_UPDATE_RPI'); ?>"></i></a>
             <a href="" class="fake_link"><i class='fa fa-2x fa-comment' id="version_soft" alt='' title="<?php echo __('PROCESS_GET_VERSION'); ?>"></i></a>
             <input id="upgradeupload" type="file" name="files[]" style="display:none">
         </div>
       </div>
+
+    <div class="1u 12u(2)">
+        <div class="box highlight">
+        </div>
+    </div>
+
     </div>
     <br />
     <hr />
-    <br />
-    <p class="title_conf"><?php echo __('MGT_ACCESS'); ?></p>
-    <div class="row">
-     <div class="4u 12u(2)">
-        <div class="box highlight">
-        </div>
-     </div>
-
-     <div class="4u 12u(2)">
-        <div class="box highlight">
-            <?php echo __('CHANGE_PASSWORD'); ?>:<img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_CHANGE_PWD'); ?>" /><button class="button" id="change_password" name="change_password"><?php echo __('NEW_PASSWORD'); ?></button>
-
-        </div>
-      </div>
-      <div class="4u 12u(2)">
-        <div class="box highlight">
-        </div>
-      </div>
-    </div>
 </div>
 
 <div id="dialog_view_logs" style="display:none" title="<?php echo __('CULTIPI_VIEW_LOGS_TITLE'); ?>">
@@ -526,6 +525,14 @@
     <p><?php echo __('ERROR_SAVE_PASSWORD'); ?></p>
 </div>
 
+<div id="error_add_user" title="" style="display:none">
+    <p><?php echo __('ERROR_ADD_USER'); ?></p>
+</div>
+
+<div id="success_add_user" title="" style="display:none">
+    <p><?php echo __('SUCCESS_ADD_USER'); ?></p>
+</div>
+
 <div id="success_save_password" title="" style="display:none">
     <p><?php echo __('SAVED_PASSWORD'); ?></p>
 </div>
@@ -558,9 +565,29 @@
     <?php echo __('SUCCESS_RESTART_RPI'); ?>
 </div>
 
-<div id="dialog_change_password" title="<?php echo __('NEW_PASSWORD'); ?>" style="display:none">
+
+<div id="success_delete_user" title="" style="display:none">
+    <?php echo __('SUCCESS_DELETE_USER'); ?>
+</div>
+
+<div id="error_delete_user" title="" style="display:none">
+    <?php echo __('ERROR_DELETE_USER'); ?>
+</div>
+
+<div id="confirm_delete_user" title="" style="display:none">
+    <?php echo __('CONFIRM_DELETE_USER'); ?>
+</div>
+
+
+<div id="dialog_change_password" title="<?php echo __('MANAGE_USERS'); ?>" style="display:none">
     <form>
         <table class="table_width"> 
+             <tr>
+                <td class="conf-marge"></td>
+                <td class="password-title"><div id="login_title" style="display:none"><?php echo __('NEW_LOGIN'); ?>:</div></td>
+                <td class="password-field"><input type="text" id="login" style="display:none" /></td>
+                <td><div id="error_login_exists" class="error_field" style="display:none"><img src='main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_LOGIN'); ?></div></td>
+            </tr>
             <tr>
                 <td class="conf-marge"></td>
                 <td class="password-title"><?php echo __('NEW_PASSWORD'); ?>:</td>
@@ -574,8 +601,20 @@
                 <td></td>
             </tr>
         </table>
-        <p class="p_center"><input type="submit" id="save_password" value="<?php echo __('SAVE_PASSWORD'); ?>"></p>
+        <p class="p_center"><input type="submit" id="save_password" value="<?php echo __('SAVE_PASSWORD'); ?>" name=""></p>
     </form>
+</div>
+
+<div id="dialog_manage_users" title="<?php echo __('MANAGE_USERS'); ?>" style="display:none">
+    <div id="waiting_content">
+        <p class="loading_user"><?php echo __('LOADING_DATA'); ?>  <img src="main/libs/img/waiting_small.gif" /></p>
+    </div>
+    <form>
+        <table class="table_width" id="content_users">
+        </table>
+    </form>
+    <br />
+    <p class="p_center"><a href="" class="link_add" id="add_user" title="<?php echo __('ADD_USER'); ?>"><i class="fa fa-plus-circle fa-2x"></i></a></p>
 </div>
 
 

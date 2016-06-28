@@ -55,7 +55,7 @@ if((isset($_GET['page']))&&(!empty($_GET['page']))) {
         include $fileName;
     }
 
-    include '../../libs/post_script.php';
+    include '../../libs/js/check_sd.js';
          
     // Load javascript
     $fileName = '../../plugin/' . $page . '/' . $page . '.js';
