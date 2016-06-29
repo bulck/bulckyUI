@@ -182,7 +182,7 @@ $GLOBALS['CULTIPI']['TRACE_LEVEL']['serverCultibox']    = "info";
 $GLOBALS['PLUGIN'] = array('welcome','configuration','programs','logs','calendar','bulcky','cost');
 
 // ----------------- Sensors --------------------
-$GLOBALS['SENSOR'] = array('none','co2','ec','od','orp','ph','pressure','temp_humi','water_level','water_temp','humi');
+$GLOBALS['SENSOR'] = array('none','co2','ec','od','orp','ph','pressure','temp','water_level','water_temp','humi');
 
 // Load every sensor
 $directory_sensor_config='main/libs/sensors_config';

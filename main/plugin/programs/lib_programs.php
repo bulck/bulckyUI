@@ -680,7 +680,7 @@ function get_curve_information($curveType, $curveIndex = 0) {
             $ret_array['curveType'] = "temperature";
             break;
         case 'humidity' :
-        case '22':
+        case '121':
             $ret_array['name']      =__('HUMI_SENSOR','hc'); 
             $colorIndexName         = "LIST_GRAPHIC_COLOR_SENSOR_" . strtoupper(get_configuration("COLOR_HUMIDITY_GRAPH",$main_error));
             if ($colorIndexName == "LIST_GRAPHIC_COLOR_SENSOR_")
