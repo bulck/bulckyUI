@@ -1,4 +1,3 @@
 [submodule "main/plugin/help/bulcky.wiki"]
         path = main/plugin/help/bulcky.wiki
         url = https://github.com/bulck/bulcky.wiki.git
-
