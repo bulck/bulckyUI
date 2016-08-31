@@ -48,7 +48,7 @@
     </div>
     <div class="2u 12u(2)">
         <div class="box highlight">
-                <a href="" id="button_sensors_parameters" name="button_sensors_parameters" title="Paramètres capteur"><i class="fa fa-2x fa-gear"></i></a>
+            <a href="" id="button_sensors_parameters" name="button_sensors_parameters" title="Paramètres capteur"><i class="fa fa-2x fa-gear"></i></a>
         </div>
     </div>
     <div class="1u 12u(2)">
@@ -909,6 +909,7 @@
             <th>Nom</th>
             <th>Type</th>
             <th>Source</th>
+            <th>Index</th>
         <tr>
         <?php
             // Retriev sensor infos 
@@ -959,10 +960,17 @@
                             }
                         ?>
                     </td>
+                    <td class="step">
+                        <select id="ui_sensors_parameters_tableSensor_sensorIndex_<?php echo $sensorNum; ?>" >
+                            <option value="1" <?php if(strcmp($sensor['sensorIndex'],"1")==0) echo 'selected'; ?> >1</option>
+                            <option value="2" <?php if(strcmp($sensor['sensorIndex'],"2")==0) echo 'selected'; ?> >2</option>
+                            <option value="3" <?php if(strcmp($sensor['sensorIndex'],"3")==0) echo 'selected'; ?> >3</option>
+                            <option value="4" <?php if(strcmp($sensor['sensorIndex'],"4")==0) echo 'selected'; ?> >4</option>
+                        </select>
+                    </td>
                 </tr>
 
                 <?php
-            
             }
         ?>
     </table>
