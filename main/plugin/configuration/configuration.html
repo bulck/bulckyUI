@@ -202,21 +202,25 @@
     </div>
     <br />
     <hr />
-    <br />
 
     <label class="title_conf_network"><?php echo __('CONFIGURE_TITLE_CULTIBOX_NET'); ?></label>
     <label class="title_subconf"><?php echo __('CONFIGURE_SUBTITLE'); ?></label>
-    <br /><br />
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="configform_network" id="configform_network">
+        <br /><br />
+         <div class="row">
+            <div class="1u 12u(2)"> </div>
+            <div class="3u 12u(2)">
+                <label class="subsub_title"><?php echo __('WIRE_CONF'); ?>:</label><img src="main/libs/img/infos.png" alt="" title="<?php if(strcmp("$eth_phy","")==0) { echo __('NO_IFACE_FOUND'); } else { echo __('PHY_ADDR').": ".strtoupper($eth_phy); } ?>" />
+            </div>
+            <div class="4u 12u(2)">
+                <input type="radio" name="wire_type" value="dhcp" <?php if($wire_dhcp) echo 'checked'; ?>><?php echo __('DYNAMIC_CONF'); ?><img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_DYNAMIC_IP'); ?>" />
+               <input type="radio" name="wire_type" value="static" <?php if($wire_static) echo 'checked'; ?>><?php echo __('MANUAL_CONF'); ?><img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_MANUAL_IP'); ?>" />
+            </div>
+            <div class="4u 12u(2)"> </div>
+        </div>
 
         <!-- Start of wire conf tab -->
-        <label class="subsub_title"><?php echo __('WIRE_CONF'); ?>:</label><img src="main/libs/img/infos.png" alt="" title="<?php if(strcmp("$eth_phy","")==0) { echo __('NO_IFACE_FOUND'); } else { echo __('PHY_ADDR').": ".strtoupper($eth_phy); } ?>" />
         <div id="wire_interface" <?php if((!$wire_enable)||(strcmp("$eth_phy","")==0)) echo 'style="display:none"'; ?>>
-             <p class="p_center">
-               <input type="radio" name="wire_type" value="dhcp" <?php if($wire_dhcp) echo 'checked'; ?>><?php echo __('DYNAMIC_CONF'); ?><img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_DYNAMIC_IP'); ?>" />
-               <input type="radio" name="wire_type" value="static" <?php if($wire_static) echo 'checked'; ?>><?php echo __('MANUAL_CONF'); ?><img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_MANUAL_IP'); ?>" />
-            </p>
-
             <div id="wire_static" <?php if(!$wire_static) echo 'style="display:none"'; ?>>            
                 <br /><br />
                  <div class="row">
@@ -268,11 +272,20 @@
         <br /><br />
 
         <!-- Start of wirless conf tab -->
-        <label class="subsub_title"><?php echo __('WIRELESS_CONF'); ?>:</label><img src="main/libs/img/infos.png" alt="" title="<?php if(strcmp("$wlan_phy","")==0) { echo __('NO_IFACE_FOUND'); } else { echo __('PHY_ADDR').": ".strtoupper($wlan_phy); } ?>" />
-        <br />
-        <div id="wifi_interface" <?php if(!$wifi_enable) { echo 'style="display:none"'; } ?>>
-            <p class="p_scan"><button class="button" id="wifi_scan"><?php echo __('WIFI_SCAN_ESSID'); ?></button></p>
+         <div class="row">
+              <div class="1u 12u(2)">
+              </div>
+              <div class="3u 12u(2)">
+                    <label class="subsub_title"><?php echo __('WIRELESS_CONF'); ?>:</label><img src="main/libs/img/infos.png" alt="" title="<?php if(strcmp("$wlan_phy","")==0) { echo __('NO_IFACE_FOUND'); } else { echo __('PHY_ADDR').": ".strtoupper($wlan_phy); } ?>" />
+              </div>
+              <div class="4u 12u(2)">
+              </div>
+              <div class="4u 12u(2)">
+                 <button id="wifi_scan" class="button" disabled><?php echo __('WIFI_CURRENT_SCAN'); ?></button>
+              </div>
+        </div>
 
+        <div id="wifi_interface" <?php if(!$wifi_enable) { echo 'style="display:none"'; } ?>>
             <div class="row">
                     <div class="2u 12u(2)">
                     </div>
@@ -417,54 +430,52 @@
 <div id="div_admin_ui" style="display:none">    
     <br />
     <div class="row">
-     <div class="3u 12u(2)">
+     <div class="1u 12u(2)">
+        <div class="box highlight">
+        </div>
+     </div>
+
+     <div class="2u 12u(2)">
         <div class="box highlight">
             <a href="" id="view_logs"><i class="fa fa-2x fa-binoculars" title="<?php echo __('CULTIPI_VIEW_LOGS'); ?>" /></a>
         </div>
      </div>
     
-     <div class="3u 12u(2)">
+     <div class="2u 12u(2)">
         <div class="box highlight">
             <a href="" id="dl_logs"><i class="fa fa-2x fa-download" title="<?php echo __('CULTIPI_DL_LOGS'); ?>" /></a>
         </div>
       </div>
     
-     <div class="3u 12u(2)">
+     <div class="2u 12u(2)">
         <div class="box highlight">
             <a href="" name="restart_rpi" id="restart_rpi"><i class="fa fa-2x fa-refresh" title="<?php echo __('RPI_RESTART'); ?>" /></a>
         </div>
       </div>
 
-      <div class="3u 12u(2)">
+
+       <div class="2u 12u(2)">
+        <div class="box highlight">
+           <a href="" name="restart_rpi" id="manage_users"><i class="fa fa-2x fa-users" title="<?php echo __('MANAGE_USERS'); ?>"></i></a>
+        </div>
+    </div>
+
+      <div class="2u 12u(2)">
         <div class="box highlight">
             <a href="" name="update_rpi" id="update_rpi"><i class='fa fa-2x fa-angle-double-up update_rpi_icon' title="<?php echo __('TOOLTIP_UPDATE_RPI'); ?>"></i></a>
             <a href="" class="fake_link"><i class='fa fa-2x fa-comment' id="version_soft" alt='' title="<?php echo __('PROCESS_GET_VERSION'); ?>"></i></a>
             <input id="upgradeupload" type="file" name="files[]" style="display:none">
         </div>
       </div>
+
+    <div class="1u 12u(2)">
+        <div class="box highlight">
+        </div>
+    </div>
+
     </div>
     <br />
     <hr />
-    <br />
-    <p class="title_conf"><?php echo __('MGT_ACCESS'); ?></p>
-    <br /><br />
-    <div class="row">
-     <div class="4u 12u(2)">
-        <div class="box highlight">
-        </div>
-     </div>
-
-     <div class="4u 12u(2)">
-        <div class="box highlight">
-            <?php echo __('CHANGE_PASSWORD'); ?>:<img src="main/libs/img/infos.png" alt="" title="<?php echo __('TOOLTIP_CHANGE_PWD'); ?>" /><button class="button" id="change_password" name="change_password"><?php echo __('NEW_PASSWORD'); ?></button>
-
-        </div>
-      </div>
-      <div class="4u 12u(2)">
-        <div class="box highlight">
-        </div>
-      </div>
-    </div>
 </div>
 
 <div id="dialog_view_logs" style="display:none" title="<?php echo __('CULTIPI_VIEW_LOGS_TITLE'); ?>">
@@ -514,6 +525,14 @@
     <p><?php echo __('ERROR_SAVE_PASSWORD'); ?></p>
 </div>
 
+<div id="error_add_user" title="" style="display:none">
+    <p><?php echo __('ERROR_ADD_USER'); ?></p>
+</div>
+
+<div id="success_add_user" title="" style="display:none">
+    <p><?php echo __('SUCCESS_ADD_USER'); ?></p>
+</div>
+
 <div id="success_save_password" title="" style="display:none">
     <p><?php echo __('SAVED_PASSWORD'); ?></p>
 </div>
@@ -546,9 +565,29 @@
     <?php echo __('SUCCESS_RESTART_RPI'); ?>
 </div>
 
-<div id="dialog_change_password" title="<?php echo __('NEW_PASSWORD'); ?>" style="display:none">
+
+<div id="success_delete_user" title="" style="display:none">
+    <?php echo __('SUCCESS_DELETE_USER'); ?>
+</div>
+
+<div id="error_delete_user" title="" style="display:none">
+    <?php echo __('ERROR_DELETE_USER'); ?>
+</div>
+
+<div id="confirm_delete_user" title="" style="display:none">
+    <?php echo __('CONFIRM_DELETE_USER'); ?>
+</div>
+
+
+<div id="dialog_change_password" title="<?php echo __('MANAGE_USERS'); ?>" style="display:none">
     <form>
         <table class="table_width"> 
+             <tr>
+                <td class="conf-marge"></td>
+                <td class="password-title"><div id="login_title" style="display:none"><?php echo __('NEW_LOGIN'); ?>:</div></td>
+                <td class="password-field"><input type="text" id="login" style="display:none" /></td>
+                <td><div id="error_login_exists" class="error_field" style="display:none"><img src='main/libs/img/arrow_error.png' alt=''><?php echo __('ERROR_LOGIN'); ?></div></td>
+            </tr>
             <tr>
                 <td class="conf-marge"></td>
                 <td class="password-title"><?php echo __('NEW_PASSWORD'); ?>:</td>
@@ -562,8 +601,20 @@
                 <td></td>
             </tr>
         </table>
-        <p class="p_center"><input type="submit" id="save_password" value="<?php echo __('SAVE_PASSWORD'); ?>"></p>
+        <p class="p_center"><input type="submit" id="save_password" value="<?php echo __('SAVE_PASSWORD'); ?>" name=""></p>
     </form>
+</div>
+
+<div id="dialog_manage_users" title="<?php echo __('MANAGE_USERS'); ?>" style="display:none">
+    <div id="waiting_content">
+        <p class="loading_user"><?php echo __('LOADING_DATA'); ?>  <img src="main/libs/img/waiting_small.gif" /></p>
+    </div>
+    <form>
+        <table class="table_width" id="content_users">
+        </table>
+    </form>
+    <br />
+    <p class="p_center"><a href="" class="link_add" id="add_user" title="<?php echo __('ADD_USER'); ?>"><i class="fa fa-plus-circle fa-2x"></i></a></p>
 </div>
 
 
@@ -660,7 +711,7 @@
                     $disabled = 'disabled = "disabled"';
                     if ($providerInfos['smtp'] == "other")
                         $disabled = "";
-                    echo '<input  type="text" size="40" id="EMAIL_SMTP" value="' . $emailUserConf['EMAIL_SMTP'] . '" ' . $disabled . '/>';
+                    echo '<input  type="text" size="25" id="EMAIL_SMTP" value="' . $emailUserConf['EMAIL_SMTP'] . '" ' . $disabled . '/>';
                 ?>
             </td>
         </tr>
@@ -675,14 +726,14 @@
             <td class="conf-marge"></td>
             <td class="conf-title"><label class="subsub_title">Adresse email :</label></td>
             <td>
-                <input  type="text" size="40" id="EMAIL_ADRESS" value="<?php echo $emailUserConf['EMAIL_ADRESS']; ?>" />
+                <input  type="text" size="25" id="EMAIL_ADRESS" value="<?php echo $emailUserConf['EMAIL_ADRESS']; ?>" />
             </td>
         </tr>
         <tr>
             <td class="conf-marge"></td>
             <td class="conf-title"><label class="subsub_title">Mot de passe :</label></td>
             <td>
-                <input  type="password" size="40" id="EMAIL_PASSWORD" value="" />
+                <input  type="password" size="25" id="EMAIL_PASSWORD" value="" />
             </td>
         </tr>
         <tr>
@@ -817,22 +868,19 @@
                         <option value="report" > Rapport </option>
                     </select>
                 </td>
-                <td><input type="image" id="button_supervision_add"
-                    name="button_supervision_add"
-                    data-nextprocess="<?php echo $processID + 1 ;?>"
-                    title="Ajout supervision"
-                    src="main/libs/img/add.png" 
-                    alt="Ajout supervision"
-                /></td>
+                <td>
+                    <a href="" class="link_add" id="button_supervision_add" name="button_supervision_add"  data-nextprocess="<?php echo $processID + 1 ;?>" title="Ajout supervision"><i title="Ajout supervision" class="fa fa-2x fa-plus-circle"></i></a>
+                </td>
             </tr>
     </table>
 </div>
 
-<div id="supervision_edit_checkSensor" title="" style="display:none">
+<div id="supervision_edit_checkSensor" title="<?php echo __('SUPERVISION_TITLE_SENSOR'); ?>" style="display:none">
     <table>
         <tr>
-            <td>Capteur : </td>
+            <td class="td_supervision">Capteur : </td>
             <td><input  type="text" size="5" id="supervision_edit_checkSensor_sensor" value="" /></td>
+            <td></td>
         </tr>
         <tr>
             <td>Nom du capteur : </td>
@@ -846,10 +894,12 @@
                     <option value="2" > 2 </option>
                 </select>
             </td>
+            <td></td>
         </tr>
         <tr>
             <td>Seuil : </td>
             <td><input  type="text" size="5" id="supervision_edit_checkSensor_valueseuil" value="" /></td>
+            <td></td>
         </tr>
         <tr>
             <td>Déclenchement si valeur : </td>
@@ -862,35 +912,37 @@
         <tr>
             <td>Temps avant déclenchement : </td>
             <td><input  type="text" size="5" id="supervision_edit_checkSensor_timeseuilins" value="" /></td>
+            <td></td>
         </tr>
         <tr>
             <td>Adresse eMail : </td>
-            <td  colspan="2" ><input  type="text" size="40" id="supervision_edit_checkSensor_email" value="" /></td>
+            <td  colspan="2" ><input  type="text" size="25" id="supervision_edit_checkSensor_email" value="" /></td>
+            <td></td>
         </tr>
     </table>
 </div>
 
-<div id="supervision_edit_checkPing" title="" style="display:none">
+<div id="supervision_edit_checkPing" title="<?php echo __('SUPERVISION_TITLE_PING'); ?>" style="display:none">
     <table>
         <tr>
-            <td>Adresse ip 1 : </td>
-            <td><input  type="text" size="40" id="supervision_edit_checkPing_ip_0" value="" /></td>
+            <td class="td_supervision">Adresse ip 1 : </td>
+            <td><input  type="text" size="25" id="supervision_edit_checkPing_ip_0" value="" /></td>
         </tr>
         <tr>
             <td>Adresse ip 2 : </td>
-            <td><input  type="text" size="40" id="supervision_edit_checkPing_ip_1" value="" /></td>
+            <td><input  type="text" size="25" id="supervision_edit_checkPing_ip_1" value="" /></td>
         </tr>
         <tr>
             <td>Adresse ip 3 : </td>
-            <td><input  type="text" size="40" id="supervision_edit_checkPing_ip_2" value="" /></td>
+            <td><input  type="text" size="25" id="supervision_edit_checkPing_ip_2" value="" /></td>
         </tr>
         <tr>
             <td>Adresse ip 4 : </td>
-            <td><input  type="text" size="40" id="supervision_edit_checkPing_ip_3" value="" /></td>
+            <td><input  type="text" size="25" id="supervision_edit_checkPing_ip_3" value="" /></td>
         </tr>
         <tr>
             <td>Adresse ip 5 : </td>
-            <td><input  type="text" size="40" id="supervision_edit_checkPing_ip_4" value="" /></td>
+            <td><input  type="text" size="25" id="supervision_edit_checkPing_ip_4" value="" /></td>
         </tr>
         <tr>
             <td >Temps avant déclenchement : </td>
@@ -898,18 +950,19 @@
         </tr>
         <tr>
             <td>Adresse eMail : </td>
-            <td><input  type="text" size="40" id="supervision_edit_checkPing_email" value="" /></td>
+            <td><input  type="text" size="25" id="supervision_edit_checkPing_email" value="" /></td>
         </tr>
     </table>
 </div>
 
-<div id="supervision_edit_report" title="" style="display:none">
+<div id="supervision_edit_report" title="<?php echo __('SUPERVISION_TITLE_MAIL'); ?>" style="display:none">
     <table>
         <tr>
-            <td>Adresse eMail : </td>
-            <td><input  type="text" size="40" id="supervision_edit_report_email" value="" /></td>
+            <td class="td_supervision">Adresse eMail : </td>
+            <td><input  type="text" size="25" id="supervision_edit_report_email" value="" /></td>
         </tr>
         <tr>
+            <td>Fréquence d'envoie :</td>
             <td><select id="supervision_edit_report_frequency">
                     <option value="daily"> journalier </option>
                     <option value="monthly"> mensuel </option>
@@ -917,7 +970,7 @@
         </tr>
         <tr>
             <td>Heure : </td>
-            <td><input  type="text" size="40" id="supervision_edit_report_hour" value="18" /></td>
+            <td><input  type="text" size="25" id="supervision_edit_report_hour" value="18" /></td>
         </tr>
     </table>
 </div>

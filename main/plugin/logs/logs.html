@@ -167,6 +167,8 @@
         </div>
 
 
+        
+
           <div class="row">
             <div class="1u 12u(2)">
                 <div class="box highlight"> </div>
@@ -190,14 +192,9 @@
                                 for($i = 1 ; $i <= $GLOBALS['NB_MAX_SENSOR_LOG'] ; $i++) {
                                     // Read sensor informations
                                     $sensorInfo = logs\get_sensor_db_type($i,$GLOBALS['SENSOR_DEFINITION']);
-
                                     if((strcmp($sensorInfo[0]['type'],"0")!=0)&&((strcmp($sensorInfo[0]['type'],"")!=0))) {
                                         $count=$count+1;
-                                        if($sensorInfo[0]['type'] != "2") {
-                                            echo '<td>' . __('SENSOR'). " " . $i . ' (' . __($sensorInfo[0]['translation']) . ')</td>';
-                                        } else {
-                                            echo '<td>' . __('SENSOR'). " " . $i . ' (' . __('TEMP_HUMI_SENSOR') . ')</td>';
-                                        }
+                                        echo '<td>' . __('SENSOR'). " " . $i . ' (' . __($sensorInfo[0]['translation']) . ')</td>';
                                         echo '<td  style="margin-right:30px;" >';
                                         echo '<input type="checkbox"'
                                             . ' name="select_sensor[]"'
@@ -930,11 +927,7 @@
                     </td>
                     <td class="step">
                         <select id="ui_sensors_parameters_tableSensor_type_<?php echo $sensorNum; ?>" >
-                            <?php foreach($GLOBALS['SENSOR_DEFINITION'] as $sensor_def) { 
-                                //TO BE DELETED : temp_humi :
-                                if(count($sensor_def)==2) { 
-                                    $sensor_def=$sensor_def[0]; 
-                                } ?>
+                            <?php foreach($GLOBALS['SENSOR_DEFINITION'] as $sensor_def) {  ?>
                                 <option value="<?php echo $sensor_def['type']; ?>" <?php if(strcmp($sensor['type'],$sensor_def['type'])==0) echo 'selected'; ?> > <?php echo __("${sensor_def['translation']}"); ?> </option>
                             <?php } ?>
                         </select>

@@ -97,23 +97,6 @@ switch ($datatype)
         $retarray['sensor_1']['unit']       = $retInfo['unit'] ;
         $retarray['sensor_1']['fake_log']   = $fake ;
         
-        // If there is a second sensor
-        if ($db_sensors[0]['type'] == 2)
-        {
-        
-            $retInfo = programs\get_curve_information($db_sensors[1]['type'] . "2");
-        
-            $retarray['sensor_2']['data'] = $logsValue[1];
-            
-            $retarray['sensor_2']['name']       = $retInfo['name'] . " (" . __('SENSOR') . " " . $_GET['sensor'] . " )";
-            $retarray['sensor_2']['color']      = $retInfo['color'] ;
-            $retarray['sensor_2']['legend']     = $retInfo['legend'] ;
-            $retarray['sensor_2']['yaxis']      = $retInfo['yaxis'] ;
-            $retarray['sensor_2']['curveType']  = $retInfo['curveType'] ;
-            $retarray['sensor_2']['unit']       = $retInfo['unit'] ;
-            $retarray['sensor_2']['fake_log']   = $fake ;
-        }
-
         break;        
 }
 

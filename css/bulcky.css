@@ -435,6 +435,23 @@ th {
     top: 10%;
 }
 
+.link_add {
+    color: #7BAB67 !important;
+}
+
+td.td_supervision {
+ width: 50%;
+}
+
+.loading_user {
+    border-radius: 20px;
+    color:green;
+    background-color: #D7DEDD;
+    text-align: center;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
 
 
         

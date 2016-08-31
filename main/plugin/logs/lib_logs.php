@@ -215,24 +215,10 @@ function get_sensor_db_type($sensor = "",$sensor_list) {
 
     foreach($res as $sens) {
         if((array_key_exists($sens['type'],$sensor_list))&&(strcmp($sens['type'],"0"))) {
-            //TO BE DELETED :
-            if(strcmp($sens['type'],"2")==0) {
-                $tmp_sen1=$sensor_list["${sens['type']}"][0];
-                $tmp_sen1["id"]=$sens['id'];
-                $tmp_sen1["sensor_nb"]=$nb_sens;
-                $sensors[]=$tmp_sen1;
-                
-                $tmp_sen2=$sensor_list["${sens['type']}"][1];
-                $tmp_sen2["id"]=$sens['id'];
-                $tmp_sen2["sensor_nb"]=$nb_sens;
-                $sensors[]=$tmp_sen2;
-
-            } else {
-                $tmp_sen=$sensor_list["${sens['type']}"];
-                $tmp_sen["id"]=$sens['id'];
-                $tmp_sen["sensor_nb"]=$nb_sens;
-                $sensors[]=$tmp_sen;
-            }
+            $tmp_sen=$sensor_list["${sens['type']}"];
+            $tmp_sen["id"]=$sens['id'];
+            $tmp_sen["sensor_nb"]=$nb_sens;
+            $sensors[]=$tmp_sen;
             
             $nb_sens=$nb_sens+1;
         } else {

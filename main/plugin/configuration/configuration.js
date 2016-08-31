@@ -226,6 +226,24 @@ function manageHttp(action) {
 
 
 $(document).ready(function(){
+    $.ajax({
+         cache: false,
+         async: true,
+         url: "main/modules/external/scan_network.php"
+    }).done(function (data) {
+         $("#wifi_scan").html("<?php echo __('WIFI_SCAN_ESSID'); ?>");
+         $("#wifi_scan").prop('disabled', false);
+         $("#wifi_essid_list").empty();
+         $("#wifi_essid_list").append("<p><?php echo __('WIFI_SCAN_SUBTITLE'); ?></p>");
+         $.each($.parseJSON(data),function(index,value) {
+             var checked="";
+             if($("#wifi_ssid").val()==value) {
+                 checked="checked";
+             }
+             $("#wifi_essid_list").append('<b>'+value+' : </b><input type="radio" name="wifi_essid" value="'+value+'" '+checked+' /><br />');
+         });
+    });
+
      pop_up_remove("main_error");
      pop_up_remove("main_info");
 
@@ -703,7 +721,17 @@ $(document).ready(function(){
                 data: {beta:bet}
             });
 
+
             if(check_update) {
+                      $.ajax({
+                            type: "GET",
+                            url: "main/modules/external/check_and_update_sd.php",
+                            data: {
+                                sd_card:sd_card
+                            },
+                            async: false
+                        });
+
                         $("#update_conf").dialog({
                             resizable: false,
                             height:150,
@@ -762,6 +790,7 @@ $(document).ready(function(){
             resizable: false,
             width: 800,
             modal: true,
+            title: "<?php echo __('RAZ_TITLE'); ?>",
             closeOnEscape: false,
             dialogClass: "dialog_cultibox",
             buttons: [{
@@ -831,22 +860,46 @@ $(document).ready(function(){
 
 
 
-    //Change password:
-    $("#change_password").click(function(e) {
+    //Manage users:
+    $("#manage_users").click(function(e) {
         e.preventDefault();
-        $("#dialog_change_password").dialog({
+
+        $("#dialog_manage_users").dialog({
             resizable: false,
-            width: 800,
+            width: 500,
             modal: true,
             closeOnEscape: false,
             dialogClass: "popup_message",
+            open: function( event, ui ) {
+                 $('#content_users tr').remove();
+                 $("#waiting_content").show();
+
+                 $.ajax({
+                    cache: false,
+                    async: false,
+                    url: "main/modules/external/manage_users.php",
+                    data : {action: "get_login"}
+                }).done(function (data) {
+                    var objJSON = jQuery.parseJSON(data)
+                    var html="<tr><td class='log-manage-marge'></td><td><label><?php echo __('USERS'); ?></label></td><td><label><?php echo __('ACTION_USERS'); ?></label></td><td class='log-manage-marge'></td></tr>";
+
+                    if(objJSON!="0") {
+                        $.each(objJSON,function(index,value) {
+                            if((value!="")&&(value!="bulcky")) {
+                                html=html+'<tr><td></td><td><i class="fa fa-user"></i>  '+value+'</td><td><a href="" login="'+value+'" name="change_password"><i class="fa fa-exchange green" title="<?php echo __("TOOLTIP_CHANGE_PWD"); ?>"></i></a>&nbsp;&nbsp;<a href="" login="'+value+'" name="delete_user"><i class="fa fa-remove red" title="<?php echo __("TOOLTIP_DELETE_USER"); ?>"></i></a></td><td></td></tr>'; 
+                            } else if(value!="") {
+                                html=html+'<tr><td></td><td><i class="fa fa-user"></i>  '+value+'</td><td><a href="" login="'+value+'" name="change_password"><i class="fa fa-exchange green" title="<?php echo __("TOOLTIP_CHANGE_PWD"); ?>"></i></a></td><td></td></tr>';
+                            }
+                        });
+                    }
+
+                    $("#waiting_content").hide();
+                    $('#content_users').append(html);
+                });
+            },
             buttons: [{
                 text: CLOSE_button,
                 click: function () {
-                    $("#error_same_password").css("display","none");
-                    $("#error_empty_password").css("display","none");
-                    $("#new_password").val("");
-                    $("#confirm_new_password").val("");
                     $( this ).dialog( "close" ); return false;
                 }
             }]
@@ -857,20 +910,60 @@ $(document).ready(function(){
           e.preventDefault();
           $("#error_same_password").css("display","none");
           $("#error_empty_password").css("display","none");
+          $("#error_login_exists").css("display","none");
+    
+          var err="0";
 
           if($("#new_password").val()=="") {
             $("#error_empty_password").show();
+            err="1"; 
           } else {
+            if($("#login").is(":visible")) {
+                $.ajax({
+                  cache: false,
+                   async: false,
+                  url: "main/modules/external/manage_users.php",
+                  data : {action: "get_login"}
+                }).done(function (data) {
+                  var objJSON = jQuery.parseJSON(data)
+                  if(objJSON!="0") {
+                     if(jQuery.inArray($("#login").val(), objJSON)>-1) {
+                         err="1";
+                         $("#error_login_exists").show();
+                     }
+                  } else {
+                      err="1";
+                  }
+                 });
+            }
+       
             $.ajax({
-              cache: false,
-              async: false,
-              url: "main/modules/external/check_value.php",
-              data: {value:$("#new_password").val(),value2:$("#confirm_new_password").val(),type:"password"}
+             cache: false,
+                async: false,
+                url: "main/modules/external/check_value.php",
+                data: {value:$("#new_password").val(),value2:$("#confirm_new_password").val(),type:"password"}
             }).done(function (data) {
-              if(data!=1)  {
-                  $("#error_same_password").show();
-              } else {
-                  $.blockUI({
+                if(data!=1)  {
+                    $("#error_same_password").show();
+                    err="1";
+                } 
+            });
+        }
+
+
+        if(err=="0") {
+                if($("#login").is(":visible")) {
+                    var action="add_user";
+                    var dial_success="success_add_user";
+                    var dial_error="error_add_user";
+                } else {
+                    var action="change_password";
+                    var dial_success="success_change_password";
+                    var dial_error="error_save_password";
+                }
+
+                $("#dialog_change_password").dialog("close");
+                $.blockUI({
                     message: "<?php echo __('SAVING_DATA'); ?>  <img src=\"main/libs/img/waiting_small.gif\" />",
                     centerY: 0,
                     css: {
@@ -887,14 +980,14 @@ $(document).ready(function(){
                         $.ajax({
                             cache: false,
                             async: false,
-                            url: "main/modules/external/reset_password.php",
-                            data: {pwd:$("#new_password").val()},
+                            url: "main/modules/external/manage_users.php",
+                            data: {action:action, pwd:$("#new_password").val(),login:$("#login").val()},
                             success: function (data) {
                                 $.unblockUI();
                                 var objJSON = jQuery.parseJSON(data);
 
                                 if(objJSON=="1") {
-                                    $("#success_save_password").dialog({
+                                    $("#"+dial_success).dialog({
                                         resizable: false,
                                         width: 800,
                                         modal: true,
@@ -905,14 +998,16 @@ $(document).ready(function(){
                                             click: function () {
                                                 $("#error_same_password").css("display","none");
                                                 $("#error_empty_password").css("display","none");
+                                                $("#error_login_exists").css("display","none");
                                                 $("#new_password").val("");
                                                 $("#confirm_new_password").val("");
+                                                $("#dialog_manage_users").dialog("open");
                                                 $( this ).dialog( "close" ); return false;
                                             }
                                         }]
                                     });
                                 } else {
-                                    $("#error_save_password").dialog({
+                                    $("#"+dial_error).dialog({
                                         resizable: false,
                                         width: 800,
                                         modal: true,
@@ -923,6 +1018,7 @@ $(document).ready(function(){
                                             click: function () {
                                                 $("#error_same_password").css("display","none");
                                                 $("#error_empty_password").css("display","none");
+                                                $("#error_login_exists").css("display","none");
                                                 $("#new_password").val("");
                                                 $("#confirm_new_password").val("");
                                                 $( this ).dialog( "close" ); return false;
@@ -931,7 +1027,7 @@ $(document).ready(function(){
                                     });
                                 }
                             }, error: function(data) {
-                                $("#error_save_password").dialog({
+                                $("#"+dial_error).dialog({
                                     resizable: false,
                                     width: 800,
                                     modal: true,
@@ -942,6 +1038,7 @@ $(document).ready(function(){
                                         click: function () {
                                             $("#error_same_password").css("display","none");
                                             $("#error_empty_password").css("display","none");
+                                            $("#error_login_exists").css("display","none");
                                             $("#new_password").val("");
                                             $("#confirm_new_password").val("");
                                             $( this ).dialog( "close" ); return false;
@@ -952,8 +1049,6 @@ $(document).ready(function(){
                             }
                         });
                     } });
-              }
-            });
           }
     });
 
@@ -1238,6 +1333,159 @@ $(document).ready(function() {
         }
     });
 
+
+    $('body').on('click', '[name="change_password"]', function(e) {
+        var action=$(this);
+        e.preventDefault();
+
+        $("#dialog_manage_users").dialog("close");
+        $("#login").val(action.attr('login'));
+             
+        $("#dialog_change_password").dialog({
+          resizable: false,
+          width: 800,
+          modal: true,
+          closeOnEscape: false,
+          dialogClass: "popup_message",
+          buttons: [{
+             text: CLOSE_button,
+             click: function () {
+                 $("#error_same_password").css("display","none");
+                 $("#error_empty_password").css("display","none");
+                 $("#error_login_exists").css("display","none");
+                 $("#new_password").val("");
+                 $("#confirm_new_password").val("");
+                 $( this ).dialog( "close" ); 
+                 $("#dialog_manage_users").dialog("open");
+                 $("#login").val("");
+                 return false;
+             }
+         }]
+      });
+    });
+
+    $("#add_user").click(function(e) {
+        e.preventDefault();
+
+
+        $("#dialog_manage_users").dialog("close");
+        $("#login").show();
+        $("#login_title").show();
+
+        $("#dialog_change_password").dialog({
+          resizable: false,
+          width: 800,
+          modal: true,
+          closeOnEscape: false,
+          dialogClass: "popup_message",
+          buttons: [{
+             text: CLOSE_button,
+             click: function () {
+                 $("#error_same_password").css("display","none");
+                 $("#error_empty_password").css("display","none");
+                 $("#new_password").val("");
+                 $("#confirm_new_password").val("");
+                 $( this ).dialog( "close" );
+                 $("#dialog_manage_users").dialog("open");
+                 $("#login").val("");
+                 $("#login").hide();
+                 $("#login_title").hide();
+
+                 return false;
+             }
+         }]
+      });
+           
+    });
+
+
+    $('body').on('click', '[name="delete_user"]', function(e) {
+        e.preventDefault();
+        var action=$(this);
+
+        $("#dialog_manage_users").dialog("close");
+
+        $("#confirm_delete_user").dialog({
+            resizable: false,
+             height:150,
+             width: 500,
+               modal: true,
+               closeOnEscape: false,
+               dialogClass: "dialog_cultibox",
+               buttons: [{
+                 text: OK_button,
+                 click: function () {
+                      $( this ).dialog("close");
+                      $.blockUI({
+                        message: "<?php echo __('SAVING_DATA'); ?>  <img src=\"main/libs/img/waiting_small.gif\" />",
+                       centerY: 0,
+                       css: {
+                    top: '20%',
+                    border: 'none',
+                    padding: '5px',
+                    backgroundColor: 'grey',
+                    '-webkit-border-radius': '10px',
+                    '-moz-border-radius': '10px',
+                    opacity: .9,
+                    color: '#fffff'
+                   },
+                   onBlock: function() {
+                       $.ajax({
+                           cache: false,
+                           url: "main/modules/external/manage_users.php",
+                           async: false,
+                           data: {action:"delete_user",login:action.attr('login')},
+                           success: function (data) {
+                             $.unblockUI();
+                             $("#success_delete_user").dialog({
+                               resizable: false,
+                               width: 500,
+                               modal: true,
+                               closeOnEscape: false,
+                               dialogClass: "popup_message",
+                               buttons: [{
+                                   text: OK_button,
+                                   click: function () {
+                                       $( this ).dialog("close");
+                                        $("#dialog_manage_users").dialog("open");
+                                        return false;
+                                   }
+                               }]
+                             });
+                           },
+                           error : function(data) {
+                             $.unblockUI();
+                             $("#error_delete_user").dialog({
+                               resizable: false,
+                               width: 500,
+                               modal: true,
+                               closeOnEscape: false,
+                               dialogClass: "popup_error",
+                               buttons: [{
+                                      text: CLOSE_button,
+                                      click: function () {
+                                        $( this ).dialog("close");
+                                        $("#dialog_manage_users").dialog("open");
+                                        return false;
+                                    }
+                              }]
+                              });
+                            }
+                        });
+                    } });
+                }
+             }, {
+               text: CANCEL_button,
+               click: function () {
+                    $("#dialog_manage_users").dialog("open");
+                    $( this ).dialog( "close" ); return false;
+                }
+           }]
+        });
+    });
+
+
+    
 
      $("#eyes").mousedown(function() {
         if($('#wifi_key_type').val()!="NONE") {
@@ -1926,7 +2174,7 @@ $(document).ready(function() {
                 dialogMsgToShow = "supervision_edit_checkSensor";
                 break;
             case "report" :
-                dialogMsgToShow = "supervision_edit_dailyReport";
+                dialogMsgToShow = "supervision_edit_report";
                 break;
         }
         

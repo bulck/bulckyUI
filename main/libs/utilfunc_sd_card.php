@@ -155,10 +155,6 @@ function create_plgidx($data) {
     $plgidx = array();
     $return=array();
 
-    // If there is not event , return false
-    if(count($data) == 0) 
-        return $return;
-
     // Open database connexion
     $db = \db_priv_pdo_start();
     
