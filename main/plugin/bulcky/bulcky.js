@@ -1499,15 +1499,8 @@ $(document).ready(function(){
                                 var senType=$('img[name="syno_elemSensorImage_' + key + '"]').attr('sensor_type');
 
                                 if(sensor_def.hasOwnProperty(senType)) {
-                                    if(senType=="2") {
-                                        /* TO BE DELETED */
-                                        $('#syno_elemValueSensor_val1_' + key).html(valueSplitted[0]  + "°C " + valueSplitted[1] + "%RH");
-                                        $('img[name="syno_elemSensorImage_' + key + '"]').attr('title',valueSplitted[0]  + "°C " + valueSplitted[1] + "RH");
- 
-                                    } else {
-                                        $('#syno_elemValueSensor_val1_' + key).html(valueSplitted[0]  + sensor_def[senType]['unity']);
-                                        $('img[name="syno_elemSensorImage_' + key + '"]').attr('title',valueSplitted[0]  + sensor_def[senType]['unity']);
-                                    }
+                                    $('#syno_elemValueSensor_val1_' + key).html(valueSplitted[0]  + sensor_def[senType]['unity']);
+                                    $('img[name="syno_elemSensorImage_' + key + '"]').attr('title',valueSplitted[0]  + sensor_def[senType]['unity']);
                                 } 
 
                                 $('img[name="syno_elemSensorImage_' + key + '"]').css("opacity", "1");

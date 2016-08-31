@@ -955,10 +955,10 @@
                     </td>
                     <td class="step">
                         <select id="ui_sensors_parameters_tableSensor_sensorIndex_<?php echo $sensorNum; ?>" >
+                            <option value="0" <?php if(strcmp($sensor['sensorIndex'],"0")==0) echo 'selected'; ?> >0</option>
                             <option value="1" <?php if(strcmp($sensor['sensorIndex'],"1")==0) echo 'selected'; ?> >1</option>
                             <option value="2" <?php if(strcmp($sensor['sensorIndex'],"2")==0) echo 'selected'; ?> >2</option>
                             <option value="3" <?php if(strcmp($sensor['sensorIndex'],"3")==0) echo 'selected'; ?> >3</option>
-                            <option value="4" <?php if(strcmp($sensor['sensorIndex'],"4")==0) echo 'selected'; ?> >4</option>
                         </select>
                     </td>
                 </tr>
