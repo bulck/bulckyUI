@@ -141,7 +141,7 @@ $(document).ready(function(){
             },
             cache: false,
             async: true,
-            url: "main/modules/external/get_logs_cultipi.php",
+            url: "main/modules/external/get_logs_bulckypi.php",
             data: {
                 action:"logs_server",
                 nbLine:20,
